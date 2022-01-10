@@ -1,0 +1,26 @@
+name: CI check quality
+on:
+  push:
+
+jobs:
+  quality_check:
+    # This job will run on ubuntu virtual machine
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+        # Setup the flutter environment.
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+
+        # Get flutter dependencies.
+      - name: Get dependencies.
+        run: flutter pub get
+
+        # Check for any formatting issues in the code (line-length 120)
+      - name: Run format
+        run: flutter format -l 120 --set-exit-if-changed .
+
+      - name: Run analysis
+        run: flutter analyze .

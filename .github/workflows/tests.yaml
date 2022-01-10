@@ -20,3 +20,7 @@ jobs:
       # Run widget tests for project.
       - name: Run flutter tests.
         run: flutter test
+      # Setup Java environment in order to build the Android app.
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'

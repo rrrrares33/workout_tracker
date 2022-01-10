@@ -3,7 +3,7 @@ on:
   push:
 
 jobs:
-  quality_check:
+  run_analysis:
     # This job will run on ubuntu virtual machine
     runs-on: ubuntu-latest
     steps:
@@ -14,20 +14,57 @@ jobs:
         with:
           channel: 'stable'
 
-        # Get flutter dependencies.
-      - name: Get dependencies.
-        run: flutter pub get
+      - name: Run analysis
+        run: flutter analyze .
+
+  run_format:
+    # This job will run on ubuntu virtual machine
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+        # Setup the flutter environment.
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
 
         # Check for any formatting issues in the code (line-length 120)
       - name: Run format
         run: flutter format -l 120 --set-exit-if-changed .
 
-      - name: Run analysis
-        run: flutter analyze .
+  run_tests:
+    # Quality check must be completed successfully
+    needs: [run_analysis, run_format]
+    # This job will run on ubuntu virtual machine
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Setup the flutter environment.
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+
+      # Get flutter dependencies.
+      - name: Get dependencies.
+        run: flutter pub get
 
       # Run widget tests for project.
       - name: Run flutter tests.
         run: flutter test
+
+  build_android_apk:
+    # Quality check must be completed successfully
+    needs: run_tests
+    # This job will run on ubuntu virtual machine
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Setup the flutter environment.
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
 
       # Install java for android apk build
       - uses: actions/setup-java@v1

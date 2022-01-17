@@ -19,21 +19,20 @@ class _LogInPageState extends State<LogInPage> {
   late bool _doNotShowPassword = true;
 
   // Regex expression for email.
-  final RegExp _regexEmail = RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  final RegExp _regexEmail = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
   // Between 8 and 20 characters, at least one uppercase letter, one lowercase letter,
   //    one number and one special character:
   // final RegExp _regexPassword = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$');
 
   String? _emailWarning;
+
   // final String _passwordWarning = '';
 
   @override
   Widget build(BuildContext context) {
     // Get authentication service from Provider.
-    final AuthenticationService authenticationService =
-        Provider.of<AuthenticationService>(context);
+    final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
 
     return Scaffold(
       body: Column(
@@ -54,8 +53,7 @@ class _LogInPageState extends State<LogInPage> {
               decoration: InputDecoration(
                 labelText: 'Email ...',
                 errorText: _emailWarning,
-                border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
               ),
             ),
           ),
@@ -69,12 +67,9 @@ class _LogInPageState extends State<LogInPage> {
               keyboardType: TextInputType.name,
               decoration: InputDecoration(
                 labelText: 'Password...',
-                border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
                 suffixIcon: IconButton(
-                  icon: Icon(_doNotShowPassword
-                      ? Icons.visibility_off_rounded
-                      : Icons.visibility_rounded),
+                  icon: Icon(_doNotShowPassword ? Icons.visibility_off_rounded : Icons.visibility_rounded),
                   onPressed: () {
                     setState(() {
                       _doNotShowPassword = !_doNotShowPassword;
@@ -91,11 +86,9 @@ class _LogInPageState extends State<LogInPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
                     onPressed: () {
-                      if (_emailWarning == null &&
-                          passwordController.text != '')
+                      if (_emailWarning == null && passwordController.text != '')
                         // print('here');
-                        authenticationService.signInUserEmailPassword(
-                            emailController.text, passwordController.text);
+                        authenticationService.signInUserEmailPassword(emailController.text, passwordController.text);
                     },
                     child: const Text('Log In')),
               ),

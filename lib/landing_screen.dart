@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../routing/all_routes.dart';
 import '../routing/routing_constants.dart';
+import '../ui/theme_data.dart';
 import 'firebase/authentication_service.dart';
 
 class WorkoutTracker extends StatelessWidget {
@@ -17,10 +18,9 @@ class WorkoutTracker extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
-          title: 'Flutter App',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
+          title: 'Workout Supervisor',
+          darkTheme: ThemeClass.darkTheme,
+          theme: ThemeClass.lightTheme,
           onGenerateRoute: Routers.generateRoute,
           initialRoute: LandingPageRoute,
         ));

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "500294261691",
+    "firebase_url": "https://workouttrackerdb-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "workouttrackerdb",
+    "storage_bucket": "workouttrackerdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500294261691:android:df27eb9242869b9c32c29e",
+        "android_client_info": {
+          "package_name": "workout.tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500294261691-igqssts06uk6k8648u557jq5556uk16e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf00a-XkYJFuhz3DLRpHOKA4RwTQR-v9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500294261691-igqssts06uk6k8648u557jq5556uk16e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

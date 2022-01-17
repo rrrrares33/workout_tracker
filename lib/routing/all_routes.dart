@@ -10,8 +10,7 @@ class Routers {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case LandingPageRoute:
-        return MaterialPageRoute<dynamic>(
-            builder: (_) => const CheckAuthenticated());
+        return MaterialPageRoute<dynamic>(builder: (_) => const CheckAuthenticated());
       case RegisterPageRoute:
         return MaterialPageRoute<dynamic>(builder: (_) => const RegisterPage());
       case LogInPageRoute:
@@ -19,8 +18,7 @@ class Routers {
       case HomePageRoute:
         return MaterialPageRoute<dynamic>(builder: (_) => const HomePage());
       default:
-        return MaterialPageRoute<dynamic>(
-            builder: (_) => const CheckAuthenticated());
+        return MaterialPageRoute<dynamic>(builder: (_) => const CheckAuthenticated());
     }
   }
 }

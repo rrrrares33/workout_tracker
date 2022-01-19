@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/user.dart';
+import '../models/user_firebase.dart';
 import '../ui/home_page.dart';
 import '../ui/login_page.dart';
 import 'authentication_service.dart';
@@ -11,7 +11,8 @@ class CheckAuthenticated extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
+    final AuthenticationService authenticationService =
+        Provider.of<AuthenticationService>(context);
     return StreamBuilder<User?>(
         stream: authenticationService.user,
         builder: (_, AsyncSnapshot<User?> snapshot) {

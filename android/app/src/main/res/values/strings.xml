@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">workout.tracker</string>
+    <string name="facebook_app_id">303544035042650</string>
+    <string name="fb_login_protocol_scheme">fb303544035042650</string>
+    <string name="facebook_client_token">1d3c7d55b1fbf46f14acb09af55d1d24</string>
+</resources>

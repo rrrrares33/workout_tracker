@@ -2,7 +2,8 @@
 // ignore_for_file: lines_longer_than_80_chars
 // ignore_for_file: avoid_classes_with_only_static_members
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
-import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter/foundation.dart'
+    show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -43,7 +44,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '500294261691',
     projectId: 'workouttrackerdb',
     authDomain: 'workouttrackerdb.firebaseapp.com',
-    databaseURL: 'https://workouttrackerdb-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://workouttrackerdb-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'workouttrackerdb.appspot.com',
     measurementId: 'G-XDPLTX91EW',
   );
@@ -53,7 +55,8 @@ class DefaultFirebaseOptions {
     appId: '1:500294261691:android:df27eb9242869b9c32c29e',
     messagingSenderId: '500294261691',
     projectId: 'workouttrackerdb',
-    databaseURL: 'https://workouttrackerdb-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://workouttrackerdb-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'workouttrackerdb.appspot.com',
   );
 
@@ -62,9 +65,11 @@ class DefaultFirebaseOptions {
     appId: '1:500294261691:ios:0fb8c453f807266532c29e',
     messagingSenderId: '500294261691',
     projectId: 'workouttrackerdb',
-    databaseURL: 'https://workouttrackerdb-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://workouttrackerdb-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'workouttrackerdb.appspot.com',
-    iosClientId: '500294261691-3e1h2a2il9bvetbfegn1es1rtm79j5k6.apps.googleusercontent.com',
+    iosClientId:
+        '500294261691-3e1h2a2il9bvetbfegn1es1rtm79j5k6.apps.googleusercontent.com',
     iosBundleId: 'workout.tracker',
   );
 }

@@ -14,12 +14,19 @@ dependencies:
 
   cupertino_icons: ^1.0.3
 
+  flutter_svg: ^1.0.2
+
   #Firebase
   firebase_core: ^1.11.0
   firebase_auth: ^3.3.5
+  #Google SignIn
+  google_sign_in: ^5.2.3
+  #Facebook SignIn
+  flutter_facebook_auth: ^4.0.1
 
   #State Management tool
   provider: ^6.0.2
+  font_awesome_flutter: ^9.2.0
 
 
 dev_dependencies:

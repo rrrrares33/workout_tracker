@@ -14,8 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final AuthenticationService authenticationService =
-        Provider.of<AuthenticationService>(context);
+    final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
     return Scaffold(
         appBar: AppBar(
           title: const Text('Home'),

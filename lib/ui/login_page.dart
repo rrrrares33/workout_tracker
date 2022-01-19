@@ -21,13 +21,11 @@ class _LogInPageState extends State<LogInPage> {
   late bool _doNotShowPassword = true;
 
   // Regex expression for email.
-  final RegExp _regexEmail = RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  final RegExp _regexEmail = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
   // Between 8 and 20 characters, at least one uppercase letter, one lowercase letter,
   //    one number and one special character:
-  final RegExp _regexPassword = RegExp(
-      r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.,@$!%*?&])[A-Za-z\d@$!.,%*?&]{8,20}$');
+  final RegExp _regexPassword = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.,@$!%*?&])[A-Za-z\d@$!.,%*?&]{8,20}$');
 
   String? _emailWarning;
 
@@ -36,8 +34,7 @@ class _LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
     // Get authentication service from Provider.
-    final AuthenticationService authenticationService =
-        Provider.of<AuthenticationService>(context);
+    final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
 
     return Scaffold(
       body: Column(
@@ -53,8 +50,7 @@ class _LogInPageState extends State<LogInPage> {
               child: Column(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                     child: TextFormField(
                       controller: emailController,
                       keyboardType: TextInputType.name,
@@ -70,16 +66,14 @@ class _LogInPageState extends State<LogInPage> {
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                         labelText: 'Email ...',
                         errorText: _emailWarning ?? _passwordWarning,
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                     child: TextField(
                       obscureText: _doNotShowPassword,
                       enableSuggestions: false,
@@ -87,14 +81,11 @@ class _LogInPageState extends State<LogInPage> {
                       controller: passwordController,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                        contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                         labelText: 'Password...',
                         errorText: _passwordWarning,
                         suffixIcon: IconButton(
-                          icon: Icon(_doNotShowPassword
-                              ? Icons.visibility_off_rounded
-                              : Icons.visibility_rounded),
+                          icon: Icon(_doNotShowPassword ? Icons.visibility_off_rounded : Icons.visibility_rounded),
                           onPressed: () {
                             setState(() {
                               _doNotShowPassword = !_doNotShowPassword;
@@ -124,11 +115,8 @@ class _LogInPageState extends State<LogInPage> {
                     _passwordWarning = null;
                   }
                 });
-                if (_emailWarning == null &&
-                    passwordController.text != '' &&
-                    _passwordWarning == null)
-                  authenticationService.signInUserEmailPassword(
-                      emailController.text, passwordController.text);
+                if (_emailWarning == null && passwordController.text != '' && _passwordWarning == null)
+                  authenticationService.signInUserEmailPassword(emailController.text, passwordController.text);
               },
               label: const Text('Sing In with email and password.'),
               icon: const FaIcon(FontAwesomeIcons.solidEnvelope),

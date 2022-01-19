@@ -37,17 +37,17 @@ class AuthenticationService {
 
     // Obtain the auth details from the request
     final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    await googleUser?.authentication;
 
     // Create a new credential
     final authentication.OAuthCredential credential =
-        authentication.GoogleAuthProvider.credential(
+    authentication.GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
 
     final authentication.UserCredential credentials =
-        await _firebaseAuth.signInWithCredential(credential);
+    await _firebaseAuth.signInWithCredential(credential);
 
     // Once signed in, return the UserCredential
     return _getUserFromFirebase(credentials.user);
@@ -59,11 +59,11 @@ class AuthenticationService {
 
     // Create a credential from the access token
     final authentication.OAuthCredential facebookAuthCredential =
-        authentication.FacebookAuthProvider.credential(
-            loginResult.accessToken!.token);
+    authentication.FacebookAuthProvider.credential(
+        loginResult.accessToken!.token);
 
     final authentication.UserCredential credentials =
-        await _firebaseAuth.signInWithCredential(facebookAuthCredential);
+    await _firebaseAuth.signInWithCredential(facebookAuthCredential);
 
     // Once signed in, return the UserCredential
     return _getUserFromFirebase(credentials.user);

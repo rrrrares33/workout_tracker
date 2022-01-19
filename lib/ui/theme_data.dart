@@ -10,11 +10,9 @@ class ThemeClass {
       elevatedButtonTheme: ElevatedButtonThemeData(
         // 4
         style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(0.0)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0.0)),
             primary: Colors.greenAccent[400],
-            textStyle:
-                const TextStyle(fontSize: 15, fontFamily: 'Times New Roman')),
+            textStyle: const TextStyle(fontSize: 15, fontFamily: 'Times New Roman')),
       ),
       inputDecorationTheme: const InputDecorationTheme(
         border: OutlineInputBorder(borderRadius: BorderRadius.zero),

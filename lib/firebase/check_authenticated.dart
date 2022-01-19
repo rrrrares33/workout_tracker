@@ -11,8 +11,7 @@ class CheckAuthenticated extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AuthenticationService authenticationService =
-        Provider.of<AuthenticationService>(context);
+    final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
     return StreamBuilder<User?>(
         stream: authenticationService.user,
         builder: (_, AsyncSnapshot<User?> snapshot) {

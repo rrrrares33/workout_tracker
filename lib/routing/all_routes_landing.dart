@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../firebase/check_authenticated.dart';
-import '../ui/home_page.dart';
-import '../ui/login_page.dart';
-import '../ui/register_page.dart';
+import '../ui/logging_screens/home_page.dart';
+import '../ui/logging_screens/login_email_pass_page.dart';
+import '../ui/logging_screens/login_page.dart';
+import '../ui/logging_screens/register_page.dart';
 import 'routing_constants.dart';
 
 class RoutersLanding {
@@ -17,6 +18,8 @@ class RoutersLanding {
         return MaterialPageRoute<dynamic>(builder: (_) => const LogInPage());
       case HomePageRoute:
         return MaterialPageRoute<dynamic>(builder: (_) => const HomePage());
+      case LogInWithEmailAndPasswordRoute:
+        return MaterialPageRoute<dynamic>(builder: (_) => const LogInPageEmailAndPassword());
       default:
         return MaterialPageRoute<dynamic>(builder: (_) => const CheckAuthenticated());
     }

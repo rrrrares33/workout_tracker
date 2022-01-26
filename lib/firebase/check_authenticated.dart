@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/user_firebase.dart';
-import '../ui/home_page.dart';
-import '../ui/login_page.dart';
+import '../ui/logging_screens/home_page.dart';
+import '../ui/logging_screens/login_page.dart';
 import 'authentication_service.dart';
 
 class CheckAuthenticated extends StatelessWidget {

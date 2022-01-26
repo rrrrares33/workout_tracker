@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../routing/all_routes_landing.dart';
 import '../routing/routing_constants.dart';
-import '../ui/theme_data.dart';
 import 'firebase/authentication_service.dart';
+import 'ui/logging_screens/theme_data.dart';
 
 class WorkoutTracker extends StatelessWidget {
   const WorkoutTracker({Key? key}) : super(key: key);

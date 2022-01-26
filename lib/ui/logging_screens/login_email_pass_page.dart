@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../firebase/authentication_service.dart';
@@ -117,10 +118,11 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-            child: ElevatedButton(
+            child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
                 shape: const StadiumBorder(),
                 minimumSize: const Size.fromHeight(52),
+                primary: Colors.blueGrey,
               ),
               onPressed: () async {
                 setState(() {
@@ -143,11 +145,9 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> {
                   }
                 }
               },
-              child: const Text(
-                'Log In',
-                style: TextStyle(
-                  fontSize: 17,
-                ),
+              icon: const FaIcon(FontAwesomeIcons.solidEnvelope),
+              label: const Text(
+                'Log In with email and password',
               ),
             ),
           ),

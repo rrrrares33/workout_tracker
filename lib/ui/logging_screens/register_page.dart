@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../firebase/authentication_service.dart';
@@ -133,7 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
             padding: const EdgeInsets.only(bottom: 20),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-              child: ElevatedButton(
+              child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   shape: const StadiumBorder(),
                   minimumSize: const Size.fromHeight(52),
@@ -161,8 +162,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     }
                   }
                 },
-                child: const Text(
-                  'Register',
+                icon: const FaIcon(FontAwesomeIcons.solidUserCircle),
+                label: const Text(
+                  'Register a new account.',
                   style: TextStyle(
                     fontSize: 17,
                   ),

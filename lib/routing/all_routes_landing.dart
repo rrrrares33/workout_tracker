@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../firebase/check_authenticated.dart';
+import '../ui/logging_screens/forgotten_password.dart';
 import '../ui/logging_screens/home_page.dart';
 import '../ui/logging_screens/login_email_pass_page.dart';
 import '../ui/logging_screens/login_page.dart';
@@ -20,6 +21,8 @@ class RoutersLanding {
         return MaterialPageRoute<dynamic>(builder: (_) => const HomePage());
       case LogInWithEmailAndPasswordRoute:
         return MaterialPageRoute<dynamic>(builder: (_) => const LogInPageEmailAndPassword());
+      case ForgottenPasswordRoute:
+        return MaterialPageRoute<dynamic>(builder: (_) => const ForgottenPassword());
       default:
         return MaterialPageRoute<dynamic>(builder: (_) => const CheckAuthenticated());
     }

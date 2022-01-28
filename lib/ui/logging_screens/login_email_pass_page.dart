@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../firebase/authentication_service.dart';
+import 'authentification_base.dart';
 
 class LogInPageEmailAndPassword extends StatefulWidget {
   const LogInPageEmailAndPassword({Key? key}) : super(key: key);
@@ -12,30 +13,12 @@ class LogInPageEmailAndPassword extends StatefulWidget {
   State<LogInPageEmailAndPassword> createState() => _LogInPageEmailAndPasswordState();
 }
 
-class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> {
-  // Controllers for textFields.
-  // One for email and one for password.
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
-  // Whether it should hide content of the TextField field.
-  late bool _doNotShowPassword = true;
-
-  // Regex expression for email.
-  final RegExp _regexEmail = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-
-  // Between 8 and 20 characters, at least one uppercase letter, one lowercase letter,
-  //    one number and one special character:
-  final RegExp _regexPassword = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.,@$!%*?&])[A-Za-z\d@$!.,%*?&]{8,20}$');
-
-  String? _emailWarning;
-
-  String? _generalError;
-
+class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> with AuthentificationBase {
   @override
   Widget build(BuildContext context) {
     // Get authentication service from Provider.
     final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
+    const SnackBar loggedInSuccess = SnackBar(content: Text('You have successfully logged in!'));
 
     return Scaffold(
       appBar: AppBar(
@@ -64,28 +47,28 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> {
                       controller: emailController,
                       keyboardType: TextInputType.name,
                       onChanged: (String text) {
-                        if (text != '' && !_regexEmail.hasMatch(text)) {
+                        if (text != '' && !regexEmail.hasMatch(text)) {
                           setState(() {
-                            _generalError = null;
-                            _emailWarning = 'Email is not valid.';
+                            generalError = null;
+                            emailWarning = 'Email is not valid.';
                           });
                         } else {
                           setState(() {
-                            _emailWarning = null;
+                            emailWarning = null;
                           });
                         }
                       },
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                         labelText: 'Email ...',
-                        errorText: _emailWarning,
+                        errorText: emailWarning,
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                     child: TextField(
-                      obscureText: _doNotShowPassword,
+                      obscureText: doNotShowPassword,
                       enableSuggestions: false,
                       autocorrect: false,
                       controller: passwordController,
@@ -94,10 +77,10 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> {
                         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                         labelText: 'Password...',
                         suffixIcon: IconButton(
-                          icon: Icon(_doNotShowPassword ? Icons.visibility_off_rounded : Icons.visibility_rounded),
+                          icon: Icon(doNotShowPassword ? Icons.visibility_off_rounded : Icons.visibility_rounded),
                           onPressed: () {
                             setState(() {
-                              _doNotShowPassword = !_doNotShowPassword;
+                              doNotShowPassword = !doNotShowPassword;
                             });
                           },
                         ),
@@ -109,7 +92,7 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> {
             ),
           ),
           Text(
-            _generalError != null ? _generalError.toString() : '',
+            generalError != null ? generalError.toString() : '',
             style: const TextStyle(
               color: Colors.red,
               fontStyle: FontStyle.italic,
@@ -126,21 +109,23 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> {
               ),
               onPressed: () async {
                 setState(() {
-                  if (!_regexPassword.hasMatch(passwordController.text)) {
-                    _generalError = 'This account does not exist.';
+                  if (!regexPassword.hasMatch(passwordController.text)) {
+                    generalError = 'This account does not exist.';
                   } else {
-                    _generalError = null;
+                    generalError = null;
                   }
                 });
-                if (_emailWarning == null && passwordController.text != '' && _generalError == null) {
+                if (emailWarning == null && passwordController.text != '' && generalError == null) {
                   try {
                     await authenticationService.signInUserEmailPassword(emailController.text, passwordController.text);
+                    // ignore: use_build_context_synchronously
+                    ScaffoldMessenger.of(context).showSnackBar(loggedInSuccess);
                     Future<dynamic>.delayed(Duration.zero).then((_) {
                       Navigator.of(context).pop();
                     });
                   } catch (exception) {
                     setState(() {
-                      _generalError = 'This account does not exist.';
+                      generalError = 'This account does not exist.';
                     });
                   }
                 }
@@ -153,9 +138,9 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> {
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 20),
-            child: GestureDetector(
-              onTap: () {
-                // TO DO : Forgotten password logic.
+            child: TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'forgottenPassword');
               },
               child: const Text(
                 'Did you forget your password? Tap here.',

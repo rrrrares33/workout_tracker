@@ -29,6 +29,12 @@ class AuthenticationService {
     return _getUserFromFirebase(credentials.user);
   }
 
+  // In case of forgotten password, this should do the trick to retrieve it.
+  // ignore: avoid_void_async
+  void resetPassword(String email) async {
+    await _firebaseAuth.sendPasswordResetEmail(email: email);
+  }
+
   // Signs in or registers an user automatically based on his google account.
   Future<User?> signInWithGoogle() async {
     // Trigger the authentication flow

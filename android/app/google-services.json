@@ -15,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "500294261691-0u8cvc916pvgkb5a4vsnhbtso818m2ua.apps.googleusercontent.com",
+          "client_id": "500294261691-2po29ns6cqf2sqh1i0n4nhfevsrialjj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "workout.tracker",
+            "certificate_hash": "ce9aeacf93eb30ddd29f8672ac1cc9f3bff0782b"
+          }
+        },
+        {
+          "client_id": "500294261691-6lm361qu1tqdseaie3dsqfl3352piup5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "workout.tracker",

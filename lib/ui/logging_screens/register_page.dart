@@ -106,12 +106,18 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
               ),
             ),
           ),
-          Text(
-            generalError != null ? generalError.toString() : '',
-            style: const TextStyle(
-              color: Colors.red,
-              fontStyle: FontStyle.italic,
-              fontSize: 16,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 36.0),
+            child: Center(
+              child: Text(
+                generalError != null ? generalError.toString() : '',
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontStyle: FontStyle.italic,
+                  fontSize: 16,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
           Padding(
@@ -128,7 +134,8 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                     if (_passwordConfirmController.text != passwordController.text) {
                       generalError = 'The passwords do not match.';
                     } else if (!regexPassword.hasMatch(passwordController.text)) {
-                      generalError = 'This account does not exist.';
+                      generalError =
+                          'Password need to contain at least one uppercase letter, one lower case letter and one symbol.';
                     } else {
                       generalError = null;
                     }

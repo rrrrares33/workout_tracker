@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ class _LogInPageState extends State<LogInPage> {
   Widget build(BuildContext context) {
     // Get authentication service from Provider.
     final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
+    const SnackBar loggedInSuccess = SnackBar(content: Text('You have successfully logged in!'));
 
     return Scaffold(
       body: Column(
@@ -48,7 +50,19 @@ class _LogInPageState extends State<LogInPage> {
                   primary: Colors.redAccent,
                 ),
                 onPressed: () async {
-                  await authenticationService.signInWithGoogle();
+                  try {
+                    await authenticationService.signInWithGoogle();
+                    // ignore: use_build_context_synchronously
+                    ScaffoldMessenger.of(context).showSnackBar(loggedInSuccess);
+                  } on FirebaseAuthException catch (e) {
+                    if (e.message != null) {
+                      // Development:
+                      final SnackBar failedLoginSnackBar = SnackBar(content: Text('Google ${e.message ?? ''}'));
+                      // Production:
+                      //const SnackBar failedLoginSnackBar = SnackBar(content: Text('Log In could not be made.'));
+                      ScaffoldMessenger.of(context).showSnackBar(failedLoginSnackBar);
+                    }
+                  }
                 },
                 icon: const FaIcon(FontAwesomeIcons.google),
                 label: const Text('Sign In with a Google account.'),
@@ -62,7 +76,19 @@ class _LogInPageState extends State<LogInPage> {
                   primary: Colors.blue,
                 ),
                 onPressed: () async {
-                  await authenticationService.signInWithFacebook();
+                  try {
+                    await authenticationService.signInWithFacebook();
+                    // ignore: use_build_context_synchronously
+                    ScaffoldMessenger.of(context).showSnackBar(loggedInSuccess);
+                  } on FirebaseAuthException catch (e) {
+                    if (e.message != null) {
+                      // Development:
+                      final SnackBar failedLoginSnackBar = SnackBar(content: Text('Facebook ${e.message ?? ''}'));
+                      // Production:
+                      //const SnackBar failedLoginSnackBar = SnackBar(content: Text('Log In could not be made.'));
+                      ScaffoldMessenger.of(context).showSnackBar(failedLoginSnackBar);
+                    }
+                  }
                 },
                 icon: const FaIcon(FontAwesomeIcons.facebook),
                 label: const Text('Sign In with a Facebook account.'),

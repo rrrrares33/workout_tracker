@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../firebase/check_authenticated.dart';
-import '../ui/logging_screens/forgotten_password.dart';
-import '../ui/logging_screens/home_page.dart';
-import '../ui/logging_screens/login_email_pass_page.dart';
-import '../ui/logging_screens/login_page.dart';
-import '../ui/logging_screens/register_page.dart';
+import '../ui/entry_form/post_login_page.dart';
+import '../ui/login/check_authenticated.dart';
+import '../ui/login/forgotten_password.dart';
+import '../ui/login/login_email_pass_page.dart';
+import '../ui/login/login_page.dart';
+import '../ui/login/register_page.dart';
 import 'routing_constants.dart';
 
 class RoutersLanding {
@@ -18,7 +18,7 @@ class RoutersLanding {
       case LogInPageRoute:
         return MaterialPageRoute<dynamic>(builder: (_) => const LogInPage());
       case HomePageRoute:
-        return MaterialPageRoute<dynamic>(builder: (_) => const HomePage());
+        return MaterialPageRoute<dynamic>(builder: (_) => const PostLoginPage(uid: '', email: ''));
       case LogInWithEmailAndPasswordRoute:
         return MaterialPageRoute<dynamic>(builder: (_) => const LogInPageEmailAndPassword());
       case ForgottenPasswordRoute:

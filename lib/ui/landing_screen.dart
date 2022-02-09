@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../routing/all_routes_landing.dart';
-import '../routing/routing_constants.dart';
-import 'firebase/authentication_service.dart';
-import 'ui/logging_screens/theme_data.dart';
+import '../../routing/all_routes_landing.dart';
+import '../../routing/routing_constants.dart';
+import '../firebase/authentication_service.dart';
+import 'login/theme_data.dart';
 
 class WorkoutTracker extends StatelessWidget {
   const WorkoutTracker({Key? key}) : super(key: key);

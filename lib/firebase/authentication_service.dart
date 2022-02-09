@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart' as authentication;
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../models/user_firebase.dart';
+import '../models/user_auth.dart';
 
 class AuthenticationService {
   // We generate an instance of Firebase authentication service and keep it in _firebaseAuth private variable.

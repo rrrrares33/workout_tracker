@@ -19,6 +19,7 @@ dependencies:
   #Firebase
   firebase_core: ^1.11.0
   firebase_auth: ^3.3.5
+  firebase_database: ^9.0.6
   #Google SignIn
   google_sign_in: ^5.2.3
   #Facebook SignIn

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/user_firebase.dart';
-import '../ui/logging_screens/home_page.dart';
-import '../ui/logging_screens/login_page.dart';
-import 'authentication_service.dart';
+import '../../firebase/authentication_service.dart';
+import '../../models/user_auth.dart';
+import '../entry_form/post_login_page.dart';
+import 'login_page.dart';
 
 class CheckAuthenticated extends StatelessWidget {
   const CheckAuthenticated({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class CheckAuthenticated extends StatelessWidget {
         builder: (_, AsyncSnapshot<User?> snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             final User? user = snapshot.data;
-            return user == null ? const LogInPage() : const HomePage();
+            return user == null ? const LogInPage() : PostLoginPage(uid: user.getUid, email: user.getEmail);
           } else {
             return const Scaffold(
                 body: Center(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../firebase/authentication_service.dart';
-import '../../models/user_auth.dart';
-import '../entry_form/post_login_page.dart';
+import '../../../firebase/authentication_service.dart';
+import '../../../models/user_auth.dart';
+import '../entry_form/check_first_time.dart';
 import 'login_page.dart';
 
 class CheckAuthenticated extends StatelessWidget {
@@ -17,7 +17,7 @@ class CheckAuthenticated extends StatelessWidget {
         builder: (_, AsyncSnapshot<User?> snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             final User? user = snapshot.data;
-            return user == null ? const LogInPage() : PostLoginPage(uid: user.getUid, email: user.getEmail);
+            return user == null ? const LogInPage() : CheckFirstTime(loggedUserUid: user.getUid, loggedEmail: user.getEmail);
           } else {
             return const Scaffold(
                 body: Center(

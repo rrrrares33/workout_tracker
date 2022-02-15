@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../firebase/database_service.dart';
-import '../../models/user_database.dart';
+import '../../../firebase/database_service.dart';
+import '../../../models/user_database.dart';
+import '../navigator/first_screen_inside.dart';
+import 'user_details_form.dart';
 
 class CheckFirstTime extends StatelessWidget {
   const CheckFirstTime({Key? key, required this.loggedUserUid, required this.loggedEmail}) : super(key: key);
   final String loggedUserUid;
   final String loggedEmail;
+
   @override
   Widget build(BuildContext context) {
     final DatabaseService databaseService = Provider.of<DatabaseService>(context);
@@ -26,15 +29,9 @@ class CheckFirstTime extends StatelessWidget {
             loggedUser = UserDB(loggedUserUid, loggedEmail, true);
           }
           if (loggedUser.firstEntry == true) {
-            return const Scaffold(
-                body: Center(
-              child: Text('User is at first entry'),
-            ));
+            return UserDetailsForm(loggedUserUid: loggedUserUid, loggedEmail: loggedEmail);
           } else {
-            return const Scaffold(
-                body: Center(
-              child: Text('User is not at first entry'),
-            ));
+            return FirstScreen(user: loggedUser);
           }
         }
       },

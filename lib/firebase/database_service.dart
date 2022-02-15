@@ -12,7 +12,9 @@ class DatabaseService {
   //  waiting times.
   Future<bool> initializeEntities() async {
     // Starts loading database data.
+    print('Data started loading');
     _allUsers = await getAllUsers();
+    print('Data finished');
     return true;
   }
 
@@ -33,7 +35,6 @@ class DatabaseService {
   Future<List<UserDB>> getAllUsers() async {
     //This method should return all users store in the database.
     //If there is no user, it will return an empty list.
-
     final List<UserDB> users = <UserDB>[];
     final DatabaseEvent event = await _usersRef.once();
     if (event.snapshot.value == null) {
@@ -44,6 +45,7 @@ class DatabaseService {
     if (result.isEmpty) {
       return <UserDB>[];
     }
+    print(result.length);
     result.forEach((dynamic key, dynamic value) {
       value = value as Map<dynamic, dynamic>;
       final UserDB auxUser = UserDB.fromJson(value);
@@ -83,16 +85,16 @@ class DatabaseService {
     await _usersRef.child(uid).remove();
 
     // Then we create the new user.
-    await _usersRef.set(<String, dynamic>{
+    await _usersRef.child(uid).set(<String, dynamic>{
       'uid': uid,
       'email': email,
-      'firstEntry': false as String,
+      'firstEntry': false.toString(),
       'name': name,
       'surname': surname,
-      'age': age as String,
-      'weight': weight as String,
-      'height': height as String,
-      'weightType': weightType as String
+      'age': age.toString(),
+      'weight': weight.toString(),
+      'height': height.toString(),
+      'weightType': weightType.toString()
     });
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-import '../../firebase/authentication_service.dart';
+import '../../../firebase/authentication_service.dart';
 import 'authentification_base.dart';
 
 class RegisterPage extends StatefulWidget {

@@ -5,15 +5,15 @@ class UserDB {
       [this.name, this.surname, this.age, this.weight, this.height, this.weightType]);
 
   UserDB.fromJson(Map<dynamic, dynamic> json)
-      : uid = json['uid'] as String,
-        email = json['email'] as String,
-        firstEntry = json['firstEntry'] == 'true',
-        name = json['name'] as String? ?? '',
-        surname = json['surname'] as String? ?? '',
-        age = json['age'] as int? ?? -1,
-        weight = json['weight'] as double? ?? -1,
-        height = json['height'] as double? ?? -1,
-        weightType = json['weightType'] as WeightMetric? ?? WeightMetric.KG;
+      : uid = json['uid'].toString(),
+        email = json['email'].toString(),
+        firstEntry = json['firstEntry'].toString() == 'true',
+        name = json['name'].toString(),
+        surname = json['surname'].toString(),
+        age = int.tryParse(json['age'].toString()) ?? -1,
+        weight = double.tryParse(json['weight'].toString()) ?? -1,
+        height = double.tryParse(json['height'].toString()) ?? -1,
+        weightType = json['weightType'].toString() == WeightMetric.KG.toString() ? WeightMetric.KG : WeightMetric.LBS;
 
   Map<dynamic, dynamic> toJson() => <dynamic, dynamic>{
         'uid': uid,

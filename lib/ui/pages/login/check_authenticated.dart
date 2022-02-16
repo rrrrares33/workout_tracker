@@ -17,7 +17,9 @@ class CheckAuthenticated extends StatelessWidget {
         builder: (_, AsyncSnapshot<User?> snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             final User? user = snapshot.data;
-            return user == null ? const LogInPage() : CheckFirstTime(loggedUserUid: user.getUid, loggedEmail: user.getEmail);
+            return user == null
+                ? const LogInPage()
+                : CheckFirstTime(loggedUserUid: user.getUid, loggedEmail: user.getEmail);
           } else {
             return const Scaffold(
                 body: Center(

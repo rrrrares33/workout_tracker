@@ -12,9 +12,9 @@ class DatabaseService {
   //  waiting times.
   Future<bool> initializeEntities() async {
     // Starts loading database data.
-    print('Data started loading');
+    // print('Data started loading');
     _allUsers = await getAllUsers();
-    print('Data finished');
+    // print('Data finished');
     return true;
   }
 
@@ -45,7 +45,6 @@ class DatabaseService {
     if (result.isEmpty) {
       return <UserDB>[];
     }
-    print(result.length);
     result.forEach((dynamic key, dynamic value) {
       value = value as Map<dynamic, dynamic>;
       final UserDB auxUser = UserDB.fromJson(value);

@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../../firebase/authentication_service.dart';
+import '../../../routing/routing_constants.dart';
+import '../../text/login_text.dart';
 import 'authentification_base.dart';
 
 class LogInPageEmailAndPassword extends StatefulWidget {
@@ -18,7 +20,6 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
   Widget build(BuildContext context) {
     // Get authentication service from Provider.
     final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
-    const SnackBar loggedInSuccess = SnackBar(content: Text('You have successfully logged in!'));
 
     return Scaffold(
       appBar: AppBar(
@@ -26,7 +27,7 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text('Log into your account'),
+        title: const Text(logInYourAccountAppBar),
         centerTitle: true,
       ),
       body: Column(
@@ -50,7 +51,7 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
                         if (text != '' && !regexEmail.hasMatch(text)) {
                           setState(() {
                             generalError = null;
-                            emailWarning = 'Email is not valid.';
+                            emailWarning = emailNotValid;
                           });
                         } else {
                           setState(() {
@@ -60,7 +61,7 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
                       },
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                        labelText: 'Email ...',
+                        labelText: emailLabel,
                         errorText: emailWarning,
                       ),
                     ),
@@ -75,7 +76,7 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                        labelText: 'Password...',
+                        labelText: passwordLabel,
                         suffixIcon: IconButton(
                           icon: Icon(doNotShowPassword ? Icons.visibility_off_rounded : Icons.visibility_rounded),
                           onPressed: () {
@@ -110,7 +111,7 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
               onPressed: () async {
                 setState(() {
                   if (!regexPassword.hasMatch(passwordController.text)) {
-                    generalError = 'This account does not exist.';
+                    generalError = accountDoesNotExist;
                   } else {
                     generalError = null;
                   }
@@ -125,14 +126,14 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
                     });
                   } catch (exception) {
                     setState(() {
-                      generalError = 'This account does not exist.';
+                      generalError = accountDoesNotExist;
                     });
                   }
                 }
               },
               icon: const FaIcon(FontAwesomeIcons.solidEnvelope),
               label: const Text(
-                'Log In with email and password',
+                logInButtonLabel,
               ),
             ),
           ),
@@ -140,10 +141,10 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
             padding: const EdgeInsets.only(bottom: 20),
             child: TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'forgottenPassword');
+                Navigator.pushNamed(context, ForgottenPasswordRoute);
               },
               child: const Text(
-                'Did you forget your password? Tap here.',
+                didYouForgetPass,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic,

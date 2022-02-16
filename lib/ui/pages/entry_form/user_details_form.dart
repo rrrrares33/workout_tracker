@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../firebase/database_service.dart';
 import '../../../models/user_database.dart';
+import '../../text/entry_form_text.dart';
 import 'check_first_time.dart';
 
 class UserDetailsForm extends StatefulWidget {
@@ -15,28 +16,6 @@ class UserDetailsForm extends StatefulWidget {
 }
 
 class _UserDetailsFormState extends State<UserDetailsForm> {
-  // General static constant for text
-  static const String appBarTitle = 'Details required for metrics';
-  static const String submitButtonText = 'Start your journey to a smarter workout';
-  static const SnackBar formFilled =
-      SnackBar(content: Text('You have successfully completed the metrics for your new account'));
-
-  // Labels text
-  static const String firstNameLabel = 'First name';
-  static const String secondNameLabel = 'Second name';
-  static const String ageLabel = 'Age';
-  static const String heightLabel = 'Height (cm)';
-  static const String weightLabel = 'Weight';
-  static const String metricKG = 'KG';
-  static const String metricLBS = 'LBS';
-
-  // Error messages text
-  static const String firstNameErrorText = 'This name is invalid';
-  static const String secondNameErrorText = 'This name is invalid';
-  static const String ageErrorText = 'Age is invalid';
-  static const String heightErrorText = 'Height is invalid';
-  static const String weightErrorText = 'Weight is invalid';
-
   // Controllers. (can not be set to static)
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController secondNameController = TextEditingController();
@@ -314,8 +293,8 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                           Navigator.push(
                               context,
                               MaterialPageRoute<dynamic>(
-                                 builder: <WidgetBuilder>(BuildContext context) =>
-                                    CheckFirstTime(loggedUserUid: widget.loggedUserUid, loggedEmail: widget.loggedEmail),
+                                builder: <WidgetBuilder>(BuildContext context) => CheckFirstTime(
+                                    loggedUserUid: widget.loggedUserUid, loggedEmail: widget.loggedEmail),
                               ));
                         }
                       },

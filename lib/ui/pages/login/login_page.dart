@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../../firebase/authentication_service.dart';
 import '../../../routing/routing_constants.dart';
+import '../../text/login_text.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({Key? key}) : super(key: key);
@@ -18,13 +19,12 @@ class _LogInPageState extends State<LogInPage> {
   Widget build(BuildContext context) {
     // Get authentication service from Provider.
     final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
-    const SnackBar loggedInSuccess = SnackBar(content: Text('You have successfully logged in!'));
 
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          const Text('You already have an account? Log In!'),
+          const Text(alreadyAccountLogIn),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
             child: ElevatedButton.icon(
@@ -36,11 +36,11 @@ class _LogInPageState extends State<LogInPage> {
               onPressed: () {
                 Navigator.pushNamed(context, LogInWithEmailAndPasswordRoute);
               },
-              label: const Text('Log In with email and password.'),
+              label: const Text(logInButtonLabel),
               icon: const FaIcon(FontAwesomeIcons.solidEnvelope),
             ),
           ),
-          const Text('Do you want to log in using other services?'),
+          const Text(logInWithOtherServices),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
               child: ElevatedButton.icon(
@@ -53,7 +53,7 @@ class _LogInPageState extends State<LogInPage> {
                   try {
                     await authenticationService.signInWithGoogle();
                     // ignore: use_build_context_synchronously
-                    ScaffoldMessenger.of(context).showSnackBar(loggedInSuccess);
+                    ScaffoldMessenger.of(context).showSnackBar(loggedSuccessful);
                   } on FirebaseAuthException catch (e) {
                     if (e.message != null) {
                       // Development:
@@ -65,7 +65,7 @@ class _LogInPageState extends State<LogInPage> {
                   }
                 },
                 icon: const FaIcon(FontAwesomeIcons.google),
-                label: const Text('Sign In with a Google account.'),
+                label: const Text(logInWithGoogle),
               )),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
@@ -91,9 +91,9 @@ class _LogInPageState extends State<LogInPage> {
                   }
                 },
                 icon: const FaIcon(FontAwesomeIcons.facebook),
-                label: const Text('Sign In with a Facebook account.'),
+                label: const Text(logInWithFacebook),
               )),
-          const Text('Do you want to create a new account?'),
+          const Text(createANewAccountQuestion),
           Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: Padding(
@@ -110,7 +110,7 @@ class _LogInPageState extends State<LogInPage> {
                     Navigator.pushNamed(context, RegisterPageRoute);
                   },
                   icon: const FaIcon(FontAwesomeIcons.solidUserCircle),
-                  label: const Text('Register a new local account.')),
+                  label: const Text(createANewAccount)),
             ),
           ),
         ],

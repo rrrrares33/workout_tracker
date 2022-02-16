@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../../firebase/authentication_service.dart';
+import '../../text/login_text.dart';
 import 'authentification_base.dart';
 
 class ForgottenPassword extends StatefulWidget {
@@ -13,8 +14,6 @@ class ForgottenPassword extends StatefulWidget {
 }
 
 class ForgottenPasswordState extends State<ForgottenPassword> with AuthentificationBase {
-  static const SnackBar emailSent = SnackBar(content: Text('Recovery email is on the way!'));
-
   @override
   Widget build(BuildContext context) {
     // Get authentication service from Provider.
@@ -26,7 +25,7 @@ class ForgottenPasswordState extends State<ForgottenPassword> with Authentificat
             icon: const Icon(Icons.arrow_back, color: Colors.black),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: const Text('Enter your email here'),
+          title: const Text(emailEnterHere),
           centerTitle: true,
         ),
         body: Column(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
@@ -47,7 +46,7 @@ class ForgottenPasswordState extends State<ForgottenPassword> with Authentificat
                           if (text != '' && !regexEmail.hasMatch(text)) {
                             setState(() {
                               generalError = null;
-                              emailWarning = 'Email is not valid.';
+                              emailWarning = emailNotValid;
                             });
                           } else {
                             setState(() {
@@ -57,7 +56,7 @@ class ForgottenPasswordState extends State<ForgottenPassword> with Authentificat
                         },
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                          labelText: 'Email ...',
+                          labelText: emailLabel,
                           errorText: emailWarning,
                         ),
                       ),
@@ -75,13 +74,11 @@ class ForgottenPasswordState extends State<ForgottenPassword> with Authentificat
                 ),
                 onPressed: () async {
                   authenticationService.resetPassword(emailController.text);
-                  ScaffoldMessenger.of(context).showSnackBar(emailSent);
+                  ScaffoldMessenger.of(context).showSnackBar(recoveryEmailSent);
                   Navigator.of(context).pop();
                 },
                 icon: const FaIcon(FontAwesomeIcons.solidEnvelope),
-                label: const Text(
-                  'Send email to reset password.',
-                ),
+                label: const Text(emailRecoveryButton),
               ),
             ),
           ),

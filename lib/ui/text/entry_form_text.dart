@@ -20,6 +20,7 @@ const String secondNameErrorText = 'This name is invalid';
 const String ageErrorText = 'Age is invalid';
 const String heightErrorText = 'Height is invalid';
 const String weightErrorText = 'Weight is invalid';
+const String formNotFilled = '----- All fields are mandatory -----';
 
 // Regex for validating first name and second name
 final RegExp nameRegex = RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");

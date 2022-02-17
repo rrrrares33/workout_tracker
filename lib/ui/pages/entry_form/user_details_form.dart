@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../business_logic/user_details_logic.dart';
 import '../../../firebase/database_service.dart';
 import '../../../models/user_database.dart';
+import '../../reusable_widgets/button.dart';
+import '../../reusable_widgets/padding.dart';
+import '../../reusable_widgets/text.dart';
+import '../../reusable_widgets/text_field.dart';
 import '../../text/entry_form_text.dart';
 import 'check_first_time.dart';
 
@@ -26,40 +31,21 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
   // Controller for weight metric button selection.
   static WeightMetric weightMetric = WeightMetric.KG;
 
-  // Error messages. They are null when field empty or correct value entered.
-  static String? firstNameErrorMessage;
-  static String? secondNameErrorMessage;
-  static String? ageErrorMessage;
+  // This need to be store locally in the widget too.
+  //  In order to manage error from changing
   static String? weightErrorMessage;
-  static String? heightErrorMessage;
+  static String? formIsNotFilledError;
 
-  // Regex for validating first name and second name
-  final RegExp nameRegex = RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
-
-  // It checks if the form is complete and correct.
-  bool checkIfFilled() {
-    if (firstNameController.text.isEmpty || firstNameErrorMessage != null) {
-      return false;
-    }
-    if (secondNameController.text.isEmpty || secondNameErrorMessage != null) {
-      return false;
-    }
-    if (ageController.text.isEmpty || ageErrorMessage != null) {
-      return false;
-    }
-    if (weightController.text.isEmpty || weightErrorMessage != null) {
-      return false;
-    }
-    if (heightController.text.isEmpty || heightErrorMessage != null) {
-      return false;
-    }
-    return true;
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     // Database service used to create new user at the end of this.
     final DatabaseService databaseService = Provider.of<DatabaseService>(context);
+
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -74,210 +60,126 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
             padding: const EdgeInsets.only(bottom: 25),
             child: Column(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
-                  child: TextFormField(
+                PaddingWidget(
+                  type: 'symmetric',
+                  vertical: 2.0,
+                  horizontal: 25.0,
+                  child: TextFieldWidget(
                     controller: firstNameController,
-                    onChanged: (_) {
-                      setState(() {
-                        if (firstNameController.text.isNotEmpty && nameRegex.hasMatch(firstNameController.text)) {
-                          firstNameErrorMessage = null;
-                        } else {
-                          firstNameErrorMessage = firstNameErrorText;
-                        }
-                      });
-                    },
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                      border: const UnderlineInputBorder(),
-                      labelText: firstNameLabel,
-                      errorText: firstNameErrorMessage,
-                    ),
+                    labelText: firstNameLabel,
+                    onChanged: firstNameVerify,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
-                  child: TextFormField(
+                PaddingWidget(
+                  type: 'symmetric',
+                  vertical: 2.0,
+                  horizontal: 25.0,
+                  child: TextFieldWidget(
                     controller: secondNameController,
-                    onChanged: (_) {
-                      setState(() {
-                        if (secondNameController.text.isEmpty || nameRegex.hasMatch(secondNameController.text)) {
-                          secondNameErrorMessage = null;
-                        } else {
-                          secondNameErrorMessage = secondNameErrorText;
-                        }
-                      });
-                    },
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                      border: const UnderlineInputBorder(),
-                      labelText: secondNameLabel,
-                      errorText: secondNameErrorMessage,
-                    ),
+                    labelText: secondNameLabel,
+                    onChanged: secondNameVerify,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
-                  child: TextFormField(
+                PaddingWidget(
+                  type: 'symmetric',
+                  vertical: 2.0,
+                  horizontal: 25.0,
+                  child: TextFieldWidget(
                     controller: ageController,
-                    onChanged: (_) {
-                      setState(() {
-                        if (ageController.text.isEmpty) {
-                          ageErrorMessage = null;
-                        } else if (int.tryParse(ageController.text) != null) {
-                          if (int.tryParse(ageController.text)! < 100 && int.tryParse(ageController.text)! > 18) {
-                            ageErrorMessage = null;
-                          } else {
-                            ageErrorMessage = ageErrorText;
-                          }
-                        } else {
-                          ageErrorMessage = ageErrorText;
-                        }
-                      });
-                    },
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                      border: const UnderlineInputBorder(),
-                      labelText: ageLabel,
-                      errorText: ageErrorMessage,
-                    ),
+                    labelText: ageLabel,
+                    onChanged: ageVerify,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 25.0),
-                  child: TextFormField(
+                PaddingWidget(
+                  type: 'symmetric',
+                  vertical: 2.0,
+                  horizontal: 25.0,
+                  child: TextFieldWidget(
                     controller: heightController,
-                    onChanged: (_) {
-                      setState(() {
-                        if (heightController.text.isEmpty) {
-                          heightErrorMessage = null;
-                        } else {
-                          if (int.tryParse(heightController.text) != null) {
-                            if (int.tryParse(heightController.text)! < 120 ||
-                                int.tryParse(heightController.text)! > 230) {
-                              heightErrorMessage = heightErrorText;
-                            } else {
-                              heightErrorMessage = null;
-                            }
-                          } else {
-                            heightErrorMessage = heightErrorText;
-                          }
-                        }
-                      });
-                    },
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                      border: const UnderlineInputBorder(),
-                      labelText: heightLabel,
-                      errorText: heightErrorMessage,
-                    ),
+                    labelText: heightLabel,
+                    onChanged: heightVerify,
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 25),
-                        child: TextFormField(
+                      child: PaddingWidget(
+                        type: 'only',
+                        onlyLeft: 25.0,
+                        child: TextFieldWidget(
                           controller: weightController,
-                          onChanged: (_) {
+                          labelText: weightLabel,
+                          weightMetric: weightMetric,
+                          onChangedWeight: weightVerify,
+                          errorText: weightErrorMessage,
+                        ),
+                      ),
+                    ),
+                    PaddingWidget(
+                      type: 'symmetric',
+                        horizontal: 5.0,
+                        child: ButtonWidget(
+                          onPressed: () {
                             setState(() {
-                              if (weightController.text.isEmpty) {
-                                weightErrorMessage = null;
-                              } else {
-                                if (double.tryParse(weightController.text) != null) {
-                                  if ((double.tryParse(weightController.text)! >= 40 &&
-                                          double.tryParse(weightController.text)! <= 250 &&
-                                          weightMetric == WeightMetric.KG) ||
-                                      (weightMetric == WeightMetric.LBS &&
-                                          double.tryParse(weightController.text)! >= 80 &&
-                                          double.tryParse(weightController.text)! <= 500)) {
-                                    weightErrorMessage = null;
-                                  } else {
-                                    weightErrorMessage = weightErrorText;
-                                  }
-                                } else {
-                                  weightErrorMessage = weightErrorText;
-                                }
-                              }
+                              weightErrorMessage = null;
+                              weightMetric = weightMetricButtonSwitch(weightMetric);
+                              weightErrorMessage = weightVerify(weightController.text, weightMetric);
                             });
                           },
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                            border: const UnderlineInputBorder(),
-                            labelText: weightLabel,
-                            errorText: weightErrorMessage,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: const StadiumBorder(),
-                          primary: weightMetric == WeightMetric.KG ? Colors.greenAccent[400] : Colors.grey,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            if (weightMetric == WeightMetric.LBS) {
-                              weightMetric = WeightMetric.KG;
-                              if (weightController.text.isNotEmpty && weightErrorMessage == null) {
-                                if (double.tryParse(weightController.text)! >= 40 &&
-                                    double.tryParse(weightController.text)! <= 250 &&
-                                    weightMetric == WeightMetric.KG) {
-                                  weightErrorMessage = null;
-                                } else {
-                                  weightErrorMessage = weightErrorText;
-                                }
-                              }
-                            }
-                          });
-                        },
-                        child: const Text(metricKG),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5, right: 40),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: const StadiumBorder(),
-                          primary: weightMetric == WeightMetric.LBS ? Colors.greenAccent[400] : Colors.grey,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            if (weightMetric == WeightMetric.KG) {
-                              weightMetric = WeightMetric.LBS;
-                              if (weightController.text.isNotEmpty && weightErrorMessage == null) {
-                                if (weightMetric == WeightMetric.LBS &&
-                                    double.tryParse(weightController.text)! >= 80 &&
-                                    double.tryParse(weightController.text)! <= 500) {
-                                  weightErrorMessage = null;
-                                } else {
-                                  weightErrorMessage = weightErrorText;
-                                }
-                              }
-                            }
-                          });
-                        },
-                        child: const Text(metricLBS),
-                      ),
-                    )
+                          primaryColor: getWeightButtonColor(weightMetric, 'KG'),
+                          child: const TextWidget(text:metricKG),
+                        )),
+                    PaddingWidget(
+                        type: 'only',
+                        onlyLeft: 5.0,
+                        onlyRight: 40.0,
+                        child: ButtonWidget(
+                          onPressed: () {
+                            setState(() {
+                              weightErrorMessage = null;
+                              weightMetric = weightMetricButtonSwitch(weightMetric);
+                              weightErrorMessage = weightVerify(weightController.text, weightMetric);
+                            });
+                          },
+                          primaryColor: getWeightButtonColor(weightMetric, 'LBS'),
+                          child: const TextWidget(text: metricLBS),
+                        )),
                   ],
+                ),
+                PaddingWidget(
+                  type: 'only',
+                  onlyTop: 10.0,
+                  child: PaddingWidget(
+                      type: 'symmetric',
+                      horizontal: 25.0,
+                      child: TextWidget(
+                        text: formIsNotFilledError,
+                        color: Colors.red,
+                      )),
                 ),
                 Container(
                   alignment: Alignment.center,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 20.0, left: 20, right: 20),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: const StadiumBorder(),
-                        minimumSize: const Size.fromHeight(42),
-                        primary: checkIfFilled() ? Colors.greenAccent[400] : Colors.grey,
-                      ),
+                  child: PaddingWidget(
+                    type: 'only',
+                    onlyTop: 10.0,
+                    onlyLeft: 20.0,
+                    onlyRight: 20.0,
+                    child: ButtonWidget(
+                      minimumSize: const Size.fromHeight(42),
                       onPressed: () {
-                        if (checkIfFilled()) {
+                        if (checkIfFilled(
+                            firstNameController.text,
+                            firstNameVerify(firstNameController.text),
+                            secondNameController.text,
+                            secondNameVerify(secondNameController.text),
+                            ageController.text,
+                            ageVerify(ageController.text),
+                            weightController.text,
+                            weightVerify(weightController.text, weightMetric),
+                            heightController.text,
+                            heightVerify(heightController.text))) {
+
                           databaseService.createUserWithFullDetails(
                               widget.loggedUserUid,
                               widget.loggedEmail,
@@ -287,6 +189,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                               double.parse(weightController.text),
                               double.parse(heightController.text),
                               weightMetric);
+
                           // ignore: use_build_context_synchronously
                           ScaffoldMessenger.of(context).showSnackBar(formFilled);
                           // ignore: use_build_context_synchronously
@@ -296,9 +199,14 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                                 builder: <WidgetBuilder>(BuildContext context) => CheckFirstTime(
                                     loggedUserUid: widget.loggedUserUid, loggedEmail: widget.loggedEmail),
                               ));
+
+                        } else {
+                          setState(() {
+                            formIsNotFilledError = formNotFilled;
+                          });
                         }
                       },
-                      child: const Text(submitButtonText),
+                      child: const TextWidget(text: submitButtonText),
                     ),
                   ),
                 ),

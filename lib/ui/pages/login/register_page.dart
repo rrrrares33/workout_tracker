@@ -129,7 +129,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
               ),
               PaddingWidget(
                 type: 'symmetric',
-                horizontal: 30.0,
+                horizontal: 45.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
@@ -139,7 +139,6 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                       ),
                       children: <InlineSpan>[
                         WidgetSpan(
-                          // child: Icon(FontAwesomeIcons.timesCircle, size: 14, color: Colors.greenAccent[400]),
                           child: PaddingWidget(
                             type: 'only',
                             onlyBottom: 2.5,
@@ -148,6 +147,9 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                         ),
                         const TextSpan(
                           text: passwordLowerChecker,
+                            style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                        ),
                         )
                       ],
                     ),
@@ -156,7 +158,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
               ),
               PaddingWidget(
                 type: 'symmetric',
-                horizontal: 30.0,
+                horizontal: 45.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
@@ -174,6 +176,9 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                         ),
                         const TextSpan(
                           text: passwordCapitalChecker,
+                            style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                        ),
                         )
                       ],
                     ),
@@ -182,7 +187,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
               ),
               PaddingWidget(
                 type: 'symmetric',
-                horizontal: 30.0,
+                horizontal: 45.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
@@ -198,7 +203,10 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                             child: pickIconRightWrong(hasNumbers),
                           ),
                         ),
-                        const TextSpan(text: passwordNumberChecker),
+                        const TextSpan(text: passwordNumberChecker,
+                          style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                          ),),
                       ],
                     ),
                   ),
@@ -206,7 +214,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
               ),
               PaddingWidget(
                 type: 'symmetric',
-                horizontal: 30.0,
+                horizontal: 45.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
@@ -222,7 +230,10 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                             child: pickIconRightWrong(hasSymbol),
                           ),
                         ),
-                        const TextSpan(text: passwordSymbolChecker),
+                        const TextSpan(text: passwordSymbolChecker,
+                          style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                          ),),
                       ],
                     ),
                   ),
@@ -230,7 +241,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
               ),
               PaddingWidget(
                 type: 'symmetric',
-                horizontal: 30.0,
+                horizontal: 45.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
@@ -246,7 +257,12 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                             child: pickIconRightWrong(passwordsMatch),
                           ),
                         ),
-                        const TextSpan(text: '  Password and confirm are equal.'),
+                        const TextSpan(
+                            text: '  Password and confirm are equal.',
+                          style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
                       ],
                     ),
                   ),

@@ -57,3 +57,9 @@ Future<void> registerNewAccount(AuthenticationService authenticationService, Bui
     ScaffoldMessenger.of(context!).showSnackBar(registerFailed);
   }
 }
+
+void sendRecoveryEmail(AuthenticationService authenticationService, BuildContext? context, String email) {
+  authenticationService.resetPassword(email);
+  ScaffoldMessenger.of(context!).showSnackBar(recoveryEmailSent);
+  Navigator.of(context).pop();
+}

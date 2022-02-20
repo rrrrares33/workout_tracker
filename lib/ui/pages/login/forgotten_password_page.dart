@@ -72,7 +72,11 @@ class ForgottenPasswordState extends State<ForgottenPassword> with Authentificat
               onPressed: () {
                 sendRecoveryEmail(authenticationService, _scaffoldKey.currentContext, emailController.text);
               },
-              text: const TextWidget(text: emailRecoveryButton, color: Colors.white, fontSize: 17,),
+              text: const TextWidget(
+                text: emailRecoveryButton,
+                color: Colors.white,
+                fontSize: 17,
+              ),
             ),
           ),
         ]));

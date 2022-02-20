@@ -147,9 +147,9 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                         ),
                         const TextSpan(
                           text: passwordLowerChecker,
-                            style: TextStyle(
+                          style: TextStyle(
                             fontStyle: FontStyle.italic,
-                        ),
+                          ),
                         )
                       ],
                     ),
@@ -176,9 +176,9 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                         ),
                         const TextSpan(
                           text: passwordCapitalChecker,
-                            style: TextStyle(
+                          style: TextStyle(
                             fontStyle: FontStyle.italic,
-                        ),
+                          ),
                         )
                       ],
                     ),
@@ -203,10 +203,12 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                             child: pickIconRightWrong(hasNumbers),
                           ),
                         ),
-                        const TextSpan(text: passwordNumberChecker,
+                        const TextSpan(
+                          text: passwordNumberChecker,
                           style: TextStyle(
                             fontStyle: FontStyle.italic,
-                          ),),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -230,10 +232,12 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                             child: pickIconRightWrong(hasSymbol),
                           ),
                         ),
-                        const TextSpan(text: passwordSymbolChecker,
+                        const TextSpan(
+                          text: passwordSymbolChecker,
                           style: TextStyle(
                             fontStyle: FontStyle.italic,
-                          ),),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -258,7 +262,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                           ),
                         ),
                         const TextSpan(
-                            text: '  Password and confirm are equal.',
+                          text: '  Password and confirm are equal.',
                           style: TextStyle(
                             fontStyle: FontStyle.italic,
                           ),

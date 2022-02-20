@@ -1,10 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
+import '../../../business_logic/social_login_logic.dart';
 import '../../../firebase/authentication_service.dart';
 import '../../../routing/routing_constants.dart';
+import '../../reusable_widgets/button.dart';
+import '../../reusable_widgets/padding.dart';
+import '../../reusable_widgets/text.dart';
 import '../../text/login_text.dart';
 
 class LogInPage extends StatefulWidget {
@@ -19,100 +22,71 @@ class _LogInPageState extends State<LogInPage> {
   Widget build(BuildContext context) {
     // Get authentication service from Provider.
     final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
     return Scaffold(
+      key: _scaffoldKey,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          const Text(alreadyAccountLogIn),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-            child: ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                shape: const StadiumBorder(),
-                minimumSize: const Size.fromHeight(52),
-                primary: Colors.blueGrey,
-              ),
+          const TextWidget(text: alreadyAccountLogIn, fontSize: 15.5),
+          PaddingWidget(
+            type: 'symmetric',
+            horizontal: 20.0,
+            vertical: 6.0,
+            child: ButtonWidget(
+              minimumSize: const Size.fromHeight(52),
+              primaryColor: Colors.blueGrey,
               onPressed: () {
                 Navigator.pushNamed(context, LogInWithEmailAndPasswordRoute);
               },
-              label: const Text(logInButtonLabel),
+              text: const TextWidget(text: logInButtonLabel, fontSize: 17.0),
               icon: const FaIcon(FontAwesomeIcons.solidEnvelope),
             ),
           ),
-          const Text(logInWithOtherServices),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-              child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  shape: const StadiumBorder(),
-                  minimumSize: const Size.fromHeight(52),
-                  primary: Colors.redAccent,
-                ),
-                onPressed: () async {
-                  try {
-                    await authenticationService.signInWithGoogle();
-                    // ignore: use_build_context_synchronously
-                    ScaffoldMessenger.of(context).showSnackBar(loggedSuccessful);
-                  } on FirebaseAuthException catch (e) {
-                    if (e.message != null) {
-                      // Development:
-                      final SnackBar failedLoginSnackBar = SnackBar(content: Text('Google ${e.message ?? ''}'));
-                      // Production:
-                      //const SnackBar failedLoginSnackBar = SnackBar(content: Text('Log In could not be made.'));
-                      ScaffoldMessenger.of(context).showSnackBar(failedLoginSnackBar);
-                    }
-                  }
-                },
+          const TextWidget(text: logInWithOtherServices, fontSize: 15.5),
+          PaddingWidget(
+              type: 'symmetric',
+              horizontal: 20.0,
+              vertical: 6.0,
+              child: ButtonWidget(
                 icon: const FaIcon(FontAwesomeIcons.google),
-                label: const Text(logInWithGoogle),
-              )),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-              child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  shape: const StadiumBorder(),
-                  minimumSize: const Size.fromHeight(52),
-                  primary: Colors.blue,
-                ),
+                minimumSize: const Size.fromHeight(52),
+                primaryColor: Colors.redAccent,
                 onPressed: () async {
-                  try {
-                    await authenticationService.signInWithFacebook();
-                    // ignore: use_build_context_synchronously
-                    ScaffoldMessenger.of(context).showSnackBar(loggedInSuccess);
-                  } on FirebaseAuthException catch (e) {
-                    if (e.message != null) {
-                      // Development:
-                      final SnackBar failedLoginSnackBar = SnackBar(content: Text('Facebook ${e.message ?? ''}'));
-                      // Production:
-                      //const SnackBar failedLoginSnackBar = SnackBar(content: Text('Log In could not be made.'));
-                      ScaffoldMessenger.of(context).showSnackBar(failedLoginSnackBar);
-                    }
-                  }
+                  googleSignIn(_scaffoldKey.currentContext, authenticationService, mounted);
                 },
-                icon: const FaIcon(FontAwesomeIcons.facebook),
-                label: const Text(logInWithFacebook),
+                text: const TextWidget(text: logInWithGoogle, fontSize: 17),
               )),
-          const Text(createANewAccountQuestion),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-              child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    shape: const StadiumBorder(),
+          PaddingWidget(
+              type: 'symmetric',
+              horizontal: 20.0,
+              vertical: 6.0,
+              child: ButtonWidget(
+                icon: const FaIcon(FontAwesomeIcons.facebook),
+                minimumSize: const Size.fromHeight(52),
+                primaryColor: Colors.blue,
+                onPressed: () async {
+                  facebookSignIn(_scaffoldKey.currentContext, authenticationService, mounted);
+                },
+                text: const TextWidget(text: logInWithFacebook, fontSize: 17.0),
+              )),
+          const TextWidget(text: createANewAccountQuestion, fontSize: 15.5),
+          PaddingWidget(
+              type: 'only',
+              onlyBottom: 20.0,
+              child: PaddingWidget(
+                  type: 'symmetric',
+                  horizontal: 20.0,
+                  vertical: 6.0,
+                  child: ButtonWidget(
+                    icon: const FaIcon(FontAwesomeIcons.solidUserCircle),
+                    text: const TextWidget(text: createANewAccount, fontSize: 17.0),
+                    onPressed: () {
+                      Navigator.pushNamed(context, RegisterPageRoute);
+                    },
                     minimumSize: const Size.fromHeight(52),
-                    textStyle: const TextStyle(
-                      fontSize: 17,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegisterPageRoute);
-                  },
-                  icon: const FaIcon(FontAwesomeIcons.solidUserCircle),
-                  label: const Text(createANewAccount)),
-            ),
-          ),
+                  ))),
         ],
       ),
     );

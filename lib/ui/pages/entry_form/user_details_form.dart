@@ -67,7 +67,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                   child: TextFieldWidget(
                     controller: firstNameController,
                     labelText: firstNameLabel,
-                    onChanged: firstNameVerify,
+                    onChangedCustom: firstNameVerify,
                   ),
                 ),
                 PaddingWidget(
@@ -77,7 +77,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                   child: TextFieldWidget(
                     controller: secondNameController,
                     labelText: secondNameLabel,
-                    onChanged: secondNameVerify,
+                    onChangedCustom: secondNameVerify,
                   ),
                 ),
                 PaddingWidget(
@@ -87,7 +87,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                   child: TextFieldWidget(
                     controller: ageController,
                     labelText: ageLabel,
-                    onChanged: ageVerify,
+                    onChangedCustom: ageVerify,
                   ),
                 ),
                 PaddingWidget(
@@ -97,7 +97,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                   child: TextFieldWidget(
                     controller: heightController,
                     labelText: heightLabel,
-                    onChanged: heightVerify,
+                    onChangedCustom: heightVerify,
                   ),
                 ),
                 Row(
@@ -117,7 +117,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                       ),
                     ),
                     PaddingWidget(
-                      type: 'symmetric',
+                        type: 'symmetric',
                         horizontal: 5.0,
                         child: ButtonWidget(
                           onPressed: () {
@@ -128,7 +128,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                             });
                           },
                           primaryColor: getWeightButtonColor(weightMetric, 'KG'),
-                          child: const TextWidget(text:metricKG),
+                          text: const TextWidget(text: metricKG),
                         )),
                     PaddingWidget(
                         type: 'only',
@@ -143,7 +143,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                             });
                           },
                           primaryColor: getWeightButtonColor(weightMetric, 'LBS'),
-                          child: const TextWidget(text: metricLBS),
+                          text: const TextWidget(text: metricLBS),
                         )),
                   ],
                 ),
@@ -179,7 +179,6 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                             weightVerify(weightController.text, weightMetric),
                             heightController.text,
                             heightVerify(heightController.text))) {
-
                           databaseService.createUserWithFullDetails(
                               widget.loggedUserUid,
                               widget.loggedEmail,
@@ -199,14 +198,13 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                                 builder: <WidgetBuilder>(BuildContext context) => CheckFirstTime(
                                     loggedUserUid: widget.loggedUserUid, loggedEmail: widget.loggedEmail),
                               ));
-
                         } else {
                           setState(() {
                             formIsNotFilledError = formNotFilled;
                           });
                         }
                       },
-                      child: const TextWidget(text: submitButtonText),
+                      text: const TextWidget(text: submitButtonText),
                     ),
                   ),
                 ),

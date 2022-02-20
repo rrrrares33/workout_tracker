@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
+import '../../../business_logic/login_and_register_logic.dart';
 import '../../../firebase/authentication_service.dart';
+import '../../reusable_widgets/button.dart';
+import '../../reusable_widgets/padding.dart';
+import '../../reusable_widgets/text_field.dart';
 import '../../text/login_text.dart';
 import 'authentification_base.dart';
 
@@ -15,13 +19,12 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
   final TextEditingController _passwordConfirmController = TextEditingController();
+  static final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   static bool hasCapital = false;
   static bool hasLower = false;
   static bool hasNumbers = false;
   static bool hasSymbol = false;
   static bool passwordsMatch = false;
-
-  static final RegExp regexNumbers = RegExp(r'[10-99]');
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +32,11 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
     final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
 
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Navigator.of(_scaffoldKey.currentContext!).pop(),
         ),
         title: const Text(registerAccountAppBar),
         centerTitle: true,
@@ -42,22 +46,10 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: Center(
-                  child: Text(
-                    generalError != null ? generalError.toString() : '',
-                    style: const TextStyle(
-                      color: Colors.red,
-                      fontStyle: FontStyle.italic,
-                      fontSize: 16,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              PaddingWidget(
+                type: 'symmetric',
+                horizontal: 15.0,
+                vertical: 10.0,
                 child: Card(
                   elevation: 10,
                   shape: const RoundedRectangleBorder(
@@ -67,35 +59,21 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                        child: TextFormField(
+                        child: TextFieldWidget(
                           controller: emailController,
                           keyboardType: TextInputType.name,
-                          onChanged: (String text) {
-                            if (text != '' && !regexEmail.hasMatch(text)) {
-                              setState(() {
-                                generalError = null;
-                                emailWarning = emailNotValid;
-                              });
-                            } else {
-                              setState(() {
-                                generalError = null;
-                                emailWarning = null;
-                              });
-                            }
-                          },
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                            labelText: emailLabel,
-                            errorText: emailWarning,
-                          ),
+                          labelText: emailLabel,
+                          borderType: const OutlineInputBorder(),
+                          onChangedCustom: validateEmail,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                        child: TextField(
+                        child: TextFieldWidget(
                           obscureText: doNotShowPassword,
                           enableSuggestions: false,
-                          autocorrect: false,
+                          autoCorrect: false,
+                          borderType: const OutlineInputBorder(),
                           controller: passwordController,
                           onChanged: (_) {
                             if (passwordController.text.isEmpty) {
@@ -108,52 +86,40 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                               });
                             } else {
                               setState(() {
-                                hasCapital = passwordController.text.toLowerCase() != passwordController.text;
-                                hasLower = passwordController.text.toUpperCase() != passwordController.text;
-                                hasNumbers = regexNumbers.hasMatch(passwordController.text);
-                                hasSymbol = passwordController.text.replaceAll(RegExp(r'[^\w\s]+'), '') !=
-                                    passwordController.text;
+                                hasCapital = testCapital(passwordController.text);
+                                hasLower = testLower(passwordController.text);
+                                hasNumbers = testNumbers(passwordController.text);
+                                hasSymbol = testSymbol(passwordController.text);
                                 passwordsMatch = passwordController.text == _passwordConfirmController.text;
                               });
                             }
                           },
                           keyboardType: TextInputType.name,
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                            labelText: passwordLabel,
-                          ),
+                          labelText: passwordLabel,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                        child: TextField(
+                        child: TextFieldWidget(
                           obscureText: doNotShowPassword,
                           enableSuggestions: false,
-                          autocorrect: false,
+                          autoCorrect: false,
+                          borderType: const OutlineInputBorder(),
                           controller: _passwordConfirmController,
                           keyboardType: TextInputType.name,
                           onChanged: (_) {
-                            if (_passwordConfirmController.text.isEmpty) {
-                              setState(() {
-                                passwordsMatch = passwordController.text == _passwordConfirmController.text;
-                              });
-                            } else {
-                              setState(() {
-                                passwordsMatch = passwordController.text == _passwordConfirmController.text;
-                              });
-                            }
+                            setState(() {
+                              passwordsMatch = passwordController.text == _passwordConfirmController.text;
+                            });
                           },
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                            labelText: confirmPasswordLabel,
-                            suffixIcon: IconButton(
-                              icon: Icon(doNotShowPassword ? Icons.visibility_off_rounded : Icons.visibility_rounded),
-                              onPressed: () {
-                                setState(() {
-                                  doNotShowPassword = !doNotShowPassword;
-                                });
-                              },
-                            ),
+                          labelText: confirmPasswordLabel,
+                          suffixIcon: IconButton(
+                            icon: Icon(doNotShowPassword ? Icons.visibility_off_rounded : Icons.visibility_rounded),
+                            onPressed: () {
+                              setState(() {
+                                doNotShowPassword = !doNotShowPassword;
+                              });
+                            },
                           ),
                         ),
                       ),
@@ -161,23 +127,23 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+              PaddingWidget(
+                type: 'symmetric',
+                horizontal: 30.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
                     text: TextSpan(
                       style: TextStyle(
-                        color: hasLower ? Colors.greenAccent[400] : Colors.red,
+                        color: pickColorRightWrong(hasLower),
                       ),
                       children: <InlineSpan>[
                         WidgetSpan(
                           // child: Icon(FontAwesomeIcons.timesCircle, size: 14, color: Colors.greenAccent[400]),
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 2.5),
-                            child: hasLower
-                                ? Icon(FontAwesomeIcons.checkCircle, size: 14, color: Colors.greenAccent[400])
-                                : const Icon(FontAwesomeIcons.solidTimesCircle, size: 14, color: Colors.red),
+                          child: PaddingWidget(
+                            type: 'only',
+                            onlyBottom: 2.5,
+                            child: pickIconRightWrong(hasLower),
                           ),
                         ),
                         const TextSpan(
@@ -188,22 +154,22 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+              PaddingWidget(
+                type: 'symmetric',
+                horizontal: 30.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
                     text: TextSpan(
                       style: TextStyle(
-                        color: hasCapital ? Colors.greenAccent[400] : Colors.red,
+                        color: pickColorRightWrong(hasCapital),
                       ),
                       children: <InlineSpan>[
                         WidgetSpan(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 2.5),
-                            child: hasCapital
-                                ? Icon(FontAwesomeIcons.checkCircle, size: 14, color: Colors.greenAccent[400])
-                                : const Icon(FontAwesomeIcons.solidTimesCircle, size: 14, color: Colors.red),
+                          child: PaddingWidget(
+                            type: 'only',
+                            onlyBottom: 2.5,
+                            child: pickIconRightWrong(hasCapital),
                           ),
                         ),
                         const TextSpan(
@@ -214,22 +180,22 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+              PaddingWidget(
+                type: 'symmetric',
+                horizontal: 30.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
                     text: TextSpan(
                       style: TextStyle(
-                        color: hasNumbers ? Colors.greenAccent[400] : Colors.red,
+                        color: pickColorRightWrong(hasNumbers),
                       ),
                       children: <InlineSpan>[
                         WidgetSpan(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 2.5),
-                            child: hasNumbers
-                                ? Icon(FontAwesomeIcons.checkCircle, size: 14, color: Colors.greenAccent[400])
-                                : const Icon(FontAwesomeIcons.solidTimesCircle, size: 14, color: Colors.red),
+                          child: PaddingWidget(
+                            type: 'only',
+                            onlyBottom: 2.5,
+                            child: pickIconRightWrong(hasNumbers),
                           ),
                         ),
                         const TextSpan(text: passwordNumberChecker),
@@ -238,22 +204,22 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+              PaddingWidget(
+                type: 'symmetric',
+                horizontal: 30.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
                     text: TextSpan(
                       style: TextStyle(
-                        color: hasSymbol ? Colors.greenAccent[400] : Colors.red,
+                        color: pickColorRightWrong(hasSymbol),
                       ),
                       children: <InlineSpan>[
                         WidgetSpan(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 2.5),
-                            child: hasSymbol
-                                ? Icon(FontAwesomeIcons.checkCircle, size: 14, color: Colors.greenAccent[400])
-                                : const Icon(FontAwesomeIcons.solidTimesCircle, size: 14, color: Colors.red),
+                          child: PaddingWidget(
+                            type: 'only',
+                            onlyBottom: 2.5,
+                            child: pickIconRightWrong(hasSymbol),
                           ),
                         ),
                         const TextSpan(text: passwordSymbolChecker),
@@ -262,22 +228,22 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+              PaddingWidget(
+                type: 'symmetric',
+                horizontal: 30.0,
                 child: Container(
                   alignment: Alignment.topLeft,
                   child: RichText(
                     text: TextSpan(
                       style: TextStyle(
-                        color: passwordsMatch ? Colors.greenAccent[400] : Colors.red,
+                        color: pickColorRightWrong(passwordsMatch),
                       ),
                       children: <InlineSpan>[
                         WidgetSpan(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 2.5),
-                            child: passwordsMatch
-                                ? Icon(FontAwesomeIcons.checkCircle, size: 14, color: Colors.greenAccent[400])
-                                : const Icon(FontAwesomeIcons.solidTimesCircle, size: 14, color: Colors.red),
+                          child: PaddingWidget(
+                            type: 'only',
+                            onlyBottom: 2.5,
+                            child: pickIconRightWrong(passwordsMatch),
                           ),
                         ),
                         const TextSpan(text: '  Password and confirm are equal.'),
@@ -286,42 +252,26 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      shape: const StadiumBorder(),
-                      minimumSize: const Size.fromHeight(52),
-                    ),
-                    onPressed: () async {
-                      if (hasSymbol && hasNumbers && hasCapital && hasLower && passwordsMatch) {
-                        if (emailWarning == null && passwordController.text != '' && generalError == null) {
-                          try {
-                            await authenticationService.createNewUser(emailController.text, passwordController.text);
-                            // ignore: use_build_context_synchronously
-                            ScaffoldMessenger.of(context).showSnackBar(registerComplete);
-                            Future<dynamic>.delayed(Duration.zero).then((_) {
-                              Navigator.of(context).pop();
-                            });
-                          } catch (exception) {
-                            setState(() {
-                              generalError = emailAlreadyInUse;
-                            });
-                          }
+              PaddingWidget(
+                onlyBottom: 20.0,
+                type: 'only',
+                child: PaddingWidget(
+                    type: 'symmetric',
+                    horizontal: 20.0,
+                    vertical: 6.0,
+                    child: ButtonWidget(
+                      icon: const FaIcon(FontAwesomeIcons.solidUserCircle),
+                      text: const Text(createANewAccount),
+                      fontSize: 17.0,
+                      onPressed: () async {
+                        if (verifyRegistrationFilled(hasSymbol, hasNumbers, hasCapital, hasLower, passwordsMatch,
+                            emailController.text, passwordController.text)) {
+                          await registerNewAccount(authenticationService, _scaffoldKey.currentContext,
+                              emailController.text, passwordController.text, mounted);
                         }
-                      }
-                    },
-                    icon: const FaIcon(FontAwesomeIcons.solidUserCircle),
-                    label: const Text(
-                      createANewAccount,
-                      style: TextStyle(
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
-                ),
+                      },
+                      minimumSize: const Size.fromHeight(52),
+                    )),
               ),
             ],
           ),

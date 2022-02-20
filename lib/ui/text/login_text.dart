@@ -28,6 +28,7 @@ const String createANewAccountQuestion = 'Do you want to create a new account?';
 
 // Register page
 const SnackBar registerComplete = SnackBar(content: Text('You have successfully created a new account!'));
+const SnackBar registerFailed = SnackBar(content: Text('Register failed: email already used!'));
 const String registerAccountAppBar = 'Create a new account';
 const String confirmPasswordLabel = 'Confirm password...';
 const String passwordsDoNotMatch = 'The passwords do not match';

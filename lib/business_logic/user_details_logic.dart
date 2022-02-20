@@ -48,7 +48,7 @@ String? ageVerify(String? content) {
   return ageErrorText;
 }
 
-String? heightVerify(String? content){
+String? heightVerify(String? content) {
   if (content!.isEmpty) {
     return null;
   }
@@ -61,7 +61,7 @@ String? heightVerify(String? content){
   return heightErrorText;
 }
 
-Color? getWeightButtonColor(WeightMetric metric, String thisButtonMetric){
+Color? getWeightButtonColor(WeightMetric metric, String thisButtonMetric) {
   if (metric == WeightMetric.KG && thisButtonMetric == 'KG') {
     return Colors.greenAccent[400];
   }
@@ -90,7 +90,7 @@ String? weightVerify(String? content, WeightMetric? metric) {
   return weightErrorText;
 }
 
-WeightMetric weightMetricButtonSwitch(WeightMetric metric){
+WeightMetric weightMetricButtonSwitch(WeightMetric metric) {
   if (metric == WeightMetric.KG) {
     return WeightMetric.LBS;
   }

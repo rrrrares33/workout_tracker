@@ -63,3 +63,25 @@ void sendRecoveryEmail(AuthenticationService authenticationService, BuildContext
   ScaffoldMessenger.of(context!).showSnackBar(recoveryEmailSent);
   Navigator.of(context).pop();
 }
+
+String? passwordHasMatch(String password, RegExp regex) {
+  if (!regex.hasMatch(password)) {
+    return accountDoesNotExist;
+  }
+  return null;
+}
+
+Future<String?> signInWithEmailAndPassword(AuthenticationService authenticationService, BuildContext? context,
+    bool mounted, String email, String password) async {
+  try {
+    await authenticationService.signInUserEmailPassword(email, password);
+
+    ScaffoldMessenger.of(context!).showSnackBar(loggedInSuccess);
+    Future<dynamic>.delayed(Duration.zero).then((_) {
+      Navigator.of(context).pop();
+    });
+    return null;
+  } catch (exception) {
+    return accountDoesNotExist;
+  }
+}

@@ -3,12 +3,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../../business_logic/login_and_register_logic.dart';
-import '../../../firebase/authentication_service.dart';
+import '../../../utils/firebase/authentication_service.dart';
 import '../../reusable_widgets/button.dart';
 import '../../reusable_widgets/padding.dart';
 import '../../reusable_widgets/text_field.dart';
 import '../../text/login_text.dart';
-import 'authentification_base.dart';
+import 'authentification_base_mixin_class.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);

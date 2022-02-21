@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../business_logic/user_details_logic.dart';
-import '../../../firebase/database_service.dart';
-import '../../../models/user_database.dart';
+import '../../../utils/firebase/database_service.dart';
+import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/button.dart';
 import '../../reusable_widgets/padding.dart';
 import '../../reusable_widgets/text.dart';
 import '../../reusable_widgets/text_field.dart';
 import '../../text/entry_form_text.dart';
-import 'check_first_time.dart';
+import 'check_first_time_and_load_db_intermediary.dart';
 
 class UserDetailsForm extends StatefulWidget {
   const UserDetailsForm({Key? key, required this.loggedUserUid, required this.loggedEmail}) : super(key: key);
@@ -195,7 +195,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                           Navigator.push(
                               context,
                               MaterialPageRoute<dynamic>(
-                                builder: <WidgetBuilder>(BuildContext context) => CheckFirstTime(
+                                builder: <WidgetBuilder>(BuildContext context) => CheckFirstTimeAndLoadDB(
                                     loggedUserUid: widget.loggedUserUid, loggedEmail: widget.loggedEmail),
                               ));
                         } else {

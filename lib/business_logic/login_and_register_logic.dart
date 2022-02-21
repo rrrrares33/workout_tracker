@@ -1,8 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../firebase/authentication_service.dart';
+import '../ui/pages/entry_form/check_first_time_and_load_db_intermediary.dart';
+import '../ui/pages/login/login_page.dart';
 import '../ui/text/login_text.dart';
+import '../utils/firebase/authentication_service.dart';
+import '../utils/firebase/database_service.dart';
+import '../utils/models/user_auth.dart';
+import '../utils/models/user_database.dart';
+
+Widget returnIfUserConnected(User? user) {
+  if (user == null) {
+    return const LogInPage();
+  }
+  return CheckFirstTimeAndLoadDB(loggedUserUid: user.getUid, loggedEmail: user.getEmail);
+}
+
+UserDB? getUserOrCreateIfNullUsingUID(DatabaseService db, String loggedUserUid, String loggedEmail) {
+  UserDB? loggedUser = db.getUserBaseOnUid(loggedUserUid);
+  if (loggedUser != null) {
+    return loggedUser;
+  }
+  db.createUserBeforeDetails(loggedUserUid, loggedEmail);
+  loggedUser = UserDB(loggedUserUid, loggedEmail, true);
+  return loggedUser;
+}
 
 String? validateEmail(String? content) {
   // Regex expression for email.

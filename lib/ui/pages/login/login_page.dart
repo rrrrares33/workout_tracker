@@ -3,8 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../../business_logic/social_login_logic.dart';
-import '../../../firebase/authentication_service.dart';
-import '../../../routing/routing_constants.dart';
+import '../../../utils/firebase/authentication_service.dart';
+import '../../../utils/routing/routing_constants.dart';
 import '../../reusable_widgets/button.dart';
 import '../../reusable_widgets/padding.dart';
 import '../../reusable_widgets/text.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../firebase/authentication_service.dart';
-import '../../../models/user_database.dart';
+import '../../../utils/firebase/authentication_service.dart';
+import '../../../utils/models/user_database.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key, required this.user}) : super(key: key);

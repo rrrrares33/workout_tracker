@@ -1,5 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
-import '../../models/user_database.dart';
+import '../models/user_database.dart';
 
 class DatabaseService {
   DatabaseService() {

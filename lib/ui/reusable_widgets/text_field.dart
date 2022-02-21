@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/user_database.dart';
+import '../../utils/models/user_database.dart';
 
 class TextFieldWidget extends StatefulWidget {
   const TextFieldWidget(

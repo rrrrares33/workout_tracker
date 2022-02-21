@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../firebase/authentication_service.dart';
 import '../ui/text/login_text.dart';
+import '../utils/firebase/authentication_service.dart';
 
 Future<void> googleSignIn(BuildContext? context, AuthenticationService authenticationService, bool mounted) async {
   try {

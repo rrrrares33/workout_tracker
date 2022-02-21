@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../models/user_database.dart';
 import '../ui/text/entry_form_text.dart';
+import '../utils/models/user_database.dart';
 
 // Regex for validating first name and second name
 final RegExp nameRegex = RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");

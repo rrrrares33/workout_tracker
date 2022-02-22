@@ -5,7 +5,7 @@ import '../../../business_logic/login_and_register_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/loading.dart';
-import '../navigator/first_screen_inside.dart';
+import '../navigator/main_screen_page.dart';
 import 'user_details_form_page.dart';
 
 class CheckFirstTimeAndLoadDB extends StatelessWidget {
@@ -26,7 +26,7 @@ class CheckFirstTimeAndLoadDB extends StatelessWidget {
           if (loggedUser?.firstEntry == true) {
             return UserDetailsForm(loggedUserUid: loggedUserUid, loggedEmail: loggedEmail);
           } else {
-            return FirstScreen(user: loggedUser!);
+            return MainScreenPage(user: loggedUser!);
           }
         }
       },

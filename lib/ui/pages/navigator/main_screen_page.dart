@@ -40,10 +40,6 @@ class _MainScreenPageState extends State<MainScreenPage> {
     return WillPopScope(
       onWillPop: () async => _logoutPressed,
       child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          automaticallyImplyLeading: false,
-        ),
         bottomNavigationBar: BottomNavigationBarWidget(
           selectedPage: _currentPageIndex,
           onTap: (int _tappedIconOrder) {

@@ -122,16 +122,16 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
           ),
           PaddingWidget(
             type: 'only',
-            onlyBottom: 20.0,
+            onlyBottom: 10.0,
             child: ButtonWidget(
-              primaryColor: const Color.fromRGBO(255, 255, 255, 1),
+              primaryColor: const Color.fromRGBO(114, 140, 157, 0),
               onPressed: () {
                 Navigator.pushNamed(context, ForgottenPasswordRoute);
               },
-              text: const TextWidget(
+              text: TextWidget(
                 text: didYouForgetPass,
                 fontStyle: FontStyle.italic,
-                color: Colors.green,
+                color: Colors.greenAccent[400],
                 weight: FontWeight.bold,
               ),
             ),

@@ -74,7 +74,7 @@ class ForgottenPasswordState extends State<ForgottenPassword> with Authentificat
               },
               text: const TextWidget(
                 text: emailRecoveryButton,
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 17,
               ),
             ),

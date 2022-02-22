@@ -10,50 +10,37 @@ class BottomNavigationBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-        fixedColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        unselectedIconTheme: const IconThemeData(
-          size: 27,
+    return BottomNavigationBar(currentIndex: selectedPage, onTap: onTap, items: const <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        tooltip: toolTiMyProfilePage,
+        icon: PaddingWidget(
+          type: 'only',
+          onlyBottom: 7.5,
+          onlyLeft: 5,
+          child: Icon(FontAwesomeIcons.user),
         ),
-        selectedIconTheme: IconThemeData(
-          size: 30,
-          color: Colors.greenAccent[400],
-        ),
-        showSelectedLabels: true,
-        currentIndex: selectedPage,
-        onTap: onTap,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            tooltip: toolTiMyProfilePage,
-            icon: PaddingWidget(
-              type: 'only',
-              onlyBottom: 7.5,
-              onlyLeft: 5,
-              child: Icon(FontAwesomeIcons.user),
-            ),
-            label: labelMyProfile,
-          ),
-          BottomNavigationBarItem(
-            tooltip: toolTipWorkoutHistoryPage,
-            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.clock)),
-            label: labelWorkoutHistory,
-          ),
-          BottomNavigationBarItem(
-            tooltip: toolTipStartWorkout,
-            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.plusCircle)),
-            label: labelStartWorkout,
-          ),
-          BottomNavigationBarItem(
-            tooltip: toolTipAllExercises,
-            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.dumbbell)),
-            label: labelAllExercises,
-          ),
-          BottomNavigationBarItem(
-            tooltip: toolTipStatistics,
-            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, onlyRight: 5, child: Icon(FontAwesomeIcons.chartLine)),
-            label: labelStatistics,
-          ),
-        ]);
+        label: labelMyProfile,
+      ),
+      BottomNavigationBarItem(
+        tooltip: toolTipWorkoutHistoryPage,
+        icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.clock)),
+        label: labelWorkoutHistory,
+      ),
+      BottomNavigationBarItem(
+        tooltip: toolTipStartWorkout,
+        icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.plusCircle)),
+        label: labelStartWorkout,
+      ),
+      BottomNavigationBarItem(
+        tooltip: toolTipAllExercises,
+        icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.dumbbell)),
+        label: labelAllExercises,
+      ),
+      BottomNavigationBarItem(
+        tooltip: toolTipStatistics,
+        icon: PaddingWidget(type: 'only', onlyBottom: 7.5, onlyRight: 5, child: Icon(FontAwesomeIcons.chartLine)),
+        label: labelStatistics,
+      ),
+    ]);
   }
 }

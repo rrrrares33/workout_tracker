@@ -16,7 +16,7 @@ class TextWidget extends StatelessWidget {
       text ?? '',
       textAlign: align ?? TextAlign.center,
       style: TextStyle(
-        color: color ?? Colors.black,
+        color: color,
         fontSize: fontSize ?? 14.0,
         fontStyle: fontStyle ?? FontStyle.normal,
         fontWeight: weight ?? FontWeight.normal,

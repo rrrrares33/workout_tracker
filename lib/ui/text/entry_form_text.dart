@@ -7,7 +7,7 @@ const SnackBar formFilled = SnackBar(content: Text('You have successfully comple
 
 // Labels text const
 String firstNameLabel = 'First name';
-const String secondNameLabel = 'Second name';
+const String secondNameLabel = 'Last name';
 const String ageLabel = 'Age';
 const String heightLabel = 'Height (cm)';
 const String weightLabel = 'Weight';

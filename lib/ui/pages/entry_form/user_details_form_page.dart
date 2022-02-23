@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -188,10 +190,12 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                               double.parse(weightController.text),
                               double.parse(heightController.text),
                               weightMetric);
+                          if (!mounted) return;
 
-                          // ignore: use_build_context_synchronously
+                          // We shall wait 2 seconds to give time for data to be written in the database.
+                          Timer(const Duration(seconds: 2), () {});
                           ScaffoldMessenger.of(context).showSnackBar(formFilled);
-                          // ignore: use_build_context_synchronously
+
                           Navigator.push(
                               context,
                               MaterialPageRoute<dynamic>(

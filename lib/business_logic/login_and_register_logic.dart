@@ -97,7 +97,7 @@ Future<String?> signInWithEmailAndPassword(AuthenticationService authenticationS
     bool mounted, String email, String password) async {
   try {
     await authenticationService.signInUserEmailPassword(email, password);
-
+    if (!mounted) return null;
     ScaffoldMessenger.of(context!).showSnackBar(loggedInSuccess);
     Future<dynamic>.delayed(Duration.zero).then((_) {
       Navigator.of(context).pop();

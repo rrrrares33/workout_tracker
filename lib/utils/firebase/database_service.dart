@@ -5,6 +5,7 @@ class DatabaseService {
   DatabaseService() {
     _firebaseDB = FirebaseDatabase.instance;
     _usersRef = _firebaseDB.ref().child('Users');
+    // _exercisesRef = _firebaseDB.ref().child('Exercises');
   }
 
   // Here I try to initialize everything from the database into the app,
@@ -21,6 +22,7 @@ class DatabaseService {
   // We store the instance of the database in a private param.
   late final FirebaseDatabase _firebaseDB;
   late final DatabaseReference _usersRef;
+  // late final DatabaseReference _exercisesRef;
 
   //_usersRef = _firebaseDB.ref().child('users').set("salam");
 

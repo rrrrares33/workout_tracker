@@ -1,8 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../utils/firebase/authentication_service.dart';
 import '../../../utils/models/user_database.dart';
+import '../../reusable_widgets/loading.dart';
+import '../../reusable_widgets/padding.dart';
 
 class AllExercisesPage extends StatefulWidget {
   const AllExercisesPage({Key? key, required this.user}) : super(key: key);
@@ -17,30 +18,23 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        const Text('All exercises page'),
-        Text(widget.user.name!),
-        Text(widget.user.surname!),
-        Text(widget.user.email),
-        Text(widget.user.uid),
-        Text(widget.user.age.toString()),
-        Text(widget.user.weight.toString()),
-        Text(widget.user.weightType.toString()),
-        Center(
-          child: ElevatedButton(
-            onPressed: () async {
-              setState(() {
-                logoutPressed = true;
-              });
-              await authenticationService.signOutFromFirebase();
-            },
-            child: const Text('Logout'),
-          ),
-        )
-      ],
-    );
+    return Scaffold(
+        backgroundColor: Colors.green,
+        body: Column(
+          children: <Widget>[
+            PaddingWidget(
+              type: 'only',
+              onlyTop: 40,
+              child: CachedNetworkImage(
+                imageUrl:
+                    'https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_barbell.png?alt=media&token=6d45ca32-0ca7-4c7e-954b-2d43e06b6e14',
+                placeholder: (BuildContext context, String url) => const LoadingWidget(),
+                errorWidget: (BuildContext context, String url, dynamic error) => const Icon(Icons.error),
+                width: 200.0,
+                height: 200.0,
+              ),
+            ),
+          ],
+        ));
   }
 }

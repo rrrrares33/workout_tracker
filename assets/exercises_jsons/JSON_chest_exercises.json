@@ -1,0 +1,564 @@
+{
+  "Exercises": {
+    "system_benchPressBarbell": {
+      "name": "Bench Press Barbell",
+      "description": "Lorepsagds dgs ds gdsdsggds sdgsd",
+      "id": "system_benchPressBarbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Barbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_bench_press_barbell.png?alt=media&token=6d428550-e104-45ae-a52c-c04e385b12f7",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_barbell.png?alt=media&token=6d45ca32-0ca7-4c7e-954b-2d43e06b6e14"
+    },
+    "system_benchPressCable": {
+      "name": "Bench Press Cable",
+      "description": "Lorepsagds dgs ds hdfshshr sdgsd",
+      "id": "system_benchPressCable",
+      "whoCreatedThisExercise": "system",
+      "category": "Cable",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_bench_press_cable.png?alt=media&token=2858ad1e-4f60-4f2b-bb51-12bffd47d6f0",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_cable.png?alt=media&token=61f8128c-eff9-42b4-8199-6208cde60521"
+    },
+    "system_benchPressMachine": {
+      "name": "Bench Press Machine",
+      "description": "Lorepsagds dgs ds gdhshdsfhsfd sdgsd",
+      "id": "system_benchPressMachine",
+      "whoCreatedThisExercise": "system",
+      "category": "Machine",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_bench_press_machine.png?alt=media&token=3d854a66-6ce6-4adc-af2d-12b29d0d8779",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_machine.png?alt=media&token=88d5008d-8a4c-4f44-81bf-586a858684a8"
+    },
+    "system_benchPressSmith": {
+      "name": "Bench Press Smith",
+      "description": "Agdsgds dgs ds gdhshdsfhsfd sdgsd",
+      "id": "system_benchPressSmith",
+      "whoCreatedThisExercise": "system",
+      "category": "Smith",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_bench_press_smith.png?alt=media&token=0683e8c0-d277-44ee-806f-5a386bdfa089",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_smith.png?alt=media&token=2654e494-004b-45c4-b1b0-0971bada7c0f"
+    },
+    "system_bosuBallPushups": {
+      "name": "Bosu Ball Pushups",
+      "description": "Agdsgds dgs ds gdsgds sdgsd",
+      "id": "system_bosuBallPushups",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbosu_ball_pushups.png?alt=media&token=063bb6fc-a189-4029-a0aa-a315d719c4f1",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbosu_ball_pushups.png?alt=media&token=063bb6fc-a189-4029-a0aa-a315d719c4f1"
+    },
+    "system_chestDips": {
+      "name": "Chest Dips",
+      "description": "Agdsgds dgs ds hfdhfd sdgsd",
+      "id": "system_chestDips",
+      "whoCreatedThisExercise": "system",
+      "category": "Weighted Bodyweight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_chest_dips.png?alt=media&token=b7396feb-858c-4bd2-824c-9840b64e95ed",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fchest_dips.png?alt=media&token=c9767075-a5f0-445c-8de0-99a8389ed714"
+    },
+    "system_chestDipsAssisted": {
+      "name": "Chest Dips Assisted",
+      "description": "Agdsgds dgs ds hfdhfd sdgsd",
+      "id": "system_chestDipsAssisted",
+      "whoCreatedThisExercise": "system",
+      "category": "Assisted Bodyweight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_chest_dips_assisted.png?alt=media&token=b675f0db-2991-42f2-879d-44ceb97b663e",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fchest_dips_assisted.png?alt=media&token=1ef84bb3-ed42-4ae4-99d9-107bd4753421"
+    },
+    "system_chestPressMachine": {
+      "name": "Chest Press Machine",
+      "description": "Agdsgds hfdsdhf ds hfdhfd sdgsd",
+      "id": "system_chestPressMachine",
+      "whoCreatedThisExercise": "system",
+      "category": "Machine",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_chest_press_machine.png?alt=media&token=342ad0c6-87cc-40b4-9786-d020a8777276",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fchest_press_machine.png?alt=media&token=7639cfac-8de7-4a2f-9830-6e8048da5760"
+    },
+    "system_clockPushUp": {
+      "name": "Clock Push Up",
+      "description": "Agdsgds dgs ds hfdhfd sdgsd",
+      "id": "system_clockPushUp",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodyweight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_clock_push_ups.png?alt=media&token=18393d87-afc0-4123-aa39-e7e2ed24255a",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclock_push_ups.png?alt=media&token=3b5802fb-1903-41a4-8c61-141421eaa036"
+    },
+    "system_closeGripBenchPressBarbell": {
+      "name": "Close Grip Bench Press Barbell",
+      "description": "Agdsgds hfdshfsdhfsd hsdf fd sdgsd",
+      "id": "system_closeGripBenchPressBarbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Barbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_close_grip_bench_press_barbell.png?alt=media&token=bfc9ee63-e5f0-43b1-975d-5f594a1d8f2c",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_bench_press_barbell.png?alt=media&token=317ce3a6-0f23-41c2-8f3e-ad1783c571f9"
+    },
+    "system_closeGripBenchPressDumbbell": {
+      "name": "Close Grip Bench Press Dumbbell",
+      "description": "Agdsgds hfdshfsdhfsd hsdf fd gdsgds",
+      "id": "system_closeGripBenchPressDumbbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_close_grip_bench_press_dumbell.png?alt=media&token=337843c4-60c5-490c-8a83-f2d3e2fd1fc8",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_bench_press_dumbell.png?alt=media&token=06df946a-2f55-48dd-9ccc-1487951abf9e"
+    },
+    "system_closeGripDumbbellPushUp": {
+      "name": "Close Grip Dumbbell Push Up",
+      "description": "Agdsgds gdsgds hsdf fd gdsgds",
+      "id": "system_closeGripDumbbellPushUp",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_close_grip_dumbell_pushup.png?alt=media&token=5a0301c1-4cac-40bb-8589-55c69400577c",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_dumbell_pushup.png?alt=media&token=6a221f74-eaf2-4b3e-b3a0-e584277c4552"
+    },
+    "system_closeGripPushUp": {
+      "name": "Close Grip Push Up",
+      "description": "Agdsgds gdsgds hsdf gdsgds gdsgds",
+      "id": "system_closeGripPushUp",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_close_grip_pushups.png?alt=media&token=6a021256-6b8a-4858-9be0-7f5cdc98e3d4",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_pushups.png?alt=media&token=06d99c4d-4cb7-472b-af57-81f73297659b"
+    },
+    "system_declineBenchPressBarbell": {
+      "name": "Decline Bench Press Barbell",
+      "description": "Lorepsagds dgs ds gdsgdsgsd sdgsd",
+      "id": "system_declineBenchPressBarbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Barbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_decline_bench_press_barbell.png?alt=media&token=22cc26cc-4823-4ffd-91bb-26869245a423",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_bench_press_barbell.png?alt=media&token=9fa82b65-583d-4e03-a7d6-bab348d6d7b4"
+    },
+    "system_declineBenchPressSmith": {
+      "name": "Decline Bench Press Smith",
+      "description": "Lorepsagds dgs ds gdsgdsgsd sdgsd",
+      "id": "system_declineBenchPressSmith",
+      "whoCreatedThisExercise": "system",
+      "category": "Smith",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_decline_bench_press_chest_smith.png?alt=media&token=03168377-fd9e-49a8-a247-8b6dd4fa6289",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_bench_press_chest_smith.png?alt=media&token=d96a21dc-b896-42e7-a1b9-ce4879dc4dfa"
+    },
+    "system_declineBenchPressDumbbell": {
+      "name": "Decline Bench Press Dumbbell",
+      "description": "Lorepsagds dgs ds gdsgdsgsd gdsgdsgds",
+      "id": "system_declineBenchPressDumbbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_decline_bench_press_dumbell.png?alt=media&token=53e4f7cb-4ed7-42bd-b99e-7c218b1a7b6c",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_bench_press_dumbell.png?alt=media&token=6b394242-67a0-40dc-bbd4-c10ebfab872c"
+    },
+    "system_declineCableFlies": {
+      "name": "Decline Cable Flies",
+      "description": "Lorepsagds dgs ds gds dsg",
+      "id": "system_declineCableFlies",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_decline_cable_flies.png?alt=media&token=03dadf13-4c0b-408d-b541-b6c1725dbc0f",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_cable_flies.png?alt=media&token=9bef7918-5d9d-4303-b9c9-11bde7242696"
+    },
+    "system_declineHammerGripBenchPress": {
+      "name": "Decline Hammer Grip Bench Press",
+      "description": "Lorepsagds dgs gdsgds assad gdsgdsgds",
+      "id": "system_declineHammerGripBenchPress",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_decline_hammer_grip_bench_press.png?alt=media&token=6d9103b2-5e3f-4fc4-b189-df5af9ba8b1e",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_hammer_grip_bench_press.png?alt=media&token=0050ec6d-7145-4c69-baa4-67f826c97ac2"
+    },
+    "system_declineKneePushUp": {
+      "name": "Decline Knee Push Up",
+      "description": "Lorepsagds dgs gdsgds gdsgds gdssdg",
+      "id": "system_declineKneePushUp",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_decline_knee_pushups.png?alt=media&token=2b547aa9-4c0e-428f-a94a-391d0b018fa3",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_knee_pushups.png?alt=media&token=98fe6bb1-7de6-47ef-b443-1a0bbfe6cfb5"
+    },
+    "system_declinePushUp": {
+      "name": "Decline Push Up",
+      "description": "Lorepsagds dgs gdsgds gdsgds gdsgsd",
+      "id": "system_declinePushUp",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_decline_pushups.png?alt=media&token=ab7bc4a7-8ae8-4773-85e7-12d755071c36",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_pushups.png?alt=media&token=f220e191-d829-4071-980f-ae2c0129d49d"
+    },
+    "system_diamondKneePushUp": {
+      "name": "Diamond Knee Push Up",
+      "description": "Lorepsagds gds dssaa gdsgds sda",
+      "id": "system_diamondKneePushUp",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_diamond_knee_pushup.png?alt=media&token=342c5002-5765-421c-a819-cf8c1dcb71c1",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdiamond_knee_pushup.png?alt=media&token=a3c26d30-59e9-4d67-94ee-824b08b42d92"
+    },
+    "system_diamondPushUp": {
+      "name": "Diamond Push Up",
+      "description": "Lorepsagds gds vdsds safsfa saf",
+      "id": "system_diamondPushUp",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_diamond_push_ups.png?alt=media&token=79f03c14-6971-4929-9310-9a1f417d4c67",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdiamond_push_ups.png?alt=media&token=25f52928-e5d3-445a-ba4d-be12cf63c32a"
+    },
+    "system_dumbbellFlies": {
+      "name": "Dumbbell Flies",
+      "description": "Lorepsagds gdsgds vdsdas safsfa saf",
+      "id": "system_dumbbellFlies",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_dumbell_flies.png?alt=media&token=4c53d69b-1baa-4c05-a1ee-9d6f404efa8a",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdumbell_flies.png?alt=media&token=e477ccec-ceab-42ef-b18f-226acb0b4068"
+    },
+    "system_hammerBenchPressDumbbell": {
+      "name": "Hammer Bench Press Dumbbell",
+      "description": "Lorepsagds gdsgds sdggds safsfa gdsgds",
+      "id": "system_hammerBenchPressDumbbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_hammer_bench_press_dumbell.png?alt=media&token=7f98fb1d-0cfc-45b0-bbb1-c0a2dbae0580",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fhammer_bench_press_dumbell.png?alt=media&token=4da15ea1-6d4d-4cb7-a026-4b1a9568b65f"
+    },
+    "system_inclineBenchPressBand": {
+      "name": "Incline Bench Press Band",
+      "description": "Lorepsagds gdsgds sdggds gdsdgs gdsgds",
+      "id": "system_inclineBenchPressBand",
+      "whoCreatedThisExercise": "system",
+      "category": "Band",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_bench_press_band.png?alt=media&token=995026f5-110a-422f-a106-252d1c4de17d",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_band.png?alt=media&token=208095de-89cf-46c0-9f3b-886d10023398"
+    },
+    "system_inclineBenchPressBarbell": {
+      "name": "Incline Bench Press Barbell",
+      "description": "Lorepsagds gdsgds sdggds gdsdgs asfgasgf",
+      "id": "system_inclineBenchPressBarbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Barbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_bench_press_barbell.png?alt=media&token=8c975b01-2651-4357-b5d8-db81ac2bd8ea",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_barbell.png?alt=media&token=528bf611-2777-4e6e-a77f-282b36eb0be8"
+    },
+    "system_inclineBenchPressCabel": {
+      "name": "Incline Bench Press Cabel",
+      "description": "Lorepsagds gdsgds sdggds gdsdgs asfgasgf",
+      "id": "system_inclineBenchPressCabel",
+      "whoCreatedThisExercise": "system",
+      "category": "Cabel",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_bench_press_cable.png?alt=media&token=3347fbc8-9206-4d07-877e-8053089335f9",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_cable.png?alt=media&token=c722f8c2-7629-4a3a-af61-df51bee5cb0d"
+    },
+    "system_inclineBenchPressDumbbell": {
+      "name": "Incline Bench Press Dumbbell",
+      "description": "Lorepsagds gdsgds sdggds gdsdgs asfgds",
+      "id": "system_inclineBenchPressDumbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_bench_press_dumbell.png?alt=media&token=7c8febe2-702f-4ee1-ba50-17253349d302",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_dumbell.png?alt=media&token=3c6a5820-bfb4-444f-98ff-34cd877dae12"
+    },
+    "system_inclineBenchPressSmith": {
+      "name": "Incline Bench Press Smith",
+      "description": "Lorepsagds gdsgds sdggds gsafdsdgs gdsgds",
+      "id": "system_inclineBenchPressSmith",
+      "whoCreatedThisExercise": "system",
+      "category": "Smith",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_bench_press_smith.png?alt=media&token=7c845184-4d0c-4d79-ba0e-0425be11bfc3",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_smith.png?alt=media&token=dea7b5ea-3bfe-4024-86ae-0d3bd6c5e996"
+    },
+    "system_inclineCloseGripBenchPressDumbbell": {
+      "name": "Incline Close Grip Bench Press Dumbbell",
+      "description": "Lorepsagds gdsgds gdsgds gsafdsdgs gdsgds",
+      "id": "system_inclineCloseGripBenchPressDumbbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_close_grip_bench_press_dumbell.png?alt=media&token=08f9671e-ce67-4d49-bedc-56e30f307aac",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_close_grip_bench_press_dumbell.png?alt=media&token=39b89d01-e8ad-4eb9-be02-a0cb346e195c"
+    },
+    "system_inclineDumbbellFlies": {
+      "name": "Incline Dumbbell Flies",
+      "description": "Lorepsagds gdsgds sdggds gsafdsdgs asgdgdsa",
+      "id": "system_inclineDumbbellFlies",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_close_grip_bench_press_dumbell.png?alt=media&token=08f9671e-ce67-4d49-bedc-56e30f307aac",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_close_grip_bench_press_dumbell.png?alt=media&token=39b89d01-e8ad-4eb9-be02-a0cb346e195c"
+    },
+    "system_inclineHammerBenchPressDumbbell": {
+      "name": "Incline Hammer Bench Press Dumbbell",
+      "description": "Lorepsagds gdsgds sdggds gdsdg gdsgds",
+      "id": "system_inclineHammerBenchPressDumbbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_hammer_bench_press_dumbell.png?alt=media&token=1d77f5ea-1fd2-4427-9d5f-de001829e26a",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_hammer_bench_press_dumbell.png?alt=media&token=0aee0c6f-482a-4fea-9456-010a776ef7ce"
+    },
+    "system_inclinePushUp": {
+      "name": "Incline Push Ups",
+      "description": "Lorepsagds gdsgds sdggds gdsdg gdsgds",
+      "id": "system_inclinePushUp",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_pushups.png?alt=media&token=91780275-c3ac-4070-807f-d4b3ed140150",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_pushups.png?alt=media&token=0969e4db-452a-4cc0-98e7-cf3289e668dc"
+    },
+    "system_isometricWipersPushUps": {
+      "name": "Isometric Wipers Push Ups",
+      "description": "Lorepsagds gdsgds sdg gdss gdsgds",
+      "id": "system_isometricWipersPushUps",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_isometric_wipers_pushups.png?alt=media&token=48065224-3626-4fa4-8437-65b23d9eeddf",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fisometric_wipers_pushups.png?alt=media&token=e5ea67bc-cf06-47a6-abbb-e6f890d41f28"
+    },
+    "system_kickThroughtsPushUps": {
+      "name": "Kick Throughts Push Ups",
+      "description": "Lorepsagds ga sadf fsafsa gds",
+      "id": "system_kickThroughtsPushUps",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_kick_throughs_pushups.png?alt=media&token=d011e4f3-e44a-442c-b51d-ff2653d526a5",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fkick_throughs_pushups.png?alt=media&token=4baab78e-2947-4334-be3c-4a90fc1a7691"
+    },
+    "system_kneePushUps": {
+      "name": "Knee Push Ups",
+      "description": "Lorepsagds ga sadf fsafsa gds",
+      "id": "system_kneePushUps",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_knee_pushups.png?alt=media&token=4ab385a8-b535-48c1-9972-2713909a3b1f",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fknee_pushups.png?alt=media&token=2f454a5e-3faf-4c49-99ab-8085e334074e"
+    },
+    "system_oneArmChestPressDumbbell": {
+      "name": "One Arm Chest Press Dumbbell",
+      "description": "Lorepsagds ga fds saf gds",
+      "id": "system_oneArmChestPressDumbbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_one_arm_chest_press_dumbell.png?alt=media&token=f2cb57d7-eebc-410d-955f-d6cf3d074d54",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fone_arm_chest_press_dumbell.png?alt=media&token=eb91f28d-1b46-47e3-8c30-04267e43ec34"
+    },
+    "system_oneArmChestPressSeatedMachine": {
+      "name": "One Arm Chest Press Seated Machine",
+      "description": "Lorepsagds ga fds saf gdsgds",
+      "id": "system_oneArmChestPressSeatedMachine",
+      "whoCreatedThisExercise": "system",
+      "category": "Machine",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_one_arm_chest_press_seated_machine.png?alt=media&token=da86c113-48db-4710-85e7-ff9a8308aad1",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fone_arm_chest_press_seated_machine.png?alt=media&token=df229ec9-620d-4bcc-b844-6911638550d8"
+    },
+    "system_pecDeck": {
+      "name": "Pec Deck",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_pecDeck",
+      "whoCreatedThisExercise": "system",
+      "category": "Machine",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_pec_deck.png?alt=media&token=136c53f0-c42e-4b13-94c1-c88a8fe36897",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fpec_deck.png?alt=media&token=c5a1628e-d2ba-4653-808b-b0bd668ade37"
+    },
+    "system_pulloverDumbbell": {
+      "name": "Pullover Dumbbell",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_pulloverDumbbell",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_pullover_dumbell.png?alt=media&token=e83a5e86-5427-431a-94d6-bd4c5d4c49d4",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fpullover_dumbell.png?alt=media&token=1b6c7602-523a-4cd4-b94e-8b0e093336d2"
+    },
+    "system_pushup": {
+      "name": "Push Ups",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_pushup",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_pushup.png?alt=media&token=ef7b713c-7c46-48f9-93f9-42fa5e4035d9",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fpushup.png?alt=media&token=ac31e4b6-d584-4a1b-95f7-e1862325620b"
+    },
+    "system_pushupBand": {
+      "name": "Push Ups Band",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_pushupBand",
+      "whoCreatedThisExercise": "system",
+      "category": "Band",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_pushup_band.png?alt=media&token=27c4e0b7-897b-49d8-ad87-7374d6205b20",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fpushup_band.png?alt=media&token=838af2b9-b818-4c22-8636-9f9c05b9d7f4"
+    },
+    "system_seatedChestDipsMachine": {
+      "name": "Seated Chest Dips Machine",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_seatedChestDipsMachine",
+      "whoCreatedThisExercise": "system",
+      "category": "Machine",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_seated_chest_dips_machine.png?alt=media&token=022c22c4-9687-4659-a77f-d4234f842919",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fseated_chest_dips_machine.png?alt=media&token=b00cbf7a-0a31-4050-a4af-2c0f986b650a"
+    },
+    "system_seatedChestFliesMachine": {
+      "name": "Seated Chest Flies Machine",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_seatedChestFliesMachine",
+      "whoCreatedThisExercise": "system",
+      "category": "Machine",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_seated_chest_flies_machine.png?alt=media&token=668f6bc2-2f0c-4b98-afca-09fbb64abe5a",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fseated_chest_flies_machine.png?alt=media&token=8f180acc-189c-4a59-8928-f92e6c7595d9"
+    },
+    "system_seatedChestPressBand": {
+      "name": "Seated Chest Press Band",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_seatedChestPressBand",
+      "whoCreatedThisExercise": "system",
+      "category": "Band",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_seated_chest_press_band.png?alt=media&token=65721a57-041c-4fb0-9728-91022ac1394b",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fseated_chest_press_band.png?alt=media&token=01f3192c-519c-41ed-8e72-71fbf309a914"
+    },
+    "system_shoulderTapPushup": {
+      "name": "Shoulder Tap Push Ups",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_shoulderTapPushup",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_shoulder_tap_pushups.png?alt=media&token=05f00449-154d-4f3d-80d1-e42381ddb90f",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fshoulder_tap_pushups.png?alt=media&token=a42725b7-1e8d-4a7c-bef3-7703fd90b152"
+    },
+    "system_spidermanPushUps": {
+      "name": "Spiderman Push Ups",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_spidermanPushUps",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_spiderman_pushups.png?alt=media&token=452d6a63-b45d-40a3-986b-56f6b19570ad",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fspiderman_pushups.png?alt=media&token=e69bacb9-aeeb-4398-bf67-c622eec1e765"
+    },
+    "system_stabilityBallDeclinePushUps": {
+      "name": "Stability Ball Decline Push Ups",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_stabilityBallDeclinePushUps",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_stability_ball_decline_pushups.png?alt=media&token=8122a29c-81c0-4a71-83f6-3a5591d0c3e7",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstability_ball_decline_pushups.png?alt=media&token=6481f853-8ae8-4bdf-b15f-0f7a45c5424c"
+    },
+    "system_standingCableCrossovers": {
+      "name": "Standing Cable Crossovers",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_standingCableCrossovers",
+      "whoCreatedThisExercise": "system",
+      "category": "Cable",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_standing_cable_crossovers.png?alt=media&token=8f4fcf48-cce4-4ba3-9326-cabb18a5e776",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_cable_crossovers.png?alt=media&token=5e981dd8-b01d-4624-8070-dd447d7a0eea"
+    },
+    "system_standingCableCrossoversLower": {
+      "name": "Standing Cable Crossovers Lower",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_standingCableCrossoversLower",
+      "whoCreatedThisExercise": "system",
+      "category": "Cable",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_standing_cable_crossovers_lower.png?alt=media&token=d838c334-0f5c-49d2-b5f8-40faa4a42c07",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_cable_crossovers_lower.png?alt=media&token=72e1cae6-3ba5-469b-8473-0e2bc388981c"
+    },
+    "system_standingCableCrossoversUpper": {
+      "name": "Standing Cable Crossovers Upper",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_standingCableCrossoversUpper",
+      "whoCreatedThisExercise": "system",
+      "category": "Cable",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_standing_cable_crossovers_upper.png?alt=media&token=32c97ef0-bcc2-460e-9d6f-1a52fee21b16",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_cable_crossovers_upper.png?alt=media&token=fe157d22-093b-4733-b44b-0c32b9a35dbc"
+    },
+    "system_standingChestFliesBand": {
+      "name": "Standing Chest Flies Band",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_standingChestFliesBand",
+      "whoCreatedThisExercise": "system",
+      "category": "Band",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_standing_chest_flies_band.png?alt=media&token=e88aeda4-d0bb-4a07-aa33-0aa396ebb5e2",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_chest_flies_band.png?alt=media&token=87da9fdc-d2fe-4675-bd85-feef3f83934f"
+    },
+    "system_standingChestPressLowBand": {
+      "name": "Standing Chest Press Low Band",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_standingChestPressLowBand",
+      "whoCreatedThisExercise": "system",
+      "category": "Band",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_standing_chest_press_low_band.png?alt=media&token=ec78edc7-789d-4762-8a7c-b260a7689701",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_chest_press_low_band.png?alt=media&token=4ebfc70a-6b57-46e9-9d0c-5a9ba171d4f7"
+    },
+    "system_standingChestPressUpperBand": {
+      "name": "Standing Chest Press Upper Band",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_standingChestPressUpperBand",
+      "whoCreatedThisExercise": "system",
+      "category": "Band",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_standing_chest_press_upper_band.png?alt=media&token=f3c86fed-baba-44e5-9cc8-942b03cfd6a4",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_chest_press_upper_band.png?alt=media&token=e07963bc-3a8c-4bc9-b2b2-317637408826"
+    },
+    "system_standingPlatePress": {
+      "name": "Standing Plate Press",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_standingPlatePress",
+      "whoCreatedThisExercise": "system",
+      "category": "Dumbbell",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_standing_plate_press.png?alt=media&token=91e95646-fc7d-445d-af2f-b5468e5e3be7",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_plate_press.png?alt=media&token=fb44361f-6a71-45e9-a785-3200d2cb97b2"
+    },
+    "system_wideHandPushups": {
+      "name": "Wide Hand Push Ups",
+      "description": "Lorepsagds ga fds saf gdsds",
+      "id": "system_wideHandPushups",
+      "whoCreatedThisExercise": "system",
+      "category": "Bodywheight",
+      "bodyPart": "Chest",
+      "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_wide_hand_pushups.png?alt=media&token=89371690-e3f6-4b7d-85f8-5098415e0cc2",
+      "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fwide_hand_pushups.png?alt=media&token=fb0a65a8-a3f6-4f46-b6f6-cfb7116bcf88"
+    }
+  }
+}

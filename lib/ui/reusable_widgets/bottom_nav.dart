@@ -10,37 +10,42 @@ class BottomNavigationBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(currentIndex: selectedPage, onTap: onTap, items: const <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        tooltip: toolTiMyProfilePage,
-        icon: PaddingWidget(
-          type: 'only',
-          onlyBottom: 7.5,
-          onlyLeft: 5,
-          child: Icon(FontAwesomeIcons.user),
-        ),
-        label: labelMyProfile,
-      ),
-      BottomNavigationBarItem(
-        tooltip: toolTipWorkoutHistoryPage,
-        icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.clock)),
-        label: labelWorkoutHistory,
-      ),
-      BottomNavigationBarItem(
-        tooltip: toolTipStartWorkout,
-        icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.plusCircle)),
-        label: labelStartWorkout,
-      ),
-      BottomNavigationBarItem(
-        tooltip: toolTipAllExercises,
-        icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.dumbbell)),
-        label: labelAllExercises,
-      ),
-      BottomNavigationBarItem(
-        tooltip: toolTipStatistics,
-        icon: PaddingWidget(type: 'only', onlyBottom: 7.5, onlyRight: 5, child: Icon(FontAwesomeIcons.chartLine)),
-        label: labelStatistics,
-      ),
-    ]);
+    final Size screenSize = MediaQuery.of(context).size;
+    return BottomNavigationBar(
+        currentIndex: selectedPage,
+        onTap: onTap,
+        selectedFontSize: screenSize.width / 34,
+        unselectedFontSize: screenSize.width / 34,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            tooltip: toolTiMyProfilePage,
+            icon: PaddingWidget(
+              type: 'only',
+              onlyBottom: 7.5,
+              child: Icon(FontAwesomeIcons.user),
+            ),
+            label: labelMyProfile,
+          ),
+          BottomNavigationBarItem(
+            tooltip: toolTipWorkoutHistoryPage,
+            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.clock)),
+            label: labelWorkoutHistory,
+          ),
+          BottomNavigationBarItem(
+            tooltip: toolTipStartWorkout,
+            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.plusCircle)),
+            label: labelStartWorkout,
+          ),
+          BottomNavigationBarItem(
+            tooltip: toolTipAllExercises,
+            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.dumbbell)),
+            label: labelAllExercises,
+          ),
+          BottomNavigationBarItem(
+            tooltip: toolTipStatistics,
+            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.chartLine)),
+            label: labelStatistics,
+          ),
+        ]);
   }
 }

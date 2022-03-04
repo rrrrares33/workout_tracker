@@ -19,15 +19,16 @@ class ThemeClass {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       elevation: 20,
-      backgroundColor: Colors.black,
-      unselectedItemColor: Colors.grey,
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.white70,
+      unselectedItemColor: Colors.black87,
       selectedItemColor: Colors.greenAccent[400],
       selectedIconTheme: IconThemeData(
-        size: 30,
+        size: 25,
         color: Colors.greenAccent[400],
       ),
       unselectedIconTheme: const IconThemeData(
-        size: 25,
+        size: 17.5,
       ),
       showSelectedLabels: true,
     ),

@@ -1,11 +1,12 @@
 import 'package:firebase_database/firebase_database.dart';
+import '../models/exercise.dart';
 import '../models/user_database.dart';
 
 class DatabaseService {
   DatabaseService() {
     _firebaseDB = FirebaseDatabase.instance;
     _usersRef = _firebaseDB.ref().child('Users');
-    // _exercisesRef = _firebaseDB.ref().child('Exercises');
+    _exercisesRef = _firebaseDB.ref().child('Exercises');
   }
 
   // Here I try to initialize everything from the database into the app,
@@ -22,9 +23,7 @@ class DatabaseService {
   // We store the instance of the database in a private param.
   late final FirebaseDatabase _firebaseDB;
   late final DatabaseReference _usersRef;
-  // late final DatabaseReference _exercisesRef;
-
-  //_usersRef = _firebaseDB.ref().child('users').set("salam");
+  late final DatabaseReference _exercisesRef;
 
   List<UserDB> _allUsers = <UserDB>[];
 
@@ -42,8 +41,7 @@ class DatabaseService {
     if (event.snapshot.value == null) {
       return <UserDB>[];
     }
-    // ignore: cast_nullable_to_non_nullable
-    final Map<dynamic, dynamic> result = event.snapshot.value as Map<dynamic, dynamic>;
+    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
     if (result.isEmpty) {
       return <UserDB>[];
     }
@@ -97,5 +95,23 @@ class DatabaseService {
       'height': height.toString(),
       'weightType': weightType.toString()
     });
+  }
+
+  Future<List<Exercise>> getAllExercisesFromDatabaseForUser(String uid) async {
+    final List<Exercise> exercises = <Exercise>[];
+    final DatabaseEvent event = await _exercisesRef.once();
+    if (event.snapshot.value == null) {
+      return <Exercise>[];
+    }
+    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
+    if (result.isEmpty) {
+      return <Exercise>[];
+    }
+    result.forEach((dynamic key, dynamic value) {
+      value = value as Map<dynamic, dynamic>;
+      final Exercise exercise = Exercise.fromJson(value);
+      exercises.add(exercise);
+    });
+    return exercises;
   }
 }

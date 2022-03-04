@@ -16,17 +16,17 @@ class Exercise {
         difficulty = json['difficulty'].toString();
 
   Map<String, String?> toJson() => <String, String?>{
-    'name': name,
-    'description': description,
-    'id': id,
-    'whoCreatedThisExercise': whoCreatedThisExercise,
-    'category': category,
-    'bodyPart': bodyPart,
-    'icon': icon,
-    'biggerImage': biggerImage,
-    'exerciseVideo': exerciseVideo,
-    'difficulty': difficulty
-  };
+        'name': name,
+        'description': description,
+        'id': id,
+        'whoCreatedThisExercise': whoCreatedThisExercise,
+        'category': category,
+        'bodyPart': bodyPart,
+        'icon': icon,
+        'biggerImage': biggerImage,
+        'exerciseVideo': exerciseVideo,
+        'difficulty': difficulty
+      };
 
   final String name;
   final String description;

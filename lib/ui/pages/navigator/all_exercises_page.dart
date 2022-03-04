@@ -1,9 +1,19 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../utils/firebase/database_service.dart';
+import '../../../utils/models/exercise.dart';
 import '../../../utils/models/user_database.dart';
+import '../../reusable_widgets/dropdown_button.dart';
+import '../../reusable_widgets/exercise_small.dart';
 import '../../reusable_widgets/loading.dart';
 import '../../reusable_widgets/padding.dart';
+import '../../reusable_widgets/sliver_top_bar.dart';
+import '../../text/all_exercises_text.dart';
+
+const double expandedHeight = 50;
+const double toolbarHeight = 25;
 
 class AllExercisesPage extends StatefulWidget {
   const AllExercisesPage({Key? key, required this.user}) : super(key: key);
@@ -14,27 +24,139 @@ class AllExercisesPage extends StatefulWidget {
 }
 
 class _AllExercisesPageState extends State<AllExercisesPage> {
-  bool logoutPressed = false;
+  late ScrollController _scrollController;
+  String _chosenValueBodyPart = defaultBodyPart;
+  String _chosenValueCategory = defaultCategory;
+  final TextEditingController _searchController = TextEditingController();
+
+  bool get _showBigLeftTitle {
+    return _scrollController.hasClients && _scrollController.offset > expandedHeight - toolbarHeight;
+  }
+
+  @override
+  void initState() {
+    _scrollController = ScrollController()..addListener(() => setState(() {}));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final DatabaseService databaseService = Provider.of<DatabaseService>(context);
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
-        backgroundColor: Colors.green,
-        body: Column(
-          children: <Widget>[
-            PaddingWidget(
-              type: 'only',
-              onlyTop: 40,
-              child: CachedNetworkImage(
-                imageUrl:
-                    'https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_barbell.png?alt=media&token=6d45ca32-0ca7-4c7e-954b-2d43e06b6e14',
-                placeholder: (BuildContext context, String url) => const LoadingWidget(),
-                errorWidget: (BuildContext context, String url, dynamic error) => const Icon(Icons.error),
-                width: 200.0,
-                height: 200.0,
-              ),
-            ),
-          ],
-        ));
+      body: FutureBuilder<List<Exercise>>(
+          future: databaseService.getAllExercisesFromDatabaseForUser(widget.user.uid),
+          builder: (BuildContext context, AsyncSnapshot<List<Exercise>> snapshot) {
+            if (snapshot.hasData) {
+              final List<Exercise>? exerciseList = snapshot.data;
+              exerciseList?.sort(
+                  (Exercise a, Exercise b) => removeCategoryFromName(a.name).compareTo(removeCategoryFromName(b.name)));
+              return CustomScrollView(
+                controller: _scrollController,
+                slivers: <Widget>[
+                  SliverTopBar(
+                      expandedHeight: expandedHeight,
+                      toolbarHeight: toolbarHeight,
+                      textExpanded: topSliverText,
+                      textToolbar: topSliverText,
+                      showBigTitle: _showBigLeftTitle),
+                  SliverAppBar(
+                    elevation: 0,
+                    toolbarHeight: 115,
+                    primary: false,
+                    pinned: true,
+                    centerTitle: true,
+                    title: Column(
+                      children: <Widget>[
+                        PaddingWidget(
+                          type: 'only',
+                          onlyTop: 20,
+                          child: SizedBox(
+                              height: screenSize.height / 22.5,
+                              width: screenSize.width * 0.95,
+                              child: CupertinoTextField(
+                                controller: _searchController,
+                                keyboardType: TextInputType.text,
+                                placeholder: placeHolderSearchBar,
+                                prefix: const Padding(
+                                  padding: EdgeInsets.fromLTRB(9.0, 6.0, 9.0, 6.0),
+                                  child: Icon(
+                                    Icons.search,
+                                    color: Color(0xffC4C6CC),
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  color: const Color(0xffF0F1F5),
+                                ),
+                                onChanged: (_) {},
+                              )),
+                        ),
+                        Center(
+                          child: PaddingWidget(
+                            type: 'symmetric',
+                            vertical: 10,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                DropDownButtonWidget(
+                                  defaultValue: defaultBodyPart,
+                                  currentValue: _chosenValueBodyPart,
+                                  width: screenSize.width / 3,
+                                  height: screenSize.height / 27.5,
+                                  items: bodyPart,
+                                  bolt: true,
+                                  onChanged: (String? value) {
+                                    setState(() {
+                                      _chosenValueBodyPart = value!;
+                                    });
+                                  },
+                                ),
+                                PaddingWidget(type: 'symmetric', horizontal: screenSize.width / 10 / 2),
+                                DropDownButtonWidget(
+                                  defaultValue: defaultCategory,
+                                  currentValue: _chosenValueCategory,
+                                  width: screenSize.width / 3,
+                                  height: screenSize.height / 27.5,
+                                  items: category,
+                                  bolt: true,
+                                  onChanged: (String? value) {
+                                    setState(() {
+                                      _chosenValueCategory = value!;
+                                    });
+                                  },
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return ExerciseSmallShow(
+                        image: (exerciseList?[index].icon)!,
+                        name: (exerciseList?[index].name)!,
+                        bodyPart: (exerciseList?[index].bodyPart)!,
+                        category: exerciseList?[index].category,
+                        imageWidth: screenSize.width / 6,
+                        imageHeight: screenSize.width / 6,
+                        onTap: () {},
+                      );
+                    },
+                    childCount: exerciseList?.length,
+                  ))
+                ],
+              );
+            } else {
+              return const Center(
+                child: LoadingWidget(),
+              );
+            }
+          }),
+    );
   }
 }

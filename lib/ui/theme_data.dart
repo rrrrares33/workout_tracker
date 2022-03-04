@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ThemeClass {
@@ -38,8 +39,12 @@ class ThemeClass {
     fontFamily: 'Times New Roman',
     scaffoldBackgroundColor: Colors.black54,
     colorScheme: const ColorScheme.dark(),
+    primaryColor: Colors.black,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.grey[800],
+    ),
+    buttonTheme: const ButtonThemeData(
+      textTheme: ButtonTextTheme.accent,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       elevation: 20,

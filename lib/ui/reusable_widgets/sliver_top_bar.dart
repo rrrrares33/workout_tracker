@@ -9,13 +9,15 @@ class SliverTopBar extends StatelessWidget {
       required this.toolbarHeight,
       required this.textExpanded,
       required this.textToolbar,
-      required this.showBigTitle})
+      required this.showBigTitle,
+      this.leading})
       : super(key: key);
   final double expandedHeight;
   final double toolbarHeight;
   final bool showBigTitle;
   final String textExpanded;
   final String textToolbar;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class SliverTopBar extends StatelessWidget {
       expandedHeight: expandedHeight,
       toolbarHeight: toolbarHeight,
       centerTitle: true,
+      leading: leading,
       title: showBigTitle
           ? PaddingWidget(
               type: 'only',

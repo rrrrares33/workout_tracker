@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
+import '../../../business_logic/all_exercises_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/models/exercise.dart';
 import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/dropdown_button.dart';
+import '../../reusable_widgets/exercise_full.dart';
 import '../../reusable_widgets/exercise_small.dart';
 import '../../reusable_widgets/loading.dart';
 import '../../reusable_widgets/padding.dart';
@@ -49,9 +52,11 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
           future: databaseService.getAllExercisesFromDatabaseForUser(widget.user.uid),
           builder: (BuildContext context, AsyncSnapshot<List<Exercise>> snapshot) {
             if (snapshot.hasData) {
-              final List<Exercise>? exerciseList = snapshot.data;
+              List<Exercise>? exerciseList = snapshot.data;
               exerciseList?.sort(
                   (Exercise a, Exercise b) => removeCategoryFromName(a.name).compareTo(removeCategoryFromName(b.name)));
+              exerciseList = filterResults(
+                  exerciseList ?? <Exercise>[], _chosenValueCategory, _chosenValueBodyPart, _searchController.text);
               return CustomScrollView(
                 controller: _scrollController,
                 slivers: <Widget>[
@@ -60,6 +65,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                       toolbarHeight: toolbarHeight,
                       textExpanded: topSliverText,
                       textToolbar: topSliverText,
+                      leading: Container(),
                       showBigTitle: _showBigLeftTitle),
                   SliverAppBar(
                     elevation: 0,
@@ -67,6 +73,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                     primary: false,
                     pinned: true,
                     centerTitle: true,
+                    automaticallyImplyLeading: false,
                     title: Column(
                       children: <Widget>[
                         PaddingWidget(
@@ -77,6 +84,9 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                               width: screenSize.width * 0.95,
                               child: CupertinoTextField(
                                 controller: _searchController,
+                                onChanged: (_) {
+                                  setState(() {});
+                                },
                                 keyboardType: TextInputType.text,
                                 placeholder: placeHolderSearchBar,
                                 prefix: const Padding(
@@ -90,7 +100,21 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                                   borderRadius: BorderRadius.circular(8.0),
                                   color: const Color(0xffF0F1F5),
                                 ),
-                                onChanged: (_) {},
+                                suffix: PaddingWidget(
+                                  type: 'all',
+                                  all: 5,
+                                  child: GestureDetector(
+                                    child: _searchController.text != ''
+                                        ? const Icon(FontAwesomeIcons.solidTimesCircle, color: Colors.grey)
+                                        : Container(),
+                                    onTap: () {
+                                      setState(() {
+                                        _searchController.clear();
+                                        FocusManager.instance.primaryFocus?.unfocus();
+                                      });
+                                    },
+                                  ),
+                                ),
                               )),
                         ),
                         Center(
@@ -144,10 +168,19 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                         category: exerciseList?[index].category,
                         imageWidth: screenSize.width / 6,
                         imageHeight: screenSize.width / 6,
-                        onTap: () {},
+                        onTap: () => showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => ExerciseFull(
+                            image: (exerciseList?[index].icon)!,
+                            name: (exerciseList?[index].name)!,
+                            bodyPart: (exerciseList?[index].bodyPart)!,
+                            category: exerciseList?[index].category,
+                            description: exerciseList?[index].description,
+                          ),
+                        ),
                       );
                     },
-                    childCount: exerciseList?.length,
+                    childCount: exerciseList.length,
                   ))
                 ],
               );

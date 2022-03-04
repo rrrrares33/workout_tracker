@@ -31,6 +31,7 @@ dependencies:
   snack: ^2.0.0
   cached_network_image: ^3.2.0
   dropdown_button2: ^1.2.0
+  flutter_smart_dialog: ^3.4.0+1
 
 dev_dependencies:
   flutter_test:

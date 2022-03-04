@@ -38,3 +38,4 @@ const String passwordCapitalChecker = '  At least one upper case letter (ex: ABC
 const String passwordLowerChecker = '  At least one lower case letter (ex: abc)';
 const String passwordNumberChecker = '  At least one numbers (ex: 523)';
 const String passwordSymbolChecker = '  At least one symbol (ex: "<>:)';
+const String passwordAndConfirmEqual = '  Password and confirm are equal.';

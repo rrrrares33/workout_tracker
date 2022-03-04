@@ -260,12 +260,12 @@
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_bench_press_barbell.png?alt=media&token=8c975b01-2651-4357-b5d8-db81ac2bd8ea",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_barbell.png?alt=media&token=528bf611-2777-4e6e-a77f-282b36eb0be8"
     },
-    "system_inclineBenchPressCabel": {
-      "name": "Incline Bench Press Cabel",
+    "system_inclineBenchPressCable": {
+      "name": "Incline Bench Press Cable",
       "description": "Lorepsagds gdsgds sdggds gdsdgs asfgasgf",
-      "id": "system_inclineBenchPressCabel",
+      "id": "system_inclineBenchPressCable",
       "whoCreatedThisExercise": "system",
-      "category": "Cabel",
+      "category": "Cable",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_bench_press_cable.png?alt=media&token=3347fbc8-9206-4d07-877e-8053089335f9",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_cable.png?alt=media&token=c722f8c2-7629-4a3a-af61-df51bee5cb0d"
@@ -1185,7 +1185,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_latPulldownCloseUnderhandGrip",
       "whoCreatedThisExercise": "system",
-      "category": "Cabel",
+      "category": "Cable",
       "bodyPart": "Back",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ficons%2FIcon_Narrow_Underhand_Grip_Lat_Pulldown.png?alt=media&token=d3163995-34ca-41aa-a6b7-36ae32d57961",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FNarrow_Underhand_Grip_Lat_Pulldown.png?alt=media&token=1968d560-55ff-4ebb-9dc3-c4eb2445ea4e"
@@ -2035,7 +2035,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_overheadRopeExtension",
       "whoCreatedThisExercise": "system",
-      "category": "Cabel",
+      "category": "Cable",
       "bodyPart": "Triceps",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ficons%2Ficon_two_arm_overhead_rope_triceps_extension.png?alt=media&token=6a1c12a6-8d9c-4af4-a272-76508c06940e",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftwo_arm_overhead_rope_triceps_extension.png?alt=media&token=e09cb43a-92c1-4358-8cda-6519fe132bb7"

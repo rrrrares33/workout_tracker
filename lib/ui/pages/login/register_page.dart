@@ -262,7 +262,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                           ),
                         ),
                         const TextSpan(
-                          text: '  Password and confirm are equal.',
+                          text: passwordAndConfirmEqual,
                           style: TextStyle(
                             fontStyle: FontStyle.italic,
                           ),

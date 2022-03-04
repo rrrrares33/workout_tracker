@@ -6,22 +6,8 @@ import 'text.dart';
 
 String removeCategoryFromName(String name) {
   const List<String> listOfCategories = <String>[
-    'Barbell ',
-    'Weighted Bodyweight ',
-    'Assisted Bodyweight ',
     'One Arm ',
-    'Reps ',
-    'Cardio ',
-    'Grip ',
-    'Duration ',
-    'Barbell',
-    'Weighted Bodyweight',
-    'Assisted Bodyweight',
     'One Arm',
-    'Reps',
-    'Cardio',
-    'Grip',
-    'Duration',
   ];
   for (final String aux in listOfCategories) {
     name = name.replaceAll(aux, '');

@@ -5,7 +5,7 @@ const String topSliverText = 'All exercises';
 
 const List<String> category = <String>[
   'Time',
-  'Cabel',
+  'Cable',
   'Barbell',
   'Machine',
   'Dumbbell',

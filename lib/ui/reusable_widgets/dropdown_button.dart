@@ -43,6 +43,7 @@ class DropDownButtonWidget extends StatelessWidget {
                     text: value,
                     fontSize: fontSize ?? 12,
                     weight: (bolt ?? false) ? FontWeight.bold : FontWeight.normal,
+                    color: Theme.of(context).primaryColor,
                   )),
                 );
               }).toList(),
@@ -52,6 +53,9 @@ class DropDownButtonWidget extends StatelessWidget {
               alignment: AlignmentDirectional.center,
               buttonWidth: width,
               buttonHeight: height,
+              dropdownDecoration: const BoxDecoration(
+                color: Colors.white,
+              ),
               iconSize: 0.0,
               isExpanded: true,
               isDense: true,

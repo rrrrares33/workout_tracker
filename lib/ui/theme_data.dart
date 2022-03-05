@@ -5,6 +5,10 @@ class ThemeClass {
   static ThemeData lightTheme = ThemeData(
     fontFamily: 'Times New Roman',
     scaffoldBackgroundColor: Colors.grey[250],
+    // Main text color.
+    primaryColor: Colors.black,
+    // Top-most sliver color.
+    secondaryHeaderColor: Colors.black,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.grey,
     ),
@@ -40,6 +44,7 @@ class ThemeClass {
     scaffoldBackgroundColor: Colors.black54,
     colorScheme: const ColorScheme.dark(),
     primaryColor: Colors.black,
+    secondaryHeaderColor: Colors.white,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.grey[800],
     ),

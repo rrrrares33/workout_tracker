@@ -34,7 +34,7 @@ class SliverTopBar extends StatelessWidget {
               onlyTop: 10,
               child: TextWidget(
                 text: textExpanded,
-                color: Colors.black,
+                color: Theme.of(context).secondaryHeaderColor,
                 fontSize: 17,
               ),
             )

@@ -69,7 +69,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                       showBigTitle: _showBigLeftTitle),
                   SliverAppBar(
                     elevation: 0,
-                    toolbarHeight: 115,
+                    toolbarHeight: 100,
                     primary: false,
                     pinned: true,
                     centerTitle: true,
@@ -78,7 +78,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                       children: <Widget>[
                         PaddingWidget(
                           type: 'only',
-                          onlyTop: 20,
+                          onlyTop: 10,
                           child: SizedBox(
                               height: screenSize.height / 22.5,
                               width: screenSize.width * 0.95,
@@ -89,16 +89,19 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                                 },
                                 keyboardType: TextInputType.text,
                                 placeholder: placeHolderSearchBar,
-                                prefix: const Padding(
-                                  padding: EdgeInsets.fromLTRB(9.0, 6.0, 9.0, 6.0),
+                                prefix: Padding(
+                                  padding: const EdgeInsets.fromLTRB(9.0, 6.0, 9.0, 6.0),
                                   child: Icon(
                                     Icons.search,
-                                    color: Color(0xffC4C6CC),
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                 ),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(8.0),
                                   color: const Color(0xffF0F1F5),
+                                ),
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
                                 ),
                                 suffix: PaddingWidget(
                                   type: 'all',
@@ -171,7 +174,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                         onTap: () => showDialog<String>(
                           context: context,
                           builder: (BuildContext context) => ExerciseFull(
-                            image: (exerciseList?[index].icon)!,
+                            image: (exerciseList?[index].biggerImage)!,
                             name: (exerciseList?[index].name)!,
                             bodyPart: (exerciseList?[index].bodyPart)!,
                             category: exerciseList?[index].category,

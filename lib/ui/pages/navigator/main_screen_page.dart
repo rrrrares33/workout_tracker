@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/bottom_nav.dart';
 import 'all_exercises_page.dart';
 import 'my_profile.dart';
@@ -9,8 +8,7 @@ import 'statistics_and_charts_page.dart';
 import 'workout_history_page.dart';
 
 class MainScreenPage extends StatefulWidget {
-  const MainScreenPage({Key? key, required this.user}) : super(key: key);
-  final UserDB user;
+  const MainScreenPage({Key? key}) : super(key: key);
 
   @override
   State<MainScreenPage> createState() => _MainScreenPageState();
@@ -24,11 +22,11 @@ class _MainScreenPageState extends State<MainScreenPage> {
   @override
   void initState() {
     _pageOptions = <Widget>[
-      MyProfilePage(user: widget.user),
-      WorkoutHistoryPage(user: widget.user),
-      StartWorkoutPage(user: widget.user),
-      AllExercisesPage(user: widget.user),
-      StatisticsAndChartsPage(user: widget.user)
+      const MyProfilePage(),
+      const WorkoutHistoryPage(),
+      const StartWorkoutPage(),
+      const AllExercisesPage(),
+      const StatisticsAndChartsPage()
     ];
     _currentPageIndex = 2;
     _logoutPressed = false;

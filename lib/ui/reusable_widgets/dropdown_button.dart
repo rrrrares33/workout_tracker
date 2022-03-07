@@ -13,7 +13,9 @@ class DropDownButtonWidget extends StatelessWidget {
       required this.width,
       required this.height,
       required this.currentValue,
-      required this.defaultValue})
+      required this.defaultValue,
+      this.iconSize,
+      this.align})
       : super(key: key);
   final List<String> items;
   final String currentValue;
@@ -23,6 +25,8 @@ class DropDownButtonWidget extends StatelessWidget {
   final double height;
   final double? fontSize;
   final bool? bolt;
+  final double? iconSize;
+  final Alignment? align;
 
   @override
   Widget build(BuildContext context) {
@@ -50,13 +54,13 @@ class DropDownButtonWidget extends StatelessWidget {
               value: currentValue,
               onChanged: onChanged,
               underline: Container(),
-              alignment: AlignmentDirectional.center,
+              alignment: align ?? AlignmentDirectional.center,
               buttonWidth: width,
               buttonHeight: height,
               dropdownDecoration: const BoxDecoration(
                 color: Colors.white,
               ),
-              iconSize: 0.0,
+              iconSize: iconSize ?? 0.0,
               isExpanded: true,
               isDense: true,
             )));

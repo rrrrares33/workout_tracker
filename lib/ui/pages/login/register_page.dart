@@ -71,6 +71,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                         child: TextFieldWidget(
                           obscureText: doNotShowPassword,
+                          maxLines: 1,
                           enableSuggestions: false,
                           autoCorrect: false,
                           borderType: const OutlineInputBorder(),
@@ -102,6 +103,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                         child: TextFieldWidget(
                           obscureText: doNotShowPassword,
+                          maxLines: 1,
                           enableSuggestions: false,
                           autoCorrect: false,
                           borderType: const OutlineInputBorder(),

@@ -19,7 +19,10 @@ class TextFieldWidget extends StatefulWidget {
       this.autoCorrect,
       this.enableSuggestions,
       this.obscureText,
-      this.suffixIcon})
+      this.suffixIcon,
+      this.fontSize,
+      this.maxLines,
+      this.hintText})
       : super(key: key);
   final TextEditingController controller;
   final Function(String?)? onChangedCustom;
@@ -36,6 +39,9 @@ class TextFieldWidget extends StatefulWidget {
   final WeightMetric? weightMetric;
   final TextInputType? keyboardType;
   final Widget? suffixIcon;
+  final double? fontSize;
+  final int? maxLines;
+  final String? hintText;
 
   @override
   TextFieldWidgetState createState() => TextFieldWidgetState();
@@ -74,11 +80,16 @@ class TextFieldWidgetState extends State<TextFieldWidget> {
         contentPadding: widget.contentPadding ?? const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: widget.borderType ?? const UnderlineInputBorder(),
         labelText: widget.labelText,
+        hintText: widget.hintText,
         errorText: widget.errorText == null
             ? generatedError
             : widget.onChangedWeight!(widget.controller.text, widget.weightMetric) as String?,
         suffixIcon: widget.suffixIcon,
       ),
+      style: TextStyle(
+        fontSize: widget.fontSize,
+      ),
+      maxLines: widget.maxLines,
     );
   }
 }

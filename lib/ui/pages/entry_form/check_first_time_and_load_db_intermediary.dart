@@ -5,7 +5,7 @@ import '../../../business_logic/login_and_register_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/loading.dart';
-import '../navigator/main_screen_page.dart';
+import 'load_all_exercises_before_opening.dart';
 import 'user_details_form_page.dart';
 
 class CheckFirstTimeAndLoadDB extends StatelessWidget {
@@ -17,7 +17,7 @@ class CheckFirstTimeAndLoadDB extends StatelessWidget {
   Widget build(BuildContext context) {
     final DatabaseService databaseService = Provider.of<DatabaseService>(context);
     return FutureBuilder<bool>(
-      future: databaseService.initializeEntities(),
+      future: databaseService.loadUsers(),
       builder: (BuildContext context, AsyncSnapshot<bool> snapshotFuture) {
         if (!snapshotFuture.hasData) {
           return const LoadingWidget();
@@ -26,7 +26,14 @@ class CheckFirstTimeAndLoadDB extends StatelessWidget {
           if (loggedUser?.firstEntry == true) {
             return UserDetailsForm(loggedUserUid: loggedUserUid, loggedEmail: loggedEmail);
           } else {
-            return MainScreenPage(user: loggedUser!);
+            return MultiProvider(
+              providers: <Provider<dynamic>>[
+                Provider<UserDB>(
+                  create: (_) => loggedUser!,
+                ),
+              ],
+              child: const LoadAllExercisesIntermediary(),
+            );
           }
         }
       },

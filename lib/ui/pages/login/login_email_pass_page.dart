@@ -85,6 +85,7 @@ class _LogInPageEmailAndPasswordState extends State<LogInPageEmailAndPassword> w
                       borderType: const OutlineInputBorder(),
                       onChanged: (_) {},
                       obscureText: doNotShowPassword,
+                      maxLines: 1,
                       enableSuggestions: false,
                       autoCorrect: false,
                       controller: passwordController,

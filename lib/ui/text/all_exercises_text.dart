@@ -2,6 +2,10 @@ const String defaultBodyPart = 'Any Body Part';
 const String defaultCategory = 'Any Category';
 const String placeHolderSearchBar = 'Search...';
 const String topSliverText = 'All Exercises';
+const String noExerciseFound = 'No Exercises Found';
+const String useOtherFilters1 = 'Please try a different combination of filters';
+const String useOtherFilters2 = 'or create a new exercise';
+const String addNewExerciseText = 'Add a new exercise';
 
 const List<String> category = <String>[
   'Time',
@@ -9,9 +13,9 @@ const List<String> category = <String>[
   'Barbell',
   'Machine',
   'Dumbbell',
-  'Bodywheight',
+  'Bodyweight',
   'Any Category',
-  'Assisted Bodywheight',
+  'Assisted Bodyweight',
 ];
 
 const List<String> bodyPart = <String>[

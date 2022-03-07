@@ -5,6 +5,9 @@ class ThemeClass {
   static ThemeData lightTheme = ThemeData(
     fontFamily: 'Times New Roman',
     scaffoldBackgroundColor: Colors.grey[250],
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.greenAccent[400],
+    ),
     // Main text color.
     primaryColor: Colors.black,
     // Top-most sliver color.
@@ -43,6 +46,9 @@ class ThemeClass {
     fontFamily: 'Times New Roman',
     scaffoldBackgroundColor: Colors.black54,
     colorScheme: const ColorScheme.dark(),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.greenAccent[400],
+    ),
     primaryColor: Colors.black,
     secondaryHeaderColor: Colors.white,
     appBarTheme: AppBarTheme(

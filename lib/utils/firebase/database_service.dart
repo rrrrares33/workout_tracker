@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/cupertino.dart';
 import '../models/exercise.dart';
 import '../models/user_database.dart';
 
@@ -12,7 +13,7 @@ class DatabaseService {
   // Here I try to initialize everything from the database into the app,
   //  so it will be easier for the program to process everything without
   //  waiting times.
-  Future<bool> initializeEntities() async {
+  Future<bool> loadUsers() async {
     // Starts loading database data.
     // print('Data started loading');
     _allUsers = await getAllUsers();
@@ -26,6 +27,7 @@ class DatabaseService {
   late final DatabaseReference _exercisesRef;
 
   List<UserDB> _allUsers = <UserDB>[];
+  List<Exercise> _allExercises = <Exercise>[];
 
   List<UserDB> getUsers() {
     return _allUsers;
@@ -97,21 +99,48 @@ class DatabaseService {
     });
   }
 
-  Future<List<Exercise>> getAllExercisesFromDatabaseForUser(String uid) async {
-    final List<Exercise> exercises = <Exercise>[];
-    final DatabaseEvent event = await _exercisesRef.once();
-    if (event.snapshot.value == null) {
-      return <Exercise>[];
+  // Gets all exercises from the database which may be accessed by the current user.
+  Future<List<Exercise>> getAllExercisesFromDatabaseForUser(String uid, BuildContext context) async {
+    if (_allExercises.isEmpty) {
+      final List<Exercise> exercises = <Exercise>[];
+      final DatabaseEvent event = await _exercisesRef.once();
+      if (event.snapshot.value == null) {
+        return <Exercise>[];
+      }
+      final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
+      if (result.isEmpty) {
+        return <Exercise>[];
+      }
+      result.forEach((dynamic key, dynamic value) {
+        value = value as Map<dynamic, dynamic>;
+        final Exercise exercise = Exercise.fromJson(value);
+        if (exercise.whoCreatedThisExercise == uid || exercise.whoCreatedThisExercise == 'system') {
+          exercises.add(exercise);
+        }
+      });
+      _allExercises = exercises;
+      return exercises;
     }
-    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
-    if (result.isEmpty) {
-      return <Exercise>[];
-    }
-    result.forEach((dynamic key, dynamic value) {
-      value = value as Map<dynamic, dynamic>;
-      final Exercise exercise = Exercise.fromJson(value);
-      exercises.add(exercise);
+    return _allExercises;
+  }
+
+  // Creates an user after completing the details form.
+  Future<void> createNewExercise(String userUid, String exerciseTitle, String? exerciseDescription,
+      String exerciseCategory, String exerciseBodyType) async {
+    final String idExercise = '${userUid}_$exerciseTitle';
+
+    // Then we create the new user.
+    await _exercisesRef.child(idExercise).set(<String, dynamic>{
+      'name': exerciseTitle,
+      'description': exerciseDescription,
+      'id': idExercise,
+      'whoCreatedThisExercise': userUid,
+      'category': exerciseCategory,
+      'bodyPart': exerciseBodyType,
+      'icon': 'userCreatedNoIcon',
+      'biggerImage': 'userCreatedNoIcon',
+      'exerciseVideo': 'userCreatedNoVideo',
+      'difficulty': 'Not assigned'
     });
-    return exercises;
   }
 }

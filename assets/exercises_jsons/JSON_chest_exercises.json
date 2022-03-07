@@ -45,7 +45,7 @@
       "description": "Agdsgds dgs ds gdsgds sdgsd",
       "id": "system_bosuBallPushups",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbosu_ball_pushups.png?alt=media&token=063bb6fc-a189-4029-a0aa-a315d719c4f1",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbosu_ball_pushups.png?alt=media&token=063bb6fc-a189-4029-a0aa-a315d719c4f1"
@@ -55,7 +55,7 @@
       "description": "Agdsgds dgs ds hfdhfd sdgsd",
       "id": "system_chestDips",
       "whoCreatedThisExercise": "system",
-      "category": "Weighted Bodyweight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_chest_dips.png?alt=media&token=b7396feb-858c-4bd2-824c-9840b64e95ed",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fchest_dips.png?alt=media&token=c9767075-a5f0-445c-8de0-99a8389ed714"
@@ -115,7 +115,7 @@
       "description": "Agdsgds gdsgds hsdf fd gdsgds",
       "id": "system_closeGripDumbbellPushUp",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_close_grip_dumbell_pushup.png?alt=media&token=5a0301c1-4cac-40bb-8589-55c69400577c",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_dumbell_pushup.png?alt=media&token=6a221f74-eaf2-4b3e-b3a0-e584277c4552"
@@ -125,7 +125,7 @@
       "description": "Agdsgds gdsgds hsdf gdsgds gdsgds",
       "id": "system_closeGripPushUp",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_close_grip_pushups.png?alt=media&token=6a021256-6b8a-4858-9be0-7f5cdc98e3d4",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_pushups.png?alt=media&token=06d99c4d-4cb7-472b-af57-81f73297659b"
@@ -185,7 +185,7 @@
       "description": "Lorepsagds dgs gdsgds gdsgds gdssdg",
       "id": "system_declineKneePushUp",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_decline_knee_pushups.png?alt=media&token=2b547aa9-4c0e-428f-a94a-391d0b018fa3",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_knee_pushups.png?alt=media&token=98fe6bb1-7de6-47ef-b443-1a0bbfe6cfb5"
@@ -195,7 +195,7 @@
       "description": "Lorepsagds dgs gdsgds gdsgds gdsgsd",
       "id": "system_declinePushUp",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_decline_pushups.png?alt=media&token=ab7bc4a7-8ae8-4773-85e7-12d755071c36",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_pushups.png?alt=media&token=f220e191-d829-4071-980f-ae2c0129d49d"
@@ -205,7 +205,7 @@
       "description": "Lorepsagds gds dssaa gdsgds sda",
       "id": "system_diamondKneePushUp",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_diamond_knee_pushup.png?alt=media&token=342c5002-5765-421c-a819-cf8c1dcb71c1",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdiamond_knee_pushup.png?alt=media&token=a3c26d30-59e9-4d67-94ee-824b08b42d92"
@@ -215,7 +215,7 @@
       "description": "Lorepsagds gds vdsds safsfa saf",
       "id": "system_diamondPushUp",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_diamond_push_ups.png?alt=media&token=79f03c14-6971-4929-9310-9a1f417d4c67",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdiamond_push_ups.png?alt=media&token=25f52928-e5d3-445a-ba4d-be12cf63c32a"
@@ -325,7 +325,7 @@
       "description": "Lorepsagds gdsgds sdggds gdsdg gdsgds",
       "id": "system_inclinePushUp",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_incline_pushups.png?alt=media&token=91780275-c3ac-4070-807f-d4b3ed140150",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_pushups.png?alt=media&token=0969e4db-452a-4cc0-98e7-cf3289e668dc"
@@ -335,7 +335,7 @@
       "description": "Lorepsagds gdsgds sdg gdss gdsgds",
       "id": "system_isometricWipersPushUps",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_isometric_wipers_pushups.png?alt=media&token=48065224-3626-4fa4-8437-65b23d9eeddf",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fisometric_wipers_pushups.png?alt=media&token=e5ea67bc-cf06-47a6-abbb-e6f890d41f28"
@@ -345,7 +345,7 @@
       "description": "Lorepsagds ga sadf fsafsa gds",
       "id": "system_kickThroughtsPushUps",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_kick_throughs_pushups.png?alt=media&token=d011e4f3-e44a-442c-b51d-ff2653d526a5",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fkick_throughs_pushups.png?alt=media&token=4baab78e-2947-4334-be3c-4a90fc1a7691"
@@ -355,7 +355,7 @@
       "description": "Lorepsagds ga sadf fsafsa gds",
       "id": "system_kneePushUps",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_knee_pushups.png?alt=media&token=4ab385a8-b535-48c1-9972-2713909a3b1f",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fknee_pushups.png?alt=media&token=2f454a5e-3faf-4c49-99ab-8085e334074e"
@@ -405,7 +405,7 @@
       "description": "Lorepsagds ga fds saf gdsds",
       "id": "system_pushup",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_pushup.png?alt=media&token=ef7b713c-7c46-48f9-93f9-42fa5e4035d9",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fpushup.png?alt=media&token=ac31e4b6-d584-4a1b-95f7-e1862325620b"
@@ -455,7 +455,7 @@
       "description": "Lorepsagds ga fds saf gdsds",
       "id": "system_shoulderTapPushup",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_shoulder_tap_pushups.png?alt=media&token=05f00449-154d-4f3d-80d1-e42381ddb90f",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fshoulder_tap_pushups.png?alt=media&token=a42725b7-1e8d-4a7c-bef3-7703fd90b152"
@@ -465,7 +465,7 @@
       "description": "Lorepsagds ga fds saf gdsds",
       "id": "system_spidermanPushUps",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_spiderman_pushups.png?alt=media&token=452d6a63-b45d-40a3-986b-56f6b19570ad",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fspiderman_pushups.png?alt=media&token=e69bacb9-aeeb-4398-bf67-c622eec1e765"
@@ -475,7 +475,7 @@
       "description": "Lorepsagds ga fds saf gdsds",
       "id": "system_stabilityBallDeclinePushUps",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_stability_ball_decline_pushups.png?alt=media&token=8122a29c-81c0-4a71-83f6-3a5591d0c3e7",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstability_ball_decline_pushups.png?alt=media&token=6481f853-8ae8-4bdf-b15f-0f7a45c5424c"
@@ -555,7 +555,7 @@
       "description": "Lorepsagds ga fds saf gdsds",
       "id": "system_wideHandPushups",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Chest",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ficons%2Ficon_wide_hand_pushups.png?alt=media&token=89371690-e3f6-4b7d-85f8-5098415e0cc2",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fwide_hand_pushups.png?alt=media&token=fb0a65a8-a3f6-4f46-b6f6-cfb7116bcf88"
@@ -565,7 +565,7 @@
       "description": "Lorepsagds dgsgds fds saf gddsg",
       "id": "system_abWheelRollOuts",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_ab_wheel_roll_outs.png?alt=media&token=c4e21ccb-f59e-46b0-97dc-bc6b1fc4a731",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fab_wheel_roll_outs.png?alt=media&token=f2cee5eb-3cdf-4fb8-b96a-8b31cae1621a"
@@ -575,7 +575,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_airBike",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_air_bike.png?alt=media&token=c4fa819d-4714-43a4-bb29-fa3f759bc932",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fair_bike.png?alt=media&token=eb9c2bc1-4167-4938-be87-f7f6d4c1cee8"
@@ -615,7 +615,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_benchSideBent",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_bench_side_bents.png?alt=media&token=46e3c2e1-21a2-475b-89ac-68f877819f5e",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fbench_side_bents.png?alt=media&token=f49438e9-7241-4c9f-bcea-785b7bdee339"
@@ -625,7 +625,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_benchVSitCrunches",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_bench_v_sit_crunches.png?alt=media&token=8305e611-c2c5-465d-a272-ae8dbb7a7174",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_bench_v_sit_crunches.png?alt=media&token=8305e611-c2c5-465d-a272-ae8dbb7a7174"
@@ -635,7 +635,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_birdDog",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_bird_dog.png?alt=media&token=00d96a02-0b2f-4d01-8bac-e63c55187be1",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fbird_dog.png?alt=media&token=ef29f757-99c5-4978-885e-bfad4d66496b"
@@ -645,7 +645,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_bosuBallCrunch",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_bosu_ball_crunch.png?alt=media&token=2e30e30c-9d0c-4cfb-9864-c65c3afb42f9",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fbosu_ball_crunch.png?alt=media&token=62c01607-e1ac-45eb-8034-0052699902f2"
@@ -655,7 +655,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_cocoons",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_cocoons.png?alt=media&token=681d0a97-5393-47d3-95f8-dbad74c8bb9e",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fcocoons.png?alt=media&token=8268c51a-1cee-4e99-a299-ef27ed9fa887"
@@ -665,7 +665,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_crunch",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_crunch.png?alt=media&token=62729984-abdf-4f82-ae31-684dafe82f0b",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fcrunch.png?alt=media&token=617559fe-ca63-4bc6-ae4b-bbd51c25f44f"
@@ -675,7 +675,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_declineCrunch",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_decline_crunch.png?alt=media&token=79fc5ede-eb98-4d2c-860c-ae092a2d78d3",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fdecline_crunch.png?alt=media&token=ab8a9530-1d6a-4a64-8672-8dc0f002ddda"
@@ -685,7 +685,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_declineCrunchTwist",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_decline_crunch_with_twist.png?alt=media&token=bdb33729-6b1a-482a-8274-409293497bf9",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fdecline_crunch_with_twist.png?alt=media&token=dd76a6c8-771e-42d8-a488-8fe0a904250f"
@@ -695,7 +695,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_declineReverseCrunch",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_decline_reverse_crunch.png?alt=media&token=377e7ff6-e857-4cfd-aa72-a9e08526424e",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fdecline_reverse_crunch.png?alt=media&token=7e7703f2-9896-427b-8406-0a9ab096f5ca"
@@ -715,7 +715,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_flatLegRaise",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_flat_leg_raises.png?alt=media&token=e70536a6-2898-47ec-8d98-57dc8160dbf5",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fdumbbell_side_bent.png?alt=media&token=9784a63e-426c-4614-891c-02359d62a6a1"
@@ -725,7 +725,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_flutterKicks",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_flutter_kicks.png?alt=media&token=3c189e92-f17e-4a98-97a8-1045f2a03f66",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fflutter_kicks.png?alt=media&token=cb2737c6-3cda-4af8-8739-5e9723bc8707"
@@ -735,7 +735,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_halfWipers",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_half_wipers.png?alt=media&token=84edcb02-ec42-44cf-841d-6b395aaf6c59",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fhalf_wipers.png?alt=media&token=92190e78-1799-405d-81ea-6b8db4d20b56"
@@ -745,7 +745,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_hangingAbWindmills",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_hanging_ab_windmills.png?alt=media&token=744f4100-db87-4417-9bfe-c36b1a2d24f4",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fhanging_ab_windmills.png?alt=media&token=59534c4f-d030-4888-b0a5-5a12546cbd4b"
@@ -755,7 +755,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_hangingKneeRaise",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_hanging_knee_raise.png?alt=media&token=425b3e7c-6c93-4461-ab95-d3011a8ec18a",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fhanging_knee_raise.png?alt=media&token=5c44857c-1e3c-4142-82a9-811219fcfb03"
@@ -765,7 +765,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_hangingLegRaise",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_hanging_leg_raises.png?alt=media&token=2f95ea00-8122-4666-b8a1-9353ed9d7444",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fhanging_leg_raises.png?alt=media&token=980e81f2-5481-4fa9-b88f-269fb8e52a7d"
@@ -785,7 +785,7 @@
       "description": "Lorepsagds dgsgds fds saf gdsgds",
       "id": "system_jackKnivesCrunches",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_jack_knife_crunches.png?alt=media&token=1080b176-421d-4a2d-a33d-8b7f46ad920c",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fjack_knife_crunches.png?alt=media&token=1ec98ca2-d957-48c9-a8d3-50abbd8096d4"
@@ -795,7 +795,7 @@
       "description": "Lorepsagds gdsgsd fds saf gdsds",
       "id": "system_kneeAbWheelRollOuts",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_knee_ab_wheel_rol_outs.png?alt=media&token=171f2264-ba16-4651-aa38-8c66b40c5603",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fknee_ab_wheel_rol_outs.png?alt=media&token=43345e2d-9362-4710-b6de-4aef3f03e8a0"
@@ -805,7 +805,7 @@
       "description": "Lorepsagds gdsgsd fds saf gdsds",
       "id": "system_kneeRaise",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_knee_raise.png?alt=media&token=68404427-bb5b-4b89-b594-2e398659e331",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fknee_raise.png?alt=media&token=ad906012-b8e1-45d6-b94f-730b94fb7234"
@@ -845,7 +845,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_legRaisedCrossBodyCrunch",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fleg_raised_cross_body_crunch.png?alt=media&token=91e404f7-179e-4854-95b9-a625881d1b1d",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fleg_raised_cross_body_crunch.png?alt=media&token=91e404f7-179e-4854-95b9-a625881d1b1d"
@@ -855,7 +855,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_lyingFlatKneeRaises",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_lying_flat_knee_raises.png?alt=media&token=9bdb0f8b-3b09-447c-9642-29ce3f08ad22",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Flying_flat_knee_raises.png?alt=media&token=dcf671e1-a921-4ac7-890e-7e21e46f05f0"
@@ -865,7 +865,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_lyingLegRaises",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_lying_leg_raise.png?alt=media&token=dc248d0e-92b6-4ea4-91b3-a711952ccffe",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Flying_leg_raise.png?alt=media&token=b44198ea-fdb5-4499-9358-4bdb57e7eb67"
@@ -885,7 +885,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_obliqueCrunches",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_oblique_crunches.png?alt=media&token=ef60f70d-9aac-4cdd-beaa-8a2496972d78",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Foblique_crunches.png?alt=media&token=c4413aea-fe55-4850-b53a-94a64527797e"
@@ -895,7 +895,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_obliqueRaises",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_oblique_raises.png?alt=media&token=4951df1e-e440-4345-a15a-75d3f7fafcbc",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Foblique_raises.png?alt=media&token=b65d61e5-ba60-45c3-a917-e03bc8d2f372"
@@ -915,7 +915,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_plank",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_plank.png?alt=media&token=18a6ad03-4ef0-4af4-9a57-2e3bd6d13250",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_plank.png?alt=media&token=18a6ad03-4ef0-4af4-9a57-2e3bd6d13250"
@@ -925,7 +925,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_reverseCrunch",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Freverse_crunch.png?alt=media&token=1f210713-6d36-47d1-bb71-f824b541fd44",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Freverse_crunch.png?alt=media&token=1f210713-6d36-47d1-bb71-f824b541fd44"
@@ -945,7 +945,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_sidePlank",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fside_plank.png?alt=media&token=586fca8d-4099-4c1b-9bbc-f6968d1079ed",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fside_plank.png?alt=media&token=586fca8d-4099-4c1b-9bbc-f6968d1079ed"
@@ -955,7 +955,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_sidePlankPushes",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_side_plank_pushes.png?alt=media&token=b1e5a008-d66a-428a-bf0b-56a1bc2db77a",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fside_plank_pushes.png?alt=media&token=c8bd538c-2b2b-4b32-b2e6-6601abe75f5f"
@@ -965,7 +965,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_ballCrunches",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_stability_ball_crunches.png?alt=media&token=cf330747-4483-4c6c-be5e-68a9b6807367",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fstability_ball_crunches.png?alt=media&token=4759c752-e016-4bae-83e2-2f0c280ea152"
@@ -975,7 +975,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_ballPullIns",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_stability_ball_pull_ins.png?alt=media&token=cc8b8ebe-817c-44cb-898e-6242a2c2bdfa",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fstability_ball_pull_ins.png?alt=media&token=7f45619f-8b71-4214-bfa3-c99e08d8f5e2"
@@ -985,7 +985,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_tuckCrunch",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_tuck_crunch.png?alt=media&token=901c1f88-03e8-4a1f-9328-bd372ddf0e25",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Ftuck_crunch.png?alt=media&token=be27625b-ae3f-4270-b420-a66d8201c517"
@@ -995,7 +995,7 @@
       "description": "Lorepsagds gdsgsd fds saf gsdsd",
       "id": "system_wipers",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Core",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_wipers.png?alt=media&token=1670d376-68dc-42f2-b2cf-3d3ab363b44e",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fwipers.png?alt=media&token=c823e9ed-135e-4a2c-9496-a89b4eeef2b5"
@@ -1065,7 +1065,7 @@
       "description": "Lorepsagds gdsds fds dsds gsdsd",
       "id": "system_chinUpsHammer",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Back",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ficons%2FIcon_Close_Grip_Underhand_Chin_Ups.png?alt=media&token=b48a8f13-b04f-4cfb-8d1a-7a7d6f0088de",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FClose_Grip_Underhand_Chin_Ups.png?alt=media&token=4d955026-6b56-476a-b882-9df613f65397"
@@ -1105,7 +1105,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_hyperextension",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Back",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ficons%2FIcon_Hyperextensions.png?alt=media&token=ced3b79f-18ed-433f-b7f1-0851c189a44f",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FHyperextensions.png?alt=media&token=0a37fddb-4176-4b7f-a943-68f870cea056"
@@ -1165,7 +1165,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_londonBridges",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Back",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ficons%2FIcon_London_Bridges.png?alt=media&token=3085d8b3-6d5f-42b3-b1aa-3ab943bfaacc",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FLondon_Bridges.png?alt=media&token=9b8d5c08-3d82-433c-82bb-76b3e905452f"
@@ -1245,7 +1245,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_bentOverRowBarbellOverhand",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Back",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ficons%2FIcon_Overhand_Grip_Inverted_Back_Row.png?alt=media&token=914e0a95-0bda-48f7-84af-f4c531df21eb",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FOverhand_Grip_Inverted_Back_Row.png?alt=media&token=bc1aa962-0764-4898-9768-464aa6713b5e"
@@ -1325,7 +1325,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_invertedRowsUnderhand",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Back",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ficons%2FIcon_Underhand_Grip_Inverted_Back_Row.png?alt=media&token=e1763944-4090-4a6d-a63d-cebad94d149f",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FUnderhand_Grip_Inverted_Back_Row.png?alt=media&token=fae768b8-2bb8-451c-ad39-837ecbe8d16c"
@@ -1355,7 +1355,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_chinUpsHammerWideGrip",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Back",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ficons%2FIcon_Wide_Grip_Overhand_Chin_Ups.png?alt=media&token=8bc8bb71-0f96-44db-99fc-b78757c98fd3",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FWide_Grip_Overhand_Chin_Ups.png?alt=media&token=b1ad3f99-3ec8-4036-8d7f-f01609f91b82"
@@ -1865,7 +1865,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_benchTricepsDip",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Triceps",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ficons%2Ficon_bench_triceps_dip.png?alt=media&token=1249fa79-312d-4d62-84f2-a8047e9e3456",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fbench_triceps_dip.png?alt=media&token=765d1605-03af-475e-aaec-c820ac789828"
@@ -1975,7 +1975,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_tricepsDips",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Triceps",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ficons%2Ficon_triceps_dips.png?alt=media&token=c3efdfe3-f51b-4285-8ee0-4075e5fa598d",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftriceps_dips.png?alt=media&token=5f230997-396a-403d-a0c0-e85dad9f25d7"
@@ -2155,7 +2155,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_jumpSquats",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Legs",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBodyweight_Jump_Squats.png?alt=media&token=83dcfc13-15ed-4ef1-8c6d-4a82b905ddaf",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBodyweight_Jump_Squats.png?alt=media&token=83dcfc13-15ed-4ef1-8c6d-4a82b905ddaf"
@@ -2245,7 +2245,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_gluteBridge",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Legs",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ficons%2FIcon_Glute_Bridge.png?alt=media&token=19e21741-46ac-45c8-98a6-ae2ffae9cbef",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FGlute_Bridge.png?alt=media&token=c3df7eed-e988-4c19-9e00-535cc49635f9"
@@ -2255,7 +2255,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_gluteHamRaise",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Legs",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ficons%2FIcon_Glute_Ham_Raise.png?alt=media&token=6f5db8fc-63cd-44df-b5f3-85208a74523f",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FGlute_Ham_Raise.png?alt=media&token=3a3646da-ac9e-4122-88ba-e9d3b8fd1f6d"
@@ -2295,7 +2295,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_lateralBound",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Legs",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ficons%2FIcon_Lateral_Bound.png?alt=media&token=adeaf87c-5517-43e3-8aca-fd0bd1a12420",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FLateral_Bound.png?alt=media&token=9363d0cb-302d-46e2-912e-5818ddbd8431"
@@ -2365,7 +2365,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_mountainClimbers",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Legs",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ficons%2FIcon_Mountain_Climbers.png?alt=media&token=b2981c9b-8b95-4678-aa05-705b44a0e41d",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FMountain_Climbers.png?alt=media&token=d431bef3-3b43-4084-8071-38749044b375"
@@ -2525,7 +2525,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_wallSits",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Legs",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ficons%2FIcon_Wall_Sits.png?alt=media&token=15225e31-d1b2-47c2-a431-625fbb548eef",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ficons%2FIcon_Wall_Sits.png?alt=media&token=15225e31-d1b2-47c2-a431-625fbb548eef"
@@ -2745,7 +2745,7 @@
       "description": "Lorepsagds gdsds fds gsd gsdsd",
       "id": "system_handstandPushUps",
       "whoCreatedThisExercise": "system",
-      "category": "Bodywheight",
+      "category": "Bodyweight",
       "bodyPart": "Shoulders",
       "icon": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ficons%2Ficon_handstand_push_up.png?alt=media&token=1d201479-82cd-4b87-8e1c-30cee5a4344a",
       "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fhandstand_push_up.png?alt=media&token=ea59488a-70a7-4699-a2f6-79ca33f83868"

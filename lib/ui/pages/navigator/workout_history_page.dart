@@ -5,8 +5,7 @@ import '../../../utils/firebase/authentication_service.dart';
 import '../../../utils/models/user_database.dart';
 
 class WorkoutHistoryPage extends StatefulWidget {
-  const WorkoutHistoryPage({Key? key, required this.user}) : super(key: key);
-  final UserDB user;
+  const WorkoutHistoryPage({Key? key}) : super(key: key);
 
   @override
   State<WorkoutHistoryPage> createState() => _WorkoutHistoryPageState();
@@ -18,17 +17,18 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
   @override
   Widget build(BuildContext context) {
     final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
+    final UserDB user = Provider.of<UserDB>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         const Text('Workout history'),
-        Text(widget.user.name!),
-        Text(widget.user.surname!),
-        Text(widget.user.email),
-        Text(widget.user.uid),
-        Text(widget.user.age.toString()),
-        Text(widget.user.weight.toString()),
-        Text(widget.user.weightType.toString()),
+        Text(user.name!),
+        Text(user.surname!),
+        Text(user.email),
+        Text(user.uid),
+        Text(user.age.toString()),
+        Text(user.weight.toString()),
+        Text(user.weightType.toString()),
         Center(
           child: ElevatedButton(
             onPressed: () async {

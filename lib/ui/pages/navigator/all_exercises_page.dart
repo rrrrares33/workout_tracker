@@ -7,10 +7,11 @@ import '../../../business_logic/all_exercises_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/models/exercise.dart';
 import '../../../utils/models/user_database.dart';
+import '../../reusable_widgets/add_new_exercise_alert.dart';
 import '../../reusable_widgets/dropdown_button.dart';
 import '../../reusable_widgets/exercise_full.dart';
 import '../../reusable_widgets/exercise_small.dart';
-import '../../reusable_widgets/loading.dart';
+import '../../reusable_widgets/no_exercise_found.dart';
 import '../../reusable_widgets/padding.dart';
 import '../../reusable_widgets/sliver_top_bar.dart';
 import '../../text/all_exercises_text.dart';
@@ -19,8 +20,7 @@ const double expandedHeight = 50;
 const double toolbarHeight = 25;
 
 class AllExercisesPage extends StatefulWidget {
-  const AllExercisesPage({Key? key, required this.user}) : super(key: key);
-  final UserDB user;
+  const AllExercisesPage({Key? key}) : super(key: key);
 
   @override
   State<AllExercisesPage> createState() => _AllExercisesPageState();
@@ -31,6 +31,10 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
   String _chosenValueBodyPart = defaultBodyPart;
   String _chosenValueCategory = defaultCategory;
   final TextEditingController _searchController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _newTitleController = TextEditingController();
+  final TextEditingController _newDescriptionController = TextEditingController();
 
   bool get _showBigLeftTitle {
     return _scrollController.hasClients && _scrollController.offset > expandedHeight - toolbarHeight;
@@ -45,154 +49,168 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
   @override
   Widget build(BuildContext context) {
     final DatabaseService databaseService = Provider.of<DatabaseService>(context);
+    final List<Exercise> exercisesProvider = Provider.of<List<Exercise>>(context);
+    final UserDB user = Provider.of<UserDB>(context);
     final Size screenSize = MediaQuery.of(context).size;
 
+    List<Exercise>? exerciseList = exercisesProvider;
+    exerciseList
+        .sort((Exercise a, Exercise b) => removeCategoryFromName(a.name).compareTo(removeCategoryFromName(b.name)));
+    exerciseList = filterResults(exerciseList, _chosenValueCategory, _chosenValueBodyPart, _searchController.text);
+
     return Scaffold(
-      body: FutureBuilder<List<Exercise>>(
-          future: databaseService.getAllExercisesFromDatabaseForUser(widget.user.uid),
-          builder: (BuildContext context, AsyncSnapshot<List<Exercise>> snapshot) {
-            if (snapshot.hasData) {
-              List<Exercise>? exerciseList = snapshot.data;
-              exerciseList?.sort(
-                  (Exercise a, Exercise b) => removeCategoryFromName(a.name).compareTo(removeCategoryFromName(b.name)));
-              exerciseList = filterResults(
-                  exerciseList ?? <Exercise>[], _chosenValueCategory, _chosenValueBodyPart, _searchController.text);
-              return CustomScrollView(
-                controller: _scrollController,
-                slivers: <Widget>[
-                  SliverTopBar(
-                      expandedHeight: expandedHeight,
-                      toolbarHeight: toolbarHeight,
-                      textExpanded: topSliverText,
-                      textToolbar: topSliverText,
-                      leading: Container(),
-                      showBigTitle: _showBigLeftTitle),
-                  SliverAppBar(
-                    elevation: 0,
-                    toolbarHeight: 100,
-                    primary: false,
-                    pinned: true,
-                    centerTitle: true,
-                    automaticallyImplyLeading: false,
-                    title: Column(
-                      children: <Widget>[
-                        PaddingWidget(
-                          type: 'only',
-                          onlyTop: 10,
-                          child: SizedBox(
-                              height: screenSize.height / 22.5,
-                              width: screenSize.width * 0.95,
-                              child: CupertinoTextField(
-                                controller: _searchController,
-                                onChanged: (_) {
-                                  setState(() {});
-                                },
-                                keyboardType: TextInputType.text,
-                                placeholder: placeHolderSearchBar,
-                                prefix: Padding(
-                                  padding: const EdgeInsets.fromLTRB(9.0, 6.0, 9.0, 6.0),
-                                  child: Icon(
-                                    Icons.search,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  color: const Color(0xffF0F1F5),
-                                ),
-                                style: TextStyle(
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                                suffix: PaddingWidget(
-                                  type: 'all',
-                                  all: 5,
-                                  child: GestureDetector(
-                                    child: _searchController.text != ''
-                                        ? const Icon(FontAwesomeIcons.solidTimesCircle, color: Colors.grey)
-                                        : Container(),
-                                    onTap: () {
-                                      setState(() {
-                                        _searchController.clear();
-                                        FocusManager.instance.primaryFocus?.unfocus();
-                                      });
-                                    },
-                                  ),
-                                ),
-                              )),
-                        ),
-                        Center(
-                          child: PaddingWidget(
-                            type: 'symmetric',
-                            vertical: 10,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                DropDownButtonWidget(
-                                  defaultValue: defaultBodyPart,
-                                  currentValue: _chosenValueBodyPart,
-                                  width: screenSize.width / 3,
-                                  height: screenSize.height / 27.5,
-                                  items: bodyPart,
-                                  bolt: true,
-                                  onChanged: (String? value) {
-                                    setState(() {
-                                      _chosenValueBodyPart = value!;
-                                    });
-                                  },
-                                ),
-                                PaddingWidget(type: 'symmetric', horizontal: screenSize.width / 10 / 2),
-                                DropDownButtonWidget(
-                                  defaultValue: defaultCategory,
-                                  currentValue: _chosenValueCategory,
-                                  width: screenSize.width / 3,
-                                  height: screenSize.height / 27.5,
-                                  items: category,
-                                  bolt: true,
-                                  onChanged: (String? value) {
-                                    setState(() {
-                                      _chosenValueCategory = value!;
-                                    });
-                                  },
-                                )
-                              ],
+        body: CustomScrollView(
+          controller: _scrollController,
+          slivers: <Widget>[
+            SliverTopBar(
+                expandedHeight: expandedHeight,
+                toolbarHeight: toolbarHeight,
+                textExpanded: topSliverText,
+                textToolbar: topSliverText,
+                leading: Container(),
+                showBigTitle: _showBigLeftTitle),
+            SliverAppBar(
+              elevation: 0,
+              toolbarHeight: 100,
+              primary: false,
+              pinned: true,
+              centerTitle: true,
+              automaticallyImplyLeading: false,
+              title: Column(
+                children: <Widget>[
+                  PaddingWidget(
+                    type: 'only',
+                    onlyTop: 10,
+                    child: SizedBox(
+                        height: screenSize.height / 22.5,
+                        width: screenSize.width * 0.95,
+                        child: CupertinoTextField(
+                          controller: _searchController,
+                          onChanged: (_) {
+                            setState(() {
+                              _scrollController.jumpTo(_scrollController.position.minScrollExtent + 26);
+                            });
+                          },
+                          keyboardType: TextInputType.text,
+                          placeholder: placeHolderSearchBar,
+                          prefix: Padding(
+                            padding: const EdgeInsets.fromLTRB(9.0, 6.0, 9.0, 6.0),
+                            child: Icon(
+                              Icons.search,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
-                        )
-                      ],
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.0),
+                            color: const Color(0xffF0F1F5),
+                          ),
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          suffix: PaddingWidget(
+                            type: 'all',
+                            all: 5,
+                            child: GestureDetector(
+                              child: _searchController.text != ''
+                                  ? const Icon(FontAwesomeIcons.solidTimesCircle, color: Colors.grey)
+                                  : Container(),
+                              onTap: () {
+                                setState(() {
+                                  _searchController.clear();
+                                  FocusManager.instance.primaryFocus?.unfocus();
+                                });
+                              },
+                            ),
+                          ),
+                        )),
+                  ),
+                  Center(
+                    child: PaddingWidget(
+                      type: 'symmetric',
+                      vertical: 10,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          DropDownButtonWidget(
+                            defaultValue: defaultBodyPart,
+                            currentValue: _chosenValueBodyPart,
+                            width: screenSize.width / 3,
+                            height: screenSize.height / 27.5,
+                            items: bodyPart,
+                            bolt: true,
+                            onChanged: (String? value) {
+                              setState(() {
+                                _chosenValueBodyPart = value!;
+                                _scrollController.jumpTo(_scrollController.position.minScrollExtent + 26);
+                              });
+                            },
+                          ),
+                          PaddingWidget(type: 'symmetric', horizontal: screenSize.width / 10 / 2),
+                          DropDownButtonWidget(
+                            defaultValue: defaultCategory,
+                            currentValue: _chosenValueCategory,
+                            width: screenSize.width / 3,
+                            height: screenSize.height / 27.5,
+                            items: category,
+                            bolt: true,
+                            onChanged: (String? value) {
+                              setState(() {
+                                _chosenValueCategory = value!;
+                                _scrollController.jumpTo(_scrollController.position.minScrollExtent + 26);
+                              });
+                            },
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SliverList(
+                delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return ExerciseSmallShow(
+                  image: (exerciseList?[index].icon)!,
+                  name: (exerciseList?[index].name)!,
+                  bodyPart: (exerciseList?[index].bodyPart)!,
+                  category: exerciseList?[index].category,
+                  imageWidth: screenSize.width / 6,
+                  imageHeight: screenSize.width / 6,
+                  onTap: () => showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => ExerciseFull(
+                      image: (exerciseList?[index].biggerImage)!,
+                      name: (exerciseList?[index].name)!,
+                      bodyPart: (exerciseList?[index].bodyPart)!,
+                      category: exerciseList?[index].category,
+                      description: exerciseList?[index].description,
                     ),
                   ),
-                  SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return ExerciseSmallShow(
-                        image: (exerciseList?[index].icon)!,
-                        name: (exerciseList?[index].name)!,
-                        bodyPart: (exerciseList?[index].bodyPart)!,
-                        category: exerciseList?[index].category,
-                        imageWidth: screenSize.width / 6,
-                        imageHeight: screenSize.width / 6,
-                        onTap: () => showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) => ExerciseFull(
-                            image: (exerciseList?[index].biggerImage)!,
-                            name: (exerciseList?[index].name)!,
-                            bodyPart: (exerciseList?[index].bodyPart)!,
-                            category: exerciseList?[index].category,
-                            description: exerciseList?[index].description,
-                          ),
-                        ),
-                      );
-                    },
-                    childCount: exerciseList.length,
-                  ))
-                ],
-              );
-            } else {
-              return const Center(
-                child: LoadingWidget(),
-              );
-            }
-          }),
-    );
+                );
+              },
+              childCount: exerciseList.length,
+            )),
+            SliverToBoxAdapter(
+                child: exerciseList.isEmpty
+                    ? SizedBox(
+                        height: screenSize.height / 2,
+                        width: screenSize.width,
+                        child: NoExerciseFound(
+                          iconSize: screenSize.height / 10,
+                        ))
+                    : null),
+          ],
+        ),
+        floatingActionButton: AddANewExerciseWidget(
+          width: screenSize.width,
+          newDescriptionController: _newDescriptionController,
+          newTitleController: _newTitleController,
+          formKey: _formKey,
+          height: screenSize.height,
+          userUid: user.uid,
+          databaseService: databaseService,
+          localExerciseList: exercisesProvider,
+        ));
   }
 }

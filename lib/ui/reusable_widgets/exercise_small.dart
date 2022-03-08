@@ -1,6 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import 'loading.dart';
 import 'padding.dart';
 import 'text.dart';
 
@@ -53,17 +53,21 @@ class ExerciseSmallShow extends StatelessWidget {
           child: Row(
             children: <Widget>[
               PaddingWidget(
-                type: 'all',
-                all: 5,
-                child: CachedNetworkImage(
-                  imageUrl: image,
-                  progressIndicatorBuilder: (BuildContext context, String image, DownloadProgress downloadProgress) =>
-                      CircularProgressIndicator(value: downloadProgress.progress),
-                  errorWidget: (BuildContext context, String image, dynamic error) => const Icon(Icons.error),
-                  width: imageWidth,
-                  height: imageHeight,
-                ),
-              ),
+                  type: 'all',
+                  all: 5,
+                  child: Image(
+                    image: AssetImage(image),
+                    width: imageWidth,
+                    height: imageHeight,
+                    loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                      if (loadingProgress == null) {
+                        return child;
+                      }
+                      return const Center(
+                        child: LoadingWidget(),
+                      );
+                    },
+                  )),
               const PaddingWidget(
                 type: 'symmetric',
                 horizontal: 5,

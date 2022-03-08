@@ -1,0 +1,3074 @@
+{
+    "Exercises": {
+        "system_benchPressBarbell": {
+            "name": "Bench Press Barbell",
+            "description": "Lorepsagds dgs ds gdsdsggds sdgsd",
+            "id": "system_benchPressBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_bench_press_barbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_barbell.png?alt=media&token=6d45ca32-0ca7-4c7e-954b-2d43e06b6e14"
+        },
+        "system_benchPressCable": {
+            "name": "Bench Press Cable",
+            "description": "Lorepsagds dgs ds hdfshshr sdgsd",
+            "id": "system_benchPressCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_bench_press_cable.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_cable.png?alt=media&token=61f8128c-eff9-42b4-8199-6208cde60521"
+        },
+        "system_benchPressMachine": {
+            "name": "Bench Press Machine",
+            "description": "Lorepsagds dgs ds gdhshdsfhsfd sdgsd",
+            "id": "system_benchPressMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_bench_press_machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_machine.png?alt=media&token=88d5008d-8a4c-4f44-81bf-586a858684a8"
+        },
+        "system_benchPressSmith": {
+            "name": "Bench Press Smith",
+            "description": "Agdsgds dgs ds gdhshdsfhsfd sdgsd",
+            "id": "system_benchPressSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_bench_press_smith.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbench_press_smith.png?alt=media&token=2654e494-004b-45c4-b1b0-0971bada7c0f"
+        },
+        "system_bosuBallPushups": {
+            "name": "Bosu Ball Pushups",
+            "description": "Agdsgds dgs ds gdsgds sdgsd",
+            "id": "system_bosuBallPushups",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_bosu_ball_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fbosu_ball_pushups.png?alt=media&token=063bb6fc-a189-4029-a0aa-a315d719c4f1"
+        },
+        "system_chestDips": {
+            "name": "Chest Dips",
+            "description": "Agdsgds dgs ds hfdhfd sdgsd",
+            "id": "system_chestDips",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_chest_dips.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fchest_dips.png?alt=media&token=c9767075-a5f0-445c-8de0-99a8389ed714"
+        },
+        "system_chestDipsAssisted": {
+            "name": "Chest Dips Assisted",
+            "description": "Agdsgds dgs ds hfdhfd sdgsd",
+            "id": "system_chestDipsAssisted",
+            "whoCreatedThisExercise": "system",
+            "category": "Assisted Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_chest_dips_assisted.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fchest_dips_assisted.png?alt=media&token=1ef84bb3-ed42-4ae4-99d9-107bd4753421"
+        },
+        "system_chestPressMachine": {
+            "name": "Chest Press Machine",
+            "description": "Agdsgds hfdsdhf ds hfdhfd sdgsd",
+            "id": "system_chestPressMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_chest_press_machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fchest_press_machine.png?alt=media&token=7639cfac-8de7-4a2f-9830-6e8048da5760"
+        },
+        "system_clockPushUp": {
+            "name": "Clock Push Up",
+            "description": "Agdsgds dgs ds hfdhfd sdgsd",
+            "id": "system_clockPushUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_clock_push_ups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclock_push_ups.png?alt=media&token=3b5802fb-1903-41a4-8c61-141421eaa036"
+        },
+        "system_closeGripBenchPressBarbell": {
+            "name": "Close Grip Bench Press Barbell",
+            "description": "Agdsgds hfdshfsdhfsd hsdf fd sdgsd",
+            "id": "system_closeGripBenchPressBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_close_grip_bench_press_barbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_bench_press_barbell.png?alt=media&token=317ce3a6-0f23-41c2-8f3e-ad1783c571f9"
+        },
+        "system_closeGripBenchPressDumbbell": {
+            "name": "Close Grip Bench Press Dumbbell",
+            "description": "Agdsgds hfdshfsdhfsd hsdf fd gdsgds",
+            "id": "system_closeGripBenchPressDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_close_grip_bench_press_dumbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_bench_press_dumbell.png?alt=media&token=06df946a-2f55-48dd-9ccc-1487951abf9e"
+        },
+        "system_closeGripDumbbellPushUp": {
+            "name": "Close Grip Dumbbell Push Up",
+            "description": "Agdsgds gdsgds hsdf fd gdsgds",
+            "id": "system_closeGripDumbbellPushUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_close_grip_dumbell_pushup.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_dumbell_pushup.png?alt=media&token=6a221f74-eaf2-4b3e-b3a0-e584277c4552"
+        },
+        "system_closeGripPushUp": {
+            "name": "Close Grip Push Up",
+            "description": "Agdsgds gdsgds hsdf gdsgds gdsgds",
+            "id": "system_closeGripPushUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_close_grip_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fclose_grip_pushups.png?alt=media&token=06d99c4d-4cb7-472b-af57-81f73297659b"
+        },
+        "system_declineBenchPressBarbell": {
+            "name": "Decline Bench Press Barbell",
+            "description": "Lorepsagds dgs ds gdsgdsgsd sdgsd",
+            "id": "system_declineBenchPressBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_decline_bench_press_barbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_bench_press_barbell.png?alt=media&token=9fa82b65-583d-4e03-a7d6-bab348d6d7b4"
+        },
+        "system_declineBenchPressSmith": {
+            "name": "Decline Bench Press Smith",
+            "description": "Lorepsagds dgs ds gdsgdsgsd sdgsd",
+            "id": "system_declineBenchPressSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_decline_bench_press_chest_smith.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_bench_press_chest_smith.png?alt=media&token=d96a21dc-b896-42e7-a1b9-ce4879dc4dfa"
+        },
+        "system_declineBenchPressDumbbell": {
+            "name": "Decline Bench Press Dumbbell",
+            "description": "Lorepsagds dgs ds gdsgdsgsd gdsgdsgds",
+            "id": "system_declineBenchPressDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_decline_bench_press_dumbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_bench_press_dumbell.png?alt=media&token=6b394242-67a0-40dc-bbd4-c10ebfab872c"
+        },
+        "system_declineCableFlies": {
+            "name": "Decline Cable Flies",
+            "description": "Lorepsagds dgs ds gds dsg",
+            "id": "system_declineCableFlies",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_decline_cable_flies.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_cable_flies.png?alt=media&token=9bef7918-5d9d-4303-b9c9-11bde7242696"
+        },
+        "system_declineHammerGripBenchPress": {
+            "name": "Decline Hammer Grip Bench Press",
+            "description": "Lorepsagds dgs gdsgds assad gdsgdsgds",
+            "id": "system_declineHammerGripBenchPress",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_decline_hammer_grip_bench_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_hammer_grip_bench_press.png?alt=media&token=0050ec6d-7145-4c69-baa4-67f826c97ac2"
+        },
+        "system_declineKneePushUp": {
+            "name": "Decline Knee Push Up",
+            "description": "Lorepsagds dgs gdsgds gdsgds gdssdg",
+            "id": "system_declineKneePushUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_decline_knee_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_knee_pushups.png?alt=media&token=98fe6bb1-7de6-47ef-b443-1a0bbfe6cfb5"
+        },
+        "system_declinePushUp": {
+            "name": "Decline Push Up",
+            "description": "Lorepsagds dgs gdsgds gdsgds gdsgsd",
+            "id": "system_declinePushUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_decline_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdecline_pushups.png?alt=media&token=f220e191-d829-4071-980f-ae2c0129d49d"
+        },
+        "system_diamondKneePushUp": {
+            "name": "Diamond Knee Push Up",
+            "description": "Lorepsagds gds dssaa gdsgds sda",
+            "id": "system_diamondKneePushUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_diamond_knee_pushup.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdiamond_knee_pushup.png?alt=media&token=a3c26d30-59e9-4d67-94ee-824b08b42d92"
+        },
+        "system_diamondPushUp": {
+            "name": "Diamond Push Up",
+            "description": "Lorepsagds gds vdsds safsfa saf",
+            "id": "system_diamondPushUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_diamond_push_ups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdiamond_push_ups.png?alt=media&token=25f52928-e5d3-445a-ba4d-be12cf63c32a"
+        },
+        "system_dumbbellFlies": {
+            "name": "Dumbbell Flies",
+            "description": "Lorepsagds gdsgds vdsdas safsfa saf",
+            "id": "system_dumbbellFlies",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_dumbell_flies.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fdumbell_flies.png?alt=media&token=e477ccec-ceab-42ef-b18f-226acb0b4068"
+        },
+        "system_hammerBenchPressDumbbell": {
+            "name": "Hammer Bench Press Dumbbell",
+            "description": "Lorepsagds gdsgds sdggds safsfa gdsgds",
+            "id": "system_hammerBenchPressDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_hammer_bench_press_dumbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fhammer_bench_press_dumbell.png?alt=media&token=4da15ea1-6d4d-4cb7-a026-4b1a9568b65f"
+        },
+        "system_inclineBenchPressBand": {
+            "name": "Incline Bench Press Band",
+            "description": "Lorepsagds gdsgds sdggds gdsdgs gdsgds",
+            "id": "system_inclineBenchPressBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_incline_bench_press_band.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_band.png?alt=media&token=208095de-89cf-46c0-9f3b-886d10023398"
+        },
+        "system_inclineBenchPressBarbell": {
+            "name": "Incline Bench Press Barbell",
+            "description": "Lorepsagds gdsgds sdggds gdsdgs asfgasgf",
+            "id": "system_inclineBenchPressBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_incline_bench_press_barbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_barbell.png?alt=media&token=528bf611-2777-4e6e-a77f-282b36eb0be8"
+        },
+        "system_inclineBenchPressCable": {
+            "name": "Incline Bench Press Cable",
+            "description": "Lorepsagds gdsgds sdggds gdsdgs asfgasgf",
+            "id": "system_inclineBenchPressCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_incline_bench_press_cable.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_cable.png?alt=media&token=c722f8c2-7629-4a3a-af61-df51bee5cb0d"
+        },
+        "system_inclineBenchPressDumbbell": {
+            "name": "Incline Bench Press Dumbbell",
+            "description": "Lorepsagds gdsgds sdggds gdsdgs asfgds",
+            "id": "system_inclineBenchPressDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_incline_bench_press_dumbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_dumbell.png?alt=media&token=3c6a5820-bfb4-444f-98ff-34cd877dae12"
+        },
+        "system_inclineBenchPressSmith": {
+            "name": "Incline Bench Press Smith",
+            "description": "Lorepsagds gdsgds sdggds gsafdsdgs gdsgds",
+            "id": "system_inclineBenchPressSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_incline_bench_press_smith.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_bench_press_smith.png?alt=media&token=dea7b5ea-3bfe-4024-86ae-0d3bd6c5e996"
+        },
+        "system_inclineCloseGripBenchPressDumbbell": {
+            "name": "Incline Close Grip Bench Press Dumbbell",
+            "description": "Lorepsagds gdsgds gdsgds gsafdsdgs gdsgds",
+            "id": "system_inclineCloseGripBenchPressDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_incline_close_grip_bench_press_dumbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_close_grip_bench_press_dumbell.png?alt=media&token=39b89d01-e8ad-4eb9-be02-a0cb346e195c"
+        },
+        "system_inclineDumbbellFlies": {
+            "name": "Incline Dumbbell Flies",
+            "description": "Lorepsagds gdsgds sdggds gsafdsdgs asgdgdsa",
+            "id": "system_inclineDumbbellFlies",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_incline_close_grip_bench_press_dumbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_close_grip_bench_press_dumbell.png?alt=media&token=39b89d01-e8ad-4eb9-be02-a0cb346e195c"
+        },
+        "system_inclineHammerBenchPressDumbbell": {
+            "name": "Incline Hammer Bench Press Dumbbell",
+            "description": "Lorepsagds gdsgds sdggds gdsdg gdsgds",
+            "id": "system_inclineHammerBenchPressDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_incline_hammer_bench_press_dumbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_hammer_bench_press_dumbell.png?alt=media&token=0aee0c6f-482a-4fea-9456-010a776ef7ce"
+        },
+        "system_inclinePushUp": {
+            "name": "Incline Push Ups",
+            "description": "Lorepsagds gdsgds sdggds gdsdg gdsgds",
+            "id": "system_inclinePushUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_incline_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fincline_pushups.png?alt=media&token=0969e4db-452a-4cc0-98e7-cf3289e668dc"
+        },
+        "system_isometricWipersPushUps": {
+            "name": "Isometric Wipers Push Ups",
+            "description": "Lorepsagds gdsgds sdg gdss gdsgds",
+            "id": "system_isometricWipersPushUps",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_isometric_wipers_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fisometric_wipers_pushups.png?alt=media&token=e5ea67bc-cf06-47a6-abbb-e6f890d41f28"
+        },
+        "system_kickThroughtsPushUps": {
+            "name": "Kick Throughts Push Ups",
+            "description": "Lorepsagds ga sadf fsafsa gds",
+            "id": "system_kickThroughtsPushUps",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_kick_throughs_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fkick_throughs_pushups.png?alt=media&token=4baab78e-2947-4334-be3c-4a90fc1a7691"
+        },
+        "system_kneePushUps": {
+            "name": "Knee Push Ups",
+            "description": "Lorepsagds ga sadf fsafsa gds",
+            "id": "system_kneePushUps",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_knee_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fknee_pushups.png?alt=media&token=2f454a5e-3faf-4c49-99ab-8085e334074e"
+        },
+        "system_oneArmChestPressDumbbell": {
+            "name": "One Arm Chest Press Dumbbell",
+            "description": "Lorepsagds ga fds saf gds",
+            "id": "system_oneArmChestPressDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_one_arm_chest_press_dumbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fone_arm_chest_press_dumbell.png?alt=media&token=eb91f28d-1b46-47e3-8c30-04267e43ec34"
+        },
+        "system_oneArmChestPressSeatedMachine": {
+            "name": "One Arm Chest Press Seated Machine",
+            "description": "Lorepsagds ga fds saf gdsgds",
+            "id": "system_oneArmChestPressSeatedMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_one_arm_chest_press_seated_machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fone_arm_chest_press_seated_machine.png?alt=media&token=df229ec9-620d-4bcc-b844-6911638550d8"
+        },
+        "system_pecDeck": {
+            "name": "Pec Deck",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_pecDeck",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_pec_deck.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fpec_deck.png?alt=media&token=c5a1628e-d2ba-4653-808b-b0bd668ade37"
+        },
+        "system_pulloverDumbbell": {
+            "name": "Pullover Dumbbell",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_pulloverDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_pullover_dumbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fpullover_dumbell.png?alt=media&token=1b6c7602-523a-4cd4-b94e-8b0e093336d2"
+        },
+        "system_pushup": {
+            "name": "Push Ups",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_pushup",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_pushup.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fpushup.png?alt=media&token=ac31e4b6-d584-4a1b-95f7-e1862325620b"
+        },
+        "system_pushupBand": {
+            "name": "Push Ups Band",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_pushupBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_pushup_band.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fpushup_band.png?alt=media&token=838af2b9-b818-4c22-8636-9f9c05b9d7f4"
+        },
+        "system_seatedChestDipsMachine": {
+            "name": "Seated Chest Dips Machine",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_seatedChestDipsMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_seated_chest_dips_machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fseated_chest_dips_machine.png?alt=media&token=b00cbf7a-0a31-4050-a4af-2c0f986b650a"
+        },
+        "system_seatedChestFliesMachine": {
+            "name": "Seated Chest Flies Machine",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_seatedChestFliesMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_seated_chest_flies_machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fseated_chest_flies_machine.png?alt=media&token=8f180acc-189c-4a59-8928-f92e6c7595d9"
+        },
+        "system_seatedChestPressBand": {
+            "name": "Seated Chest Press Band",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_seatedChestPressBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_seated_chest_press_band.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fseated_chest_press_band.png?alt=media&token=01f3192c-519c-41ed-8e72-71fbf309a914"
+        },
+        "system_shoulderTapPushup": {
+            "name": "Shoulder Tap Push Ups",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_shoulderTapPushup",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_shoulder_tap_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fshoulder_tap_pushups.png?alt=media&token=a42725b7-1e8d-4a7c-bef3-7703fd90b152"
+        },
+        "system_spidermanPushUps": {
+            "name": "Spiderman Push Ups",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_spidermanPushUps",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_spiderman_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fspiderman_pushups.png?alt=media&token=e69bacb9-aeeb-4398-bf67-c622eec1e765"
+        },
+        "system_stabilityBallDeclinePushUps": {
+            "name": "Stability Ball Decline Push Ups",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_stabilityBallDeclinePushUps",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_stability_ball_decline_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstability_ball_decline_pushups.png?alt=media&token=6481f853-8ae8-4bdf-b15f-0f7a45c5424c"
+        },
+        "system_standingCableCrossovers": {
+            "name": "Standing Cable Crossovers",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_standingCableCrossovers",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_standing_cable_crossovers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_cable_crossovers.png?alt=media&token=5e981dd8-b01d-4624-8070-dd447d7a0eea"
+        },
+        "system_standingCableCrossoversLower": {
+            "name": "Standing Cable Crossovers Lower",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_standingCableCrossoversLower",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_standing_cable_crossovers_lower.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_cable_crossovers_lower.png?alt=media&token=72e1cae6-3ba5-469b-8473-0e2bc388981c"
+        },
+        "system_standingCableCrossoversUpper": {
+            "name": "Standing Cable Crossovers Upper",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_standingCableCrossoversUpper",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_standing_cable_crossovers_upper.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_cable_crossovers_upper.png?alt=media&token=fe157d22-093b-4733-b44b-0c32b9a35dbc"
+        },
+        "system_standingChestFliesBand": {
+            "name": "Standing Chest Flies Band",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_standingChestFliesBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_standing_chest_flies_band.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_chest_flies_band.png?alt=media&token=87da9fdc-d2fe-4675-bd85-feef3f83934f"
+        },
+        "system_standingChestPressLowBand": {
+            "name": "Standing Chest Press Low Band",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_standingChestPressLowBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_standing_chest_press_low_band.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_chest_press_low_band.png?alt=media&token=4ebfc70a-6b57-46e9-9d0c-5a9ba171d4f7"
+        },
+        "system_standingChestPressUpperBand": {
+            "name": "Standing Chest Press Upper Band",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_standingChestPressUpperBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_standing_chest_press_upper_band.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_chest_press_upper_band.png?alt=media&token=e07963bc-3a8c-4bc9-b2b2-317637408826"
+        },
+        "system_standingPlatePress": {
+            "name": "Standing Plate Press",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_standingPlatePress",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_standing_plate_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fstanding_plate_press.png?alt=media&token=fb44361f-6a71-45e9-a785-3200d2cb97b2"
+        },
+        "system_wideHandPushups": {
+            "name": "Wide Hand Push Ups",
+            "description": "Lorepsagds ga fds saf gdsds",
+            "id": "system_wideHandPushups",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Chest",
+            "icon": "assets/all_icons/chest_images/icons/icon_wide_hand_pushups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/chest_images%2Ffull_images%2Fwide_hand_pushups.png?alt=media&token=fb0a65a8-a3f6-4f46-b6f6-cfb7116bcf88"
+        },
+        "system_abWheelRollOuts": {
+            "name": "Wheel Roll Outs",
+            "description": "Lorepsagds dgsgds fds saf gddsg",
+            "id": "system_abWheelRollOuts",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_ab_wheel_roll_outs.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fab_wheel_roll_outs.png?alt=media&token=f2cee5eb-3cdf-4fb8-b96a-8b31cae1621a"
+        },
+        "system_airBike": {
+            "name": "Air Bike",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_airBike",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_air_bike.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fair_bike.png?alt=media&token=eb9c2bc1-4167-4938-be87-f7f6d4c1cee8"
+        },
+        "system_ankleTaps": {
+            "name": "Ankle Taps",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_ankleTaps",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_ankle_taps.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fankle_taps.png?alt=media&token=75322c39-8c90-4b6f-bd07-45e9cc6cb9a4"
+        },
+        "system_bandCrunches": {
+            "name": "Band Crunch",
+            "description": "Lorepsagds dgsgds fds saf sgdgds",
+            "id": "system_bandCrunches",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_band_crunches.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_band_crunches.png?alt=media&token=840b4db0-cf8f-4de9-922d-a9a87ceb117e"
+        },
+        "system_bandKneelingAbCrunch": {
+            "name": "Band Kneeling Ab Crunch",
+            "description": "Lorepsagds dgsgds fds saf sgdgds",
+            "id": "system_bandKneelingAbCrunch",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_band_kneeling_ab_crunch.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fband_kneeling_ab_crunch.png?alt=media&token=83a19e03-99ef-4cb3-beba-19040c5cf04e"
+        },
+        "system_benchSideBent": {
+            "name": "Bench Side Bent",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_benchSideBent",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_bench_side_bents.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fbench_side_bents.png?alt=media&token=f49438e9-7241-4c9f-bcea-785b7bdee339"
+        },
+        "system_benchVSitCrunches": {
+            "name": "Bench V Sit Crunches",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_benchVSitCrunches",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_bench_v_sit_crunches.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_bench_v_sit_crunches.png?alt=media&token=8305e611-c2c5-465d-a272-ae8dbb7a7174"
+        },
+        "system_birdDog": {
+            "name": "Bird To Dog",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_birdDog",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_bird_dog.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fbird_dog.png?alt=media&token=ef29f757-99c5-4978-885e-bfad4d66496b"
+        },
+        "system_bosuBallCrunch": {
+            "name": "Bosu Ball Crunch",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_bosuBallCrunch",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_bosu_ball_crunch.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fbosu_ball_crunch.png?alt=media&token=62c01607-e1ac-45eb-8034-0052699902f2"
+        },
+        "system_cocoons": {
+            "name": "Cocoons",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_cocoons",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_cocoons.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fcocoons.png?alt=media&token=8268c51a-1cee-4e99-a299-ef27ed9fa887"
+        },
+        "system_crunch": {
+            "name": "Crunch",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_crunch",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_crunch.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fcrunch.png?alt=media&token=617559fe-ca63-4bc6-ae4b-bbd51c25f44f"
+        },
+        "system_declineCrunch": {
+            "name": "Decline Crunch",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_declineCrunch",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_decline_crunch.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fdecline_crunch.png?alt=media&token=ab8a9530-1d6a-4a64-8672-8dc0f002ddda"
+        },
+        "system_declineCrunchTwist": {
+            "name": "Decline Crunch With Twist",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_declineCrunchTwist",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_decline_crunch_with_twist.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fdecline_crunch_with_twist.png?alt=media&token=dd76a6c8-771e-42d8-a488-8fe0a904250f"
+        },
+        "system_declineReverseCrunch": {
+            "name": "Decline Reverse Crunch",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_declineReverseCrunch",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_decline_reverse_crunch.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fdecline_reverse_crunch.png?alt=media&token=7e7703f2-9896-427b-8406-0a9ab096f5ca"
+        },
+        "system_dumbbellSideBent": {
+            "name": "Dumbbell Side Bent",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_dumbbellSideBent",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_dumbbell_side_bent.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fdumbbell_side_bent.png?alt=media&token=9784a63e-426c-4614-891c-02359d62a6a1"
+        },
+        "system_flatLegRaise": {
+            "name": "Flat Leg Raise",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_flatLegRaise",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_flat_leg_raises.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fdumbbell_side_bent.png?alt=media&token=9784a63e-426c-4614-891c-02359d62a6a1"
+        },
+        "system_flutterKicks": {
+            "name": "Flutter Kicks",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_flutterKicks",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_flutter_kicks.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fflutter_kicks.png?alt=media&token=cb2737c6-3cda-4af8-8739-5e9723bc8707"
+        },
+        "system_halfWipers": {
+            "name": "Half Wipers",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_halfWipers",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_half_wipers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fhalf_wipers.png?alt=media&token=92190e78-1799-405d-81ea-6b8db4d20b56"
+        },
+        "system_hangingAbWindmills": {
+            "name": "Hanging Ab Windmills",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_hangingAbWindmills",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_hanging_ab_windmills.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fhanging_ab_windmills.png?alt=media&token=59534c4f-d030-4888-b0a5-5a12546cbd4b"
+        },
+        "system_hangingKneeRaise": {
+            "name": "Hanging Knee Raise",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_hangingKneeRaise",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_hanging_knee_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fhanging_knee_raise.png?alt=media&token=5c44857c-1e3c-4142-82a9-811219fcfb03"
+        },
+        "system_hangingLegRaise": {
+            "name": "Hanging Leg Raise",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_hangingLegRaise",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_hanging_leg_raises.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fhanging_leg_raises.png?alt=media&token=980e81f2-5481-4fa9-b88f-269fb8e52a7d"
+        },
+        "system_hollowHolds": {
+            "name": "Hollow Holds",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_hollowHolds",
+            "whoCreatedThisExercise": "system",
+            "category": "Time",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_hollow_holds.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_hollow_holds.png?alt=media&token=781e99bc-0f06-4b50-9274-1a0d3c39fbbc"
+        },
+        "system_jackKnivesCrunches": {
+            "name": "Jack Knives Crunches",
+            "description": "Lorepsagds dgsgds fds saf gdsgds",
+            "id": "system_jackKnivesCrunches",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_jack_knife_crunches.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fjack_knife_crunches.png?alt=media&token=1ec98ca2-d957-48c9-a8d3-50abbd8096d4"
+        },
+        "system_kneeAbWheelRollOuts": {
+            "name": "Knee Wheel Roll Outs",
+            "description": "Lorepsagds gdsgsd fds saf gdsds",
+            "id": "system_kneeAbWheelRollOuts",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_knee_ab_wheel_rol_outs.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fknee_ab_wheel_rol_outs.png?alt=media&token=43345e2d-9362-4710-b6de-4aef3f03e8a0"
+        },
+        "system_kneeRaise": {
+            "name": "Knee Raise",
+            "description": "Lorepsagds gdsgsd fds saf gdsds",
+            "id": "system_kneeRaise",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_knee_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fknee_raise.png?alt=media&token=ad906012-b8e1-45d6-b94f-730b94fb7234"
+        },
+        "system_kneelingCableCrunch": {
+            "name": "Kneeling Cable Crunch",
+            "description": "Lorepsagds gdsgsd fds saf gdsds",
+            "id": "system_kneelingCableCrunch",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_kneeling_cable_crunch.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fkneeling_cable_crunch.png?alt=media&token=e63cb261-4150-4a5e-ba05-217d40d73c4c"
+        },
+        "system_landmine180": {
+            "name": "Landmine 180",
+            "description": "Lorepsagds gdsgsd fds saf gdsds",
+            "id": "system_landmine180",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_landmine_180.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Flandmine_180.png?alt=media&token=922d7c16-5917-4748-8304-3fcb7ea63b18"
+        },
+        "system_legRaiseHold": {
+            "name": "Leg Raise & Hold",
+            "description": "Lorepsagds gdsgsd fds saf gdsds",
+            "id": "system_legRaiseHold",
+            "whoCreatedThisExercise": "system",
+            "category": "Time",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_leg_raise_and_hold.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fleg_raise_and_hold.png?alt=media&token=57fa2500-9487-42e4-aeed-c0d075d926ac"
+        },
+        "system_legRaisedCrossBodyCrunch": {
+            "name": "Leg Raised Cross Crunch",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_legRaisedCrossBodyCrunch",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_leg_raised_cross_body_crunch.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fleg_raised_cross_body_crunch.png?alt=media&token=91e404f7-179e-4854-95b9-a625881d1b1d"
+        },
+        "system_lyingFlatKneeRaises": {
+            "name": "Lying Knee Raises",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_lyingFlatKneeRaises",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_lying_flat_knee_raises.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Flying_flat_knee_raises.png?alt=media&token=dcf671e1-a921-4ac7-890e-7e21e46f05f0"
+        },
+        "system_lyingLegRaises": {
+            "name": "Lying Leg Raises",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_lyingLegRaises",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_lying_leg_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Flying_leg_raise.png?alt=media&token=b44198ea-fdb5-4499-9358-4bdb57e7eb67"
+        },
+        "system_russianTwists": {
+            "name": "Russian Twists",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_russianTwists",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_med_ball_russian_twists.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fmed_ball_russian_twists.png?alt=media&token=14eb3d3c-b969-4892-a0e0-363f18b281d3"
+        },
+        "system_obliqueCrunches": {
+            "name": "Oblique Crunches",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_obliqueCrunches",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_oblique_crunches.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Foblique_crunches.png?alt=media&token=c4413aea-fe55-4850-b53a-94a64527797e"
+        },
+        "system_obliqueRaises": {
+            "name": "Oblique Raises",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_obliqueRaises",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_oblique_raises.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Foblique_raises.png?alt=media&token=b65d61e5-ba60-45c3-a917-e03bc8d2f372"
+        },
+        "system_otisUp": {
+            "name": "Otis Up",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_otisUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_otis_up.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fotis_up.png?alt=media&token=755583c5-d7f9-4628-96d6-fc39abf57f9d"
+        },
+        "system_plank": {
+            "name": "Plank",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_plank",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_plank.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ficons%2Ficon_plank.png?alt=media&token=18a6ad03-4ef0-4af4-9a57-2e3bd6d13250"
+        },
+        "system_reverseCrunch": {
+            "name": "Reverse Crunch",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_reverseCrunch",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_reverse_crunch.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Freverse_crunch.png?alt=media&token=1f210713-6d36-47d1-bb71-f824b541fd44"
+        },
+        "system_seatedAbCrunchMachine": {
+            "name": "Seated Crunch Machine",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_seatedAbCrunchMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_seated_ab_crunch_machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fseated_ab_crunch_machine.png?alt=media&token=1115e885-58a5-46ea-b1cc-d9e5c16df5ee"
+        },
+        "system_sidePlank": {
+            "name": "Side Plank",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_sidePlank",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_side_plank.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fside_plank.png?alt=media&token=586fca8d-4099-4c1b-9bbc-f6968d1079ed"
+        },
+        "system_sidePlankPushes": {
+            "name": "Side Plank Pushes",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_sidePlankPushes",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_side_plank_pushes.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fside_plank_pushes.png?alt=media&token=c8bd538c-2b2b-4b32-b2e6-6601abe75f5f"
+        },
+        "system_ballCrunches": {
+            "name": "Stability Ball Crunches",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_ballCrunches",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_stability_ball_crunches.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fstability_ball_crunches.png?alt=media&token=4759c752-e016-4bae-83e2-2f0c280ea152"
+        },
+        "system_ballPullIns": {
+            "name": "Stability Ball Pull Ins",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_ballPullIns",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_stability_ball_pull_ins.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fstability_ball_pull_ins.png?alt=media&token=7f45619f-8b71-4214-bfa3-c99e08d8f5e2"
+        },
+        "system_tuckCrunch": {
+            "name": "Tuck Crunch",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_tuckCrunch",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_tuck_crunch.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Ftuck_crunch.png?alt=media&token=be27625b-ae3f-4270-b420-a66d8201c517"
+        },
+        "system_wipers": {
+            "name": "Wipers",
+            "description": "Lorepsagds gdsgsd fds saf gsdsd",
+            "id": "system_wipers",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Core",
+            "icon": "assets/all_icons/abdominal_images/icons/icon_wipers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/abdominal_images%2Ffull_images%2Fwipers.png?alt=media&token=c823e9ed-135e-4a2c-9496-a89b4eeef2b5"
+        },
+        "system_assistedUnderhandCloseChinUp": {
+            "name": "Assisted Close Grip Chin Up",
+            "description": "Lorepsagds gdsds fds dsds gsdsd",
+            "id": "system_assistedUnderhandChinUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Assisted Bodyweight",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Assisted_Close_Grip_Underhand_Chin_Ups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FAssisted_Close_Grip_Underhand_Chin_Ups.png?alt=media&token=1ea67042-f1a1-4726-a965-8aa8fc98c15c"
+        },
+        "system_assistedUnderhandWideChinUp": {
+            "name": "Assisted Wide Grip Chin Up",
+            "description": "Lorepsagds gdsds fds dsds gsdsd",
+            "id": "system_assistedUnderhandWideChinUp",
+            "whoCreatedThisExercise": "system",
+            "category": "Assisted Bodyweight",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Assisted_Wide_Grip_Overhand_Chin_Ups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FAssisted_Wide_Grip_Overhand_Chin_Ups.png?alt=media&token=2a87d4a1-99c0-4142-8927-971162d15902"
+        },
+        "system_oneArmBarbellBentOverRow": {
+            "name": "Bent Over Rows Barbell One Arm",
+            "description": "Lorepsagds gdsds fds dsds gsdsd",
+            "id": "system_oneArmBarbellBentOverRow",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Barbell_One_Arm_Bent_Over_Rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FBarbell_One_Arm_Bent_Over_Rows.png?alt=media&token=5f51618f-9402-4a79-a35f-e2b77d4ddc22"
+        },
+        "system_underhandBentOverRowBarbell": {
+            "name": "Bent Over Underhand Barbell",
+            "description": "Lorepsagds gdsds fds dsds gsdsd",
+            "id": "system_oneArmBarbellBentOverRow",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Barbell_Underhand_Bent_Over_Row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FBarbell_Underhand_Bent_Over_Row.png?alt=media&token=5de26670-ce8a-4473-b5f6-32f41ec4a83d"
+        },
+        "system_seatedWideCableRowBentBar": {
+            "name": "Seated Wide Cable Row",
+            "description": "Lorepsagds gdsds fds dsds gsdsd",
+            "id": "system_seatedWideCableRowBentBar",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Bent_Bar_Seated_Cable_Row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FBent_Bar_Seated_Cable_Row.png?alt=media&token=f96ec027-99b1-464b-a2c6-6c81f8a41533"
+        },
+        "system_latPulldownCableParallelGrip": {
+            "name": "Lat Pulldown Cable Parallel Grip",
+            "description": "Lorepsagds gdsds fds dsds gsdsd",
+            "id": "system_latPulldownCableParallelGrip",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Cable_Parallel_Grip_Lat_Pulldown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FCable_Parallel_Grip_Lat_Pulldown.png?alt=media&token=a1aa8501-fc34-4404-ad46-f4f267a9dd35"
+        },
+        "system_chinUpsHammerGrip": {
+            "name": "Chin Ups Hammer Grip",
+            "description": "Lorepsagds gdsds fds dsds gsdsd",
+            "id": "system_chinUpsHammer",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Close_Grip_Underhand_Chin_Ups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FClose_Grip_Underhand_Chin_Ups.png?alt=media&token=4d955026-6b56-476a-b882-9df613f65397"
+        },
+        "system_pulldownVBar": {
+            "name": "Pulldown V Bar",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_pulldownVBar",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Close_Grip_V_Bar_Pulldown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FClose_Grip_V_Bar_Pulldown.png?alt=media&token=e986e7e7-4fe7-4dc2-91a4-225fae12e0ba"
+        },
+        "system_bentOverRowsDumbbell": {
+            "name": "Bent Over Rows Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bentOverRowsDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Dumbbell_Bent_Over_Rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FDumbbell_Bent_Over_Rows.png?alt=media&token=7f1bbcba-6fdf-4f20-b1ce-e14a559d0150"
+        },
+        "system_hyperextensionMachine": {
+            "name": "Hyperextension Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_hyperextensionMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Hyperextension_Machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FHyperextension_Machine.png?alt=media&token=e0f838ec-9d36-4f8c-94b0-c126f0a07a0c"
+        },
+        "system_hyperextension": {
+            "name": "Hyperextension",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_hyperextension",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Hyperextensions.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FHyperextensions.png?alt=media&token=0a37fddb-4176-4b7f-a943-68f870cea056"
+        },
+        "system_barbellRowsInclineBench": {
+            "name": "Barbell Rows Incline Bench",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_barbellRowsInclineBench",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Incline_Bench_Barbell_Rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FIncline_Bench_Barbell_Rows.png?alt=media&token=e952416a-7ac6-43de-9fd3-08a5dcccc706"
+        },
+        "system_dumbbellRowsInclineBench": {
+            "name": "Dumbbell Rows Incline Bench",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellRowsInclineBench",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Incline_Bench_Dumbbell_Rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FIncline_Bench_Dumbbell_Rows.png?alt=media&token=ba00f6af-63af-4287-801e-824575bf77bf"
+        },
+        "system_latPushdownCableIncline": {
+            "name": "Lat Pushdown Cable Incline",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_latPushdownCableIncline",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Incline_Cable_Lat_Pushdown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FIncline_Cable_Lat_Pushdown.png?alt=media&token=eb787e75-bf99-4183-a89d-11b6faeb1eee"
+        },
+        "system_landmineOneArmRow": {
+            "name": "Landmine One Arm Row",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_landmineOneArmRow",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Landmine_One_Arm_Row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FLandmine_One_Arm_Row.png?alt=media&token=501a0249-570e-4993-a9b3-7564aec6193b"
+        },
+        "system_leverRows": {
+            "name": "Lever Rows",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_leverRows",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Lever_Rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FLever_Rows.png?alt=media&token=5759c1f6-3380-4ac8-bc4d-696b758fce00"
+        },
+        "system_londonBridges": {
+            "name": "London Bridges",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_londonBridges",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_London_Bridges.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FLondon_Bridges.png?alt=media&token=9b8d5c08-3d82-433c-82bb-76b3e905452f"
+        },
+        "system_medicineBallSlam": {
+            "name": "Medicine Ball Slam",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_medicineBallSlam",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Medicine_Ball_Slam.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FMedicine_Ball_Slam.png?alt=media&token=4a1bd776-aaf8-4fdf-b81a-6474f41f9900"
+        },
+        "system_latPulldownCloseUnderhandGrip": {
+            "name": "Lat Pulldown Close Underhand Grip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_latPulldownCloseUnderhandGrip",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Narrow_Underhand_Grip_Lat_Pulldown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FNarrow_Underhand_Grip_Lat_Pulldown.png?alt=media&token=1968d560-55ff-4ebb-9dc3-c4eb2445ea4e"
+        },
+        "system_dumbbellRowOneArm": {
+            "name": "Dumbbell Row One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellRowOneArm",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_One_Arm_Dumbbell_Row_On_Bench.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FOne_Arm_Dumbbell_Row_On_Bench.png?alt=media&token=1023b570-aaa9-440c-b36e-8de27ca91978"
+        },
+        "system_machineSeatedRowOneArm": {
+            "name": "Machine Row Seated One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_machineSeatedRowOneArm",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_One_Arm_Seated_Cable_Row_Machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FOne_Arm_Seated_Cable_Row_Machine.png?alt=media&token=7c4c6789-8bc3-428e-917c-3b1ec17a9bb4"
+        },
+        "system_shotgunRowsOneArm": {
+            "name": "Shotgun Rows One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shotgunRowsOneArm",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_One_Arm_Shotgun_Rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FOne_Arm_Shotgun_Rows.png?alt=media&token=49a62a4d-43b0-439a-a64c-0b16d22736d7"
+        },
+        "system_latPulldownOneArm": {
+            "name": "Lat Pulldown One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_latPulldownOneArm",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_One_Handed_Lat_Pulldown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FOne_Handed_Lat_Pulldown.png?alt=media&token=b4829c83-4114-49ea-bd21-65a5eb61655b"
+        },
+        "system_bentOverRowBarbellOverhand": {
+            "name": "Bent Over Rows Barbell Overhand",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bentOverRowBarbellOverhand",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Overhand_Grip_Barbell_Bent_Over_Rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FOverhand_Grip_Barbell_Bent_Over_Rows.png?alt=media&token=5642b058-89be-4197-9437-c79a280b0ada"
+        },
+        "system_invertedBackRowOverhand": {
+            "name": "Inverted Back Row Overhand",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bentOverRowBarbellOverhand",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Overhand_Grip_Inverted_Back_Row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FOverhand_Grip_Inverted_Back_Row.png?alt=media&token=bc1aa962-0764-4898-9768-464aa6713b5e"
+        },
+        "system_renegadeRow": {
+            "name": "Renegade Row",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_renegadeRow",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Renegade_Row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FRenegade_Row.png?alt=media&token=f783c8c0-8a43-47f2-b855-6ccaad3f3349"
+        },
+        "system_cableRowCloseGrip": {
+            "name": "Cable Row Close Grip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_cableRowCloseGrip",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Seated_Cable_Row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FSeated_Cable_Row.png?alt=media&token=3c306875-dd2e-4326-9355-e6bd658ce806"
+        },
+        "system_seatedRowMachineCable": {
+            "name": "Machine Row Close Grip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_seatedRowMachineCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Seated_Cable_Row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FSeated_Cable_Row.png?alt=media&token=3c306875-dd2e-4326-9355-e6bd658ce806"
+        },
+        "system_deadliftSmith": {
+            "name": "Deadlift Smith",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_deadliftSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Smith_Machine_Deadlifts.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FSmith_Machine_Deadlifts.png?alt=media&token=3bbb5320-cca1-4a95-b725-c0e10dbe348c"
+        },
+        "system_standingLatPushdownsCable": {
+            "name": "Lat Pushdown Standing Cable",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingLatPushdownsCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Standing_Cable_Bar_Lat_Pushdown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FStanding_Cable_Bar_Lat_Pushdown.png?alt=media&token=feb0bc83-a3d1-4bac-bf86-3eb2eb8fab16"
+        },
+        "system_standingLatPushdownsRope": {
+            "name": "Lat Pushdown Standing Rope",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingLatPushdownsRope",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Standing_Cable_Rope_Lat_Pushdown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FStanding_Cable_Rope_Lat_Pushdown.png?alt=media&token=bb851f24-adaf-4616-8406-e77bf8109a6b"
+        },
+        "system_rowsTBarStanding": {
+            "name": "T Bar Rows",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_rowsTBarStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_T_Bar_Rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FT_Bar_Rows.png?alt=media&token=5fc58926-d709-4b10-bc24-e1b8873e509a"
+        },
+        "system_invertedRowsUnderhand": {
+            "name": "Inverted Rows Underhand",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_invertedRowsUnderhand",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Underhand_Grip_Inverted_Back_Row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FUnderhand_Grip_Inverted_Back_Row.png?alt=media&token=fae768b8-2bb8-451c-ad39-837ecbe8d16c"
+        },
+        "system_latPulldownUnderhandMachine": {
+            "name": "Lat Pulldown Underhand Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_latPulldownUnderhandMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Underhand_Grip_Lat_Pulldown_Machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FUnderhand_Grip_Lat_Pulldown_Machine.png?alt=media&token=8df406a0-8725-4d8e-90d2-23ab4d549ae1"
+        },
+        "system_bentOverRowSmithUnderhand": {
+            "name": "Bent Over Row Smith Underhand",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bentOverRowSmithUnderhand",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Underhand_Grip_Smith_Machine_Bent_Over_Rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FUnderhand_Grip_Smith_Machine_Bent_Over_Rows.png?alt=media&token=3f58324b-df55-4adf-93f2-3f39a97551da"
+        },
+        "system_chinUpsHammerWideGrip": {
+            "name": "Chin Ups Hammer Wide Grip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_chinUpsHammerWideGrip",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Wide_Grip_Overhand_Chin_Ups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FWide_Grip_Overhand_Chin_Ups.png?alt=media&token=b1ad3f99-3ec8-4036-8d7f-f01609f91b82"
+        },
+        "system_rowWideGripSeatedCable": {
+            "name": "Wide Row Seated Cable",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_rowWideGripSeatedCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Wide_Grip_Seated_Cable_Row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FWide_Grip_Seated_Cable_Row.png?alt=media&token=78a4e5f5-6ff5-40dc-80df-f69f8a883ec1"
+        },
+        "system_wideLatPulldownCable": {
+            "name": "Wide Lat Pulldown Cable",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_wideLatPulldownCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Wide_Overhand_Grip_Lat_Pulldown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FWide_Overhand_Grip_Lat_Pulldown.png?alt=media&token=fa34f5ba-8a43-4538-b008-dbd65dd321e5"
+        },
+        "system_wideLatPulldownCableUnderhand": {
+            "name": "Wide Lat Pulldown Cable Underhand",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_wideLatPulldownCableUnderhand",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/Icon_Wide_Underhand_Grip_Lat_Pulldown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2FWide_Underhand_Grip_Lat_Pulldown.png?alt=media&token=4d8ca714-77db-4ee9-bfd0-04030c1906d8"
+        },
+        "system_standingBentOverRowBand": {
+            "name": "Bent Over Row Band Standing",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingBentOverRowBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/icon_band_bent_over_row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2Fband_bent_over_row.png?alt=media&token=c7b9e936-f8b8-467e-8dd5-bab84e38f285"
+        },
+        "system_deadliftBand": {
+            "name": "Deadlift Band",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_deadliftBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/icon_band_deadlift.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2Fband_deadlift.png?alt=media&token=57c18765-d634-4f05-97a0-07b6c51d2f2a"
+        },
+        "system_seatedBentOverRowBand": {
+            "name": "Bent Over Row Band Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_seatedBentOverRowBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/icon_band_seated_row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2Fband_seated_row.png?alt=media&token=4b1523fc-869e-4c0f-8d0d-fdf9bae7a16a"
+        },
+        "system_standingBentOverRowBandOneArm": {
+            "name": "Bent Over Row Band Standing One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingBentOverRowBandOneArm",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/back_images/icons/icon_band_standing_row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/back_images%2Ffull_images%2Fband_standing_row.png?alt=media&token=b6b21395-97f9-48d6-990e-2ee372e8a1f6"
+        },
+        "system_preacherCurlBarbell": {
+            "name": "Preacher Curl Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_preacherCurlBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Barbell_Biceps_Preacher_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FBarbell_Biceps_Preacher_Curl.png?alt=media&token=0e6aa763-ec0f-47c8-a744-01cafa592161"
+        },
+        "system_bicepsCurlMachine": {
+            "name": "Biceps Curl Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bicepsCurlMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Biceps_Curl_Machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FBiceps_Curl_Machine.png?alt=media&token=7e0fdfea-9562-452b-8d2a-528adb094ba7"
+        },
+        "system_preacherCurlCable": {
+            "name": "Preacher Curl Cable",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_preacherCurlCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Cable_Biceps_Preacher_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FCable_Biceps_Preacher_Curl.png?alt=media&token=374659d4-2a0f-47e7-9039-90075841cb83"
+        },
+        "system_dumbbellProneInclineCurl": {
+            "name": "Dumbbell Prone Incline Curl",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellProneInclineCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Dumbbell_Prone_Incline_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FDumbbell_Prone_Incline_Curl.png?alt=media&token=884f3958-09fc-404a-b181-dedd4c97d0ee"
+        },
+        "system_leverBicepsCurl": {
+            "name": "Lever Biceps Curl",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_leverBicepsCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Lever_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FLever_Biceps_Curl.png?alt=media&token=a7453c07-f536-45c9-b467-dcc8a667d4c9"
+        },
+        "system_lyingBarbellBicepsCurlIncline": {
+            "name": "Lying Barbell Biceps Curl Incline",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lyingBarbellBicepsCurlIncline",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Lying_Incline_Barbell_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FLying_Incline_Barbell_Biceps_Curl.png?alt=media&token=c95ebbfd-416d-4dc5-8cfb-66ecf276ac29"
+        },
+        "system_barbellCurlNarrowGripStanding": {
+            "name": "Barbell Curl Narrow Grip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_barbellCurlNarrowGripStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Narrow_Grip_Standing_Barbell_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FNarrow_Grip_Standing_Barbell_Biceps_Curl.png?alt=media&token=262dd0c6-7a45-4e37-bfe8-7b89c004c986"
+        },
+        "system_EZBarCurlsNarrowStanding": {
+            "name": "EZ Bar Curls Narrow Grip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_EZBarCurlsNarrow",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Narrow_Grip_Standing_EZ_Bar_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FNarrow_Grip_Standing_EZ_Bar_Curls.png?alt=media&token=e8b2654b-c48c-4fc5-9c3f-f1c659097e3d"
+        },
+        "system_oneArmConcentrationCurl": {
+            "name": "Concentration Curl One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_oneArmConcentrationCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_One_Arm_Concentration_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FOne_Arm_Concentration_Curls.png?alt=media&token=a8c3e648-b23d-407e-b773-6eac55a1a66b"
+        },
+        "system_preacherCurlDumbbellOneArm": {
+            "name": "Preacher Curl Dumbbell One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_preacherCurlDumbbellOneArm",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_One_Arm_Dumbbell_Biceps_Preacher_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FOne_Arm_Dumbbell_Biceps_Preacher_Curl.png?alt=media&token=e35c984a-a770-4bfb-86a0-57efab2b0591"
+        },
+        "system_overheadCableCurl": {
+            "name": "Cable Curl Overhead",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_overheadCableCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Overhead_Biceps_Cable_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FOverhead_Biceps_Cable_Curl.png?alt=media&token=d5e1c553-489e-486c-895b-ea26bb436a7f"
+        },
+        "system_reverseBarbellCurl": {
+            "name": "Reverse Curl Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_reverseBarbellCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Reverse_Barbell_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FReverse_Barbell_Curl.png?alt=media&token=ee2a753f-d6b6-4cf6-b1ae-e585f75425ab"
+        },
+        "system_inclineDumbbellBicepCurlSeatedAlternate": {
+            "name": "Seated Bicep Curl Incline Alternate",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_inclineDumbbellBicepCurlSeatedAlternate",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Seated_Alternate_Incline_Dumbbell_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FSeated_Alternate_Incline_Dumbbell_Biceps_Curl.png?alt=media&token=1b66465d-f433-429e-b3b9-e94a9c4035b1"
+        },
+        "system_inclineDumbbellHammerCurlSeatedAlternate": {
+            "name": "Seated Hammer Curl Incline Alternate",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_inclineDumbbellHammerCurlSeatedAlternate",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Seated_Alternate_Incline_Dumbbell_Biceps_Hammer_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FSeated_Alternate_Incline_Dumbbell_Biceps_Hammer_Curl.png?alt=media&token=6fb9377c-b3a5-4b40-9af5-864804c0570d"
+        },
+        "system_inclineDumbbellCurlSeated": {
+            "name": "Seated Dumbbell Curl Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_inclineDumbbellCurlSeated",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Seated_Incline_Dumbbell_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FSeated_Incline_Dumbbell_Biceps_Curl.png?alt=media&token=5a22ca8c-4c86-4433-9c05-63090d486be0"
+        },
+        "system_inclineHammerCurlSeated": {
+            "name": "Seated Hammer Curl Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_inclineHammerCurlSeated",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Seated_Incline_Dumbbell_Biceps_Hammer_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FSeated_Incline_Dumbbell_Biceps_Hammer_Curl.png?alt=media&token=e6172c87-65d5-4c4d-9d21-d5ca3667e728"
+        },
+        "system_inclineInnerBicepsCurlSeated": {
+            "name": "Incline Inner Biceps Curl",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_inclineInnerBicepsCurlSeated",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Seated_Incline_Dumbbell_Inner_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FSeated_Incline_Dumbbell_Inner_Biceps_Curl.png?alt=media&token=72e85b30-0677-4bac-b221-0a081d7230c6"
+        },
+        "system_standingDumbbellBicepsCurlAlternate": {
+            "name": "Dumbbell Biceps Curl Alternate",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingDumbbellBicepsCurlAlternate",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_Alternate_Dumbbell_Biceps_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_Alternate_Dumbbell_Biceps_Curls.png?alt=media&token=051a9daa-9431-43a9-9dad-97fecb31737b"
+        },
+        "system_standingHammerBicepsCurlAlternate": {
+            "name": "Hammer Biceps Curl Alternate",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingHammerBicepsCurlAlternate",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_Alternate_Dumbbell_Biceps_Hammer_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_Alternate_Dumbbell_Biceps_Hammer_Curls.png?alt=media&token=077954aa-70b0-4926-aeb5-41c5abb716de"
+        },
+        "system_standingCrossBodyBicepsCurl": {
+            "name": "Cross Body Biceps Curl Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingCrossBodyBicepsCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_Alternate_Dumbbell_Cross_Body_Biceps_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_Alternate_Dumbbell_Cross_Body_Biceps_Curls.png?alt=media&token=bc740fba-8c55-4057-84ad-d2dcac6ddc29"
+        },
+        "system_standingBicepsCableCurl": {
+            "name": "Biceps Cable Curl Standing",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingBicepsCableCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_Biceps_Cable_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_Biceps_Cable_Curl.png?alt=media&token=c48b59d9-d295-46aa-acbe-3c27210d04ed"
+        },
+        "system_standingBicepsRopeCurl": {
+            "name": "Biceps Rope Curl Standing",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingBicepsRopeCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_Cable_Rope_Hammer_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_Cable_Rope_Hammer_Curl.png?alt=media&token=9d2f44c4-675d-4650-8080-876e36443af3"
+        },
+        "system_standingBicepsCurlDumbbell": {
+            "name": "Biceps Curl Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingBicepsCurlDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_Dumbbell_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_Dumbbell_Biceps_Curl.png?alt=media&token=9f486fec-3c00-4ab0-97db-c7775e7fab58"
+        },
+        "system_standingHammerCurlDumbbell": {
+            "name": "Hammer Curl Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingHammerCurlDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_Dumbbell_Biceps_Hammer_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_Dumbbell_Biceps_Hammer_Curls.png?alt=media&token=162fd08f-dead-40b2-a145-a4963b1ec04a"
+        },
+        "system_standingDumbbellInnerBicepsCurl": {
+            "name": "Inner Biceps Curl Standing Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingDumbbellInnerBicepsCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_Dumbbell_Inner_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_Dumbbell_Inner_Biceps_Curl.png?alt=media&token=04606536-830f-46f7-bc96-344c58e3a33d"
+        },
+        "system_bicepsCurlOneArmInclineStanding": {
+            "name": "Biceps Curl One Arm Incline",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bicepsCurlOneArmInclineStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_One Arm_Dumbbell_Incline_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_One%20Arm_Dumbbell_Incline_Biceps_Curl.png?alt=media&token=827c2724-290d-4607-92f9-4aa2786c3977"
+        },
+        "system_bicepsCurlOneArmCableStanding": {
+            "name": "Biceps Curl One Arm Cable Standing",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bicepsCurlOneArmCableStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_One_Arm_Biceps_Cable_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_One_Arm_Biceps_Cable_Curls.png?alt=media&token=9c9fa4c2-c1a3-4253-a88d-4221976b1121"
+        },
+        "system_standingConcentrationCurlsOneArm": {
+            "name": "Concentration Curls One Arm Standing",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingConcentrationCurlsOneArm",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Standing_One_Arm_Concentration_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FStanding_One_Arm_Concentration_Curls.png?alt=media&token=6cd59352-f4f9-4dc0-95f4-ffee56646c42"
+        },
+        "system_preachersCurlDumbbellTwoArms": {
+            "name": "Preacher Curl Dumbbell Two Arms",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_preachersCurlDumbbellTwoArms",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Two_Arm_Dumbbell_Biceps_Preacher_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FTwo_Arm_Dumbbell_Biceps_Preacher_Curl.png?alt=media&token=36b694df-6b5f-4c9c-a6e5-1c20307a338a"
+        },
+        "system_waiterCurls": {
+            "name": "Waiter Curls",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_waiterCurls",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Waiter_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FWaiter_Curls.png?alt=media&token=7c81f9e8-37ca-4a4a-9838-d53507b8601d"
+        },
+        "system_plateReverseCurl": {
+            "name": "Plate Reverse Curls",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_plateReverseCurl",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Weight_Plate_Reverse_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FWeight_Plate_Reverse_Curl.png?alt=media&token=ca3510d8-43f4-44f9-9ef2-657cbca5dc15"
+        },
+        "system_barbellBicepsCurlWideGripStanding": {
+            "name": "Barbell Biceps Curl Wide Grip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_barbellBicepsCurlWideGripStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Wide_Grip_Standing_Barbell_Biceps_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FWide_Grip%20_Standing_Barbell_Biceps_Curl.png?alt=media&token=0e0e58ba-796d-42f1-ab0d-8754c33f2123"
+        },
+        "system_EZBarBicepsCurlWideGripStanding": {
+            "name": "EZ Bar Biceps Curl Wide Grip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_EZBarBicepsCurlWideGripStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Wide_Grip_Standing_EZ_Bar_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FWide_Grip_Standing_EZ_Bar_Curl.png?alt=media&token=3154195b-db08-4a14-84f5-97188deaaf9d"
+        },
+        "system_zottmanCurls": {
+            "name": "Zottman Curls",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_zottmanCurls",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/Icon_Zottman_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2FZottman_Curls.png?alt=media&token=87048aee-a008-4e95-b1f9-f88450bf660f"
+        },
+        "system_bandStandingCurls": {
+            "name": "Band Standing Curls",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bandStandingCurls",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/icon_band_curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2Fband_curls.png?alt=media&token=a470fcf0-0832-4a72-bd51-0f443d1a2fe0"
+        },
+        "system_bandStandingHammerCurls": {
+            "name": "Band Hammer Curls",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bandStandingHammerCurls",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/biceps_images/icons/icon_band_hammer_curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/biceps_images%2Ffull_images%2Fband_hammer_curls.png?alt=media&token=190615e8-aac8-4925-98d2-b3041542b09f"
+        },
+        "system_farmerWalk": {
+            "name": "Farmer Walk",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_farmerWalk",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Forearms",
+            "icon": "assets/all_icons/forearms_images/icons/icon_farmer_walk.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/forearms_images%2Ffull_images%2Ffarmer_walk.png?alt=media&token=df6f0ed9-2660-4db7-b99b-67cbffc91368"
+        },
+        "system_wristCurlPalmsDownBarbell": {
+            "name": "Wrist Curl Palms Down Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_wristCurlPalmsDownBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Forearms",
+            "icon": "assets/all_icons/forearms_images/icons/icon_farmer_walk.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/forearms_images%2Ffull_images%2Ffarmer_walk.png?alt=media&token=df6f0ed9-2660-4db7-b99b-67cbffc91368"
+        },
+        "system_wristCurlPalmsDownDumbbell": {
+            "name": "Wrist Curl Palms Down Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_wristCurlPalmsDownDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Forearms",
+            "icon": "assets/all_icons/forearms_images/icons/icon_palms_down_dumbbell_wrist_curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/forearms_images%2Ffull_images%2Fpalms_down_dumbbell_wrist_curl.png?alt=media&token=6db9f824-e147-4ff8-9df1-3503a9a84406"
+        },
+        "system_wristCurlPalmsUpDumbbell": {
+            "name": "Wrist Curl Palms Up Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_wristCurlPalmsUpDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Forearms",
+            "icon": "assets/all_icons/forearms_images/icons/icon_palms_up_dumbbell_wrist_curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/forearms_images%2Ffull_images%2Fpalms_up_dumbbell_wrist_curl.png?alt=media&token=3c7ba546-a511-4263-babf-39ccd5a88a3b"
+        },
+        "system_wristCurlPalmsUpBarbell": {
+            "name": "Wrist Curl Palms Up Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_wristCurlPalmsUpBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Forearms",
+            "icon": "assets/all_icons/forearms_images/icons/icon_palms_up_barbell_wrist_curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/forearms_images%2Ffull_images%2Fpalms_up_barbell_wrist_curl.png?alt=media&token=e3785a9d-8068-430e-9c42-f839f283dec8"
+        },
+        "system_assistedTricepsDip": {
+            "name": "Assisted Triceps Dip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_assistedTricepsDip",
+            "whoCreatedThisExercise": "system",
+            "category": "Assisted Bodyweight",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_assisted_triceps_dip.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fassisted_triceps_dip.png?alt=media&token=8c83dd04-c9b2-4d7f-981d-23546551d7b2"
+        },
+        "system_bandTricepsPushdown": {
+            "name": "Band Triceps Pushdown",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bandTricepsPushdown",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_band_triceps_pushdowns.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fband_triceps_pushdowns.png?alt=media&token=afda4bf7-2d77-409e-b015-3dcd1645a096"
+        },
+        "system_benchTricepsDip": {
+            "name": "Bench Triceps Dip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_benchTricepsDip",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_bench_triceps_dip.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fbench_triceps_dip.png?alt=media&token=765d1605-03af-475e-aaec-c820ac789828"
+        },
+        "system_declineSkullcrushers": {
+            "name": "Decline Skullcrushers",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_declineSkullcrushers",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_decline_skullcrushers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fdecline_skullcrushers.png?alt=media&token=9e595616-90fb-4679-a323-57e944954bde"
+        },
+        "system_dumbbellSkullcrushers": {
+            "name": "Dumbbell Skullcrushers",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellSkullcrushers",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_dumbell_skullcrashers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fdumbell_skullcrushers.png?alt=media&token=9a085b33-01ac-415f-8a09-83129878053b"
+        },
+        "system_dumbbellSkullcrushersIncline": {
+            "name": "Skullcrushers Dumbbell Incline",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellSkullcrushersIncline",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_incline_dumbell_skullcrashers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fincline_dumbell_skullcrashers.png?alt=media&token=048fe209-8d60-4c51-8f1c-a165ea3a1cbd"
+        },
+        "system_dumbbellSkullcrushersBarbell": {
+            "name": "Skullcrushers Barbell Incline",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellSkullcrushersBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_incline_skullcrushers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fincline_skullcrushers.png?alt=media&token=dbc1b4aa-1a80-4f9c-ad12-a0f0b4dae707"
+        },
+        "system_dumbbellOneArmOverheadExtension": {
+            "name": "Overhead Extension Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellOneArmOverheadExtension",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_one_arm_overhead_dumbbell_extension.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fone_arm_overhead_dumbbell_extension.png?alt=media&token=d7bed476-e27a-4284-bd3d-f53141607de6"
+        },
+        "system_tricepsPushdownOneArmRope": {
+            "name": "Pushdown Triceps One Arm Rope",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tricepsPushdownOneArmRope",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_one_arm_triceps_pushdown_rope.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fone_arm_triceps_pushdown_rope.png?alt=media&token=ce1e0201-d342-47c4-b565-f5516b77979a"
+        },
+        "system_tricepsOverheadBarbellExtensions": {
+            "name": "Overhead Barbell Extensions",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tricepsOverheadBarbellExtensions",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_overhead_barbell_triceps_extensions.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Foverhead_barbell_triceps_extensions.png?alt=media&token=a2e4dcbb-1ade-432e-9b4a-4c971314ead8"
+        },
+        "system_tricepsOverheadOneArmCableExtensions": {
+            "name": "Overhead Cable One Arm Extension",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tricepsOverheadOneArmCableExtensions",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_overhead_one_hand_cable_extension.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Foverhead_one_hand_cable_extension.png?alt=media&token=8cd034ae-970a-46ff-bace-73695d1a430a"
+        },
+        "system_skullcrushers": {
+            "name": "Skullcrushers",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_skullcrushers",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_skullcrushers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fskullcrushers.png?alt=media&token=7a82eff1-49ca-4bc9-bc2d-bf69cfc01358"
+        },
+        "system_tricepsDipsMachine": {
+            "name": "Triceps Dips Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tricepsDipsMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_triceps_dip_machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftriceps_dip_machine.png?alt=media&token=0f14448e-386d-4bcb-a032-d8b78e864a01"
+        },
+        "system_tricepsDips": {
+            "name": "Triceps Dips",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tricepsDips",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_triceps_dips.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftriceps_dips.png?alt=media&token=5f230997-396a-403d-a0c0-e85dad9f25d7"
+        },
+        "system_kickBacks": {
+            "name": "Kick Backs",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_kickBacks",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_triceps_kick_backs.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftriceps_kick_backs.png?alt=media&token=dfb68afe-bc1d-4929-9aa7-1e544e94908f"
+        },
+        "system_tricepsPushdownBar": {
+            "name": "Triceps Pushdown Bar",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tricepsPushdownBar",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_triceps_pushdown_bar.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftriceps_pushdown_bar.png?alt=media&token=f06f54be-857c-4c0c-b005-b777c3fedea6"
+        },
+        "system_tricepsPushdownReverseOneArmCable": {
+            "name": "Triceps Pushdown Reverse One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tricepsPushdownReverseOneArmCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_triceps_pushdown_reverse_one_arm_cable.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftriceps_pushdown_reverse_one_arm_cable.png?alt=media&token=52bd5530-34ee-4b27-b460-b825f2b10a91"
+        },
+        "system_tricepsRopePushdown": {
+            "name": "Triceps Rope Pushdown",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tricepsRopePushdown",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_triceps_rope_pushdown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftriceps_rope_pushdown.png?alt=media&token=4209a033-a8a3-4b86-b7bb-7f8c48e0c375"
+        },
+        "system_overheadDumbbellExtension": {
+            "name": "Overhead Dumbbell Extension",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_overheadDumbbellExtension",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_two_arm_overhead_dumbbell_extension.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftwo_arm_overhead_dumbbell_extension.png?alt=media&token=830ffd81-4c42-45b0-a6c1-90ff4e52d32e"
+        },
+        "system_overheadRopeExtension": {
+            "name": "Overhead Rope Extension",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_overheadRopeExtension",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_two_arm_overhead_rope_triceps_extension.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Ftwo_arm_overhead_rope_triceps_extension.png?alt=media&token=e09cb43a-92c1-4358-8cda-6519fe132bb7"
+        },
+        "system_tricepsPushdownVBar": {
+            "name": "Triceps Pushdown V-Bar",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tricepsPushdownVBar",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Triceps",
+            "icon": "assets/all_icons/triceps_images/icons/icon_v-bar_triceps_pushdown.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/triceps_images%2Ffull_images%2Fv-bar_triceps_pushdown.png?alt=media&token=13f31f4b-8863-4258-8142-7b9d8d3632cd"
+        },
+        "system_barbellBackSquats": {
+            "name": "Squats Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_barbellBackSquats",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Back_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Back_Squats.png?alt=media&token=28b34722-dee9-4730-a76c-04dba1a29da4"
+        },
+        "system_frontSquatBenchBarbell": {
+            "name": "Front Squat Bench Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontSquatBenchBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Bench_Front_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Bench_Front_Squats.png?alt=media&token=4387970e-aa4c-44ca-a7ba-4c516e46f6be"
+        },
+        "system_barbellDeadlifts": {
+            "name": "Deadlifts",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_barbellDeadlifts",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Deadlifts.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Deadlifts.png?alt=media&token=12b8401c-0baa-4670-b732-0b0d13388aae"
+        },
+        "system_frontSquatBarbell": {
+            "name": "Front Squat Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontSquatBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Front_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Front_Squats.png?alt=media&token=53f41b7b-9f70-4bfd-80bf-044c0ae76f1d"
+        },
+        "system_goodMornings": {
+            "name": "Good Mornings",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_goodMornings",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Good_Mornings.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Good_Mornings.png?alt=media&token=eba0c6b8-0438-4b06-bd23-f72d78c9e151"
+        },
+        "system_hipThrustsBarbell": {
+            "name": "Hip Thrusts Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_hipThrustsBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Hip_Thrusts.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Hip_Thrust.png?alt=media&token=e9e62b3d-b4e1-44d6-868e-f4b882a5ba22"
+        },
+        "system_lungeStepUpsBarbell": {
+            "name": "Step Ups Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lungeStepUpsBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Lunge_Step_Ups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Lunge_Step_Ups.png?alt=media&token=5f8e05f9-47e8-4e99-acdb-2ed5bd85244d"
+        },
+        "system_lungeBarbell": {
+            "name": "Lounge Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lungeBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Lunges.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Lunges.png?alt=media&token=dc134d96-6dcc-4d72-9f9a-c07f19522675"
+        },
+        "system_overheadSquatsBarbell": {
+            "name": "Overhead Squats Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_overheadSquatsBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Overhead_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Overhead_Squats.png?alt=media&token=c80b860c-d85e-4815-8ef1-369f3784881b"
+        },
+        "system_stiffLegsDeadliftsBarbell": {
+            "name": "Stiff Legs Deadlifts",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_stiffLegsDeadliftsBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Barbell_Overhead_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBarbell_Overhead_Squats.png?alt=media&token=c80b860c-d85e-4815-8ef1-369f3784881b"
+        },
+        "system_jumpSquats": {
+            "name": "Jump Squats",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_jumpSquats",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Bodyweight_Jump_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FBodyweight_Jump_Squats.png?alt=media&token=83dcfc13-15ed-4ef1-8c6d-4a82b905ddaf"
+        },
+        "system_calfRaisesLegPress": {
+            "name": "Calf Raises Leg Press",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_calfRaisesLegPress",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Calf_Raises_Leg_Press_Machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FCalf_Raises_Leg_Press_Machine.png?alt=media&token=8861b3e4-4f3f-44fa-8728-e52b1d72d288"
+        },
+        "system_dumbbellDeadlifts": {
+            "name": "Deadlifts Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellDeadlifts",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Dumbbell_Deadlifts.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FDumbbell_Deadlifts.png?alt=media&token=c43c1d41-b079-4738-9c9d-ec226fda0770"
+        },
+        "system_lungeStepUpsDumbbell": {
+            "name": "Step Ups Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lungeStepUpsDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Dumbbell_Lunge_Step_Ups.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FDumbbell_Lunge_Step_Ups.png?alt=media&token=73ffaef6-45d4-48f4-8956-f26418716f2b"
+        },
+        "system_lungeDumbbell": {
+            "name": "Lounge Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lungeDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Dumbbell_Lunges.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FDumbbell_Lunges.png?alt=media&token=737482f2-3a9f-4e21-9a05-c437f23505ee"
+        },
+        "system_overheadSquatsDumbbell": {
+            "name": "Overhead Squats Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_overheadSquatsDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Dumbbell_Overhead_Squat.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FDumbbell_Overhead_Squat.png?alt=media&token=349f79c4-80ac-4d70-a36e-af26581d6ccb"
+        },
+        "system_pistolSquatsDumbbell": {
+            "name": "Pistol Squats Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_pistolSquatsDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Dumbbell_Pistol_Squat.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FDumbbell_Pistol_Squat.png?alt=media&token=99362782-6c1c-4440-9a32-8a1c2d93cd36"
+        },
+        "system_calfRaisesDumbbell": {
+            "name": "Calf Raises Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_calfRaisesDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Dumbbell_Standing_Calf_Raises.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FDumbbell_Standing_Calf_Raises.png?alt=media&token=5ba07efe-bccf-46c3-a947-1ecab7273be2"
+        },
+        "system_stiffLegsDeadliftsDumbbell": {
+            "name": "Stiff Legs Deadlifts Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_stiffLegsDeadliftsDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Dumbbell_Stiff_Leg_Deadlifts.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FDumbbell_Stiff_Leg_Deadlifts.png?alt=media&token=505d60ea-7ef7-4b9b-bde4-339c5718680a"
+        },
+        "system_gluteBridge": {
+            "name": "Glute Bridge",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_gluteBridge",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Glute_Bridge.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FGlute_Bridge.png?alt=media&token=c3df7eed-e988-4c19-9e00-535cc49635f9"
+        },
+        "system_gluteHamRaise": {
+            "name": "Glute Ham Raise",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_gluteHamRaise",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Glute_Ham_Raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FGlute_Ham_Raise.png?alt=media&token=3a3646da-ac9e-4122-88ba-e9d3b8fd1f6d"
+        },
+        "system_gobleSquat": {
+            "name": "Goblet Squat",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_gobleSquat",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Goblet_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FGoblet_Squats.png?alt=media&token=2c8b7aae-5cb4-4aa2-8629-7da6d20fe54a"
+        },
+        "system_invertedSmithLegPress": {
+            "name": "Inverted Leg Press Smith",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_invertedSmithLegPress",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Inverted_Smith_Machine_Leg_Press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FInverted_Smith_Machine_Leg_Press.png?alt=media&token=b63ea603-4a47-40b7-a0d5-413f1d8e34cf"
+        },
+        "system_landmineOneLeggedRomanianDeadlift": {
+            "name": "Landmine One Legged Deadlift",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_landmineOneLeggedRomanianDeadlift",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Landmine_One_Legged_Romanian_Deadlift.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FLandmine_One_Legged_Romanian_Deadlift.png?alt=media&token=53685fb9-2852-4a99-9da2-5cbfc2c6e4f2"
+        },
+        "system_lateralBound": {
+            "name": "Lateral Bound",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lateralBound",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Lateral_Bound.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FLateral_Bound.png?alt=media&token=9363d0cb-302d-46e2-912e-5818ddbd8431"
+        },
+        "system_legExtensions": {
+            "name": "Leg Extensions",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_legExtensions",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Leg_Extensions.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FLeg_Extensions.png?alt=media&token=619c3fc0-b59b-42e8-abe6-22e5e397f933"
+        },
+        "system_legPressMachine": {
+            "name": "Leg Press Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_legPressMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Leg_Press_Machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FLeg_Press_Machine.png?alt=media&token=6479dc97-c9a8-4b24-8bac-d1145221352c"
+        },
+        "system_leverDeadlifts": {
+            "name": "Lever Deadlifts",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_leverDeadlifts",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Back",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Lever_Deadlifts.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FLever_Deadlifts.png?alt=media&token=7957fe8b-86ba-433a-b72f-9d7b289cef0f"
+        },
+        "system_lyingHamstringCurls": {
+            "name": "Lying Hamstring Curls",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lyingHamstringCurls",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Lying_Hamstring_Curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FLying_Hamstring_Curls.png?alt=media&token=c7eaa498-a730-4e52-8858-0b692fa510ca"
+        },
+        "system_lyingMachineSquats": {
+            "name": "Lying Machine Squats",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lyingMachineSquats",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Lying_Machine_Squat.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FLying_Machine_Squat.png?alt=media&token=3579cede-310f-4009-985c-4f6955bc83e7"
+        },
+        "system_calfRaisesMachine": {
+            "name": "Calf Raises Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_calfRaisesMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Machine_Seated_Calf_Raises.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FMachine_Seated_Calf_Raises.png?alt=media&token=e2fa3790-286c-4172-b6b6-c5cd7095c69c"
+        },
+        "system_mountainClimbers": {
+            "name": "Mountain Climbers",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_mountainClimbers",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Mountain_Climbers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FMountain_Climbers.png?alt=media&token=d431bef3-3b43-4084-8071-38749044b375"
+        },
+        "system_oneLeggedRomanianDeadlift": {
+            "name": "Romanian Deadlift One Legged",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_oneLeggedRomanianDeadlift",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_One_Legged_Romanian_Deadlift.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FOne_Legged_Romanian_Deadlift.png?alt=media&token=c35d9da2-e660-41d5-920f-0b0a24016641"
+        },
+        "system_seatedHamstringCurlMachine": {
+            "name": "Seated Hamstring Curl",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_seatedHamstringCurlMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Seated_Hamstring_Curl.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSeated_Hamstring_Curl.png?alt=media&token=4b2cee1f-d991-4a12-ad45-5752ac585721"
+        },
+        "system_horizontalLegPress": {
+            "name": "Leg Press Horizontal",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_horizontalLegPress",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Seated_Machine_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSeated_Machine_Squats.png?alt=media&token=427ec176-57b1-4ac3-8b48-07c177178056"
+        },
+        "system_bulgarianSplitSquatBarbell": {
+            "name": "Bulgarian Split Squat Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_splitSquatBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Single_Leg_Barbell_Split_Squat.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSingle_Leg_Barbell_Split_Squat.png?alt=media&token=3bdea18a-04b2-4b7b-9804-aa1dad8796de"
+        },
+        "system_bulgarianSplitSquatDumbbell": {
+            "name": "Bulgarian Split Squat Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bulgarianSplitSquatDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Single_Leg_Dumbbell_Split_Squat.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSingle_Leg_Dumbbell_Split_Squat.png?alt=media&token=6836a308-b663-4675-ac29-3bf59721556f"
+        },
+        "system_bulgarianSplitSquatSmith": {
+            "name": "Bulgarian Split Squat Smith",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bulgarianSplitSquatSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Single_Leg_Smith_Machine_Split_Squat.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSingle_Leg_Smith_Machine_Split_Squat.png?alt=media&token=497fdff2-b9b4-498b-a7a0-bccfa0f08f68"
+        },
+        "system_squatSmithChair": {
+            "name": "Smith Chair Squats",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_squatSmithChair",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Smith_Machine_Chair_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSmith_Machine_Chair_Squats.png?alt=media&token=4e4da84d-fe13-4650-98f4-f7603acbdbfb"
+        },
+        "system_splitSquatSmith": {
+            "name": "Split Squat Smith",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_splitSquatSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Smith_Machine_Split_Squat.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSmith_Machine_Split_Squat.png?alt=media&token=504505ac-715e-45d2-8319-73b3c10ed9c1"
+        },
+        "system_calfRaisesSmith": {
+            "name": "Calf Raises Smith",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_calfRaisesSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Smith_Machine_Standing_Calf_Raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSmith_Machine_Standing_Calf_Raise.png?alt=media&token=5a3fb5a7-ce92-453e-98f5-79b3ad2d6b23"
+        },
+        "system_stiffDeadliftSmith": {
+            "name": "Stiff Deadlift Smith",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_stiffDeadliftSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Smith_Machine_Stiff_Leg_Deadlifts.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSmith_Machine_Stiff_Leg_Deadlifts.png?alt=media&token=4a5e5af5-fdab-452c-bd11-9f69325bb10a"
+        },
+        "system_calfRaiseStandingMachine": {
+            "name": "Calf Raise Standing Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_calfRaiseStandingMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Standing_Calf_Raises_Machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FStanding_Calf_Raises_Machine.png?alt=media&token=927ca24d-6bc9-4a2f-8dac-8c3c4415d0a8"
+        },
+        "system_sumoDeadlift": {
+            "name": "Sumo Deadlift",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_sumoDeadlift",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Sumo_Deadlift.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSumo_Deadlift.png?alt=media&token=0d9d22ca-3bec-4902-a36c-5866387f2127"
+        },
+        "system_sumoSquats": {
+            "name": "Sumo Squats",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_sumoSquats",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Sumo_Squats.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FSumo_Squats.png?alt=media&token=6be4fc8b-375b-4dc4-8654-d736d58e90fa"
+        },
+        "system_tightAbductor": {
+            "name": "Tight Abductor",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tightAbductor",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Thigh_Abductor.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FThigh_Abductor.png?alt=media&token=7bf00185-1e86-420f-9e4d-26b3a74b9be5"
+        },
+        "system_tightAdductor": {
+            "name": "Tight Adductor",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_tightAdductor",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Thigh_Adductor.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2FThigh_Adductor.png?alt=media&token=54add03b-6387-4894-acdd-ecc676c6ed2e"
+        },
+        "system_wallSits": {
+            "name": "Wall Sits",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_wallSits",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/Icon_Wall_Sits.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ficons%2FIcon_Wall_Sits.png?alt=media&token=15225e31-d1b2-47c2-a431-625fbb548eef"
+        },
+        "system_bandSplitSquats": {
+            "name": "Band Split Squats",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_bandSplitSquats",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/icon_band_split_squat.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2Fband_split_squat.png?alt=media&token=e38fae1f-222d-4c62-b611-f906d7df4d0a"
+        },
+        "system_squatTrapBar": {
+            "name": "Squat Trap Bar",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_squatTrapBar",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Legs",
+            "icon": "assets/all_icons/legs_images/icons/icon_squat_trap_bar.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/legs_images%2Ffull_images%2Fsquat_trap_bar.png?alt=media&token=81ca782d-219c-4f97-8103-6ea8ee8c110f"
+        },
+        "system_frontRaiseDumbbellVerticalAlternate": {
+            "name": "Dumbbell Front Raise Vertical Alternate",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontRaiseDumbbellVerticalAlternate",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_alternate_vertical_dumbbell_front_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Falternate_vertical_dumbbell_front_raise.png?alt=media&token=b7aeeeed-ebd0-4d81-bab8-5621f0cde971"
+        },
+        "system_shrugsBackSmith": {
+            "name": "Smith Shrugs Back",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shrugsBackSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_back_smith_machine_shrugs.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fback_smith_machine_shrugs.png?alt=media&token=45fbbaef-01a5-47d7-82a1-a7f20a4a8750"
+        },
+        "system_shoulderPressOneArmBand": {
+            "name": "Shoulder Press One Arm Band",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shoulderPressOneArmBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_band_one_arm_overhead_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fband_one_arm_overhead_press.png?alt=media&token=47d6dd97-6c6c-4e3c-9f5e-2767b8ff1b22"
+        },
+        "system_shoulderPressBand": {
+            "name": "Shoulder Press Band",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shoulderPressBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_band_overhead_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fband_overhead_press.png?alt=media&token=f187d2c9-eb29-4c56-b9c5-897074a652cb"
+        },
+        "system_curlsSeatedBand": {
+            "name": "Band Biceps Curl Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_curlsSeatedBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Biceps",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_band_seated_bicep_curls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fband_seated_bicep_curls.png?alt=media&token=0d778d7d-ed5e-43f6-a8f9-b8a470f11531"
+        },
+        "system_seatedShoulderPressBand": {
+            "name": "Seated Shoulder Press Band",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_seatedShoulderPressBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_band_shoulder_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ficons%2Ficon_band_shoulder_press.png?alt=media&token=063fc6de-46e5-4990-9d3e-524f0ad120a8"
+        },
+        "system_uprightRowBand": {
+            "name": "Upright Row Band",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_uprightRowBand",
+            "whoCreatedThisExercise": "system",
+            "category": "Band",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_band_upright_row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fband_upright_row.png?alt=media&token=265b1b25-48f7-48ec-be9b-7bcc6ca85eb6"
+        },
+        "system_frontShrugsBarbell": {
+            "name": "Front Shrugs Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontShrugsBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_barbell_front_shrugs.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fbarbell_front_shrugs.png?alt=media&token=0150de91-5abd-4104-8040-025cd9915a82"
+        },
+        "system_lateralRaisesBentOverCable": {
+            "name": "Lateral Raises Bent Over Cable",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lateralRaisesBentOverCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_bent_over_lateral_raises_cable.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fbent_over_lateral_raises_cable.png?alt=media&token=521ede1a-a19b-4f4c-a184-360f2f87f0b7"
+        },
+        "system_lateralRaisesBentOverDumbbell": {
+            "name": "Lateral Raises Bent Over Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lateralRaisesBentOverDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_bent_over_lateral_raises_dumbbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fbent_over_lateral_raises_dumbbell.png?alt=media&token=8281283d-1053-477e-b006-c0ace4d82d84"
+        },
+        "system_busDrivers": {
+            "name": "Bus Drivers",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "busDrivers",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_bus_drivers.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fbus_drivers.png?alt=media&token=11d90e4f-1c9b-465d-b33d-5341a590eff4"
+        },
+        "system_lateralRaisesCable": {
+            "name": "Lateral Raises Cable",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lateralRaisesCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_cable_lateral_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fcable_lateral_raise.png?alt=media&token=d514cc81-e7a6-4527-97dc-593641178151"
+        },
+        "system_uprightRowCable": {
+            "name": "Upright Row Cable",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_uprightRowCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_cable_upright_rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fcable_upright_rows.png?alt=media&token=5f515fac-f4c8-436b-8cec-a2cdcf418ca0"
+        },
+        "system_frontRaiseOneDumbbell": {
+            "name": "Front Raise One Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontRaiseOneDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_dumbbell_front_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fdumbbell_front_raise.png?alt=media&token=50c76249-485c-465a-af0d-029cd286e0f6"
+        },
+        "system_scaptionDumbbell": {
+            "name": "Scaption Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_scaptionDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_dumbbell_scaption.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fdumbbell_scaption.png?alt=media&token=4517aaa6-e5b8-45f0-bff9-92a3a13eae1b"
+        },
+        "system_shrugsDumbbell": {
+            "name": "Shrugs Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shrugsDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_dumbbell_shrugs.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fdumbbell_shrugs.png?alt=media&token=df5b70f6-42bb-4819-b043-3cce6f682adc"
+        },
+        "system_frontRaiseSimultanDumbbell": {
+            "name": "Front Raise Simultan Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontRaiseSimultanDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_dumbbell_simultan_front_raises.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fdumbbell_simultan_front_raises.png?alt=media&token=e6685b05-b11e-4990-b39a-7a2a75497114"
+        },
+        "system_facePulls": {
+            "name": "Front Raise Simultan Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_facePulls",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_face_pulls.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fface_pulls.png?alt=media&token=b85ad421-664a-4bf7-a5ac-16151b2149ed"
+        },
+        "system_frontShrugsSmith": {
+            "name": "Front Shrugs Smith",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontShrugsSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_front_smith_shrugs.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Ffront_smith_shrugs.png?alt=media&token=4b54df77-bc11-4d66-acbd-5859912d86dd"
+        },
+        "system_handstandPushUps": {
+            "name": "Handstand Push Ups",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_handstandPushUps",
+            "whoCreatedThisExercise": "system",
+            "category": "Bodyweight",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_handstand_push_up.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fhandstand_push_up.png?alt=media&token=ea59488a-70a7-4699-a2f6-79ca33f83868"
+        },
+        "system_shrugsLever": {
+            "name": "Lever Shrugs",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shrugsLever",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_lever_shrugs.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Flever_shrugs.png?alt=media&token=938f5915-dfff-4b53-b507-89d17d316fcf"
+        },
+        "system_lateralRaiseMachine": {
+            "name": "Lateral Raise Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lateralRaiseMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_machine_lateral_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fmachine_lateral_raise.png?alt=media&token=4fbb7d09-2073-4e51-8a0e-0cee80eb37b2"
+        },
+        "system_militaryPressBarbell": {
+            "name": "Military Press Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_militaryPressBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_military_press_barbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fmilitary_press_barbell.png?alt=media&token=e14dc3d8-21aa-4301-bfe7-111bbb06ef3b"
+        },
+        "system_uprightRowNarrowGripBarbell": {
+            "name": "Upright Row Narrow Grip Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_uprightRowNarrowGripBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_narrow_grip_barbell_upright_rows.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fnarrow_grip_barbell_upright_rows.png?alt=media&token=80c73735-4307-4a64-8826-6d16c4b23277"
+        },
+        "system_frontRaiseCableOneArm": {
+            "name": "Front Raise Cable One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontRaiseCableOneArm",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_one_arm_cable_front_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fone_arm_cable_front_raise.png?alt=media&token=a9a60ee2-d025-428c-ad0b-363616d02ee5"
+        },
+        "system_dumbbellRotationOneArm": {
+            "name": "Dumbbell Rotation One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellRotationOneArm",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_one_arm_dumbbell_rotation.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fone_arm_dumbbell_rotation.png?alt=media&token=2324d470-43ee-46ba-9a24-b34046229d92"
+        },
+        "system_shoulderPressOneArmStanding": {
+            "name": "Shoulder Press One Arm",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shoulderPressOneArmStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_one_arm_dumbbell_shoulder_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fone_arm_dumbbell_shoulder_press.png?alt=media&token=78d9e9fe-4546-424b-a2bd-b6399647f655"
+        },
+        "system_lateralRaiseOneArmDumbbell": {
+            "name": "Lateral Raise One Arm Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lateralRaiseOneArmDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_one_arm_standing_dumbbell_lateral_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fone_arm_standing_dumbbell_lateral_raise.png?alt=media&token=2a3daf3b-cf94-4ec5-979f-6ca54de932d3"
+        },
+        "system_EZBarPressOverheadStanding": {
+            "name": "EZ Bar Press Overhead",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_EZBarPressOverheadStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_overhead_ez_bar_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Foverhead_ez_bar_press.png?alt=media&token=69b657de-0e7d-4422-96e4-fc4e350faad8"
+        },
+        "system_frontRaisePlate": {
+            "name": "Front Raise Plate",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontRaisePlate",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_plate_front_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fplate_front_raise.png?alt=media&token=edae9e5b-779e-4716-94ea-a20ebc97fb7c"
+        },
+        "system_shrugsRearBarbell": {
+            "name": "Shrugs Rear Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shrugsRearBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_rear_barbell_shrugs.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Frear_barbell_shrugs.png?alt=media&token=608c3f94-5b9b-4d63-91b2-cd8c94a8169f"
+        },
+        "system_ropePullsRearDelt": {
+            "name": "Rope Pulls Rear Delt",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_ropePullsRearDelt",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_rear_delt_rope_pulls_standing.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Frear_delt_rope_pulls_standing.png?alt=media&token=571f876f-118d-40f5-9611-cf5f25cdc087"
+        },
+        "system_reverseFlyVerticalHandleMachine": {
+            "name": "Reverse Fly Vertical Handle",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_reverseFlyVerticalHandleMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_reverse_fly_vertical_handle.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Freverse_fly_vertical_handle.png?alt=media&token=301fc735-cfbd-4c2c-b025-8e88b1ba9df3"
+        },
+        "system_frontRaiseDumbbellSeated": {
+            "name": "Front Raise Dumbbell Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontRaiseDumbbellSeated",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_seated_alternate_dumbbell_front_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fseated_alternate_dumbbell_front_raise.png?alt=media&token=b7b7cc01-81a1-48d0-9312-00bdb73d7325"
+        },
+        "system_shoulderPressBarbellSeated": {
+            "name": "Shoulder Press Barbell Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shoulderPressBarbellSeated",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_seated_barbell_shoulder_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fseated_barbell_shoulder_press.png?alt=media&token=677395a2-c302-45ad-80eb-76e279478671"
+        },
+        "system_lateralRaiseBentOverSeated": {
+            "name": "Lateral Raise Bent Over Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lateralRaiseBentOverSeated",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_seated_bent_over_lateral_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fseated_bent_over_lateral_raise.png?alt=media&token=c7245496-8696-4ee8-b7de-ad91b1156e19"
+        },
+        "system_lateralRaiseSeated": {
+            "name": "Lateral Raise Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lateralRaiseSeated",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_seated_dumbbell_lateral_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fseated_dumbbell_lateral_raise.png?alt=media&token=3d72eb5b-dca5-4d1b-a352-8835d835e3ae"
+        },
+        "system_shoulderPressDumbbellSeated": {
+            "name": "Shoulder Press Dumbbell Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shoulderPressDumbbellSeated",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_seated_dumbbell_shoulder_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fseated_dumbbell_shoulder_press.png?alt=media&token=7f334857-7caa-49db-a854-ab1a9c1f0171"
+        },
+        "system_shoulderPressDumbbellOneArmSeated": {
+            "name": "Shoulder Press Dumbbell One Arm Seated",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shoulderPressDumbbellOneArmSeated",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_seated_one_arm_dumbbell_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fseated_one_arm_dumbbell_press.png?alt=media&token=1a6a571f-d392-4ed3-b594-51b1a2fc6de1"
+        },
+        "system_reverseFlyHorizontalHandleSeatedMachine": {
+            "name": "Reverse Fly Horizontal Handle",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_reverseFlyHorizontalHandleSeatedMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_seated_reverse_fly_horizontal_handles.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fseated_reverse_fly_horizontal_handles.png?alt=media&token=efaa932a-c041-4ea5-a4dc-81de525183d2"
+        },
+        "system_shoulderPressMachine": {
+            "name": "Shoulder Press Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shoulderPressMachine",
+            "whoCreatedThisExercise": "system",
+            "category": "Machine",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_seated_shoulder_press_machine.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fseated_shoulder_press_machine.png?alt=media&token=91f93726-d8dd-4137-9fba-4868dd0b2906"
+        },
+        "system_shoulderPressSmith": {
+            "name": "Shoulder Press Machine",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shoulderPressSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_seated_smith_shoulder_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fseated_smith_shoulder_press.png?alt=media&token=dd05c605-31f4-4ea6-bc29-5e59087c5672"
+        },
+        "system_lateralsToFrontRaise": {
+            "name": "Laterl To Front Raise",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_lateralsToFrontRaise",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_side_laterals_to_front_raise_dumbbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fside_laterals_to_front_raise_dumbbell.png?alt=media&token=e922d1b8-e419-4218-bfc4-65eaed6f3d99"
+        },
+        "system_militaryPressSmith": {
+            "name": "Military Press Smith",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_militaryPressSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_smith_military_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fsmith_military_press.png?alt=media&token=6b17e461-215e-4418-bfad-53080062913e"
+        },
+        "system_uprightRowSmith": {
+            "name": "Upright Row Smith",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_uprightRowSmith",
+            "whoCreatedThisExercise": "system",
+            "category": "Smith",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_smith_upright_row.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fsmith_upright_row.png?alt=media&token=e538530a-8fd6-4ed2-aac5-c9370af0bd58"
+        },
+        "system_standingFrontRaiseAlternateDumbbell": {
+            "name": "Front Raise Alternate Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_standingFrontRaiseAlternateDumbbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_standing_alternated_front_raise_dumbbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fstanding_alternated_front_raise_dumbbell.png?alt=media&token=2e5c2613-02d0-4a79-9053-1546b7cae0bf"
+        },
+        "system_rearDeltFlyCableStanding": {
+            "name": "Rear Delt Fly Cable Standing",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_rearDeltFlyCableStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_standing_cable_rear_delt_fly.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fstanding_cable_rear_delt_fly.png?alt=media&token=c54d00c4-8c63-49e5-82e4-77d173e2b8a9"
+        },
+        "system_dumbbellLateralRaise": {
+            "name": "Lateral Raise Dumbbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_dumbbellLateralRaise",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_standing_dumbbell_lateral_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fstanding_dumbbell_lateral_raise.png?alt=media&token=b548a628-2409-416e-a896-b5920a765cc8"
+        },
+        "system_shoulderPressDumbbellStanding": {
+            "name": "Shoulder Press Dumbbell Standing",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_shoulderPressDumbbellStanding",
+            "whoCreatedThisExercise": "system",
+            "category": "Dumbbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_standing_dumbbell_shoulder_press.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fstanding_dumbbell_shoulder_press.png?alt=media&token=c624afa3-c2eb-4d6d-ba1c-21919fad1be5"
+        },
+        "system_frontRaiseBarbell": {
+            "name": "Front Raise Barbell",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontRaiseBarbell",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_standing_front_raise_barbell.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fstanding_front_raise_barbell.png?alt=media&token=d088b40c-675e-442f-b446-f1d9bc1212e3"
+        },
+        "system_frontRaiseCable": {
+            "name": "Front Raise Cable",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_frontRaiseCable",
+            "whoCreatedThisExercise": "system",
+            "category": "Cable",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_two_arm_cable_front_raise.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Ftwo_arm_cable_front_raise.png?alt=media&token=d8c2ccad-4867-4d49-bd55-84f9e3e4b32e"
+        },
+        "system_uprightRowBarbellWideGrip": {
+            "name": "Upright Row Barbell Wide Grip",
+            "description": "Lorepsagds gdsds fds gsd gsdsd",
+            "id": "system_uprightRowBarbellWideGrip",
+            "whoCreatedThisExercise": "system",
+            "category": "Barbell",
+            "bodyPart": "Shoulders",
+            "icon": "assets/all_icons/shoulders_images/icons/icon_upright_rows_barbell_wide_grip.png",
+            "biggerImage": "https://firebasestorage.googleapis.com/v0/b/workouttrackerdb.appspot.com/o/shoulders_images%2Ffull_images%2Fupright_rows_barbell_wide_grip.png?alt=media&token=2bc89e20-5461-4073-bce1-1b0dbf9fa868"
+        }
+    }
+}

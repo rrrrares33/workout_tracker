@@ -42,3 +42,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/all_icons/abdominal_images/icons/
+    - assets/all_icons/back_images/icons/
+    - assets/all_icons/biceps_images/icons/
+    - assets/all_icons/chest_images/icons/
+    - assets/all_icons/forearms_images/icons/
+    - assets/all_icons/legs_images/icons/
+    - assets/all_icons/shoulders_images/icons/
+    - assets/all_icons/triceps_images/icons/

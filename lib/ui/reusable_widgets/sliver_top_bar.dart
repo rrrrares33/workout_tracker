@@ -47,6 +47,7 @@ class SliverTopBar extends StatelessWidget {
                 child: PaddingWidget(
                   type: 'only',
                   onlyLeft: 15,
+                  onlyBottom: 7.5,
                   child: TextWidget(
                     text: textToolbar,
                     fontSize: 27,

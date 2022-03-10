@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:core';
+import 'dart:io';
+
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import '../models/exercise.dart';
@@ -27,7 +31,7 @@ class DatabaseService {
   late final DatabaseReference _exercisesRef;
 
   List<UserDB> _allUsers = <UserDB>[];
-  List<Exercise> _allExercises = <Exercise>[];
+  final List<Exercise> _allExercises = <Exercise>[];
 
   List<UserDB> getUsers() {
     return _allUsers;
@@ -100,28 +104,53 @@ class DatabaseService {
   }
 
   // Gets all exercises from the database which may be accessed by the current user.
-  Future<List<Exercise>> getAllExercisesFromDatabaseForUser(String uid, BuildContext context) async {
+  Future<List<Exercise>> getAllExercisesForUser(String uid, BuildContext context) async {
     if (_allExercises.isEmpty) {
-      final List<Exercise> exercises = <Exercise>[];
-      final DatabaseEvent event = await _exercisesRef.once();
-      if (event.snapshot.value == null) {
-        return <Exercise>[];
-      }
-      final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
-      if (result.isEmpty) {
-        return <Exercise>[];
-      }
-      result.forEach((dynamic key, dynamic value) {
-        value = value as Map<dynamic, dynamic>;
-        final Exercise exercise = Exercise.fromJson(value);
-        if (exercise.whoCreatedThisExercise == uid || exercise.whoCreatedThisExercise == 'system') {
-          exercises.add(exercise);
+      try {
+        final List<InternetAddress> result = await InternetAddress.lookup('example.com');
+        if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+          return getAllExercisesFromDBForUser(uid);
         }
-      });
-      _allExercises = exercises;
-      return exercises;
+      } on SocketException catch (_) {
+        return getAllExercisesFromJSONForUser(context);
+      }
     }
     return _allExercises;
+  }
+
+  Future<List<Exercise>> getAllExercisesFromJSONForUser(BuildContext context) async {
+    final List<Exercise> exercises = <Exercise>[];
+
+    final String data = await DefaultAssetBundle.of(context).loadString('assets/all_json_exercises.json');
+    final Map<String, dynamic> allJsonExercises = jsonDecode(data) as Map<String, dynamic>;
+    final Map<String, dynamic> allJsons = allJsonExercises['Exercises'] as Map<String, dynamic>;
+
+    allJsons.forEach((String key, dynamic value) {
+      final Exercise aux = Exercise.fromJson(value as Map<String, dynamic>);
+      exercises.add(aux);
+    });
+
+    return exercises;
+  }
+
+  Future<List<Exercise>> getAllExercisesFromDBForUser(String uid) async {
+    final List<Exercise> exercisesFromNet = <Exercise>[];
+    final DatabaseEvent event = await _exercisesRef.once();
+    if (event.snapshot.value == null) {
+      return <Exercise>[];
+    }
+    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
+    if (result.isEmpty) {
+      return <Exercise>[];
+    }
+    result.forEach((dynamic key, dynamic value) {
+      value = value as Map<dynamic, dynamic>;
+      final Exercise exercise = Exercise.fromJson(value);
+      if (exercise.whoCreatedThisExercise == uid || exercise.whoCreatedThisExercise == 'system') {
+        exercisesFromNet.add(exercise);
+      }
+    });
+    return exercisesFromNet;
   }
 
   // Creates an user after completing the details form.

@@ -1,0 +1,12 @@
+const String timerName = 'Rest Timer';
+const String increment10Sec = '+ 10 sec.';
+const String increment30Sec = '+ 30 sec.';
+const String increment60Sec = '+ 60 sec.';
+const String decrement10Sec = ' - 10 sec.';
+const String decrement30Sec = '- 30 sec. ';
+const String decrement60Sec = '- 60 sec.';
+const String oneMinute = '1 min.';
+const String twoMinutes = '2 min.';
+const String threeMinutes = '3 min.';
+const String finishText = 'Finish';
+const String pickYourTime = 'Pick your rest time:';

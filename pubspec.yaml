@@ -14,8 +14,6 @@ dependencies:
 
   cupertino_icons: ^1.0.3
 
-  flutter_svg: ^1.0.2
-
   #Firebase
   firebase_core: ^1.11.0
   firebase_auth: ^3.3.5
@@ -27,12 +25,12 @@ dependencies:
 
   #State Management tool
   provider: ^6.0.2
+
   font_awesome_flutter: ^9.2.0
+  circular_countdown_timer: ^0.2.0
   snack: ^2.0.0
   cached_network_image: ^3.2.0
   dropdown_button2: ^1.2.0
-  flutter_smart_dialog: ^3.4.0+1
-  firebase_image: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -51,3 +49,4 @@ flutter:
     - assets/all_icons/legs_images/icons/
     - assets/all_icons/shoulders_images/icons/
     - assets/all_icons/triceps_images/icons/
+    - assets/

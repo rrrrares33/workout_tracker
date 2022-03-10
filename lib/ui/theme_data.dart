@@ -59,6 +59,7 @@ class ThemeClass {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       elevation: 20,
+      type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.black,
       unselectedItemColor: Colors.grey,
       selectedItemColor: Colors.greenAccent[400],

@@ -89,138 +89,173 @@ class _TimerWidgetState extends State<TimerWidget> {
                         fontSize: widget.screenWidth / 15,
                       ),
                       actionsAlignment: MainAxisAlignment.center,
-                      actions: currentWorkout.currentTimeInSeconds != 0 ? <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ButtonWidget(
-                                onPressed: () {
-                                  setState(() {
-                                    if (currentWorkout.timer?.isActive == true) {
-                                      currentWorkout.currentTimeInSeconds += 10;
-                                    }
-                                    currentWorkout.timerController.restart(
-                                        duration: convertTimeToSeconds(currentWorkout.timerController.getTime()) + 10);
-                                  });
-                                },
-                                text: TextWidget(text: increment10Sec, fontSize: widget.screenWidth/20,)),
-                            PaddingWidget(
-                              type: 'symmetric',
-                              horizontal: widget.screenWidth / 30,
-                              child: ButtonWidget(
-                                  onPressed: () {
-                                    setState(() {
-                                      if (currentWorkout.timer?.isActive == true) {
-                                        currentWorkout.currentTimeInSeconds += 30;
-                                      }
-                                      currentWorkout.timerController.restart(
-                                          duration:
-                                              convertTimeToSeconds(currentWorkout.timerController.getTime()) + 30);
-                                    });
-                                  },
-                                  text: TextWidget(text: increment30Sec, fontSize: widget.screenWidth/20,)),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ButtonWidget(
-                              onPressed: () {
-                                setState(() {
-                                  currentWorkout.timerController.restart(
-                                      duration: convertTimeToSeconds(currentWorkout.timerController.getTime()) - 10 > 0
-                                          ? convertTimeToSeconds(currentWorkout.timerController.getTime()) - 10
-                                          : 0);
-                                  if (currentWorkout.currentTimeInSeconds > 10) {
-                                    currentWorkout.currentTimeInSeconds -= 10;
-                                  } else {
-                                    currentWorkout.currentTimeInSeconds = 0;
-                                  }
-                                });
-                              },
-                              text: TextWidget(text: decrement10Sec, fontSize: widget.screenWidth/20,),
-                              primaryColor: Colors.redAccent,
-                            ),
-                            PaddingWidget(
-                              type: 'symmetric',
-                              horizontal: widget.screenWidth / 30,
-                              child: ButtonWidget(
-                                onPressed: () {
-                                  setState(() {
-                                    currentWorkout.timerController.restart(
-                                        duration:
-                                            convertTimeToSeconds(currentWorkout.timerController.getTime()) - 30 > 0
-                                                ? convertTimeToSeconds(currentWorkout.timerController.getTime()) - 30
-                                                : 0);
-                                    if (currentWorkout.currentTimeInSeconds > 30) {
-                                      currentWorkout.currentTimeInSeconds -= 30;
-                                    } else {
-                                      currentWorkout.currentTimeInSeconds = 0;
-                                    }
-                                  });
-                                },
-                                text: TextWidget(text: decrement30Sec, fontSize: widget.screenWidth/20,),
-                                primaryColor: Colors.redAccent,
+                      actions: currentWorkout.currentTimeInSeconds != 0
+                          ? <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  ButtonWidget(
+                                      onPressed: () {
+                                        setState(() {
+                                          if (currentWorkout.timer?.isActive == true) {
+                                            currentWorkout.currentTimeInSeconds += 10;
+                                          }
+                                          currentWorkout.timerController.restart(
+                                              duration:
+                                                  convertTimeToSeconds(currentWorkout.timerController.getTime()) + 10);
+                                        });
+                                      },
+                                      text: TextWidget(
+                                        text: increment10Sec,
+                                        fontSize: widget.screenWidth / 20,
+                                      )),
+                                  PaddingWidget(
+                                    type: 'symmetric',
+                                    horizontal: widget.screenWidth / 30,
+                                    child: ButtonWidget(
+                                        onPressed: () {
+                                          setState(() {
+                                            if (currentWorkout.timer?.isActive == true) {
+                                              currentWorkout.currentTimeInSeconds += 30;
+                                            }
+                                            currentWorkout.timerController.restart(
+                                                duration:
+                                                    convertTimeToSeconds(currentWorkout.timerController.getTime()) +
+                                                        30);
+                                          });
+                                        },
+                                        text: TextWidget(
+                                          text: increment30Sec,
+                                          fontSize: widget.screenWidth / 20,
+                                        )),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
-                        ),
-                      ] : <Widget> [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            PaddingWidget(
-                              onlyTop: 15,
-                              onlyBottom: 10,
-                              type: 'only',
-                              child: TextWidget(text: pickYourTime, fontSize: widget.screenWidth/20,),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ButtonWidget(
-                                onPressed: () {
-                                  setState(() {
-                                    if (currentWorkout.timer?.isActive == true) {
-                                      currentWorkout.currentTimeInSeconds += 60;
-                                    }
-                                    currentWorkout.timerController.restart(
-                                        duration: convertTimeToSeconds(currentWorkout.timerController.getTime()) + 60);
-                                  });
-                                },
-                                text: TextWidget(text: oneMinute, fontSize: widget.screenWidth/20,)),
-                            PaddingWidget(
-                              type: 'symmetric',
-                              horizontal: 15,
-                              child: ButtonWidget(
-                                  onPressed: () {
-                                    setState(() {
-                                      if (currentWorkout.timer?.isActive == true) {
-                                        currentWorkout.currentTimeInSeconds += 120;
-                                      }
-                                      currentWorkout.timerController.restart(
-                                          duration: convertTimeToSeconds(currentWorkout.timerController.getTime()) + 120);
-                                    });
-                                  },
-                                  text: TextWidget(text: twoMinutes, fontSize: widget.screenWidth/20,)),
-                            ),
-                            ButtonWidget(
-                                onPressed: () {
-                                  setState(() {
-                                    if (currentWorkout.timer?.isActive == true) {
-                                      currentWorkout.currentTimeInSeconds += 180;
-                                    }
-                                    currentWorkout.timerController.restart(
-                                        duration: convertTimeToSeconds(currentWorkout.timerController.getTime()) + 180);
-                                  });
-                                },
-                                text: TextWidget(text: threeMinutes, fontSize: widget.screenWidth/20,)),
-                          ],
-                        ),
-                      ],
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  ButtonWidget(
+                                    onPressed: () {
+                                      setState(() {
+                                        currentWorkout.timerController.restart(
+                                            duration:
+                                                convertTimeToSeconds(currentWorkout.timerController.getTime()) - 10 > 0
+                                                    ? convertTimeToSeconds(currentWorkout.timerController.getTime()) -
+                                                        10
+                                                    : 0);
+                                        if (currentWorkout.currentTimeInSeconds > 10) {
+                                          currentWorkout.currentTimeInSeconds -= 10;
+                                        } else {
+                                          currentWorkout.currentTimeInSeconds = 0;
+                                        }
+                                      });
+                                    },
+                                    text: TextWidget(
+                                      text: decrement10Sec,
+                                      fontSize: widget.screenWidth / 20,
+                                    ),
+                                    primaryColor: Colors.redAccent,
+                                  ),
+                                  PaddingWidget(
+                                    type: 'symmetric',
+                                    horizontal: widget.screenWidth / 30,
+                                    child: ButtonWidget(
+                                      onPressed: () {
+                                        setState(() {
+                                          currentWorkout.timerController.restart(
+                                              duration: convertTimeToSeconds(currentWorkout.timerController.getTime()) -
+                                                          30 >
+                                                      0
+                                                  ? convertTimeToSeconds(currentWorkout.timerController.getTime()) - 30
+                                                  : 0);
+                                          if (currentWorkout.currentTimeInSeconds > 30) {
+                                            currentWorkout.currentTimeInSeconds -= 30;
+                                          } else {
+                                            currentWorkout.currentTimeInSeconds = 0;
+                                          }
+                                        });
+                                      },
+                                      text: TextWidget(
+                                        text: decrement30Sec,
+                                        fontSize: widget.screenWidth / 20,
+                                      ),
+                                      primaryColor: Colors.redAccent,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ]
+                          : <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  PaddingWidget(
+                                    onlyTop: 15,
+                                    onlyBottom: 10,
+                                    type: 'only',
+                                    child: TextWidget(
+                                      text: pickYourTime,
+                                      fontSize: widget.screenWidth / 20,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  ButtonWidget(
+                                      onPressed: () {
+                                        setState(() {
+                                          if (currentWorkout.timer?.isActive == true) {
+                                            currentWorkout.currentTimeInSeconds += 60;
+                                          }
+                                          currentWorkout.timerController.restart(
+                                              duration:
+                                                  convertTimeToSeconds(currentWorkout.timerController.getTime()) + 60);
+                                        });
+                                      },
+                                      text: TextWidget(
+                                        text: oneMinute,
+                                        fontSize: widget.screenWidth / 20,
+                                      )),
+                                  PaddingWidget(
+                                    type: 'symmetric',
+                                    horizontal: 15,
+                                    child: ButtonWidget(
+                                        onPressed: () {
+                                          setState(() {
+                                            if (currentWorkout.timer?.isActive == true) {
+                                              currentWorkout.currentTimeInSeconds += 120;
+                                            }
+                                            currentWorkout.timerController.restart(
+                                                duration:
+                                                    convertTimeToSeconds(currentWorkout.timerController.getTime()) +
+                                                        120);
+                                          });
+                                        },
+                                        text: TextWidget(
+                                          text: twoMinutes,
+                                          fontSize: widget.screenWidth / 20,
+                                        )),
+                                  ),
+                                  ButtonWidget(
+                                      onPressed: () {
+                                        setState(() {
+                                          if (currentWorkout.timer?.isActive == true) {
+                                            currentWorkout.currentTimeInSeconds += 180;
+                                          }
+                                          currentWorkout.timerController.restart(
+                                              duration:
+                                                  convertTimeToSeconds(currentWorkout.timerController.getTime()) + 180);
+                                        });
+                                      },
+                                      text: TextWidget(
+                                        text: threeMinutes,
+                                        fontSize: widget.screenWidth / 20,
+                                      )),
+                                ],
+                              ),
+                            ],
                       content: PaddingWidget(
                         type: 'only',
                         onlyTop: 10,

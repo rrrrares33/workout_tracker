@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+
+import '../reusable_widgets/text.dart';
+
 const String defaultBodyPart = 'Any Body Part';
 const String defaultCategory = 'Any Category';
 const String placeHolderSearchBar = 'Search...';
@@ -29,3 +33,10 @@ const List<String> bodyPart = <String>[
   'Shoulders',
   'Any Body Part',
 ];
+
+SnackBar newExerciseAddedToWorkout = SnackBar(
+  content: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const <Widget>[TextWidget(text: 'New exercise added to workout.')]),
+  duration: const Duration(seconds: 2),
+);

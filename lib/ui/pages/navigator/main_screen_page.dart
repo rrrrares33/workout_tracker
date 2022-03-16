@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../utils/routing/current_opened_page.dart';
 import '../../reusable_widgets/bottom_nav.dart';
 import 'all_exercises_page.dart';
 import 'my_profile.dart';
@@ -16,37 +18,44 @@ class MainScreenPage extends StatefulWidget {
 
 class _MainScreenPageState extends State<MainScreenPage> {
   static late bool _logoutPressed;
-  static late int _currentPageIndex;
   static late List<Widget> _pageOptions;
+
+  void callBackToAnotherPage(int newPage) {
+    // I need this in order to switch pages when an event happens inside of one of the _pageOptions
+    setState(() {
+      CurrentOpenedPage.currentOpenedIndex = newPage;
+    });
+  }
 
   @override
   void initState() {
     _pageOptions = <Widget>[
       const MyProfilePage(),
       const WorkoutHistoryPage(),
-      const StartWorkoutPage(),
-      const AllExercisesPage(),
+      StartWorkoutPage(callback: callBackToAnotherPage),
+      AllExercisesPage(callback: callBackToAnotherPage),
       const StatisticsAndChartsPage()
     ];
-    _currentPageIndex = 2;
     _logoutPressed = false;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final CurrentOpenedPage _ = Provider.of<CurrentOpenedPage>(context);
+
     return WillPopScope(
       onWillPop: () async => _logoutPressed,
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBarWidget(
-          selectedPage: _currentPageIndex,
+          selectedPage: CurrentOpenedPage.currentOpenedIndex ?? 2,
           onTap: (int _tappedIconOrder) {
             setState(() {
-              _currentPageIndex = _tappedIconOrder;
+              CurrentOpenedPage.currentOpenedIndex = _tappedIconOrder;
             });
           },
         ),
-        body: _pageOptions[_currentPageIndex],
+        body: _pageOptions[CurrentOpenedPage.currentOpenedIndex ?? 2],
       ),
     );
   }

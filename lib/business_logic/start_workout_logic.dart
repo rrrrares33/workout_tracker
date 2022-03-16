@@ -12,16 +12,67 @@ int convertTimeToSeconds(String? time) {
   return int.parse(time[0] + time[1]) * 60 * 60 + int.parse(time[3] + time[4]) * 60 + int.parse(time[6] + time[7]) * 60;
 }
 
-String getPrintableTimer(String seconds) {
-  final int? parsedSeconds = int.tryParse(seconds);
+String getPrintableTimer(String secondsStr) {
+  final int? parsedSeconds = int.tryParse(secondsStr);
   if (parsedSeconds == null) {
     return '';
   }
-  if (parsedSeconds > 60) {
-    if (parsedSeconds - parsedSeconds ~/ 60 * 60 < 10) {
-      return '0${parsedSeconds ~/ 60}:0${parsedSeconds - parsedSeconds ~/ 60 * 60}';
+  final int seconds = parsedSeconds % 60;
+  final int minutes = parsedSeconds ~/ 60 % 60;
+  final int hours = parsedSeconds ~/ 3600 % 60;
+  String result = '';
+  if (hours != 0) {
+    if (hours < 10) {
+      result += '0$hours:';
+    } else {
+      result += '$hours:';
     }
-    return '0${parsedSeconds ~/ 60}:${parsedSeconds - parsedSeconds ~/ 60 * 60}';
   }
-  return parsedSeconds.toString();
+  if (minutes != 0) {
+    if (minutes < 10) {
+      result += '0$minutes:';
+    } else {
+      result += '$minutes:';
+    }
+  }
+  if (seconds != 0) {
+    if (seconds < 10) {
+      result += '0$seconds';
+    } else {
+      result += '$seconds';
+    }
+  }
+  if (minutes == 0 && hours != 0) {
+    if (seconds == 0) {
+      if (hours < 10) {
+        return '0$hours:00:00';
+      }
+      return '$hours:00:00';
+    }
+    if (hours < 10) {
+      return '0$hours:00:$seconds';
+    }
+    return '$hours:00:$seconds';
+  }
+  if (seconds == 0 && minutes != 0) {
+    if (minutes < 10) {
+      return '0$minutes:00';
+    }
+    return '$minutes:00';
+  }
+  if (result.isNotEmpty) {
+    return result;
+  }
+  return '0';
+}
+
+String getPrintableTimerSinceStart(String seconds) {
+  final String res = getPrintableTimer(seconds);
+  if (res.length == 2) {
+    return '0:$res';
+  }
+  if (res.length == 1) {
+    return '0:0$res';
+  }
+  return res;
 }

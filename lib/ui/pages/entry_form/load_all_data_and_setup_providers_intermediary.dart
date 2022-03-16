@@ -5,6 +5,7 @@ import '../../../utils/firebase/database_service.dart';
 import '../../../utils/models/current_workout.dart';
 import '../../../utils/models/exercise.dart';
 import '../../../utils/models/user_database.dart';
+import '../../../utils/routing/current_opened_page.dart';
 import '../../reusable_widgets/loading.dart';
 import '../navigator/main_screen_page.dart';
 
@@ -28,6 +29,9 @@ class LoadAllExercisesIntermediary extends StatelessWidget {
                 ),
                 Provider<CurrentWorkout>(
                   create: (_) => CurrentWorkout(),
+                ),
+                Provider<CurrentOpenedPage>(
+                  create: (_) => CurrentOpenedPage(),
                 ),
               ],
               child: const MainScreenPage(),

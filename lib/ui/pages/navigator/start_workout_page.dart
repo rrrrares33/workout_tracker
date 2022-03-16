@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 
+import '../../../business_logic/start_workout_logic.dart';
 import '../../../utils/models/current_workout.dart';
 import '../../reusable_widgets/button.dart';
+import '../../reusable_widgets/exercise_set_show.dart';
 import '../../reusable_widgets/padding.dart';
 import '../../reusable_widgets/sliver_top_bar.dart';
 import '../../reusable_widgets/text.dart';
@@ -14,7 +18,8 @@ const double expandedHeight = 50;
 const double toolbarHeight = 25;
 
 class StartWorkoutPage extends StatefulWidget {
-  const StartWorkoutPage({Key? key}) : super(key: key);
+  const StartWorkoutPage({Key? key, required this.callback}) : super(key: key);
+  final void Function(int) callback;
 
   @override
   State<StartWorkoutPage> createState() => _StartWorkoutPageState();
@@ -23,6 +28,8 @@ class StartWorkoutPage extends StatefulWidget {
 class _StartWorkoutPageState extends State<StartWorkoutPage> {
   late ScrollController _scrollController;
   String? timerCurrentTime;
+  String timeSinceStart = '';
+  final StopWatchTimer stopWatchTimer = StopWatchTimer();
 
   bool get _showBigLeftTitle {
     return _scrollController.hasClients && _scrollController.offset > expandedHeight - toolbarHeight;
@@ -32,6 +39,12 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
   void initState() {
     _scrollController = ScrollController()..addListener(() => setState(() {}));
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    stopWatchTimer.dispose();
+    super.dispose();
   }
 
   @override
@@ -47,8 +60,8 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
             SliverTopBar(
                 expandedHeight: expandedHeight,
                 toolbarHeight: toolbarHeight,
-                textExpanded: 'Start Workout',
-                textToolbar: 'Start Workout',
+                textExpanded: startWorkout,
+                textToolbar: startWorkout,
                 leading: Container(),
                 showBigTitle: _showBigLeftTitle),
             SliverToBoxAdapter(
@@ -66,7 +79,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                         onlyLeft: 17,
                         onlyTop: screenSize.height / 50,
                         child: TextWidget(
-                          text: 'Quick Start',
+                          text: quickStart,
                           weight: FontWeight.bold,
                           fontSize: screenSize.width / 22,
                         ),
@@ -77,7 +90,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                         vertical: 13.5,
                         child: ButtonWidget(
                           text: TextWidget(
-                            text: 'Begin  A  New  Empty  Workout',
+                            text: startEmptyWorkout,
                             weight: FontWeight.bold,
                             fontSize: screenSize.width / 25,
                           ),
@@ -99,8 +112,15 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
         ),
       );
     } else {
+      // Starting the workout timer;
+      if (!stopWatchTimer.isRunning) {
+        stopWatchTimer.setPresetSecondTime(DateTime.now().difference(currentWorkout.startTime!).inSeconds);
+        stopWatchTimer.onExecute.add(StopWatchExecute.start);
+        stopWatchTimer.execute;
+      }
       return Scaffold(
           body: CustomScrollView(
+        shrinkWrap: true,
         controller: _scrollController,
         slivers: <Widget>[
           SliverAppBar(
@@ -142,6 +162,131 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
               ),
             ],
           ),
+          SliverToBoxAdapter(
+            child: PaddingWidget(
+              type: 'only',
+              onlyLeft: 17,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  PaddingWidget(
+                    type: 'only',
+                    onlyTop: screenSize.height / 25,
+                    onlyBottom: 5,
+                    child: TextField(
+                      onEditingComplete: () {
+                        if (currentWorkout.workoutName.text == '') {
+                          setState(() {
+                            currentWorkout.workoutName.text = defaultWorkoutTile;
+                          });
+                        }
+                      },
+                      keyboardType: TextInputType.text,
+                      controller: currentWorkout.workoutName,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                      style: TextStyle(
+                        fontSize: screenSize.width / 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  StreamBuilder<int>(
+                      stream: stopWatchTimer.secondTime,
+                      initialData: 0,
+                      builder: (BuildContext context, AsyncSnapshot<int> snap) {
+                        final int? value = snap.data;
+                        return Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                          PaddingWidget(
+                            type: 'only',
+                            onlyLeft: 2,
+                            child: TextWidget(
+                              text: getPrintableTimerSinceStart(value.toString()),
+                              fontSize: screenSize.width / 25,
+                              color: Colors.grey,
+                            ),
+                          )
+                        ]);
+                      }),
+                  PaddingWidget(
+                      type: 'only',
+                      onlyLeft: 2,
+                      child: TextField(
+                        keyboardType: TextInputType.text,
+                        onChanged: (_) {
+                          setState(() {});
+                        },
+                        controller: currentWorkout.workoutNotes,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                        ),
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          color: currentWorkout.workoutNotes.text == defaultWorkoutNote ? Colors.black54 : null,
+                        ),
+                      ))
+                ],
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return ExerciseSetShow(
+                  setExercise: currentWorkout.sets[index],
+                  screenHeight: screenSize.height,
+                  screenWidth: screenSize.width,
+                );
+              },
+              childCount: currentWorkout.sets.length,
+            ),
+          ),
+          SliverFillRemaining(
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Divider(
+                    thickness: screenSize.height / 750,
+                    color: currentWorkout.sets.isNotEmpty ? null : Colors.transparent,
+                    indent: screenSize.width / 35,
+                    endIndent: screenSize.width / 35,
+                  ),
+                  PaddingWidget(
+                    type: 'symmetric',
+                    horizontal: screenSize.width / 35,
+                    child: ButtonWidget(
+                      onPressed: () {
+                        setState(() {
+                          widget.callback(3);
+                          ScaffoldMessenger.of(context).showSnackBar(swipeRightAndPressToAddExercise);
+                        });
+                      },
+                      text: TextWidget(
+                        text: addANewExerciseToWorkout,
+                        fontSize: screenSize.height / 45,
+                      ),
+                      primaryColor: Colors.greenAccent[400],
+                      minimumSize: Size.fromHeight(screenSize.height / 25),
+                    ),
+                  ),
+                  PaddingWidget(
+                    type: 'symmetric',
+                    horizontal: screenSize.width / 35,
+                    child: ButtonWidget(
+                      onPressed: () {},
+                      text: TextWidget(
+                        text: cancelWorkout,
+                        fontSize: screenSize.height / 45,
+                      ),
+                      primaryColor: Colors.redAccent,
+                      minimumSize: Size.fromHeight(screenSize.height / 25),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ));
     }

@@ -38,7 +38,8 @@ class BottomNavigationBarWidget extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             tooltip: toolTipAllExercises,
-            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.dumbbell)),
+            icon: PaddingWidget(
+                key: Key('exercises'), type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.dumbbell)),
             label: labelAllExercises,
           ),
           BottomNavigationBarItem(

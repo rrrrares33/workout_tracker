@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../../business_logic/all_exercises_logic.dart';
 import '../../../utils/firebase/database_service.dart';
+import '../../../utils/models/current_workout.dart';
 import '../../../utils/models/exercise.dart';
+import '../../../utils/models/exercise_set.dart';
 import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/add_new_exercise_alert.dart';
 import '../../reusable_widgets/dropdown_button.dart';
@@ -20,7 +23,8 @@ const double expandedHeight = 50;
 const double toolbarHeight = 25;
 
 class AllExercisesPage extends StatefulWidget {
-  const AllExercisesPage({Key? key}) : super(key: key);
+  const AllExercisesPage({Key? key, required this.callback}) : super(key: key);
+  final void Function(int) callback;
 
   @override
   State<AllExercisesPage> createState() => _AllExercisesPageState();
@@ -50,6 +54,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
   Widget build(BuildContext context) {
     final DatabaseService databaseService = Provider.of<DatabaseService>(context);
     final List<Exercise> exercisesProvider = Provider.of<List<Exercise>>(context);
+    final CurrentWorkout currentWorkout = Provider.of<CurrentWorkout>(context);
     final UserDB user = Provider.of<UserDB>(context);
     final Size screenSize = MediaQuery.of(context).size;
 
@@ -170,21 +175,49 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
             SliverList(
                 delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return ExerciseSmallShow(
-                  image: (exerciseList?[index].icon)!,
-                  name: (exerciseList?[index].name)!,
-                  bodyPart: (exerciseList?[index].bodyPart)!,
-                  category: exerciseList?[index].category,
-                  imageWidth: screenSize.width / 6,
-                  imageHeight: screenSize.width / 6,
-                  onTap: () => showDialog<String>(
-                    context: context,
-                    builder: (BuildContext context) => ExerciseFull(
-                      image: (exerciseList?[index].biggerImage)!,
-                      name: (exerciseList?[index].name)!,
-                      bodyPart: (exerciseList?[index].bodyPart)!,
-                      category: exerciseList?[index].category,
-                      description: exerciseList?[index].description,
+                return Slidable(
+                  enabled: currentWorkout.startTime != null,
+                  endActionPane: ActionPane(
+                    motion: const BehindMotion(),
+                    extentRatio: 0.2,
+                    openThreshold: 0.1,
+                    children: <Widget>[
+                      SlidableAction(
+                        onPressed: (BuildContext context) {
+                          setState(() {
+                            widget.callback(2);
+                            ScaffoldMessenger.of(context).showSnackBar(newExerciseAddedToWorkout);
+                            if (exerciseList![index].category == 'Time') {
+                              currentWorkout.sets.add(ExerciseSetDuration(exerciseList[index]));
+                            } else if (exerciseList[index].category == 'Assisted Bodyweight') {
+                              currentWorkout.sets.add(ExerciseSetMinusWeight(exerciseList[index]));
+                            } else {
+                              currentWorkout.sets.add(ExerciseSetWeight(exerciseList[index]));
+                            }
+                          });
+                        },
+                        foregroundColor: Colors.greenAccent[400],
+                        icon: FontAwesomeIcons.plusCircle,
+                        label: 'Add',
+                      ),
+                    ],
+                  ),
+                  child: ExerciseSmallShow(
+                    image: (exerciseList?[index].icon)!,
+                    name: (exerciseList?[index].name)!,
+                    bodyPart: (exerciseList?[index].bodyPart)!,
+                    category: exerciseList?[index].category,
+                    imageWidth: screenSize.width / 6,
+                    imageHeight: screenSize.width / 6,
+                    onTap: () => showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => ExerciseFull(
+                        image: (exerciseList?[index].biggerImage)!,
+                        name: (exerciseList?[index].name)!,
+                        bodyPart: (exerciseList?[index].bodyPart)!,
+                        category: exerciseList?[index].category,
+                        description: exerciseList?[index].description,
+                      ),
                     ),
                   ),
                 );

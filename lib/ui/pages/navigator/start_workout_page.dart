@@ -280,7 +280,70 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                     type: 'symmetric',
                     horizontal: screenSize.width / 35,
                     child: ButtonWidget(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (currentWorkout.exercises.isEmpty) {
+                          // If there are no exercises added to the workout we can quickly stop it.
+                          setState(() {
+                            currentWorkout.startTime = null;
+                            currentWorkout.currentTimeInSeconds = 0;
+                            currentWorkout.lastDecrementForTimer = DateTime.now();
+                            currentWorkout.timer = null;
+                            stopWatchTimer.clearPresetTime();
+                          });
+                        } else {
+                          showDialog<Widget>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: TextWidget(
+                                  text: 'Closing workout',
+                                  fontSize: screenSize.width / 20,
+                                  weight: FontWeight.bold,
+                                ),
+                                content: TextWidget(
+                                  text: 'You are about to close the current workout without saving it. \n\n'
+                                      'If you want to save the current workout to the history, press on the top-right "Finish" button.',
+                                  align: TextAlign.start,
+                                  fontSize: screenSize.width / 25,
+                                ),
+                                alignment: Alignment.centerLeft,
+                                actions: <ElevatedButton>[
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    style: ButtonStyle(
+                                        backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),
+                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(18.0),
+                                        ))),
+                                    child: const TextWidget(text: 'Abort'),
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        currentWorkout.exercises.clear();
+                                        currentWorkout.startTime = null;
+                                        currentWorkout.currentTimeInSeconds = 0;
+                                        currentWorkout.lastDecrementForTimer = DateTime.now();
+                                        currentWorkout.timer = null;
+                                        stopWatchTimer.clearPresetTime();
+                                      });
+                                      Navigator.pop(context);
+                                    },
+                                    style: ButtonStyle(
+                                        backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent),
+                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(18.0),
+                                        ))),
+                                    child: const TextWidget(text: 'Yes, cancel workout'),
+                                  )
+                                ],
+                              );
+                            },
+                          );
+                        }
+                      },
                       text: TextWidget(
                         text: cancelWorkout,
                         fontSize: screenSize.height / 45,

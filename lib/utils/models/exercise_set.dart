@@ -189,8 +189,8 @@ class ExerciseSetDuration extends ExerciseSet {
     return Row(
       children: <Widget>[
         PaddingWidget(
-          type:'only',
-          onlyLeft: screenWidth/40,
+          type: 'only',
+          onlyLeft: screenWidth / 40,
           child: const TextWidget(text: 'Set Nr.', weight: FontWeight.bold),
         ),
         PaddingWidget(
@@ -257,7 +257,7 @@ class ExerciseSetDuration extends ExerciseSet {
                           else
                             controllerDuration.text = '$minutes:0$seconds';
                         }
-                      } else if (parsedContent < 100  && parsedContent >= 60) {
+                      } else if (parsedContent < 100 && parsedContent >= 60) {
                         final int seconds = parsedContent % 60;
                         if (seconds >= 10)
                           controllerDuration.text = '01:$seconds';
@@ -321,7 +321,8 @@ class ExerciseSetDuration extends ExerciseSet {
     final TextEditingController controllerCheck = TextEditingController();
     controllerDuration.text = '00:00';
     controllerCheck.text = 'not_checked';
-    sets.add(<TextEditingController>[controllerDuration, emptyController, controllerCheck]);}
+    sets.add(<TextEditingController>[controllerDuration, emptyController, controllerCheck]);
+  }
 }
 
 class ExerciseSetMinusWeight extends ExerciseSet {

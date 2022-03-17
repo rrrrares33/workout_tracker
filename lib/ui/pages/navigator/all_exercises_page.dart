@@ -188,11 +188,11 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                             widget.callback(2);
                             ScaffoldMessenger.of(context).showSnackBar(newExerciseAddedToWorkout);
                             if (exerciseList![index].category == 'Time') {
-                              currentWorkout.sets.add(ExerciseSetDuration(exerciseList[index]));
+                              currentWorkout.exercises.add(ExerciseSetDuration(exerciseList[index]));
                             } else if (exerciseList[index].category == 'Assisted Bodyweight') {
-                              currentWorkout.sets.add(ExerciseSetMinusWeight(exerciseList[index]));
+                              currentWorkout.exercises.add(ExerciseSetMinusWeight(exerciseList[index]));
                             } else {
-                              currentWorkout.sets.add(ExerciseSetWeight(exerciseList[index]));
+                              currentWorkout.exercises.add(ExerciseSetWeight(exerciseList[index]));
                             }
                           });
                         },

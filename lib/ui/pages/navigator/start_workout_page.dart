@@ -124,6 +124,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
         controller: _scrollController,
         slivers: <Widget>[
           SliverAppBar(
+            pinned: true,
             leadingWidth: screenSize.width / 4.5,
             leading: PaddingWidget(
               type: 'only',
@@ -234,12 +235,17 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return ExerciseSetShow(
-                  setExercise: currentWorkout.sets[index],
+                  setExercise: currentWorkout.exercises[index],
                   screenHeight: screenSize.height,
                   screenWidth: screenSize.width,
+                  onPressedAddSet: () {
+                    setState(() {
+                      currentWorkout.exercises[index].addEmptySet();
+                    });
+                  },
                 );
               },
-              childCount: currentWorkout.sets.length,
+              childCount: currentWorkout.exercises.length,
             ),
           ),
           SliverFillRemaining(
@@ -248,7 +254,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                 children: <Widget>[
                   Divider(
                     thickness: screenSize.height / 750,
-                    color: currentWorkout.sets.isNotEmpty ? null : Colors.transparent,
+                    color: currentWorkout.exercises.isNotEmpty ? null : Colors.transparent,
                     indent: screenSize.width / 35,
                     endIndent: screenSize.width / 35,
                   ),

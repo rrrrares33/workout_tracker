@@ -21,7 +21,7 @@ class CurrentWorkout {
   TextEditingController workoutNotes = TextEditingController();
 
   // Exercises that were performed during the workout
-  final List<ExerciseSet> sets = <ExerciseSet>[];
+  final List<ExerciseSet> exercises = <ExerciseSet>[];
 
   // Things related to timer.
   final CountDownController timerController = CountDownController();

@@ -28,6 +28,10 @@ class TimerWidget extends StatefulWidget {
 }
 
 class _TimerWidgetState extends State<TimerWidget> {
+  // We need to avoid rebuilding the timer on scroll (later rebuilds inside the same page)
+  //  So we keep track of the first rebuild and start the timer forced only on it
+  bool? firstBuild;
+
   @override
   void setState(VoidCallback fn) {
     if (mounted) {
@@ -39,21 +43,23 @@ class _TimerWidgetState extends State<TimerWidget> {
   Widget build(BuildContext context) {
     final CurrentWorkout currentWorkout = Provider.of<CurrentWorkout>(widget.context);
 
-    // When I wrote this, only me and god knew how it worked.
-    //   Now, only god knows.
     void runTimer({bool buildCall = false}) {
       const Duration oneSec = Duration(seconds: 1, microseconds: 10);
+      // If this is not a build call, we get the remaining time.
       if (!buildCall) {
         currentWorkout.currentTimeInSeconds = convertTimeToSeconds(currentWorkout.timerController.getTime());
       } else if (currentWorkout.currentTimeInSeconds != 0) {
+        // If it is not a build call (moving between pages for example), we need to rebuild the timer
         if (DateTime.now().second - currentWorkout.lastDecrementForTimer.second >= 1) {
           currentWorkout.currentTimeInSeconds -= DateTime.now().second - currentWorkout.lastDecrementForTimer.second;
           currentWorkout.currentTimeInSeconds = max(0, currentWorkout.currentTimeInSeconds);
         }
       }
+      // If a timer is already running we need to cancel it before starting a new one.
       if (currentWorkout.timer?.isActive == true) {
         currentWorkout.timer?.cancel();
       }
+      // If there is still time that needs to pass, we start the timer with the remaining time.
       if (currentWorkout.currentTimeInSeconds != 0) {
         currentWorkout.timer = Timer.periodic(oneSec, (Timer timer) {
           if (currentWorkout.currentTimeInSeconds == 0) {
@@ -70,7 +76,10 @@ class _TimerWidgetState extends State<TimerWidget> {
       }
     }
 
-    runTimer(buildCall: true);
+    if (firstBuild == null) {
+      runTimer(buildCall: true);
+      firstBuild = false;
+    }
 
     return SizedBox(
       height: 100,

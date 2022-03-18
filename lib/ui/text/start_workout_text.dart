@@ -27,3 +27,9 @@ SnackBar swipeRightAndPressToAddExercise = SnackBar(
       children: const <Widget>[TextWidget(text: 'Swipe on an exercise and press on the "Add" icon')]),
   duration: const Duration(seconds: 2),
 );
+
+const String alertWindowCancelText = 'You are about to close the current workout without saving it. \n\n'
+    'If you want to save the current workout to the history, press on the top-right "Finish" button.';
+const String closeWorkoutTitle = 'Closing workout';
+const String abortCancelText = 'Abort';
+const String confirmCancelText = 'Yes, cancel workout';

@@ -6,6 +6,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 import '../../../business_logic/start_workout_logic.dart';
 import '../../../utils/models/current_workout.dart';
+import '../../reusable_widgets/alert_dialog_sure_to_close.dart';
 import '../../reusable_widgets/button.dart';
 import '../../reusable_widgets/exercise_set_show.dart';
 import '../../reusable_widgets/padding.dart';
@@ -29,7 +30,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
   late ScrollController _scrollController;
   String? timerCurrentTime;
   String timeSinceStart = '';
-  final StopWatchTimer stopWatchTimer = StopWatchTimer();
+  late StopWatchTimer stopWatchTimer;
 
   bool get _showBigLeftTitle {
     return _scrollController.hasClients && _scrollController.offset > expandedHeight - toolbarHeight;
@@ -43,7 +44,9 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
 
   @override
   void dispose() {
-    stopWatchTimer.dispose();
+    if (stopWatchTimer.isRunning) {
+      stopWatchTimer.dispose();
+    }
     super.dispose();
   }
 
@@ -113,6 +116,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
       );
     } else {
       // Starting the workout timer;
+      stopWatchTimer = StopWatchTimer();
       if (!stopWatchTimer.isRunning) {
         stopWatchTimer.setPresetSecondTime(DateTime.now().difference(currentWorkout.startTime!).inSeconds);
         stopWatchTimer.onExecute.add(StopWatchExecute.start);
@@ -288,58 +292,29 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                             currentWorkout.currentTimeInSeconds = 0;
                             currentWorkout.lastDecrementForTimer = DateTime.now();
                             currentWorkout.timer = null;
-                            stopWatchTimer.clearPresetTime();
+                            if (stopWatchTimer.isRunning) {
+                              stopWatchTimer.dispose();
+                            }
                           });
                         } else {
                           showDialog<Widget>(
                             context: context,
                             builder: (BuildContext context) {
-                              return AlertDialog(
-                                title: TextWidget(
-                                  text: 'Closing workout',
-                                  fontSize: screenSize.width / 20,
-                                  weight: FontWeight.bold,
-                                ),
-                                content: TextWidget(
-                                  text: 'You are about to close the current workout without saving it. \n\n'
-                                      'If you want to save the current workout to the history, press on the top-right "Finish" button.',
-                                  align: TextAlign.start,
-                                  fontSize: screenSize.width / 25,
-                                ),
-                                alignment: Alignment.centerLeft,
-                                actions: <ElevatedButton>[
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    style: ButtonStyle(
-                                        backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),
-                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(18.0),
-                                        ))),
-                                    child: const TextWidget(text: 'Abort'),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        currentWorkout.exercises.clear();
-                                        currentWorkout.startTime = null;
-                                        currentWorkout.currentTimeInSeconds = 0;
-                                        currentWorkout.lastDecrementForTimer = DateTime.now();
-                                        currentWorkout.timer = null;
-                                        stopWatchTimer.clearPresetTime();
-                                      });
-                                      Navigator.pop(context);
-                                    },
-                                    style: ButtonStyle(
-                                        backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent),
-                                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(18.0),
-                                        ))),
-                                    child: const TextWidget(text: 'Yes, cancel workout'),
-                                  )
-                                ],
-                              );
+                              return AreYouSureWidget(
+                                  width: screenSize.width,
+                                  onChangedCancel: () {
+                                    setState(() {
+                                      currentWorkout.exercises.clear();
+                                      currentWorkout.startTime = null;
+                                      currentWorkout.currentTimeInSeconds = 0;
+                                      currentWorkout.lastDecrementForTimer = DateTime.now();
+                                      currentWorkout.timer = null;
+                                      if (stopWatchTimer.isRunning) {
+                                        stopWatchTimer.dispose();
+                                      }
+                                    });
+                                    Navigator.pop(context);
+                                  });
                             },
                           );
                         }

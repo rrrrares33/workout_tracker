@@ -252,82 +252,86 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
               childCount: currentWorkout.exercises.length,
             ),
           ),
-          SliverFillRemaining(
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Divider(
-                    thickness: screenSize.height / 750,
-                    color: currentWorkout.exercises.isNotEmpty ? null : Colors.transparent,
-                    indent: screenSize.width / 35,
-                    endIndent: screenSize.width / 35,
-                  ),
-                  PaddingWidget(
-                    type: 'symmetric',
-                    horizontal: screenSize.width / 35,
-                    child: ButtonWidget(
-                      onPressed: () {
-                        setState(() {
-                          widget.callback(3);
-                          ScaffoldMessenger.of(context).showSnackBar(swipeRightAndPressToAddExercise);
-                        });
-                      },
-                      text: TextWidget(
-                        text: addANewExerciseToWorkout,
-                        fontSize: screenSize.height / 45,
-                      ),
-                      primaryColor: Colors.greenAccent[400],
-                      minimumSize: Size.fromHeight(screenSize.height / 25),
+          SliverToBoxAdapter(
+            child: PaddingWidget(
+              type: 'only',
+              onlyBottom: screenSize.height / 5,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Divider(
+                      thickness: screenSize.height / 750,
+                      color: currentWorkout.exercises.isNotEmpty ? null : Colors.transparent,
+                      indent: screenSize.width / 35,
+                      endIndent: screenSize.width / 35,
                     ),
-                  ),
-                  PaddingWidget(
-                    type: 'symmetric',
-                    horizontal: screenSize.width / 35,
-                    child: ButtonWidget(
-                      onPressed: () {
-                        if (currentWorkout.exercises.isEmpty) {
-                          // If there are no exercises added to the workout we can quickly stop it.
+                    PaddingWidget(
+                      type: 'symmetric',
+                      horizontal: screenSize.width / 35,
+                      child: ButtonWidget(
+                        onPressed: () {
                           setState(() {
-                            currentWorkout.startTime = null;
-                            currentWorkout.currentTimeInSeconds = 0;
-                            currentWorkout.lastDecrementForTimer = DateTime.now();
-                            currentWorkout.timer = null;
-                            if (stopWatchTimer.isRunning) {
-                              stopWatchTimer.dispose();
-                            }
+                            widget.callback(3);
+                            ScaffoldMessenger.of(context).showSnackBar(swipeRightAndPressToAddExercise);
                           });
-                        } else {
-                          showDialog<Widget>(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AreYouSureWidget(
-                                  width: screenSize.width,
-                                  onChangedCancel: () {
-                                    setState(() {
-                                      currentWorkout.exercises.clear();
-                                      currentWorkout.startTime = null;
-                                      currentWorkout.currentTimeInSeconds = 0;
-                                      currentWorkout.lastDecrementForTimer = DateTime.now();
-                                      currentWorkout.timer = null;
-                                      if (stopWatchTimer.isRunning) {
-                                        stopWatchTimer.dispose();
-                                      }
-                                    });
-                                    Navigator.pop(context);
-                                  });
-                            },
-                          );
-                        }
-                      },
-                      text: TextWidget(
-                        text: cancelWorkout,
-                        fontSize: screenSize.height / 45,
+                        },
+                        text: TextWidget(
+                          text: addANewExerciseToWorkout,
+                          fontSize: screenSize.height / 45,
+                        ),
+                        primaryColor: Colors.greenAccent[400],
+                        minimumSize: Size.fromHeight(screenSize.height / 25),
                       ),
-                      primaryColor: Colors.redAccent,
-                      minimumSize: Size.fromHeight(screenSize.height / 25),
                     ),
-                  )
-                ],
+                    PaddingWidget(
+                      type: 'symmetric',
+                      horizontal: screenSize.width / 35,
+                      child: ButtonWidget(
+                        onPressed: () {
+                          if (currentWorkout.exercises.isEmpty) {
+                            // If there are no exercises added to the workout we can quickly stop it.
+                            setState(() {
+                              currentWorkout.startTime = null;
+                              currentWorkout.currentTimeInSeconds = 0;
+                              currentWorkout.lastDecrementForTimer = DateTime.now();
+                              currentWorkout.timer = null;
+                              if (stopWatchTimer.isRunning) {
+                                stopWatchTimer.dispose();
+                              }
+                            });
+                          } else {
+                            showDialog<Widget>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AreYouSureWidget(
+                                    width: screenSize.width,
+                                    onChangedCancel: () {
+                                      setState(() {
+                                        currentWorkout.exercises.clear();
+                                        currentWorkout.startTime = null;
+                                        currentWorkout.currentTimeInSeconds = 0;
+                                        currentWorkout.lastDecrementForTimer = DateTime.now();
+                                        currentWorkout.timer = null;
+                                        if (stopWatchTimer.isRunning) {
+                                          stopWatchTimer.dispose();
+                                        }
+                                      });
+                                      Navigator.pop(context);
+                                    });
+                              },
+                            );
+                          }
+                        },
+                        text: TextWidget(
+                          text: cancelWorkout,
+                          fontSize: screenSize.height / 45,
+                        ),
+                        primaryColor: Colors.redAccent,
+                        minimumSize: Size.fromHeight(screenSize.height / 25),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           )

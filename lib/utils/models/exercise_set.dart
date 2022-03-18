@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../ui/reusable_widgets/padding.dart';
 import '../../ui/reusable_widgets/text.dart';
+import '../../ui/text/start_workout_text.dart';
 import 'exercise.dart';
 
 abstract class ExerciseSet {
@@ -36,17 +37,17 @@ class ExerciseSetWeight extends ExerciseSet {
       horizontal: screenWidth / 50,
       child: Row(
         children: <Widget>[
-          const TextWidget(text: 'Set Nr.', weight: FontWeight.bold),
+          const TextWidget(text: setNr, weight: FontWeight.bold),
           PaddingWidget(
             type: 'symmetric',
             horizontal: screenWidth / 6,
-            child: const TextWidget(text: 'KG', weight: FontWeight.bold),
+            child: const TextWidget(text: KG, weight: FontWeight.bold),
           ),
           PaddingWidget(
             type: 'only',
             onlyLeft: screenWidth / 11,
             onlyRight: screenWidth / 6.25,
-            child: const TextWidget(text: 'Reps', weight: FontWeight.bold),
+            child: const TextWidget(text: reps, weight: FontWeight.bold),
           ),
           Icon(FontAwesomeIcons.check, size: screenWidth / 30),
         ],
@@ -86,7 +87,7 @@ class ExerciseSetWeight extends ExerciseSet {
                 onFocusChange: (bool focus) {
                   if (!focus) {
                     if (double.tryParse(controllerKg!.text) == null) {
-                      controllerKg.text = '0';
+                      controllerKg.text = defaultRepsOrKg;
                     }
                   }
                 },
@@ -124,7 +125,7 @@ class ExerciseSetWeight extends ExerciseSet {
                       controllerKg.text.replaceAll(',', '.');
                     }
                     if (double.tryParse(controllerKg.text) == null) {
-                      controllerKg.text = '0';
+                      controllerKg.text = defaultRepsOrKg;
                     }
                   }
                 },
@@ -149,10 +150,10 @@ class ExerciseSetWeight extends ExerciseSet {
           ),
           IconButton(
               onPressed: () {
-                if (controllerChecked!.text == 'checked') {
-                  controllerChecked.text = 'not_checked';
-                } else if (controllerReps!.text != '0') {
-                  controllerChecked.text = 'checked';
+                if (controllerChecked!.text == checkedText) {
+                  controllerChecked.text = notCheckedText;
+                } else if (controllerReps!.text != defaultRepsOrKg) {
+                  controllerChecked.text = checkedText;
                 }
                 // ignore: avoid_dynamic_calls
                 setStateCallBack();
@@ -162,7 +163,7 @@ class ExerciseSetWeight extends ExerciseSet {
               icon: Icon(
                 FontAwesomeIcons.checkCircle,
                 size: screenWidth / 15,
-                color: controllerChecked!.text == 'checked' ? Colors.white : null,
+                color: controllerChecked!.text == checkedText ? Colors.white : null,
               )),
         ],
       ),
@@ -174,9 +175,9 @@ class ExerciseSetWeight extends ExerciseSet {
     final TextEditingController controllerReps = TextEditingController();
     final TextEditingController controllerKg = TextEditingController();
     final TextEditingController controllerCheck = TextEditingController();
-    controllerReps.text = '0';
-    controllerKg.text = '0';
-    controllerCheck.text = 'not_checked';
+    controllerReps.text = defaultRepsOrKg;
+    controllerKg.text = defaultRepsOrKg;
+    controllerCheck.text = notCheckedText;
     sets.add(<TextEditingController>[controllerReps, controllerKg, controllerCheck]);
   }
 }
@@ -191,13 +192,13 @@ class ExerciseSetDuration extends ExerciseSet {
         PaddingWidget(
           type: 'only',
           onlyLeft: screenWidth / 40,
-          child: const TextWidget(text: 'Set Nr.', weight: FontWeight.bold),
+          child: const TextWidget(text: setNr, weight: FontWeight.bold),
         ),
         PaddingWidget(
           type: 'only',
           onlyLeft: screenWidth / 3.4,
           onlyRight: screenWidth / 3.85,
-          child: const TextWidget(text: 'Duration', weight: FontWeight.bold),
+          child: const TextWidget(text: duration, weight: FontWeight.bold),
         ),
         Icon(FontAwesomeIcons.check, size: screenWidth / 30),
       ],
@@ -239,7 +240,7 @@ class ExerciseSetDuration extends ExerciseSet {
                     controllerDuration!.text = controllerDuration.text.replaceAll(':', '');
                     final int? parsedContent = int.tryParse(controllerDuration.text);
                     if (parsedContent == null) {
-                      controllerDuration.text = '00:00';
+                      controllerDuration.text = defaultDuration;
                     } else {
                       if (parsedContent >= 100) {
                         int seconds = parsedContent % 100;
@@ -294,10 +295,10 @@ class ExerciseSetDuration extends ExerciseSet {
           ),
           IconButton(
               onPressed: () {
-                if (controllerChecked!.text == 'checked') {
-                  controllerChecked.text = 'not_checked';
-                } else if (controllerReps!.text != '00:00') {
-                  controllerChecked.text = 'checked';
+                if (controllerChecked!.text == checkedText) {
+                  controllerChecked.text = notCheckedText;
+                } else if (controllerReps!.text != defaultDuration) {
+                  controllerChecked.text = checkedText;
                 }
                 // ignore: avoid_dynamic_calls
                 setStateCallBack();
@@ -307,7 +308,7 @@ class ExerciseSetDuration extends ExerciseSet {
               icon: Icon(
                 FontAwesomeIcons.checkCircle,
                 size: screenWidth / 15,
-                color: controllerChecked!.text == 'checked' ? Colors.white : null,
+                color: controllerChecked!.text == checkedText ? Colors.white : null,
               )),
         ],
       ),
@@ -319,8 +320,8 @@ class ExerciseSetDuration extends ExerciseSet {
     final TextEditingController controllerDuration = TextEditingController();
     final TextEditingController emptyController = TextEditingController();
     final TextEditingController controllerCheck = TextEditingController();
-    controllerDuration.text = '00:00';
-    controllerCheck.text = 'not_checked';
+    controllerDuration.text = defaultDuration;
+    controllerCheck.text = notCheckedText;
     sets.add(<TextEditingController>[controllerDuration, emptyController, controllerCheck]);
   }
 }
@@ -335,17 +336,17 @@ class ExerciseSetMinusWeight extends ExerciseSet {
       horizontal: screenWidth / 50,
       child: Row(
         children: <Widget>[
-          const TextWidget(text: 'Set Nr.', weight: FontWeight.bold),
+          const TextWidget(text: setNr, weight: FontWeight.bold),
           PaddingWidget(
             type: 'symmetric',
             horizontal: screenWidth / 6,
-            child: const TextWidget(text: '-KG', weight: FontWeight.bold),
+            child: const TextWidget(text: minusKG, weight: FontWeight.bold),
           ),
           PaddingWidget(
             type: 'only',
             onlyLeft: screenWidth / 11,
             onlyRight: screenWidth / 7,
-            child: const TextWidget(text: 'Reps', weight: FontWeight.bold),
+            child: const TextWidget(text: reps, weight: FontWeight.bold),
           ),
           Icon(FontAwesomeIcons.check, size: screenWidth / 30),
         ],
@@ -386,7 +387,7 @@ class ExerciseSetMinusWeight extends ExerciseSet {
                 onFocusChange: (bool focus) {
                   if (!focus) {
                     if (double.tryParse(controllerKg!.text) == null) {
-                      controllerKg.text = '0';
+                      controllerKg.text = defaultRepsOrKg;
                     } else if (double.parse(controllerKg.text) > 0) {
                       controllerKg.text = '-${controllerKg.text}';
                     }
@@ -426,7 +427,7 @@ class ExerciseSetMinusWeight extends ExerciseSet {
                       controllerKg.text.replaceAll(',', '.');
                     }
                     if (double.tryParse(controllerKg.text) == null) {
-                      controllerKg.text = '0';
+                      controllerKg.text = defaultRepsOrKg;
                     }
                   }
                 },
@@ -451,10 +452,10 @@ class ExerciseSetMinusWeight extends ExerciseSet {
           ),
           IconButton(
               onPressed: () {
-                if (controllerChecked!.text == 'checked') {
-                  controllerChecked.text = 'not_checked';
-                } else if (controllerReps!.text != '0') {
-                  controllerChecked.text = 'checked';
+                if (controllerChecked!.text == checkedText) {
+                  controllerChecked.text = notCheckedText;
+                } else if (controllerReps!.text != defaultRepsOrKg) {
+                  controllerChecked.text = checkedText;
                 }
                 // ignore: avoid_dynamic_calls
                 setStateCallBack();
@@ -464,7 +465,7 @@ class ExerciseSetMinusWeight extends ExerciseSet {
               icon: Icon(
                 FontAwesomeIcons.checkCircle,
                 size: screenWidth / 15,
-                color: controllerChecked!.text == 'checked' ? Colors.white : null,
+                color: controllerChecked!.text == checkedText ? Colors.white : null,
               )),
         ],
       ),
@@ -476,9 +477,9 @@ class ExerciseSetMinusWeight extends ExerciseSet {
     final TextEditingController controllerReps = TextEditingController();
     final TextEditingController controllerKg = TextEditingController();
     final TextEditingController controllerCheck = TextEditingController();
-    controllerReps.text = '0';
-    controllerKg.text = '0';
-    controllerCheck.text = 'not_checked';
+    controllerReps.text = defaultRepsOrKg;
+    controllerKg.text = defaultRepsOrKg;
+    controllerCheck.text = notCheckedText;
     sets.add(<TextEditingController>[controllerReps, controllerKg, controllerCheck]);
   }
 }

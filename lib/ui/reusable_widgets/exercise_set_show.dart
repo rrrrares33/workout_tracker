@@ -3,6 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../utils/models/exercise_set.dart';
+import '../text/start_workout_text.dart';
 import 'button.dart';
 import 'exercise_full.dart';
 import 'padding.dart';
@@ -97,10 +98,10 @@ class _ExerciseSetShowState extends State<ExerciseSetShow> {
                         ),
                       ],
                     ),
-                    enabled: widget.setExercise.sets[index][2].text != 'checked',
+                    enabled: widget.setExercise.sets[index][2].text != checkedText,
                     child: Container(
                         decoration: BoxDecoration(
-                          color: widget.setExercise.sets[index][2].text == 'checked'
+                          color: widget.setExercise.sets[index][2].text == checkedText
                               ? Colors.greenAccent[200]
                               : Colors.transparent,
                           borderRadius: const BorderRadius.all(Radius.circular(15)),
@@ -122,7 +123,7 @@ class _ExerciseSetShowState extends State<ExerciseSetShow> {
             onPressed: widget.onPressedAddSet,
             primaryColor: Colors.black54,
             minimumSize: Size.fromHeight(widget.screenWidth / 15),
-            text: const TextWidget(text: '+ Add another set'),
+            text: const TextWidget(text: addAnotherSetText),
           )
         ],
       ),

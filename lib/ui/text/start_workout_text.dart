@@ -28,6 +28,17 @@ SnackBar swipeRightAndPressToAddExercise = SnackBar(
   duration: const Duration(seconds: 2),
 );
 
+const String setNr = 'Set nr.';
+const String KG = 'KG';
+const String minusKG = '-KG';
+const String reps = 'Reps';
+const String duration = 'Duration';
+const String defaultRepsOrKg = '0';
+const String defaultDuration = '00:00';
+const String addAnotherSetText = '+ Add another set';
+const String notCheckedText = 'not_checked';
+const String checkedText = 'checked';
+
 const String alertWindowCancelText = 'You are about to close the current workout without saving it. \n\n'
     'If you want to save the current workout to the history, press on the top-right "Finish" button.';
 const String closeWorkoutTitle = 'Closing workout';

@@ -12,13 +12,13 @@ class AreYouSureWidget extends StatelessWidget {
     return AlertDialog(
       title: TextWidget(
         text: closeWorkoutTitle,
-        fontSize: width/20,
+        fontSize: width / 20,
         weight: FontWeight.bold,
       ),
       content: TextWidget(
         text: alertWindowCancelText,
         align: TextAlign.start,
-        fontSize: width/25,
+        fontSize: width / 25,
       ),
       alignment: Alignment.centerLeft,
       actions: <ElevatedButton>[

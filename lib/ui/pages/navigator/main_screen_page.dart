@@ -21,10 +21,12 @@ class _MainScreenPageState extends State<MainScreenPage> {
   static late List<Widget> _pageOptions;
 
   void callBackToAnotherPage(int newPage) {
-    // I need this in order to switch pages when an event happens inside of one of the _pageOptions
-    setState(() {
-      CurrentOpenedPage.currentOpenedIndex = newPage;
-    });
+    if (mounted){
+      // I need this in order to switch pages when an event happens inside of one of the _pageOptions
+      setState(() {
+        CurrentOpenedPage.currentOpenedIndex = newPage;
+      });
+    }
   }
 
   @override

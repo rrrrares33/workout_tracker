@@ -5,7 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 import '../../../business_logic/start_workout_logic.dart';
+import '../../../utils/firebase/database_service.dart';
 import '../../../utils/models/current_workout.dart';
+import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/alert_dialog_sure_to_close.dart';
 import '../../reusable_widgets/button.dart';
 import '../../reusable_widgets/exercise_set_show.dart';
@@ -44,15 +46,20 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
 
   @override
   void dispose() {
-    if (stopWatchTimer.isRunning) {
-      stopWatchTimer.dispose();
-    }
+    try {
+      // If not mounted, this throws errors.
+      if (stopWatchTimer.isRunning) {
+        stopWatchTimer.dispose();
+      }
+    } catch (_) {}
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final CurrentWorkout currentWorkout = Provider.of<CurrentWorkout>(context);
+    final DatabaseService databaseService = Provider.of<DatabaseService>(context);
+    final UserDB user = Provider.of<UserDB>(context);
     final Size screenSize = MediaQuery.of(context).size;
 
     if (currentWorkout.startTime == null) {
@@ -155,7 +162,21 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                 type: 'all',
                 all: screenSize.width / 50,
                 child: ButtonWidget(
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (currentWorkout.exercises.isNotEmpty) {
+                      databaseService.addWorkoutToHistory(currentWorkout, user.uid, context);
+                    }
+                    setState(() {
+                      currentWorkout.exercises.clear();
+                      currentWorkout.startTime = null;
+                      currentWorkout.currentTimeInSeconds = 0;
+                      currentWorkout.lastDecrementForTimer = DateTime.now();
+                      currentWorkout.timer = null;
+                      if (stopWatchTimer.isRunning) {
+                        stopWatchTimer.dispose();
+                      }
+                    });
+                  },
                   text: TextWidget(
                     text: finishText,
                     weight: FontWeight.bold,

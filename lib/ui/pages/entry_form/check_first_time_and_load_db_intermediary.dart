@@ -5,7 +5,7 @@ import '../../../business_logic/login_and_register_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/loading.dart';
-import 'load_all_data_and_setup_providers_intermediary.dart';
+import 'load_exercises.dart';
 import 'user_details_form_page.dart';
 
 class CheckFirstTimeAndLoadDB extends StatelessWidget {

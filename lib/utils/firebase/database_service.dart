@@ -1,10 +1,15 @@
+// ignore_for_file: avoid_function_literals_in_foreach_calls
 import 'dart:convert';
 import 'dart:core';
 import 'dart:io';
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
+import '../models/current_workout.dart';
 import '../models/exercise.dart';
+import '../models/exercise_set.dart';
+import '../models/history_workout.dart';
 import '../models/user_database.dart';
 
 class DatabaseService {
@@ -12,6 +17,7 @@ class DatabaseService {
     _firebaseDB = FirebaseDatabase.instance;
     _usersRef = _firebaseDB.ref().child('Users');
     _exercisesRef = _firebaseDB.ref().child('Exercises');
+    _historyRef = _firebaseDB.ref().child('History');
   }
 
   // Here I try to initialize everything from the database into the app,
@@ -29,6 +35,7 @@ class DatabaseService {
   late final FirebaseDatabase _firebaseDB;
   late final DatabaseReference _usersRef;
   late final DatabaseReference _exercisesRef;
+  late final DatabaseReference _historyRef;
 
   List<UserDB> _allUsers = <UserDB>[];
   final List<Exercise> _allExercises = <Exercise>[];
@@ -171,5 +178,143 @@ class DatabaseService {
       'exerciseVideo': 'userCreatedNoVideo',
       'difficulty': 'Not assigned'
     });
+  }
+
+  Future<void> addWorkoutToHistory(CurrentWorkout workoutToAdd, String userUid, BuildContext context) async {
+    final String startTime =
+        '${workoutToAdd.startTime?.year}-${workoutToAdd.startTime?.month}-${workoutToAdd.startTime?.day}|${workoutToAdd.startTime?.hour}-${workoutToAdd.startTime?.minute}';
+    final Duration duration = DateTime.now().difference(workoutToAdd.startTime!);
+    late final String finalDuration;
+    if (duration.inMinutes >= 60) {
+      final String hours = (duration.inMinutes ~/ 60).toString();
+      final num leftMinutes = duration.inMinutes - duration.inMinutes ~/ 60 * 60;
+      if (leftMinutes >= 10) {
+        finalDuration = '$hours:$leftMinutes';
+      } else {
+        finalDuration = '$hours:0$leftMinutes';
+      }
+    } else if (duration.inMinutes >= 10) {
+      finalDuration = '00:${duration.inMinutes}';
+    } else {
+      finalDuration = '00:0${duration.inMinutes}';
+    }
+
+    final List<HistoryWorkout> historyWorkouts = Provider.of<List<HistoryWorkout>>(context, listen: false);
+    final HistoryWorkout workoutToAddToProvider = HistoryWorkout(startTime, workoutToAdd.workoutName.text,
+        workoutToAdd.workoutNotes.text, workoutToAdd.exercises, finalDuration);
+    historyWorkouts.add(workoutToAddToProvider);
+
+    final String idHistory = '${userUid}_$startTime';
+    final Map<String, dynamic> exercisesAndSets = <String, dynamic>{};
+    int index = 1;
+    for (final ExerciseSet exercise in workoutToAdd.exercises) {
+      final String idExercise = '${index}_${exercise.assignedExercise.id}';
+      final Map<String, String> localSets = <String, String>{};
+      int counter = 1;
+      for (final List<TextEditingController> set in exercise.sets) {
+        if (set[1].text.isNotEmpty) {
+          localSets.putIfAbsent(counter.toString(), () => '${set[0].text}_${set[1].text}');
+        } else {
+          localSets.putIfAbsent(counter.toString(), () => set[0].text);
+        }
+        counter += 1;
+      }
+      exercisesAndSets.putIfAbsent(idExercise, () {
+        final Map<String, dynamic> aux = <String, dynamic>{
+          'type': exercise.runtimeType.toString(),
+          'assignedExercise': exercise.assignedExercise.id,
+          'sets': localSets,
+        };
+        return aux;
+      });
+      index += 1;
+    }
+    await _historyRef.child(idHistory).set(<String, dynamic>{
+      'name': workoutToAdd.workoutName.text,
+      'notes': workoutToAdd.workoutNotes.text,
+      'startTime': startTime,
+      'duration': finalDuration,
+      'exercisesAndSets': exercisesAndSets,
+    });
+  }
+
+  Future<List<HistoryWorkout>> getAllHistoryFromDBForUser(String userUid, List<Exercise> exerciseList) async {
+    final List<HistoryWorkout> workoutHistory = <HistoryWorkout>[];
+
+    final DatabaseEvent event = await _historyRef.once();
+    if (event.snapshot.value == null) {
+      return workoutHistory;
+    }
+    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
+    if (result.isEmpty) {
+      return workoutHistory;
+    }
+
+    result.forEach((dynamic key, dynamic value) {
+      value = value as Map<dynamic, dynamic>;
+      key = key as String;
+      if (key.contains(userUid)) {
+        final String duration = value['duration'].toString();
+        final String name = value['name'].toString();
+        final String notes = value['notes'].toString();
+        final List<String> splitDate = value['startTime'].toString().split('|')[0].split('-');
+        final List<String> splitHour = value['startTime'].toString().split('|')[1].split('-');
+        final String time = '${splitHour[0]}:${splitHour[1]}  ${splitDate[2]}.${splitDate[1]}.${splitDate[0]}';
+        dynamic exercisesAndSets = value['exercisesAndSets'];
+        exercisesAndSets = exercisesAndSets as Map<dynamic, dynamic>;
+        final List<ExerciseSet> exercises = <ExerciseSet>[];
+        exercisesAndSets.forEach((dynamic key, dynamic value) {
+          value = value as Map<dynamic, dynamic>;
+          final String exerciseId = value['assignedExercise'].toString();
+          final String type = value['type'].toString();
+          final List<List<TextEditingController>> sets = <List<TextEditingController>>[];
+          dynamic setsReceived = value['sets'];
+          setsReceived = setsReceived as List<dynamic>;
+          setsReceived.forEach((dynamic value) {
+            if (value.toString() != 'null') {
+              final TextEditingController firstController = TextEditingController();
+              final TextEditingController secondController = TextEditingController();
+              // Not Duration
+              if (value.toString().contains('_')) {
+                firstController.text = value.toString().split('_')[0];
+                secondController.text = value.toString().split('_')[1];
+              } else {
+                firstController.text = value.toString();
+                secondController.text = '0';
+              }
+              sets.add(<TextEditingController>[firstController, secondController]);
+            }
+          });
+          late final ExerciseSet aux;
+          if (type == 'ExerciseSetWeight') {
+            exerciseList.forEach((Exercise element) {
+              if (element.id == exerciseId) {
+                aux = ExerciseSetWeight(element);
+              }
+            });
+          } else if (type == 'ExerciseSetDuration') {
+            exerciseList.forEach((Exercise element) {
+              if (element.id == exerciseId) {
+                aux = ExerciseSetDuration(element);
+              }
+            });
+          } else {
+            exerciseList.forEach((Exercise element) {
+              if (element.id == exerciseId) {
+                aux = ExerciseSetMinusWeight(element);
+              }
+            });
+          }
+          aux.type = type;
+          sets.forEach((List<TextEditingController> element) {
+            aux.sets.add(element);
+          });
+          exercises.add(aux);
+        });
+        final HistoryWorkout oneWorkout = HistoryWorkout(time, name, notes, exercises, duration);
+        workoutHistory.add(oneWorkout);
+      }
+    });
+    return workoutHistory;
   }
 }

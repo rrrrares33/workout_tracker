@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../utils/firebase/authentication_service.dart';
-import '../../../utils/models/user_database.dart';
+import '../../../utils/models/history_workout.dart';
+import '../../reusable_widgets/text.dart';
 
 class WorkoutHistoryPage extends StatefulWidget {
   const WorkoutHistoryPage({Key? key}) : super(key: key);
@@ -16,28 +16,13 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AuthenticationService authenticationService = Provider.of<AuthenticationService>(context);
-    final UserDB user = Provider.of<UserDB>(context);
+    final List<HistoryWorkout> historyWorkouts = Provider.of<List<HistoryWorkout>>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        const Text('Workout history'),
-        Text(user.name!),
-        Text(user.surname!),
-        Text(user.email),
-        Text(user.uid),
-        Text(user.age.toString()),
-        Text(user.weight.toString()),
-        Text(user.weightType.toString()),
         Center(
-          child: ElevatedButton(
-            onPressed: () async {
-              setState(() {
-                logoutPressed = true;
-              });
-              await authenticationService.signOutFromFirebase();
-            },
-            child: const Text('Logout'),
+          child: TextWidget(
+            text: historyWorkouts.length.toString(),
           ),
         )
       ],

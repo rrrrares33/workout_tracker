@@ -6,6 +6,7 @@ import '../../../business_logic/workout_history_logic.dart';
 import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/alert_history_workout.dart';
+import '../../reusable_widgets/history_calendar.dart';
 import '../../reusable_widgets/padding.dart';
 import '../../reusable_widgets/sliver_top_bar.dart';
 import '../../reusable_widgets/text.dart';
@@ -48,7 +49,13 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
               toolbarHeight: toolbarHeight,
               textExpanded: 'Workouts History',
               textToolbar: 'Workouts History',
-              leading: Container(),
+              actions: <Widget>[
+                CalendarHistoryWorkouts(
+                  height: screenSize.height,
+                  width: screenSize.width,
+                  workouts: getAllDateTimesOfWorkouts(historyWorkouts),
+                ),
+              ],
               showBigTitle: _showBigLeftTitle),
           if (historyWorkouts.isNotEmpty)
             SliverList(

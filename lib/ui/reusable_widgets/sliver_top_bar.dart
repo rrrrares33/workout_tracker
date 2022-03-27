@@ -10,7 +10,8 @@ class SliverTopBar extends StatelessWidget {
       required this.textExpanded,
       required this.textToolbar,
       required this.showBigTitle,
-      this.leading})
+      this.leading,
+      this.actions})
       : super(key: key);
   final double expandedHeight;
   final double toolbarHeight;
@@ -18,6 +19,7 @@ class SliverTopBar extends StatelessWidget {
   final String textExpanded;
   final String textToolbar;
   final Widget? leading;
+  final List<Widget>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class SliverTopBar extends StatelessWidget {
       toolbarHeight: toolbarHeight,
       centerTitle: true,
       leading: leading,
+      actions: actions,
       title: showBigTitle
           ? PaddingWidget(
               type: 'only',

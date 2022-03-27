@@ -85,7 +85,7 @@ class ShowHistoryWorkoutFull extends StatelessWidget {
             ),
             if (workout.workoutNotes! != 'Notes')
               TextWidget(
-                text: 'Notes: ${workout.workoutNotes!}',
+                text: workout.workoutNotes,
                 align: TextAlign.start,
               ),
           ],

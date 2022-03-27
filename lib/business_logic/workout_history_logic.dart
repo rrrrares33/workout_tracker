@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/editable_text.dart';
 import 'package:intl/intl.dart';
 
 import '../utils/models/exercise_set.dart';
+import '../utils/models/history_workout.dart';
 import '../utils/models/user_database.dart';
 
 String getDateAndTimeForPrinting(String hoursSpaceDate) {
@@ -119,5 +120,15 @@ String getBestSet(ExerciseSet fullExercise, double weight, WeightMetric metric) 
     }
     result = bestValue;
   }
+  return result;
+}
+
+List<DateTime> getAllDateTimesOfWorkouts(List<HistoryWorkout> workouts) {
+  final List<DateTime> result = <DateTime>[];
+  workouts.forEach((HistoryWorkout element) {
+    final String date = element.startTime!.substring(element.startTime!.indexOf(' ') + 2);
+    final DateTime resultedDate = DateFormat('dd.MM.yyyy').parseLoose(date);
+    result.add(resultedDate);
+  });
   return result;
 }

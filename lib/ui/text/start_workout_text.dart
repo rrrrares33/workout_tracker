@@ -44,3 +44,14 @@ const String alertWindowCancelText = 'You are about to close the current workout
 const String closeWorkoutTitle = 'Closing workout';
 const String abortCancelText = 'Abort';
 const String confirmCancelText = 'Yes, cancel workout';
+
+const String finishWorkoutTitle = 'Finish workout';
+const String notCheckedExercisesPart = 'Warning: Any unchecked exercise will not appear in your workout history';
+const String resumeWorkout = 'Resume Workout';
+const String finishWorkoutConfirmation = '  Finish Workout  ';
+SnackBar workoutAddedToHistory = SnackBar(
+  content: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const <Widget>[TextWidget(text: 'Congrats! Your workout was added to the history page!')]),
+  duration: const Duration(seconds: 3),
+);

@@ -3,13 +3,14 @@ import '../text/start_workout_text.dart';
 import 'text.dart';
 
 class AreYouSureWidget extends StatelessWidget {
-  const AreYouSureWidget({Key? key, required this.width, required this.onChangedCancel}) : super(key: key);
+  const AreYouSureWidget({Key? key, required this.width, required this.onPressedCancel}) : super(key: key);
   final double width;
-  final void Function() onChangedCancel;
+  final void Function() onPressedCancel;
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
       title: TextWidget(
         text: closeWorkoutTitle,
         fontSize: width / 20,
@@ -34,7 +35,7 @@ class AreYouSureWidget extends StatelessWidget {
           child: const TextWidget(text: abortCancelText),
         ),
         ElevatedButton(
-          onPressed: onChangedCancel,
+          onPressed: onPressedCancel,
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(

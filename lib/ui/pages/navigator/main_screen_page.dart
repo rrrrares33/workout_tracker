@@ -5,9 +5,9 @@ import '../../../utils/routing/current_opened_page.dart';
 import '../../reusable_widgets/bottom_nav.dart';
 import 'all_exercises_page.dart';
 import 'my_profile.dart';
-import 'start_workout_page.dart';
 import 'statistics_and_charts_page.dart';
 import 'workout_history_page.dart';
+import 'workout_page.dart';
 
 class MainScreenPage extends StatefulWidget {
   const MainScreenPage({Key? key}) : super(key: key);

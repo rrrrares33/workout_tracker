@@ -112,7 +112,7 @@ class ExerciseSetWeight extends ExerciseSet {
           ),
           PaddingWidget(
             type: 'only',
-            onlyRight: screenWidth / 13.75,
+            onlyRight: screenWidth / 17.5,
             onlyLeft: screenWidth / 40,
             child: SizedBox(
               width: screenWidth / 6,
@@ -229,7 +229,7 @@ class ExerciseSetDuration extends ExerciseSet {
               )),
           PaddingWidget(
             type: 'only',
-            onlyRight: screenWidth / 7.5,
+            onlyRight: screenWidth / 12,
             onlyLeft: screenWidth / 4,
             child: SizedBox(
               width: screenWidth / 3,
@@ -414,7 +414,7 @@ class ExerciseSetMinusWeight extends ExerciseSet {
           ),
           PaddingWidget(
             type: 'only',
-            onlyRight: screenWidth / 18.5,
+            onlyRight: screenWidth / 25,
             onlyLeft: screenWidth / 40,
             child: SizedBox(
               width: screenWidth / 6,

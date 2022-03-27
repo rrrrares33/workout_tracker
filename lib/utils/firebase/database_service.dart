@@ -5,6 +5,7 @@ import 'dart:io';
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../models/current_workout.dart';
 import '../models/exercise.dart';
@@ -202,7 +203,10 @@ class DatabaseService {
     final List<HistoryWorkout> historyWorkouts = Provider.of<List<HistoryWorkout>>(context, listen: false);
     final HistoryWorkout workoutToAddToProvider = HistoryWorkout(startTime, workoutToAdd.workoutName.text,
         workoutToAdd.workoutNotes.text, workoutToAdd.exercises, finalDuration);
-    historyWorkouts.add(workoutToAddToProvider);
+    for (int i = 0; i < workoutToAdd.exercises.length; i += 1) {
+      workoutToAdd.exercises[i].type = workoutToAdd.exercises[i].runtimeType.toString();
+    }
+    historyWorkouts.insert(0, workoutToAddToProvider);
 
     final String idHistory = '${userUid}_$startTime';
     final Map<String, dynamic> exercisesAndSets = <String, dynamic>{};
@@ -249,7 +253,6 @@ class DatabaseService {
     if (result.isEmpty) {
       return workoutHistory;
     }
-
     result.forEach((dynamic key, dynamic value) {
       value = value as Map<dynamic, dynamic>;
       key = key as String;
@@ -314,6 +317,11 @@ class DatabaseService {
         final HistoryWorkout oneWorkout = HistoryWorkout(time, name, notes, exercises, duration);
         workoutHistory.add(oneWorkout);
       }
+    });
+    workoutHistory.sort((HistoryWorkout a, HistoryWorkout b) {
+      final DateTime dateTimeA = DateFormat('HH:mm dd.MM.yyyy').parseLoose(a.startTime!);
+      final DateTime dateTimeB = DateFormat('HH:mm dd.MM.yyyy').parseLoose(b.startTime!);
+      return -dateTimeA.compareTo(dateTimeB);
     });
     return workoutHistory;
   }

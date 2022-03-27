@@ -1,3 +1,8 @@
+import 'package:flutter/cupertino.dart';
+
+import '../ui/text/start_workout_text.dart';
+import '../utils/models/exercise_set.dart';
+
 int convertTimeToSeconds(String? time) {
   if (time == null) {
     return 0;
@@ -75,4 +80,50 @@ String getPrintableTimerSinceStart(String seconds) {
     return '0:0$res';
   }
   return res;
+}
+
+bool checkForEmptySets(List<List<TextEditingController>> aux) {
+  // true - there is at least one empty set in the exercise
+  // false - there are no empty sets in the exercise
+  for (final List<TextEditingController> set in aux) {
+    if (set[2].text != checkedText) {
+      return true;
+    }
+  }
+  return false;
+}
+
+bool checkForEmptySetsMultipleExercises(List<ExerciseSet> exercisesSets) {
+  for (final ExerciseSet exerciseSet in exercisesSets) {
+    if (checkForEmptySets(exerciseSet.sets)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+List<ExerciseSet> removeEmptyExercises(List<ExerciseSet> exerciseSets) {
+  final List<ExerciseSet> finalList = <ExerciseSet>[];
+  for (final ExerciseSet exerciseSet in exerciseSets) {
+    if (exerciseSet.sets.isNotEmpty) {
+      if (checkForEmptySets(exerciseSet.sets)) {
+        final List<List<TextEditingController>> finalCheckedSets = <List<TextEditingController>>[];
+        for (final List<TextEditingController> set in exerciseSet.sets) {
+          if (set[2].text == checkedText) {
+            finalCheckedSets.add(set);
+          }
+        }
+        exerciseSet.sets.clear();
+        exerciseSet.sets.addAll(finalCheckedSets);
+      }
+      if (exerciseSet.sets.isNotEmpty) {
+        finalList.add(exerciseSet);
+      }
+    }
+  }
+  return finalList;
+}
+
+bool validateWorkoutSets(List<ExerciseSet> exerciseSets) {
+  return removeEmptyExercises(exerciseSets).isNotEmpty;
 }

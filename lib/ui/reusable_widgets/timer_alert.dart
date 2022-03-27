@@ -5,7 +5,7 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../business_logic/start_workout_logic.dart';
+import '../../business_logic/workout_logic.dart';
 import '../../utils/models/current_workout.dart';
 import '../text/start_workout_text.dart';
 import 'button.dart';

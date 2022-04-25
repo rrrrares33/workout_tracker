@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../../../business_logic/all_exercises_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/models/current_workout.dart';
+import '../../../utils/models/editing_template.dart';
 import '../../../utils/models/exercise.dart';
 import '../../../utils/models/exercise_set.dart';
 import '../../../utils/models/user_database.dart';
@@ -54,6 +55,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
   Widget build(BuildContext context) {
     final DatabaseService databaseService = Provider.of<DatabaseService>(context);
     final List<Exercise> exercisesProvider = Provider.of<List<Exercise>>(context);
+    final EditingTemplate editingTemplate = Provider.of<EditingTemplate>(context);
     final CurrentWorkout currentWorkout = Provider.of<CurrentWorkout>(context);
     final UserDB user = Provider.of<UserDB>(context);
     final Size screenSize = MediaQuery.of(context).size;
@@ -176,7 +178,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                 delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Slidable(
-                  enabled: currentWorkout.startTime != null,
+                  enabled: currentWorkout.startTime != null || (editingTemplate.currentlyEditing ?? false),
                   endActionPane: ActionPane(
                     motion: const BehindMotion(),
                     extentRatio: 0.2,
@@ -185,15 +187,28 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                       SlidableAction(
                         onPressed: (BuildContext context) {
                           setState(() {
-                            widget.callback(2);
-                            ScaffoldMessenger.of(context).showSnackBar(newExerciseAddedToWorkout);
-                            if (exerciseList![index].category == 'Time') {
-                              currentWorkout.exercises.add(ExerciseSetDuration(exerciseList[index]));
-                            } else if (exerciseList[index].category == 'Assisted Bodyweight') {
-                              currentWorkout.exercises.add(ExerciseSetMinusWeight(exerciseList[index]));
-                            } else {
-                              currentWorkout.exercises.add(ExerciseSetWeight(exerciseList[index]));
+                            if (currentWorkout.startTime != null) {
+                              ScaffoldMessenger.of(context).showSnackBar(newExerciseAddedToWorkout);
+                              if (exerciseList![index].category == 'Time') {
+                                currentWorkout.exercises.add(ExerciseSetDuration(exerciseList[index]));
+                              } else if (exerciseList[index].category == 'Assisted Bodyweight') {
+                                currentWorkout.exercises.add(ExerciseSetMinusWeight(exerciseList[index]));
+                              } else {
+                                currentWorkout.exercises.add(ExerciseSetWeight(exerciseList[index]));
+                              }
+                            } else if (editingTemplate.currentlyEditing ?? false) {
+                              ScaffoldMessenger.of(context).showSnackBar(newExerciseAddedToTemplate);
+                              if (exerciseList![index].category == 'Time') {
+                                editingTemplate.exercises.add(ExerciseSetDuration(exerciseList[index]));
+                              } else if (exerciseList[index].category == 'Assisted Bodyweight') {
+                                editingTemplate.exercises.add(ExerciseSetMinusWeight(exerciseList[index]));
+                              } else {
+                                editingTemplate.exercises.add(ExerciseSetWeight(exerciseList[index]));
+                              }
+                              editingTemplate.exercises[editingTemplate.exercises.length - 1].sets
+                                  .add(<TextEditingController>[TextEditingController(text: '1')]);
                             }
+                            widget.callback(2);
                           });
                         },
                         foregroundColor: Colors.greenAccent[400],

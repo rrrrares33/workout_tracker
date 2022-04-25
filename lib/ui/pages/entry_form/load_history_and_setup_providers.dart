@@ -3,9 +3,11 @@ import 'package:provider/provider.dart';
 
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/models/current_workout.dart';
+import '../../../utils/models/editing_template.dart';
 import '../../../utils/models/exercise.dart';
 import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
+import '../../../utils/models/workout_template.dart';
 import '../../../utils/routing/current_opened_page.dart';
 import '../../reusable_widgets/loading.dart';
 import '../navigator/main_screen_page.dart';
@@ -25,19 +27,36 @@ class LoadHistoryAndSetupProviders extends StatelessWidget {
             return const LoadingWidget();
           } else {
             return MultiProvider(
-              providers: <Provider<dynamic>>[
-                Provider<List<HistoryWorkout>>(
-                  create: (_) => snapshotFuture.data!,
-                ),
-                Provider<CurrentWorkout>(
-                  create: (_) => CurrentWorkout(),
-                ),
-                Provider<CurrentOpenedPage>(
-                  create: (_) => CurrentOpenedPage(),
-                ),
-              ],
-              child: const MainScreenPage(),
-            );
+                providers: <Provider<dynamic>>[
+                  Provider<List<HistoryWorkout>>(
+                    create: (_) => snapshotFuture.data!,
+                  ),
+                  Provider<CurrentWorkout>(
+                    create: (_) => CurrentWorkout(),
+                  ),
+                  Provider<EditingTemplate>(
+                    create: (_) => EditingTemplate(),
+                  ),
+                  Provider<CurrentOpenedPage>(
+                    create: (_) => CurrentOpenedPage(),
+                  ),
+                ],
+                child: FutureBuilder<List<WorkoutTemplate>>(
+                  future: databaseService.getAllWorkoutTemplatesFromDBForUser(user.uid, exercises),
+                  builder: (BuildContext contextAux, AsyncSnapshot<List<WorkoutTemplate>> snapshotFutureTemplates) {
+                    if (!snapshotFutureTemplates.hasData) {
+                      return const LoadingWidget();
+                    } else {
+                      return MultiProvider(providers: <Provider<dynamic>>[
+                        Provider<List<WorkoutTemplate>>(
+                          create: (_) => snapshotFutureTemplates.data!,
+                        )
+                      ], child: const MainScreenPage());
+                    }
+                  },
+                )
+                //const MainScreenPage(),
+                );
           }
         });
   }

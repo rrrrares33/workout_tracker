@@ -1033,7 +1033,7 @@
         "system_underhandBentOverRowBarbell": {
             "name": "Bent Over Underhand Barbell",
             "description": "Lorepsagds gdsds fds dsds gsdsd",
-            "id": "system_oneArmBarbellBentOverRow",
+            "id": "system_underhandBentOverRowBarbell",
             "whoCreatedThisExercise": "system",
             "category": "Barbell",
             "bodyPart": "Back",
@@ -2653,7 +2653,7 @@
         "system_busDrivers": {
             "name": "Bus Drivers",
             "description": "Lorepsagds gdsds fds gsd gsdsd",
-            "id": "busDrivers",
+            "id": "system_busDrivers",
             "whoCreatedThisExercise": "system",
             "category": "Dumbbell",
             "bodyPart": "Shoulders",

@@ -50,6 +50,10 @@ dependencies:
   #Calendar to display history workouts
   paged_vertical_calendar: ^1.0.6
 
+  number_inc_dec: ^0.8.0
+
+  uuid: 3.0.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -7,11 +7,14 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:uuid/uuid.dart';
+
 import '../models/current_workout.dart';
 import '../models/exercise.dart';
 import '../models/exercise_set.dart';
 import '../models/history_workout.dart';
 import '../models/user_database.dart';
+import '../models/workout_template.dart';
 
 class DatabaseService {
   DatabaseService() {
@@ -19,6 +22,7 @@ class DatabaseService {
     _usersRef = _firebaseDB.ref().child('Users');
     _exercisesRef = _firebaseDB.ref().child('Exercises');
     _historyRef = _firebaseDB.ref().child('History');
+    _templateRef = _firebaseDB.ref().child('Templates');
   }
 
   // Here I try to initialize everything from the database into the app,
@@ -37,6 +41,7 @@ class DatabaseService {
   late final DatabaseReference _usersRef;
   late final DatabaseReference _exercisesRef;
   late final DatabaseReference _historyRef;
+  late final DatabaseReference _templateRef;
 
   List<UserDB> _allUsers = <UserDB>[];
   final List<Exercise> _allExercises = <Exercise>[];
@@ -324,5 +329,91 @@ class DatabaseService {
       return -dateTimeA.compareTo(dateTimeB);
     });
     return workoutHistory;
+  }
+
+  Future<void> addWorkoutTemplateToDB(String userUid, WorkoutTemplate template) async {
+    const Uuid UID = Uuid();
+    final String templateID = '${userUid}_${UID.v4()}';
+    final String templateNotes = template.notes;
+    final String templateName = template.name;
+
+    final Map<String, dynamic> exercisesAndSets = <String, dynamic>{};
+    int index = 0;
+    template.exercises.forEach((ExerciseSet element) {
+      index += 1;
+      final Map<String, List<String>> sets = <String, List<String>>{};
+      int auxIndex = 0;
+      element.sets.forEach((List<TextEditingController> element) {
+        sets[auxIndex.toString()] = <String>['0', '0', '0'];
+        auxIndex += 1;
+      });
+      final Map<String, dynamic> aux = <String, dynamic>{
+        'type': element.runtimeType.toString(),
+        'assignedExercise': element.assignedExercise.id,
+        'sets': sets,
+      };
+      exercisesAndSets['${index}_${element.assignedExercise.id}'] = aux;
+    });
+
+    await _templateRef.child(templateID).set(<String, dynamic>{
+      'name': templateName,
+      'notes': templateNotes,
+      'exercises': exercisesAndSets,
+    });
+  }
+
+  Future<List<WorkoutTemplate>> getAllWorkoutTemplatesFromDBForUser(String userUid, List<Exercise> exerciseList) async {
+    final List<WorkoutTemplate> workoutTemplates = <WorkoutTemplate>[];
+
+    final DatabaseEvent event = await _templateRef.once();
+    if (event.snapshot.value == null) {
+      return workoutTemplates;
+    }
+    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
+    if (result.isEmpty) {
+      return workoutTemplates;
+    }
+    result.forEach((dynamic key, dynamic value) {
+      value = value as Map<dynamic, dynamic>;
+      key = key as String;
+      if (key.contains(userUid) || key.contains('system')) {
+        final String templateName = value['name'] as String;
+        final String templateNotes = value['notes'] as String;
+        final List<ExerciseSet> templateExercises = <ExerciseSet>[];
+        final Map<dynamic, dynamic> allExercisesOfTemplate = value['exercises'] as Map<dynamic, dynamic>;
+        allExercisesOfTemplate.forEach((dynamic key, dynamic value) {
+          final String exerciseId = '${(key as String).split('_')[1]}_${key.split('_')[2]}';
+          late final ExerciseSet currentSet;
+          exerciseList.forEach((Exercise element) {
+            if (exerciseId == element.id) {
+              if (element.category == 'Assisted Bodyweight') {
+                currentSet = ExerciseSetMinusWeight(element);
+                currentSet.type = 'ExerciseSetMinusWeight';
+              } else if (element.category == 'Time') {
+                currentSet = ExerciseSetDuration(element);
+                currentSet.type = 'ExerciseSetDuration';
+              } else {
+                currentSet = ExerciseSetWeight(element);
+                currentSet.type = 'ExerciseSetWeight';
+              }
+            }
+          });
+          // ignore: avoid_dynamic_calls
+          (value['sets'] as List<dynamic>).forEach((dynamic element) {
+            currentSet.sets.add(<TextEditingController>[
+              TextEditingController(text: '0'),
+              TextEditingController(text: '0'),
+              TextEditingController(text: 'unchecked')
+            ]);
+          });
+          templateExercises.add(currentSet);
+        });
+
+        final WorkoutTemplate currentWorkoutTemplate = WorkoutTemplate(templateName, templateNotes, templateExercises);
+        workoutTemplates.add(currentWorkoutTemplate);
+      }
+    });
+
+    return workoutTemplates;
   }
 }

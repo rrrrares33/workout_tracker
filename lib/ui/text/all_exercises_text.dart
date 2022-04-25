@@ -40,3 +40,10 @@ SnackBar newExerciseAddedToWorkout = SnackBar(
       children: const <Widget>[TextWidget(text: 'New exercise added to workout.')]),
   duration: const Duration(seconds: 2),
 );
+
+SnackBar newExerciseAddedToTemplate = SnackBar(
+  content: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const <Widget>[TextWidget(text: 'New exercise added to template.')]),
+  duration: const Duration(seconds: 2),
+);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utils/firebase/database_service.dart';
+import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/current_workout.dart';
 import '../../../utils/models/editing_template.dart';
 import '../../../utils/models/exercise.dart';
@@ -21,7 +22,7 @@ class LoadHistoryAndSetupProviders extends StatelessWidget {
     final List<Exercise> exercises = Provider.of<List<Exercise>>(context);
     final UserDB user = Provider.of<UserDB>(context);
     return FutureBuilder<List<HistoryWorkout>>(
-        future: databaseService.getAllHistoryFromDBForUser(user.uid, exercises),
+        future: databaseService.getAllHistoryFromDBForUser(user.uid, exercises, FirebaseService()),
         builder: (BuildContext context, AsyncSnapshot<List<HistoryWorkout>> snapshotFuture) {
           if (!snapshotFuture.hasData) {
             return const LoadingWidget();
@@ -42,7 +43,7 @@ class LoadHistoryAndSetupProviders extends StatelessWidget {
                   ),
                 ],
                 child: FutureBuilder<List<WorkoutTemplate>>(
-                  future: databaseService.getAllWorkoutTemplatesFromDBForUser(user.uid, exercises),
+                  future: databaseService.getAllWorkoutTemplatesFromDBForUser(user.uid, exercises, FirebaseService()),
                   builder: (BuildContext contextAux, AsyncSnapshot<List<WorkoutTemplate>> snapshotFutureTemplates) {
                     if (!snapshotFutureTemplates.hasData) {
                       return const LoadingWidget();

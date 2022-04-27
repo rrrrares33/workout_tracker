@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utils/firebase/database_service.dart';
+import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/exercise.dart';
 import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/loading.dart';
@@ -15,7 +16,7 @@ class LoadAllExercisesIntermediary extends StatelessWidget {
     final DatabaseService databaseService = Provider.of<DatabaseService>(context);
     final UserDB user = Provider.of<UserDB>(context);
     return FutureBuilder<List<Exercise>>(
-        future: databaseService.getAllExercisesForUser(user.uid, context),
+        future: databaseService.getAllExercisesForUser(user.uid, context, FirebaseService()),
         builder: (BuildContext context, AsyncSnapshot<List<Exercise>> snapshotFuture) {
           if (!snapshotFuture.hasData) {
             return const LoadingWidget();

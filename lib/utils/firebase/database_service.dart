@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'dart:core';
 import 'dart:io';
 
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -15,53 +14,38 @@ import '../models/exercise_set.dart';
 import '../models/history_workout.dart';
 import '../models/user_database.dart';
 import '../models/workout_template.dart';
+import 'firebase_service.dart';
 
 class DatabaseService {
-  DatabaseService() {
-    _firebaseDB = FirebaseDatabase.instance;
-    _usersRef = _firebaseDB.ref().child('Users');
-    _exercisesRef = _firebaseDB.ref().child('Exercises');
-    _historyRef = _firebaseDB.ref().child('History');
-    _templateRef = _firebaseDB.ref().child('Templates');
-  }
-
-  // Here I try to initialize everything from the database into the app,
-  //  so it will be easier for the program to process everything without
-  //  waiting times.
-  Future<bool> loadUsers() async {
-    // Starts loading database data.
-    // print('Data started loading');
-    _allUsers = await getAllUsers();
-    // print('Data finished');
-    return true;
-  }
-
-  // We store the instance of the database in a private param.
-  late final FirebaseDatabase _firebaseDB;
-  late final DatabaseReference _usersRef;
-  late final DatabaseReference _exercisesRef;
-  late final DatabaseReference _historyRef;
-  late final DatabaseReference _templateRef;
+  DatabaseService();
 
   List<UserDB> _allUsers = <UserDB>[];
-  final List<Exercise> _allExercises = <Exercise>[];
 
   List<UserDB> getUsers() {
     return _allUsers;
   }
 
+  final List<Exercise> _allExercises = <Exercise>[];
+
+  // Here I try to initialize everything from the database into the app,
+  //  so it will be easier for the program to process everything without
+  //  waiting times.
+  Future<bool> loadUsers(FirebaseService firebaseService) async {
+    // Starts loading database data.
+    // print('Data started loading');
+    _allUsers = await getAllUsers(firebaseService);
+    // print('Data finished');
+    return true;
+  }
+
   // Gets all current users from database.
   // It is called only once at the start of the application.
-  Future<List<UserDB>> getAllUsers() async {
+  Future<List<UserDB>> getAllUsers(FirebaseService firebaseService) async {
     //This method should return all users store in the database.
     //If there is no user, it will return an empty list.
     final List<UserDB> users = <UserDB>[];
-    final DatabaseEvent event = await _usersRef.once();
-    if (event.snapshot.value == null) {
-      return <UserDB>[];
-    }
-    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
-    if (result.isEmpty) {
+    final Map<dynamic, dynamic>? result = await firebaseService.getAllUsers();
+    if (result == null || result.isEmpty) {
       return <UserDB>[];
     }
     result.forEach((dynamic key, dynamic value) {
@@ -92,37 +76,28 @@ class DatabaseService {
   }
 
   // Creates an user before completing the details form.
-  Future<void> createUserBeforeDetails(String uid, String email) async {
-    await _usersRef.child(uid).set(<String, dynamic>{'uid': uid, 'email': email, 'firstEntry': true.toString()});
+  Future<void> createUserBeforeDetails(FirebaseService firebaseService, String uid, String email) async {
+    await firebaseService.createUserBeforeDetails(uid, email);
   }
 
   // Creates an user after completing the details form.
   Future<void> createUserWithFullDetails(String uid, String email, String name, String surname, int age, double weight,
-      double height, WeightMetric weightType) async {
+      double height, WeightMetric weightType, FirebaseService firebaseService) async {
     // We first delete the already created user (firstEntry == true)
-    await _usersRef.child(uid).remove();
+    await firebaseService.removeUserBasedOnUID(uid);
 
     // Then we create the new user.
-    await _usersRef.child(uid).set(<String, dynamic>{
-      'uid': uid,
-      'email': email,
-      'firstEntry': false.toString(),
-      'name': name,
-      'surname': surname,
-      'age': age.toString(),
-      'weight': weight.toString(),
-      'height': height.toString(),
-      'weightType': weightType.toString()
-    });
+    await firebaseService.createUserWithFullDetails(uid, email, name, surname, age, weight, height, weightType);
   }
 
   // Gets all exercises from the database which may be accessed by the current user.
-  Future<List<Exercise>> getAllExercisesForUser(String uid, BuildContext context) async {
+  Future<List<Exercise>> getAllExercisesForUser(
+      String uid, BuildContext context, FirebaseService firebaseService) async {
     if (_allExercises.isEmpty) {
       try {
         final List<InternetAddress> result = await InternetAddress.lookup('example.com');
         if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-          return getAllExercisesFromDBForUser(uid);
+          return getAllExercisesFromDBForUser(uid, firebaseService);
         }
       } on SocketException catch (_) {
         return getAllExercisesFromJSONForUser(context);
@@ -146,14 +121,10 @@ class DatabaseService {
     return exercises;
   }
 
-  Future<List<Exercise>> getAllExercisesFromDBForUser(String uid) async {
+  Future<List<Exercise>> getAllExercisesFromDBForUser(String uid, FirebaseService firebaseService) async {
     final List<Exercise> exercisesFromNet = <Exercise>[];
-    final DatabaseEvent event = await _exercisesRef.once();
-    if (event.snapshot.value == null) {
-      return <Exercise>[];
-    }
-    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
-    if (result.isEmpty) {
+    final Map<dynamic, dynamic>? result = await firebaseService.getAllExercises();
+    if (result == null || result.isEmpty) {
       return <Exercise>[];
     }
     result.forEach((dynamic key, dynamic value) {
@@ -168,25 +139,16 @@ class DatabaseService {
 
   // Creates an user after completing the details form.
   Future<void> createNewExercise(String userUid, String exerciseTitle, String? exerciseDescription,
-      String exerciseCategory, String exerciseBodyType) async {
+      String exerciseCategory, String exerciseBodyType, FirebaseService firebaseService) async {
     final String idExercise = '${userUid}_$exerciseTitle';
 
     // Then we create the new user.
-    await _exercisesRef.child(idExercise).set(<String, dynamic>{
-      'name': exerciseTitle,
-      'description': exerciseDescription,
-      'id': idExercise,
-      'whoCreatedThisExercise': userUid,
-      'category': exerciseCategory,
-      'bodyPart': exerciseBodyType,
-      'icon': 'userCreatedNoIcon',
-      'biggerImage': 'userCreatedNoIcon',
-      'exerciseVideo': 'userCreatedNoVideo',
-      'difficulty': 'Not assigned'
-    });
+    await firebaseService.createNewExercise(
+        userUid, exerciseTitle, exerciseDescription, exerciseCategory, exerciseBodyType, idExercise);
   }
 
-  Future<void> addWorkoutToHistory(CurrentWorkout workoutToAdd, String userUid, BuildContext context) async {
+  Future<void> addWorkoutToHistory(
+      CurrentWorkout workoutToAdd, String userUid, BuildContext context, FirebaseService firebaseService) async {
     final String startTime =
         '${workoutToAdd.startTime?.year}-${workoutToAdd.startTime?.month}-${workoutToAdd.startTime?.day}|${workoutToAdd.startTime?.hour}-${workoutToAdd.startTime?.minute}';
     final Duration duration = DateTime.now().difference(workoutToAdd.startTime!);
@@ -238,24 +200,16 @@ class DatabaseService {
       });
       index += 1;
     }
-    await _historyRef.child(idHistory).set(<String, dynamic>{
-      'name': workoutToAdd.workoutName.text,
-      'notes': workoutToAdd.workoutNotes.text,
-      'startTime': startTime,
-      'duration': finalDuration,
-      'exercisesAndSets': exercisesAndSets,
-    });
+    await firebaseService.addWorkoutToHistory(workoutToAdd.workoutName.text, workoutToAdd.workoutNotes.text, startTime,
+        finalDuration, exercisesAndSets, idHistory);
   }
 
-  Future<List<HistoryWorkout>> getAllHistoryFromDBForUser(String userUid, List<Exercise> exerciseList) async {
+  Future<List<HistoryWorkout>> getAllHistoryFromDBForUser(
+      String userUid, List<Exercise> exerciseList, FirebaseService firebaseService) async {
     final List<HistoryWorkout> workoutHistory = <HistoryWorkout>[];
 
-    final DatabaseEvent event = await _historyRef.once();
-    if (event.snapshot.value == null) {
-      return workoutHistory;
-    }
-    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
-    if (result.isEmpty) {
+    final Map<dynamic, dynamic>? result = await firebaseService.getAllHistory();
+    if (result == null || result.isEmpty) {
       return workoutHistory;
     }
     result.forEach((dynamic key, dynamic value) {
@@ -331,7 +285,7 @@ class DatabaseService {
     return workoutHistory;
   }
 
-  Future<void> addWorkoutTemplateToDB(String userUid, WorkoutTemplate template) async {
+  Future<void> addWorkoutTemplateToDB(String userUid, WorkoutTemplate template, FirebaseService firebaseService) async {
     const Uuid UID = Uuid();
     final String templateID = '${userUid}_${UID.v4()}';
     final String templateNotes = template.notes;
@@ -354,23 +308,15 @@ class DatabaseService {
       };
       exercisesAndSets['${index}_${element.assignedExercise.id}'] = aux;
     });
-
-    await _templateRef.child(templateID).set(<String, dynamic>{
-      'name': templateName,
-      'notes': templateNotes,
-      'exercises': exercisesAndSets,
-    });
+    await firebaseService.addWorkoutTemplate(templateID, templateName, templateNotes, exercisesAndSets);
   }
 
-  Future<List<WorkoutTemplate>> getAllWorkoutTemplatesFromDBForUser(String userUid, List<Exercise> exerciseList) async {
+  Future<List<WorkoutTemplate>> getAllWorkoutTemplatesFromDBForUser(
+      String userUid, List<Exercise> exerciseList, FirebaseService firebaseService) async {
     final List<WorkoutTemplate> workoutTemplates = <WorkoutTemplate>[];
 
-    final DatabaseEvent event = await _templateRef.once();
-    if (event.snapshot.value == null) {
-      return workoutTemplates;
-    }
-    final Map<dynamic, dynamic> result = event.snapshot.value! as Map<dynamic, dynamic>;
-    if (result.isEmpty) {
+    final Map<dynamic, dynamic>? result = await firebaseService.getAllTemplates();
+    if (result == null || result.isEmpty) {
       return workoutTemplates;
     }
     result.forEach((dynamic key, dynamic value) {

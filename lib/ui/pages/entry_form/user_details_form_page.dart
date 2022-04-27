@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../../business_logic/user_details_logic.dart';
 import '../../../utils/firebase/database_service.dart';
+import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/user_database.dart';
 import '../../reusable_widgets/button.dart';
 import '../../reusable_widgets/padding.dart';
@@ -182,14 +183,16 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                             heightController.text,
                             heightVerify(heightController.text))) {
                           databaseService.createUserWithFullDetails(
-                              widget.loggedUserUid,
-                              widget.loggedEmail,
-                              firstNameController.text,
-                              secondNameController.text,
-                              int.parse(ageController.text),
-                              double.parse(weightController.text),
-                              double.parse(heightController.text),
-                              weightMetric);
+                            widget.loggedUserUid,
+                            widget.loggedEmail,
+                            firstNameController.text,
+                            secondNameController.text,
+                            int.parse(ageController.text),
+                            double.parse(weightController.text),
+                            double.parse(heightController.text),
+                            weightMetric,
+                            FirebaseService(),
+                          );
                           if (!mounted) return;
 
                           // We shall wait 2 seconds to give time for data to be written in the database.

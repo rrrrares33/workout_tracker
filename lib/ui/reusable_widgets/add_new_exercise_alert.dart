@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../utils/firebase/database_service.dart';
+import '../../utils/firebase/firebase_service.dart';
 import '../../utils/models/exercise.dart';
 import '../text/all_exercises_text.dart';
 import 'button.dart';
@@ -184,8 +185,13 @@ class _AddANewExerciseWidgetState extends State<AddANewExerciseWidget> {
                                 errorTextVisible = true;
                               });
                             } else {
-                              widget.databaseService.createNewExercise(widget.userUid, widget.newTitleController.text,
-                                  widget.newDescriptionController.text, newChosenValueCategory, newChosenValueBodyPart);
+                              widget.databaseService.createNewExercise(
+                                  widget.userUid,
+                                  widget.newTitleController.text,
+                                  widget.newDescriptionController.text,
+                                  newChosenValueCategory,
+                                  newChosenValueBodyPart,
+                                  FirebaseService());
                               final Exercise aux = Exercise(
                                   widget.newTitleController.text,
                                   widget.newDescriptionController.text,

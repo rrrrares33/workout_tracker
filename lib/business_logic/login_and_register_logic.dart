@@ -6,6 +6,7 @@ import '../ui/pages/login/login_page.dart';
 import '../ui/text/login_text.dart';
 import '../utils/firebase/authentication_service.dart';
 import '../utils/firebase/database_service.dart';
+import '../utils/firebase/firebase_service.dart';
 import '../utils/models/user_auth.dart';
 import '../utils/models/user_database.dart';
 
@@ -16,12 +17,13 @@ Widget returnIfUserConnected(User? user) {
   return CheckFirstTimeAndLoadDB(loggedUserUid: user.getUid, loggedEmail: user.getEmail);
 }
 
-UserDB? getUserOrCreateIfNullUsingUID(DatabaseService db, String loggedUserUid, String loggedEmail) {
+UserDB? getUserOrCreateIfNullUsingUID(
+    FirebaseService firebaseService, DatabaseService db, String loggedUserUid, String loggedEmail) {
   UserDB? loggedUser = db.getUserBaseOnUid(loggedUserUid);
   if (loggedUser != null) {
     return loggedUser;
   }
-  db.createUserBeforeDetails(loggedUserUid, loggedEmail);
+  db.createUserBeforeDetails(firebaseService, loggedUserUid, loggedEmail);
   loggedUser = UserDB(loggedUserUid, loggedEmail, true);
   return loggedUser;
 }

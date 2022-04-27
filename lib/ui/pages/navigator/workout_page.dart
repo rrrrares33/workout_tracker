@@ -9,6 +9,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 import '../../../business_logic/workout_logic.dart';
 import '../../../utils/firebase/database_service.dart';
+import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/current_workout.dart';
 import '../../../utils/models/editing_template.dart';
 import '../../../utils/models/exercise_set.dart';
@@ -151,7 +152,8 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                                 final List<ExerciseSet> aux = removeEmptyExercises(currentWorkout.exercises);
                                 currentWorkout.exercises.clear();
                                 currentWorkout.exercises.addAll(aux);
-                                databaseService.addWorkoutToHistory(currentWorkout, user.uid, context);
+                                databaseService.addWorkoutToHistory(
+                                    currentWorkout, user.uid, context, FirebaseService());
                               }
                               setState(() {
                                 currentWorkout.exercises.clear();
@@ -396,7 +398,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                     final WorkoutTemplate templateToAdd = WorkoutTemplate(editingTemplate.templateName.text,
                         editingTemplate.templateNotes.text, editingTemplate.exercises);
                     templates.add(templateToAdd);
-                    databaseService.addWorkoutTemplateToDB(user.uid, templateToAdd);
+                    databaseService.addWorkoutTemplateToDB(user.uid, templateToAdd, FirebaseService());
                   }
                   setState(() {
                     editingTemplate.currentlyEditing = false;

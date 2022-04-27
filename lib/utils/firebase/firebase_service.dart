@@ -43,16 +43,18 @@ class FirebaseService {
     }
   }
 
-  Future<void> createUserBeforeDetails(String uid, String email) async {
+  Future<Map<String, dynamic>> createUserBeforeDetails(String uid, String email) async {
     await _usersRef.child(uid).set(<String, dynamic>{'uid': uid, 'email': email, 'firstEntry': true.toString()});
+    return <String, dynamic>{'uid': uid, 'email': email, 'firstEntry': true.toString()};
   }
 
-  Future<void> removeUserBasedOnUID(String uid) async {
+  Future<bool> removeUserBasedOnUID(String uid) async {
     await _usersRef.child(uid).remove();
+    return true;
   }
 
-  Future<void> createUserWithFullDetails(String uid, String email, String name, String surname, int age, double weight,
-      double height, WeightMetric weightType) async {
+  Future<Map<String, dynamic>> createUserWithFullDetails(String uid, String email, String name, String surname, int age,
+      double weight, double height, WeightMetric weightType) async {
     await _usersRef.child(uid).set(<String, dynamic>{
       'uid': uid,
       'email': email,
@@ -64,9 +66,20 @@ class FirebaseService {
       'height': height.toString(),
       'weightType': weightType.toString()
     });
+    return <String, dynamic>{
+      'uid': uid,
+      'email': email,
+      'firstEntry': false.toString(),
+      'name': name,
+      'surname': surname,
+      'age': age.toString(),
+      'weight': weight.toString(),
+      'height': height.toString(),
+      'weightType': weightType.toString()
+    };
   }
 
-  Future<void> createNewExercise(String userUid, String exerciseTitle, String? exerciseDescription,
+  Future<Map<String, dynamic>> createNewExercise(String userUid, String exerciseTitle, String? exerciseDescription,
       String exerciseCategory, String exerciseBodyType, String idExercise) async {
     await _exercisesRef.child(idExercise).set(<String, dynamic>{
       'name': exerciseTitle,
@@ -80,9 +93,21 @@ class FirebaseService {
       'exerciseVideo': 'userCreatedNoVideo',
       'difficulty': 'Not assigned'
     });
+    return <String, dynamic>{
+      'name': exerciseTitle,
+      'description': exerciseDescription,
+      'id': idExercise,
+      'whoCreatedThisExercise': userUid,
+      'category': exerciseCategory,
+      'bodyPart': exerciseBodyType,
+      'icon': 'userCreatedNoIcon',
+      'biggerImage': 'userCreatedNoIcon',
+      'exerciseVideo': 'userCreatedNoVideo',
+      'difficulty': 'Not assigned'
+    };
   }
 
-  Future<void> addWorkoutToHistory(String name, String notes, String startTime, String finalDuration,
+  Future<Map<String, dynamic>> addWorkoutToHistory(String name, String notes, String startTime, String finalDuration,
       Map<String, dynamic> exercisesAndSets, String idHistory) async {
     await _historyRef.child(idHistory).set(<String, dynamic>{
       'name': name,
@@ -91,14 +116,26 @@ class FirebaseService {
       'duration': finalDuration,
       'exercisesAndSets': exercisesAndSets,
     });
+    return <String, dynamic>{
+      'name': name,
+      'notes': notes,
+      'startTime': startTime,
+      'duration': finalDuration,
+      'exercisesAndSets': exercisesAndSets,
+    };
   }
 
-  Future<void> addWorkoutTemplate(
+  Future<Map<String, dynamic>> addWorkoutTemplate(
       String templateID, String templateName, String templateNotes, Map<String, dynamic> exercisesAndSets) async {
     await _templateRef.child(templateID).set(<String, dynamic>{
       'name': templateName,
       'notes': templateNotes,
       'exercises': exercisesAndSets,
     });
+    return <String, dynamic>{
+      'name': templateName,
+      'notes': templateNotes,
+      'exercises': exercisesAndSets,
+    };
   }
 }

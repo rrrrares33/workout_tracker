@@ -76,18 +76,20 @@ class DatabaseService {
   }
 
   // Creates an user before completing the details form.
-  Future<void> createUserBeforeDetails(FirebaseService firebaseService, String uid, String email) async {
-    await firebaseService.createUserBeforeDetails(uid, email);
+  Future<Map<String, dynamic>> createUserBeforeDetails(FirebaseService firebaseService, String uid, String email) async {
+    final Map<String, dynamic> res = await firebaseService.createUserBeforeDetails(uid, email);
+    return res;
   }
 
   // Creates an user after completing the details form.
-  Future<void> createUserWithFullDetails(String uid, String email, String name, String surname, int age, double weight,
+  Future<Map<String, dynamic>> createUserWithFullDetails(String uid, String email, String name, String surname, int age, double weight,
       double height, WeightMetric weightType, FirebaseService firebaseService) async {
     // We first delete the already created user (firstEntry == true)
     await firebaseService.removeUserBasedOnUID(uid);
 
     // Then we create the new user.
-    await firebaseService.createUserWithFullDetails(uid, email, name, surname, age, weight, height, weightType);
+    final Map<String, dynamic> res = await firebaseService.createUserWithFullDetails(uid, email, name, surname, age, weight, height, weightType);
+    return res;
   }
 
   // Gets all exercises from the database which may be accessed by the current user.
@@ -138,16 +140,17 @@ class DatabaseService {
   }
 
   // Creates an user after completing the details form.
-  Future<void> createNewExercise(String userUid, String exerciseTitle, String? exerciseDescription,
+  Future<Map<String, dynamic>> createNewExercise(String userUid, String exerciseTitle, String? exerciseDescription,
       String exerciseCategory, String exerciseBodyType, FirebaseService firebaseService) async {
     final String idExercise = '${userUid}_$exerciseTitle';
 
     // Then we create the new user.
-    await firebaseService.createNewExercise(
+    final Map<String, dynamic> res = await firebaseService.createNewExercise(
         userUid, exerciseTitle, exerciseDescription, exerciseCategory, exerciseBodyType, idExercise);
+    return res;
   }
 
-  Future<void> addWorkoutToHistory(
+  Future<Map<String, dynamic>> addWorkoutToHistory(
       CurrentWorkout workoutToAdd, String userUid, BuildContext context, FirebaseService firebaseService) async {
     final String startTime =
         '${workoutToAdd.startTime?.year}-${workoutToAdd.startTime?.month}-${workoutToAdd.startTime?.day}|${workoutToAdd.startTime?.hour}-${workoutToAdd.startTime?.minute}';
@@ -200,8 +203,9 @@ class DatabaseService {
       });
       index += 1;
     }
-    await firebaseService.addWorkoutToHistory(workoutToAdd.workoutName.text, workoutToAdd.workoutNotes.text, startTime,
-        finalDuration, exercisesAndSets, idHistory);
+    final Map<String, dynamic> res = await firebaseService.addWorkoutToHistory(workoutToAdd.workoutName.text,
+        workoutToAdd.workoutNotes.text, startTime, finalDuration, exercisesAndSets, idHistory);
+    return res;
   }
 
   Future<List<HistoryWorkout>> getAllHistoryFromDBForUser(
@@ -285,7 +289,8 @@ class DatabaseService {
     return workoutHistory;
   }
 
-  Future<void> addWorkoutTemplateToDB(String userUid, WorkoutTemplate template, FirebaseService firebaseService) async {
+  Future<Future<Map<String, dynamic>>> addWorkoutTemplateToDB(
+      String userUid, WorkoutTemplate template, FirebaseService firebaseService) async {
     const Uuid UID = Uuid();
     final String templateID = '${userUid}_${UID.v4()}';
     final String templateNotes = template.notes;
@@ -308,7 +313,9 @@ class DatabaseService {
       };
       exercisesAndSets['${index}_${element.assignedExercise.id}'] = aux;
     });
-    await firebaseService.addWorkoutTemplate(templateID, templateName, templateNotes, exercisesAndSets);
+    final Future<Map<String, dynamic>> res =
+        firebaseService.addWorkoutTemplate(templateID, templateName, templateNotes, exercisesAndSets);
+    return res;
   }
 
   Future<List<WorkoutTemplate>> getAllWorkoutTemplatesFromDBForUser(

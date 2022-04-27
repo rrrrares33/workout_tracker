@@ -17,10 +17,27 @@ class FirebaseService {
   final DatabaseReference _historyRef = FirebaseDatabase.instance.ref().child('History');
   final DatabaseReference _templateRef = FirebaseDatabase.instance.ref().child('Templates');
 
-  Future<Map<dynamic, dynamic>?> getAllUsers() async {
+  Future<Map<dynamic, dynamic>?> getData(String dataType) async {
     try {
-      final DatabaseEvent event = await _usersRef.once();
-      return event.snapshot.value as Map<dynamic, dynamic>?;
+      DatabaseEvent? event;
+      switch (dataType) {
+        case 'Users':
+          event = await _usersRef.once();
+          break;
+        case 'Exercises':
+          event = await _exercisesRef.once();
+          break;
+        case 'History':
+          event = await _historyRef.once();
+          break;
+        case 'Templates':
+          event = await _templateRef.once();
+          break;
+      }
+      if (event != null) {
+        return event.snapshot.value as Map<dynamic, dynamic>?;
+      }
+      return null;
     } on Exception catch (_) {
       return null;
     }
@@ -47,15 +64,6 @@ class FirebaseService {
       'height': height.toString(),
       'weightType': weightType.toString()
     });
-  }
-
-  Future<Map<dynamic, dynamic>?> getAllExercises() async {
-    try {
-      final DatabaseEvent event = await _exercisesRef.once();
-      return event.snapshot.value as Map<dynamic, dynamic>?;
-    } on Exception catch (_) {
-      return null;
-    }
   }
 
   Future<void> createNewExercise(String userUid, String exerciseTitle, String? exerciseDescription,
@@ -85,15 +93,6 @@ class FirebaseService {
     });
   }
 
-  Future<Map<dynamic, dynamic>?> getAllHistory() async {
-    try {
-      final DatabaseEvent event = await _historyRef.once();
-      return event.snapshot.value as Map<dynamic, dynamic>?;
-    } on Exception catch (_) {
-      return null;
-    }
-  }
-
   Future<void> addWorkoutTemplate(
       String templateID, String templateName, String templateNotes, Map<String, dynamic> exercisesAndSets) async {
     await _templateRef.child(templateID).set(<String, dynamic>{
@@ -101,14 +100,5 @@ class FirebaseService {
       'notes': templateNotes,
       'exercises': exercisesAndSets,
     });
-  }
-
-  Future<Map<dynamic, dynamic>?> getAllTemplates() async {
-    try {
-      final DatabaseEvent event = await _templateRef.once();
-      return event.snapshot.value as Map<dynamic, dynamic>?;
-    } on Exception catch (_) {
-      return null;
-    }
   }
 }

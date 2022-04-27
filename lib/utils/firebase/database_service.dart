@@ -44,7 +44,7 @@ class DatabaseService {
     //This method should return all users store in the database.
     //If there is no user, it will return an empty list.
     final List<UserDB> users = <UserDB>[];
-    final Map<dynamic, dynamic>? result = await firebaseService.getAllUsers();
+    final Map<dynamic, dynamic>? result = await firebaseService.getData('Users');
     if (result == null || result.isEmpty) {
       return <UserDB>[];
     }
@@ -123,7 +123,7 @@ class DatabaseService {
 
   Future<List<Exercise>> getAllExercisesFromDBForUser(String uid, FirebaseService firebaseService) async {
     final List<Exercise> exercisesFromNet = <Exercise>[];
-    final Map<dynamic, dynamic>? result = await firebaseService.getAllExercises();
+    final Map<dynamic, dynamic>? result = await firebaseService.getData('Exercises');
     if (result == null || result.isEmpty) {
       return <Exercise>[];
     }
@@ -208,7 +208,7 @@ class DatabaseService {
       String userUid, List<Exercise> exerciseList, FirebaseService firebaseService) async {
     final List<HistoryWorkout> workoutHistory = <HistoryWorkout>[];
 
-    final Map<dynamic, dynamic>? result = await firebaseService.getAllHistory();
+    final Map<dynamic, dynamic>? result = await firebaseService.getData('History');
     if (result == null || result.isEmpty) {
       return workoutHistory;
     }
@@ -315,7 +315,7 @@ class DatabaseService {
       String userUid, List<Exercise> exerciseList, FirebaseService firebaseService) async {
     final List<WorkoutTemplate> workoutTemplates = <WorkoutTemplate>[];
 
-    final Map<dynamic, dynamic>? result = await firebaseService.getAllTemplates();
+    final Map<dynamic, dynamic>? result = await firebaseService.getData('Templates');
     if (result == null || result.isEmpty) {
       return workoutTemplates;
     }

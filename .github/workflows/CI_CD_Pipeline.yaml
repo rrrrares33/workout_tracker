@@ -15,7 +15,7 @@ jobs:
           channel: 'stable'
 
       - name: Run analysis
-        run: flutter analyze .
+        run: flutter analyze
 
   run_format:
     # This job will run on ubuntu virtual machine

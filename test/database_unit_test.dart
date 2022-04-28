@@ -12,7 +12,7 @@ import 'package:workout_tracker/utils/models/history_workout.dart';
 import 'package:workout_tracker/utils/models/user_database.dart';
 import 'package:workout_tracker/utils/models/workout_template.dart';
 
-import 'database_unit_tests.mocks.dart';
+import 'mocks/database_unit_tests.mocks.dart';
 
 /// This file should test all functionalities of database_service.dart
 

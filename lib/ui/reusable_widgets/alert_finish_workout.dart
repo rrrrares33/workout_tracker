@@ -26,7 +26,7 @@ class AlertFinishWorkout extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Icon(FontAwesomeIcons.fontAwesomeFlag),
+          const Icon(FontAwesomeIcons.fontAwesome),
           PaddingWidget(
             type: 'symmetric',
             horizontal: width / 20,
@@ -36,7 +36,7 @@ class AlertFinishWorkout extends StatelessWidget {
               weight: FontWeight.bold,
             ),
           ),
-          const Icon(FontAwesomeIcons.fontAwesomeFlag),
+          const Icon(FontAwesomeIcons.fontAwesome),
         ],
       ),
       content: doesHaveUnCheckedSets ? null : const TextWidget(text: notCheckedExercisesPart, color: Colors.redAccent),

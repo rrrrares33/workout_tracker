@@ -81,7 +81,7 @@ class _LogInPageState extends State<LogInPage> {
                   horizontal: 20.0,
                   vertical: 6.0,
                   child: ButtonWidget(
-                    icon: const FaIcon(FontAwesomeIcons.solidUserCircle),
+                    icon: const FaIcon(FontAwesomeIcons.solidCircleUser),
                     text: const TextWidget(text: createANewAccount, fontSize: 17.0),
                     onPressed: () {
                       Navigator.pushNamed(context, RegisterPageRoute);

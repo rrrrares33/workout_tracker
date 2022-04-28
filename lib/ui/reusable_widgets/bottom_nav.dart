@@ -33,7 +33,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             tooltip: toolTipStartWorkout,
-            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.playCircle)),
+            icon: PaddingWidget(type: 'only', onlyBottom: 7.5, child: Icon(FontAwesomeIcons.circlePlay)),
             label: labelStartWorkout,
           ),
           BottomNavigationBarItem(

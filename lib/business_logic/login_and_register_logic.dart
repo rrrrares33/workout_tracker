@@ -48,8 +48,8 @@ Color? pickColorRightWrong(bool aux) {
 }
 
 Widget? pickIconRightWrong(bool aux) {
-  if (aux) return Icon(FontAwesomeIcons.checkCircle, size: 14, color: Colors.greenAccent[400]);
-  return const Icon(FontAwesomeIcons.solidTimesCircle, size: 14, color: Colors.red);
+  if (aux) return Icon(FontAwesomeIcons.circleCheck, size: 14, color: Colors.greenAccent[400]);
+  return const Icon(FontAwesomeIcons.solidCircleXmark, size: 14, color: Colors.red);
 }
 
 bool testLower(String? content) {

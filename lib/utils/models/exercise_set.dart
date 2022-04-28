@@ -161,7 +161,7 @@ class ExerciseSetWeight extends ExerciseSet {
               splashRadius: 15,
               padding: EdgeInsets.zero,
               icon: Icon(
-                FontAwesomeIcons.checkCircle,
+                FontAwesomeIcons.circleCheck,
                 size: screenWidth / 15,
                 color: controllerChecked!.text == checkedText ? Colors.white : null,
               )),
@@ -306,7 +306,7 @@ class ExerciseSetDuration extends ExerciseSet {
               splashRadius: 15,
               padding: EdgeInsets.zero,
               icon: Icon(
-                FontAwesomeIcons.checkCircle,
+                FontAwesomeIcons.circleCheck,
                 size: screenWidth / 15,
                 color: controllerChecked!.text == checkedText ? Colors.white : null,
               )),
@@ -463,7 +463,7 @@ class ExerciseSetMinusWeight extends ExerciseSet {
               splashRadius: 15,
               padding: EdgeInsets.zero,
               icon: Icon(
-                FontAwesomeIcons.checkCircle,
+                FontAwesomeIcons.circleCheck,
                 size: screenWidth / 15,
                 color: controllerChecked!.text == checkedText ? Colors.white : null,
               )),

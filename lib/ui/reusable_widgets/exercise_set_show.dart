@@ -63,7 +63,7 @@ class _ExerciseSetShowState extends State<ExerciseSetShow> {
                   ),
                 ),
               )),
-              IconButton(onPressed: () {}, icon: const Icon(FontAwesomeIcons.ellipsisH))
+              IconButton(onPressed: () {}, icon: const Icon(FontAwesomeIcons.ellipsis))
             ],
           ),
           widget.setExercise.getColumnHeaderRow(widget.screenWidth),
@@ -92,7 +92,7 @@ class _ExerciseSetShowState extends State<ExerciseSetShow> {
                             });
                           },
                           foregroundColor: Colors.redAccent,
-                          icon: FontAwesomeIcons.timesCircle,
+                          icon: FontAwesomeIcons.circleXmark,
                           backgroundColor: Colors.transparent,
                           spacing: 0,
                         ),

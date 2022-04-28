@@ -282,7 +282,7 @@ class _RegisterPageState extends State<RegisterPage> with AuthentificationBase {
                     horizontal: 20.0,
                     vertical: 6.0,
                     child: ButtonWidget(
-                      icon: const FaIcon(FontAwesomeIcons.solidUserCircle),
+                      icon: const FaIcon(FontAwesomeIcons.solidCircleUser),
                       text: const Text(createANewAccount),
                       fontSize: 17.0,
                       onPressed: () async {

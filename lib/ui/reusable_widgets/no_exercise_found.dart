@@ -15,7 +15,7 @@ class NoExerciseFound extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(FontAwesomeIcons.exclamationTriangle, size: iconSize),
+            Icon(FontAwesomeIcons.triangleExclamation, size: iconSize),
             const PaddingWidget(type: 'symmetric', vertical: 15),
             const TextWidget(text: noExerciseFound, weight: FontWeight.bold),
             const PaddingWidget(type: 'symmetric', vertical: 10),

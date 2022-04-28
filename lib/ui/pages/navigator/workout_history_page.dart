@@ -212,7 +212,7 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(FontAwesomeIcons.exclamationTriangle, size: screenSize.width / 3),
+                    Icon(FontAwesomeIcons.triangleExclamation, size: screenSize.width / 3),
                     PaddingWidget(type: 'symmetric', vertical: screenSize.width / 20),
                     const TextWidget(text: 'There is no workout in your history', weight: FontWeight.bold),
                   ],

@@ -119,7 +119,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                             all: 5,
                             child: GestureDetector(
                               child: _searchController.text != ''
-                                  ? const Icon(FontAwesomeIcons.solidTimesCircle, color: Colors.grey)
+                                  ? const Icon(FontAwesomeIcons.solidCircleXmark, color: Colors.grey)
                                   : Container(),
                               onTap: () {
                                 setState(() {
@@ -212,7 +212,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                           });
                         },
                         foregroundColor: Colors.greenAccent[400],
-                        icon: FontAwesomeIcons.plusCircle,
+                        icon: FontAwesomeIcons.circlePlus,
                         label: 'Add',
                       ),
                     ],

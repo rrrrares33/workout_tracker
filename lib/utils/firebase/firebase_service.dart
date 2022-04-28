@@ -79,6 +79,16 @@ class FirebaseService {
     };
   }
 
+  Future<bool?> changeUserWeight(String uid, double newWeight) async {
+    final String pathToSearchForUid = '-Users/-$uid';
+    try {
+      await FirebaseDatabase.instance.ref(pathToSearchForUid).update(<String, String>{'weight': newWeight.toString()});
+      return true;
+    } on Exception catch (_) {
+      return false;
+    }
+  }
+
   Future<Map<String, dynamic>> createNewExercise(String userUid, String exerciseTitle, String? exerciseDescription,
       String exerciseCategory, String exerciseBodyType, String idExercise) async {
     await _exercisesRef.child(idExercise).set(<String, dynamic>{
@@ -88,9 +98,9 @@ class FirebaseService {
       'whoCreatedThisExercise': userUid,
       'category': exerciseCategory,
       'bodyPart': exerciseBodyType,
-      'icon': 'userCreatedNoIcon',
-      'biggerImage': 'userCreatedNoIcon',
-      'exerciseVideo': 'userCreatedNoVideo',
+      'icon': '',
+      'biggerImage': '',
+      'exerciseVideo': '',
       'difficulty': 'Not assigned'
     });
     return <String, dynamic>{
@@ -105,6 +115,15 @@ class FirebaseService {
       'exerciseVideo': 'userCreatedNoVideo',
       'difficulty': 'Not assigned'
     };
+  }
+
+  Future<bool?> removeExerciseBasedOnId(String exerciseID) async {
+    try {
+      await _exercisesRef.child(exerciseID).remove();
+      return true;
+    } on Exception catch (_) {
+      return false;
+    }
   }
 
   Future<Map<String, dynamic>> addWorkoutToHistory(String name, String notes, String startTime, String finalDuration,
@@ -125,6 +144,15 @@ class FirebaseService {
     };
   }
 
+  Future<bool> removeHistory(String historyID) async {
+    try {
+      await _historyRef.child(historyID).remove();
+      return true;
+    } on Exception catch (_) {
+      return false;
+    }
+  }
+
   Future<Map<String, dynamic>> addWorkoutTemplate(
       String templateID, String templateName, String templateNotes, Map<String, dynamic> exercisesAndSets) async {
     await _templateRef.child(templateID).set(<String, dynamic>{
@@ -137,5 +165,14 @@ class FirebaseService {
       'notes': templateNotes,
       'exercises': exercisesAndSets,
     };
+  }
+
+  Future<bool> removeTemplate(String templateId) async {
+    try {
+      await _templateRef.child(templateId).remove();
+      return true;
+    } on Exception catch (_) {
+      return false;
+    }
   }
 }

@@ -84,7 +84,7 @@ class _AddANewExerciseWidgetState extends State<AddANewExerciseWidget> {
                                   });
                                 },
                                 suffixIcon: GestureDetector(
-                                  child: const Icon(FontAwesomeIcons.solidTimesCircle, color: Colors.grey),
+                                  child: const Icon(FontAwesomeIcons.solidCircleXmark, color: Colors.grey),
                                   onTap: () {
                                     setState(() {
                                       widget.newTitleController.clear();
@@ -107,7 +107,7 @@ class _AddANewExerciseWidgetState extends State<AddANewExerciseWidget> {
                               maxLines: 5,
                               onChanged: (_) {},
                               suffixIcon: GestureDetector(
-                                child: const Icon(FontAwesomeIcons.solidTimesCircle, color: Colors.grey),
+                                child: const Icon(FontAwesomeIcons.solidCircleXmark, color: Colors.grey),
                                 onTap: () {
                                   setState(() {
                                     widget.newDescriptionController.clear();
@@ -192,18 +192,7 @@ class _AddANewExerciseWidgetState extends State<AddANewExerciseWidget> {
                                   newChosenValueCategory,
                                   newChosenValueBodyPart,
                                   FirebaseService());
-                              final Exercise aux = Exercise(
-                                  widget.newTitleController.text,
-                                  widget.newDescriptionController.text,
-                                  '${widget.userUid}_${widget.newTitleController.text}',
-                                  widget.userUid,
-                                  newChosenValueCategory,
-                                  newChosenValueBodyPart,
-                                  '',
-                                  '');
-                              setState(() {
-                                widget.localExerciseList.add(aux);
-                              });
+                              setState(() {});
                               Navigator.pop(context);
                             }
                           },

@@ -55,19 +55,24 @@ class ExerciseSmallShow extends StatelessWidget {
               PaddingWidget(
                   type: 'all',
                   all: 5,
-                  child: Image(
-                    image: AssetImage(image),
-                    width: imageWidth,
-                    height: imageHeight,
-                    loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
-                      if (loadingProgress == null) {
-                        return child;
-                      }
-                      return const Center(
-                        child: LoadingWidget(),
-                      );
-                    },
-                  )),
+                  child: image != ''
+                      ? Image(
+                          image: AssetImage(image),
+                          width: imageWidth,
+                          height: imageHeight,
+                          loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            }
+                            return const Center(
+                              child: LoadingWidget(),
+                            );
+                          },
+                        )
+                      : SizedBox(
+                          width: imageWidth,
+                          height: imageHeight,
+                        )),
               const PaddingWidget(
                 type: 'symmetric',
                 horizontal: 5,

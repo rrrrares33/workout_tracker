@@ -2,7 +2,8 @@
 import 'exercise_set.dart';
 
 class HistoryWorkout {
-  HistoryWorkout(this.startTime, this.workoutName, this.workoutNotes, List<ExerciseSet> exercises, this.duration) {
+  HistoryWorkout(
+      this.id, this.startTime, this.workoutName, this.workoutNotes, List<ExerciseSet> exercises, this.duration) {
     if (startTime!.contains('|')) {
       // Because startTime has format for storing into DB, we need to remake it for easier display
       final List<String> splitDate = startTime.toString().split('|')[0].split('-');
@@ -15,6 +16,7 @@ class HistoryWorkout {
     });
   }
 
+  final String id;
   // Start dd.mm.yyyy and hour:minutes:seconds of a workout
   String? startTime;
   // How much time did the workout took

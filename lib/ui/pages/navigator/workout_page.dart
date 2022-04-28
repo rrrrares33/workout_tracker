@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 import 'package:provider/provider.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../../business_logic/workout_logic.dart';
 import '../../../utils/firebase/database_service.dart';
@@ -395,10 +396,12 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                         ]);
                       }
                     }
+                    const Uuid UID = Uuid();
+                    final String templateID = '${user.uid}_${UID.v4()}';
                     final WorkoutTemplate templateToAdd = WorkoutTemplate(editingTemplate.templateName.text,
-                        editingTemplate.templateNotes.text, editingTemplate.exercises);
+                        editingTemplate.templateNotes.text, editingTemplate.exercises, templateID);
                     templates.add(templateToAdd);
-                    databaseService.addWorkoutTemplateToDB(user.uid, templateToAdd, FirebaseService());
+                    databaseService.addWorkoutTemplateToDB(templateToAdd, FirebaseService());
                   }
                   setState(() {
                     editingTemplate.currentlyEditing = false;
@@ -530,7 +533,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                             });
                           },
                           foregroundColor: Colors.redAccent,
-                          icon: FontAwesomeIcons.timesCircle,
+                          icon: FontAwesomeIcons.circleXmark,
                           backgroundColor: Colors.transparent,
                           spacing: 0,
                         ),

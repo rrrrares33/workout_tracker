@@ -5,8 +5,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
-import 'package:uuid/uuid.dart';
 
 import '../models/current_workout.dart';
 import '../models/exercise.dart';
@@ -19,13 +17,15 @@ import 'firebase_service.dart';
 class DatabaseService {
   DatabaseService();
 
-  List<UserDB> _allUsers = <UserDB>[];
+  static List<UserDB> _allUsers = <UserDB>[];
+
+  final List<Exercise> _allExercises = <Exercise>[];
+  final List<HistoryWorkout> _workoutHistory = <HistoryWorkout>[];
+  final List<WorkoutTemplate> _workoutTemplates = <WorkoutTemplate>[];
 
   List<UserDB> getUsers() {
     return _allUsers;
   }
-
-  final List<Exercise> _allExercises = <Exercise>[];
 
   // Here I try to initialize everything from the database into the app,
   //  so it will be easier for the program to process everything without
@@ -76,33 +76,56 @@ class DatabaseService {
   }
 
   // Creates an user before completing the details form.
-  Future<Map<String, dynamic>> createUserBeforeDetails(FirebaseService firebaseService, String uid, String email) async {
+  Future<Map<String, dynamic>> createUserBeforeDetails(
+      FirebaseService firebaseService, String uid, String email) async {
+    _allUsers.add(UserDB(uid, email, true));
     final Map<String, dynamic> res = await firebaseService.createUserBeforeDetails(uid, email);
     return res;
   }
 
   // Creates an user after completing the details form.
-  Future<Map<String, dynamic>> createUserWithFullDetails(String uid, String email, String name, String surname, int age, double weight,
-      double height, WeightMetric weightType, FirebaseService firebaseService) async {
+  Future<Map<String, dynamic>> createUserWithFullDetails(String uid, String email, String name, String surname, int age,
+      double weight, double height, WeightMetric weightType, FirebaseService firebaseService) async {
     // We first delete the already created user (firstEntry == true)
     await firebaseService.removeUserBasedOnUID(uid);
 
+    final int posToRemove = _allUsers.lastIndexWhere((UserDB element) => element.uid == uid);
+    _allUsers.removeAt(posToRemove);
+    _allUsers.add(UserDB(uid, email, false, name, surname, age, weight, height, weightType));
+
     // Then we create the new user.
-    final Map<String, dynamic> res = await firebaseService.createUserWithFullDetails(uid, email, name, surname, age, weight, height, weightType);
+    final Map<String, dynamic> res =
+        await firebaseService.createUserWithFullDetails(uid, email, name, surname, age, weight, height, weightType);
     return res;
+  }
+
+  Future<bool> updateUserWeight(FirebaseService firebaseService, String uid, double newWeight) async {
+    final int pointer = _allUsers.indexWhere((UserDB element) => element.uid == uid);
+    if (pointer == -1) {
+      return false;
+    }
+    _allUsers[pointer].weight = newWeight;
+    final bool? result = await firebaseService.changeUserWeight(uid, newWeight);
+    return result!;
+  }
+
+  Future<bool> deleteAnUser(FirebaseService firebaseService, String uid) async {
+    _allUsers.removeWhere((UserDB user) => user.uid == uid);
+    return firebaseService.removeUserBasedOnUID(uid);
   }
 
   // Gets all exercises from the database which may be accessed by the current user.
   Future<List<Exercise>> getAllExercisesForUser(
-      String uid, BuildContext context, FirebaseService firebaseService) async {
+      String uid, BuildContext? context, FirebaseService firebaseService) async {
     if (_allExercises.isEmpty) {
       try {
         final List<InternetAddress> result = await InternetAddress.lookup('example.com');
         if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-          return getAllExercisesFromDBForUser(uid, firebaseService);
+          final List<Exercise> finalList = await getAllExercisesFromDBForUser(uid, firebaseService);
+          _allExercises.addAll(finalList);
         }
       } on SocketException catch (_) {
-        return getAllExercisesFromJSONForUser(context);
+        return getAllExercisesFromJSONForUser(context!);
       }
     }
     return _allExercises;
@@ -147,11 +170,102 @@ class DatabaseService {
     // Then we create the new user.
     final Map<String, dynamic> res = await firebaseService.createNewExercise(
         userUid, exerciseTitle, exerciseDescription, exerciseCategory, exerciseBodyType, idExercise);
+    _allExercises.add(
+        Exercise(exerciseTitle, exerciseDescription!, idExercise, userUid, exerciseCategory, exerciseBodyType, '', ''));
     return res;
   }
 
+  Future<bool> deleteAnExercise(FirebaseService firebaseService, String exerciseID) async {
+    _allExercises.removeWhere((Exercise element) => element.id == exerciseID);
+    final bool? result = await firebaseService.removeExerciseBasedOnId(exerciseID);
+    return result!;
+  }
+
+  Future<List<HistoryWorkout>> getAllHistoryFromDBForUser(
+      String userUid, List<Exercise> exerciseList, FirebaseService firebaseService) async {
+    if (_workoutHistory.isEmpty) {
+      final List<HistoryWorkout> workoutHistory = <HistoryWorkout>[];
+      final Map<dynamic, dynamic>? result = await firebaseService.getData('History');
+      if (result == null || result.isEmpty) {
+        return workoutHistory;
+      }
+      result.forEach((dynamic key, dynamic value) {
+        value = value as Map<dynamic, dynamic>;
+        key = key as String;
+        if (key.contains(userUid)) {
+          final String duration = value['duration'].toString();
+          final String name = value['name'].toString();
+          final String notes = value['notes'].toString();
+          final List<String> splitDate = value['startTime'].toString().split('|')[0].split('-');
+          final List<String> splitHour = value['startTime'].toString().split('|')[1].split('-');
+          final String time = '${splitHour[0]}:${splitHour[1]}  ${splitDate[2]}.${splitDate[1]}.${splitDate[0]}';
+          dynamic exercisesAndSets = value['exercisesAndSets'];
+          exercisesAndSets = exercisesAndSets as Map<dynamic, dynamic>;
+          final List<ExerciseSet> exercises = <ExerciseSet>[];
+          exercisesAndSets.forEach((dynamic key, dynamic value) {
+            value = value as Map<dynamic, dynamic>;
+            final String exerciseId = value['assignedExercise'].toString();
+            final String type = value['type'].toString();
+            final List<List<TextEditingController>> sets = <List<TextEditingController>>[];
+            dynamic setsReceived = value['sets'];
+            setsReceived = setsReceived as List<dynamic>;
+            setsReceived.forEach((dynamic value) {
+              if (value.toString() != 'null') {
+                final TextEditingController firstController = TextEditingController();
+                final TextEditingController secondController = TextEditingController();
+                // Not Duration
+                if (value.toString().contains('_')) {
+                  firstController.text = value.toString().split('_')[0];
+                  secondController.text = value.toString().split('_')[1];
+                } else {
+                  firstController.text = value.toString();
+                  secondController.text = '0';
+                }
+                sets.add(<TextEditingController>[firstController, secondController]);
+              }
+            });
+            late final ExerciseSet aux;
+            if (type == 'ExerciseSetWeight') {
+              exerciseList.forEach((Exercise element) {
+                if (element.id == exerciseId) {
+                  aux = ExerciseSetWeight(element);
+                }
+              });
+            } else if (type == 'ExerciseSetDuration') {
+              exerciseList.forEach((Exercise element) {
+                if (element.id == exerciseId) {
+                  aux = ExerciseSetDuration(element);
+                }
+              });
+            } else {
+              exerciseList.forEach((Exercise element) {
+                if (element.id == exerciseId) {
+                  aux = ExerciseSetMinusWeight(element);
+                }
+              });
+            }
+            aux.type = type;
+            sets.forEach((List<TextEditingController> element) {
+              aux.sets.add(element);
+            });
+            exercises.add(aux);
+          });
+          final HistoryWorkout oneWorkout = HistoryWorkout(key, time, name, notes, exercises, duration);
+          workoutHistory.add(oneWorkout);
+        }
+      });
+      workoutHistory.sort((HistoryWorkout a, HistoryWorkout b) {
+        final DateTime dateTimeA = DateFormat('HH:mm dd.MM.yyyy').parseLoose(a.startTime!);
+        final DateTime dateTimeB = DateFormat('HH:mm dd.MM.yyyy').parseLoose(b.startTime!);
+        return -dateTimeA.compareTo(dateTimeB);
+      });
+      _workoutHistory.addAll(workoutHistory);
+    }
+    return _workoutHistory;
+  }
+
   Future<Map<String, dynamic>> addWorkoutToHistory(
-      CurrentWorkout workoutToAdd, String userUid, BuildContext context, FirebaseService firebaseService) async {
+      CurrentWorkout workoutToAdd, String userUid, BuildContext? context, FirebaseService firebaseService) async {
     final String startTime =
         '${workoutToAdd.startTime?.year}-${workoutToAdd.startTime?.month}-${workoutToAdd.startTime?.day}|${workoutToAdd.startTime?.hour}-${workoutToAdd.startTime?.minute}';
     final Duration duration = DateTime.now().difference(workoutToAdd.startTime!);
@@ -170,15 +284,14 @@ class DatabaseService {
       finalDuration = '00:0${duration.inMinutes}';
     }
 
-    final List<HistoryWorkout> historyWorkouts = Provider.of<List<HistoryWorkout>>(context, listen: false);
-    final HistoryWorkout workoutToAddToProvider = HistoryWorkout(startTime, workoutToAdd.workoutName.text,
+    final String idHistory = '${userUid}_$startTime';
+    final HistoryWorkout workoutToAddToProvider = HistoryWorkout(idHistory, startTime, workoutToAdd.workoutName.text,
         workoutToAdd.workoutNotes.text, workoutToAdd.exercises, finalDuration);
     for (int i = 0; i < workoutToAdd.exercises.length; i += 1) {
       workoutToAdd.exercises[i].type = workoutToAdd.exercises[i].runtimeType.toString();
     }
-    historyWorkouts.insert(0, workoutToAddToProvider);
+    _workoutHistory.insert(0, workoutToAddToProvider);
 
-    final String idHistory = '${userUid}_$startTime';
     final Map<String, dynamic> exercisesAndSets = <String, dynamic>{};
     int index = 1;
     for (final ExerciseSet exercise in workoutToAdd.exercises) {
@@ -208,91 +321,19 @@ class DatabaseService {
     return res;
   }
 
-  Future<List<HistoryWorkout>> getAllHistoryFromDBForUser(
-      String userUid, List<Exercise> exerciseList, FirebaseService firebaseService) async {
-    final List<HistoryWorkout> workoutHistory = <HistoryWorkout>[];
+  Future<bool> removeWorkoutFromHistory(String historyWorkoutId, FirebaseService firebaseService) async {
+    _workoutHistory.removeWhere((HistoryWorkout element) => element.id == historyWorkoutId);
+    await firebaseService.removeHistory(historyWorkoutId);
+    return true;
+  }
 
-    final Map<dynamic, dynamic>? result = await firebaseService.getData('History');
-    if (result == null || result.isEmpty) {
-      return workoutHistory;
-    }
-    result.forEach((dynamic key, dynamic value) {
-      value = value as Map<dynamic, dynamic>;
-      key = key as String;
-      if (key.contains(userUid)) {
-        final String duration = value['duration'].toString();
-        final String name = value['name'].toString();
-        final String notes = value['notes'].toString();
-        final List<String> splitDate = value['startTime'].toString().split('|')[0].split('-');
-        final List<String> splitHour = value['startTime'].toString().split('|')[1].split('-');
-        final String time = '${splitHour[0]}:${splitHour[1]}  ${splitDate[2]}.${splitDate[1]}.${splitDate[0]}';
-        dynamic exercisesAndSets = value['exercisesAndSets'];
-        exercisesAndSets = exercisesAndSets as Map<dynamic, dynamic>;
-        final List<ExerciseSet> exercises = <ExerciseSet>[];
-        exercisesAndSets.forEach((dynamic key, dynamic value) {
-          value = value as Map<dynamic, dynamic>;
-          final String exerciseId = value['assignedExercise'].toString();
-          final String type = value['type'].toString();
-          final List<List<TextEditingController>> sets = <List<TextEditingController>>[];
-          dynamic setsReceived = value['sets'];
-          setsReceived = setsReceived as List<dynamic>;
-          setsReceived.forEach((dynamic value) {
-            if (value.toString() != 'null') {
-              final TextEditingController firstController = TextEditingController();
-              final TextEditingController secondController = TextEditingController();
-              // Not Duration
-              if (value.toString().contains('_')) {
-                firstController.text = value.toString().split('_')[0];
-                secondController.text = value.toString().split('_')[1];
-              } else {
-                firstController.text = value.toString();
-                secondController.text = '0';
-              }
-              sets.add(<TextEditingController>[firstController, secondController]);
-            }
-          });
-          late final ExerciseSet aux;
-          if (type == 'ExerciseSetWeight') {
-            exerciseList.forEach((Exercise element) {
-              if (element.id == exerciseId) {
-                aux = ExerciseSetWeight(element);
-              }
-            });
-          } else if (type == 'ExerciseSetDuration') {
-            exerciseList.forEach((Exercise element) {
-              if (element.id == exerciseId) {
-                aux = ExerciseSetDuration(element);
-              }
-            });
-          } else {
-            exerciseList.forEach((Exercise element) {
-              if (element.id == exerciseId) {
-                aux = ExerciseSetMinusWeight(element);
-              }
-            });
-          }
-          aux.type = type;
-          sets.forEach((List<TextEditingController> element) {
-            aux.sets.add(element);
-          });
-          exercises.add(aux);
-        });
-        final HistoryWorkout oneWorkout = HistoryWorkout(time, name, notes, exercises, duration);
-        workoutHistory.add(oneWorkout);
-      }
-    });
-    workoutHistory.sort((HistoryWorkout a, HistoryWorkout b) {
-      final DateTime dateTimeA = DateFormat('HH:mm dd.MM.yyyy').parseLoose(a.startTime!);
-      final DateTime dateTimeB = DateFormat('HH:mm dd.MM.yyyy').parseLoose(b.startTime!);
-      return -dateTimeA.compareTo(dateTimeB);
-    });
-    return workoutHistory;
+  List<HistoryWorkout> getCurrentHistory() {
+    return _workoutHistory;
   }
 
   Future<Future<Map<String, dynamic>>> addWorkoutTemplateToDB(
-      String userUid, WorkoutTemplate template, FirebaseService firebaseService) async {
-    const Uuid UID = Uuid();
-    final String templateID = '${userUid}_${UID.v4()}';
+      WorkoutTemplate template, FirebaseService firebaseService) async {
+    _workoutTemplates.add(template);
     final String templateNotes = template.notes;
     final String templateName = template.name;
 
@@ -314,7 +355,7 @@ class DatabaseService {
       exercisesAndSets['${index}_${element.assignedExercise.id}'] = aux;
     });
     final Future<Map<String, dynamic>> res =
-        firebaseService.addWorkoutTemplate(templateID, templateName, templateNotes, exercisesAndSets);
+        firebaseService.addWorkoutTemplate(template.id, templateName, templateNotes, exercisesAndSets);
     return res;
   }
 
@@ -362,11 +403,22 @@ class DatabaseService {
           templateExercises.add(currentSet);
         });
 
-        final WorkoutTemplate currentWorkoutTemplate = WorkoutTemplate(templateName, templateNotes, templateExercises);
+        final WorkoutTemplate currentWorkoutTemplate =
+            WorkoutTemplate(templateName, templateNotes, templateExercises, key);
         workoutTemplates.add(currentWorkoutTemplate);
       }
     });
-
+    _workoutTemplates.addAll(workoutTemplates);
     return workoutTemplates;
+  }
+
+  Future<bool> removeTemplate(String templateId, FirebaseService firebaseService) async {
+    _workoutTemplates.removeWhere((WorkoutTemplate element) => element.id == templateId);
+    await firebaseService.removeTemplate(templateId);
+    return true;
+  }
+
+  List<WorkoutTemplate> getWorkoutTemplates() {
+    return _workoutTemplates;
   }
 }

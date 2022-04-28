@@ -33,7 +33,7 @@ class UserDB {
   late final String? name;
   late final String? surname;
   late final int? age;
-  late final double? weight;
+  late double? weight;
   late final double? height;
   late final WeightMetric? weightType;
 }

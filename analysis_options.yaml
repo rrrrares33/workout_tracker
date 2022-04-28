@@ -20,7 +20,8 @@ analyzer:
     - "bin/cache/**"
     # Ignore protoc generated files
     - "dev/conductor/lib/proto/*"
-    - "test/**"
+    - "test/database_unit_test.dart"
+    - "test/mocks/database_unit_test.mocks.dart"
 
 linter:
   rules:

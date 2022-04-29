@@ -19,112 +19,29 @@ void main() {
     setUp(() {
       exerciseList.clear();
       exerciseList.addAll(<Exercise>[
+        Exercise('Barbell Bench Press', '', 'system_barbellBenchPress', 'system', 'Barbell', 'Chest', '', ''),
+        Exercise('Lateral Raises Bent Over Cable', '', 'system_lateralRaisesBentOverCable', 'system', 'Cable',
+            'Shoulders', '', ''),
+        Exercise('Upright Row Smith', '', 'system_uprightRowSmith', 'system', 'Smith', 'Shoulders', '', ''),
+        Exercise('Landmine One Legged Deadlift', '', 'system_landmineOneLeggedRomanianDeadlift', 'system', 'Barbell',
+            'Legs', '', ''),
+        Exercise('Lounge Dumbbell', '', 'system_lungeDumbbell', 'system', 'Dumbbell', 'Legs', '', ''),
+        Exercise('Overhead Rope Extension', '', 'system_overheadRopeExtension', 'system', 'Cable', 'Triceps', '', ''),
+        Exercise('Overhead Barbell Extensions', '', 'system_tricepsOverheadBarbellExtensions', 'system', 'Barbell',
+            'Triceps', '', ''),
+        Exercise('Wrist Curl Palms Up Barbell', '', 'system_wristCurlPalmsUpBarbell', 'system', 'Barbell', 'Forearms',
+            '', ''),
         Exercise(
-            'Barbell Bench Press',
-            '',
-            'system_barbellBenchPress',
-            'system',
-            'Barbell',
-            'Chest',
-            '',
-            ''),
-        Exercise(
-            'Lateral Raises Bent Over Cable',
-            '',
-            'system_lateralRaisesBentOverCable',
-            'system',
-            'Cable',
-            'Shoulders',
-            '',
-            ''),
-        Exercise(
-            'Upright Row Smith',
-            '',
-            'system_uprightRowSmith',
-            'system',
-            'Smith',
-            'Shoulders',
-            '',
-            ''),
-        Exercise(
-            'Landmine One Legged Deadlift',
-            '',
-            'system_landmineOneLeggedRomanianDeadlift',
-            'system',
-            'Barbell',
-            'Legs',
-            '',
-            ''),
-        Exercise(
-            'Lounge Dumbbell',
-            '',
-            'system_lungeDumbbell',
-            'system',
-            'Dumbbell',
-            'Legs',
-            '',
-            ''),
-        Exercise(
-            'Overhead Rope Extension',
-            '',
-            'system_overheadRopeExtension',
-            'system',
-            'Cable',
-            'Triceps',
-            '',
-            ''),
-        Exercise(
-            'Overhead Barbell Extensions',
-            '',
-            'system_tricepsOverheadBarbellExtensions',
-            'system',
-            'Barbell',
-            'Triceps',
-            '',
-            ''),
-        Exercise(
-            'Wrist Curl Palms Up Barbell',
-            '',
-            'system_wristCurlPalmsUpBarbell',
-            'system',
-            'Barbell',
-            'Forearms',
-            '',
-            ''),
-        Exercise(
-            'Biceps Curl Dumbbell',
-            '',
-            'system_standingBicepsCurlDumbbell',
-            'system',
-            'Dumbbell',
-            'Biceps',
-            '',
-            ''),
-        Exercise(
-            'Side Plank Pushes',
-            '',
-            'system_sidePlankPushes',
-            'system',
-            'Bodywheight',
-            'Core',
-            '',
-            ''),
-        Exercise(
-            'Incline Bench Press Smith',
-            '',
-            'system_inclineBenchPressSmith',
-            'system',
-            'Smith',
-            'Chest',
-            '',
-            ''),
+            'Biceps Curl Dumbbell', '', 'system_standingBicepsCurlDumbbell', 'system', 'Dumbbell', 'Biceps', '', ''),
+        Exercise('Side Plank Pushes', '', 'system_sidePlankPushes', 'system', 'Bodywheight', 'Core', '', ''),
+        Exercise('Incline Bench Press Smith', '', 'system_inclineBenchPressSmith', 'system', 'Smith', 'Chest', '', ''),
       ]);
     });
 
     test(
         'GIVEN an user is on the all exercises page of the app '
-            'WHEN he wants to filter the 300+ exercises by category '
-            'THEN he should see only the exercises that are part of the category that he picked ', () {
+        'WHEN he wants to filter the 300+ exercises by category '
+        'THEN he should see only the exercises that are part of the category that he picked ', () {
       // ARRANGE
       const String bodywheightCategory = 'Bodywheight';
       const String smithCategory = 'Smith';
@@ -146,8 +63,8 @@ void main() {
 
     test(
         'GIVEN an user is on the all exercises page of the app '
-            'WHEN he wants to filter the 300+ exercises by body part '
-            'THEN he should see only the exercises that work the body part that he picked ', () {
+        'WHEN he wants to filter the 300+ exercises by body part '
+        'THEN he should see only the exercises that work the body part that he picked ', () {
       // ARRANGE
       const String chestCategory = 'Chest';
       const String tricepsCategory = 'Triceps';
@@ -169,8 +86,8 @@ void main() {
 
     test(
         'GIVEN an user is on the all exercises page of the app '
-            'WHEN he wants to search for a certain/multiple exercises by their name '
-            'THEN he should be able to search by writing a part of the name in the search box', () {
+        'WHEN he wants to search for a certain/multiple exercises by their name '
+        'THEN he should be able to search by writing a part of the name in the search box', () {
       // ARRANGE
       const String searchString1 = 'overhead';
       const String searchString2 = 'bench press';
@@ -195,8 +112,8 @@ void main() {
 
     test(
         'GIVEN an user is on the all exercises page of the app '
-            'WHEN he wants to use multiple filters from the page '
-            'THEN he should only see results correctly filtered by all filters', () {
+        'WHEN he wants to use multiple filters from the page '
+        'THEN he should only see results correctly filtered by all filters', () {
       // ARRANGE
       const String categoryFilter1 = 'Barbell';
       const String bodyPartFilter1 = 'Chest';
@@ -208,9 +125,9 @@ void main() {
 
       // ACT
       final List<Exercise> resultsFiltered1 =
-      filterResults(exerciseList, categoryFilter1, bodyPartFilter1, searchBoxFilter1);
+          filterResults(exerciseList, categoryFilter1, bodyPartFilter1, searchBoxFilter1);
       final List<Exercise> resultsFiltered2 =
-      filterResults(exerciseList, categoryFilter2, bodyPartFilter2, searchBoxFilter2);
+          filterResults(exerciseList, categoryFilter2, bodyPartFilter2, searchBoxFilter2);
 
       // ASSERT
       expect(resultsFiltered1.length, 1);
@@ -316,38 +233,10 @@ void main() {
       expect(isSecurePassword4, true);
     });
     test('tests function verifyRegistrationFilled', () {
-      expect(verifyRegistrationFilled(
-          true,
-          true,
-          true,
-          true,
-          true,
-          'correct@email.com',
-          'notEmpty'), true);
-      expect(verifyRegistrationFilled(
-          true,
-          true,
-          false,
-          true,
-          true,
-          'correct@email.com',
-          'notEmpty'), false);
-      expect(verifyRegistrationFilled(
-          true,
-          true,
-          true,
-          true,
-          true,
-          'correct@com',
-          'notEmpty'), false);
-      expect(verifyRegistrationFilled(
-          true,
-          true,
-          true,
-          true,
-          true,
-          'correct@email.com',
-          ''), false);
+      expect(verifyRegistrationFilled(true, true, true, true, true, 'correct@email.com', 'notEmpty'), true);
+      expect(verifyRegistrationFilled(true, true, false, true, true, 'correct@email.com', 'notEmpty'), false);
+      expect(verifyRegistrationFilled(true, true, true, true, true, 'correct@com', 'notEmpty'), false);
+      expect(verifyRegistrationFilled(true, true, true, true, true, 'correct@email.com', ''), false);
     });
   });
   group('Workout History Page Logic Tests', () {
@@ -388,15 +277,7 @@ void main() {
     });
     test('tests String getTotalWeightOfAnWorkout', () {
       // ARRANGE
-      final Exercise exercise1 = Exercise(
-          'Bench Press',
-          '',
-          '',
-          'system',
-          'Barbell',
-          'Chest',
-          '',
-          '');
+      final Exercise exercise1 = Exercise('Bench Press', '', '', 'system', 'Barbell', 'Chest', '', '');
       final ExerciseSet set1 = ExerciseSetWeight(exercise1);
       set1.type = 'ExerciseSetWeight';
       set1.sets.add(<TextEditingController>[
@@ -414,15 +295,7 @@ void main() {
         TextEditingController(text: '30'),
         TextEditingController(text: 'checked')
       ]);
-      final Exercise exercise2 = Exercise(
-          'Assited Dips',
-          '',
-          '',
-          'system',
-          'Assisted Bodyweight',
-          'Triceps',
-          '',
-          '');
+      final Exercise exercise2 = Exercise('Assited Dips', '', '', 'system', 'Assisted Bodyweight', 'Triceps', '', '');
       final ExerciseSet set2 = ExerciseSetMinusWeight(exercise2);
       set2.type = 'ExerciseSetMinusWeight';
       set2.sets.add(<TextEditingController>[
@@ -440,15 +313,7 @@ void main() {
         TextEditingController(text: '30'),
         TextEditingController(text: 'checked')
       ]);
-      final Exercise exercise3 = Exercise(
-          'Hollow hold',
-          '',
-          '',
-          'system',
-          'Time',
-          'Core',
-          '',
-          '');
+      final Exercise exercise3 = Exercise('Hollow hold', '', '', 'system', 'Time', 'Core', '', '');
       final ExerciseSet set3 = ExerciseSetDuration(exercise3);
       set3.type = 'ExerciseSetDuration';
       set3.sets.add(<TextEditingController>[
@@ -476,15 +341,7 @@ void main() {
     });
     test('tests String getBestSet from an ExerciseSet', () {
       // ARRANGE
-      final Exercise exercise1 = Exercise(
-          'Bench Press',
-          '',
-          '',
-          'system',
-          'Barbell',
-          'Chest',
-          '',
-          '');
+      final Exercise exercise1 = Exercise('Bench Press', '', '', 'system', 'Barbell', 'Chest', '', '');
       final ExerciseSet set1 = ExerciseSetWeight(exercise1);
       set1.type = 'ExerciseSetWeight';
       set1.sets.add(<TextEditingController>[
@@ -502,15 +359,7 @@ void main() {
         TextEditingController(text: '30'),
         TextEditingController(text: 'checked')
       ]);
-      final Exercise exercise2 = Exercise(
-          'Assited Dips',
-          '',
-          '',
-          'system',
-          'Assisted Bodyweight',
-          'Triceps',
-          '',
-          '');
+      final Exercise exercise2 = Exercise('Assited Dips', '', '', 'system', 'Assisted Bodyweight', 'Triceps', '', '');
       final ExerciseSet set2 = ExerciseSetMinusWeight(exercise2);
       set2.type = 'ExerciseSetMinusWeight';
       set2.sets.add(<TextEditingController>[
@@ -528,15 +377,7 @@ void main() {
         TextEditingController(text: '30'),
         TextEditingController(text: 'checked')
       ]);
-      final Exercise exercise3 = Exercise(
-          'Hollow hold',
-          '',
-          '',
-          'system',
-          'Time',
-          'Core',
-          '',
-          '');
+      final Exercise exercise3 = Exercise('Hollow hold', '', '', 'system', 'Time', 'Core', '', '');
       final ExerciseSet set3 = ExerciseSetDuration(exercise3);
       set3.type = 'ExerciseSetDuration';
       set3.sets.add(<TextEditingController>[
@@ -616,30 +457,30 @@ void main() {
       // ASSERT
       expect(result1, 0);
       expect(result2, 20);
-      expect(result3, 4*60 + 35);
-      expect(result4, 2*60*60 + 35*60 + 20);
+      expect(result3, 4 * 60 + 35);
+      expect(result4, 2 * 60 * 60 + 35 * 60 + 20);
     });
     test('tests String getPrintableTimer(String secondsStr)', () {
-        // ARRANGE
-        const String seconds1 = 'dfgs2';
-        const String seconds2 = '150';
-        const String seconds3 = '9000'; // 2h 30 min
-        const String seconds4 = '1800'; // 30 min
-        const String seconds5 = '3599'; // 59 min 59 sec
+      // ARRANGE
+      const String seconds1 = 'dfgs2';
+      const String seconds2 = '150';
+      const String seconds3 = '9000'; // 2h 30 min
+      const String seconds4 = '1800'; // 30 min
+      const String seconds5 = '3599'; // 59 min 59 sec
 
-        // ACT
-        final String answer1 = getPrintableTimer(seconds1);
-        final String answer2 = getPrintableTimer(seconds2);
-        final String answer3 = getPrintableTimer(seconds3);
-        final String answer4 = getPrintableTimer(seconds4);
-        final String answer5 = getPrintableTimer(seconds5);
+      // ACT
+      final String answer1 = getPrintableTimer(seconds1);
+      final String answer2 = getPrintableTimer(seconds2);
+      final String answer3 = getPrintableTimer(seconds3);
+      final String answer4 = getPrintableTimer(seconds4);
+      final String answer5 = getPrintableTimer(seconds5);
 
-        // ASSERT
-        expect(answer1, '');
-        expect(answer2, '02:30');
-        expect(answer3, '02:30:00');
-        expect(answer4, '30:00');
-        expect(answer5, '59:59');
+      // ASSERT
+      expect(answer1, '');
+      expect(answer2, '02:30');
+      expect(answer3, '02:30:00');
+      expect(answer4, '30:00');
+      expect(answer5, '59:59');
     });
     test('tests String getPrintableTimerSinceStarting(String secondsStr)', () {
       // ARRANGE
@@ -665,15 +506,7 @@ void main() {
     });
     test('tests bool validateWorkoutSets(List<ExerciseSet> exerciseSets)', () {
 // ARRANGE
-      final Exercise exercise1 = Exercise(
-          'Bench Press',
-          '',
-          '',
-          'system',
-          'Barbell',
-          'Chest',
-          '',
-          '');
+      final Exercise exercise1 = Exercise('Bench Press', '', '', 'system', 'Barbell', 'Chest', '', '');
       final ExerciseSet set1 = ExerciseSetWeight(exercise1);
       set1.type = 'ExerciseSetWeight';
       set1.sets.add(<TextEditingController>[
@@ -691,15 +524,7 @@ void main() {
         TextEditingController(text: '30'),
         TextEditingController(text: 'checked')
       ]);
-      final Exercise exercise2 = Exercise(
-          'Assited Dips',
-          '',
-          '',
-          'system',
-          'Assisted Bodyweight',
-          'Triceps',
-          '',
-          '');
+      final Exercise exercise2 = Exercise('Assited Dips', '', '', 'system', 'Assisted Bodyweight', 'Triceps', '', '');
       final ExerciseSet set2 = ExerciseSetMinusWeight(exercise2);
       set2.type = 'ExerciseSetMinusWeight';
       set2.sets.add(<TextEditingController>[
@@ -717,15 +542,7 @@ void main() {
         TextEditingController(text: '30'),
         TextEditingController(text: 'checked')
       ]);
-      final Exercise exercise3 = Exercise(
-          'Hollow hold',
-          '',
-          '',
-          'system',
-          'Time',
-          'Core',
-          '',
-          '');
+      final Exercise exercise3 = Exercise('Hollow hold', '', '', 'system', 'Time', 'Core', '', '');
       final ExerciseSet set3 = ExerciseSetDuration(exercise3);
       set3.type = 'ExerciseSetDuration';
       set3.sets.add(<TextEditingController>[
@@ -759,7 +576,7 @@ void main() {
       expect(testSet2, false);
     });
   });
-  group('User Details/Form Page Logic Tests', (){
+  group('User Details/Form Page Logic Tests', () {
     test('tests bool checkIfFilled', () {
       expect(checkIfFilled('dummy', null, 'dummy', null, 'dummy', null, 'dummy', null, 'dummy', null), true);
       expect(checkIfFilled('', null, 'dummy', null, 'dummy', null, 'dummy', null, 'dummy', null), false);

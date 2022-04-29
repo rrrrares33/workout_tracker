@@ -26,7 +26,7 @@ String getPrintableTimer(String secondsStr) {
   final int minutes = parsedSeconds ~/ 60 % 60;
   final int hours = parsedSeconds ~/ 3600 % 60;
   String hoursStr = '';
-  if (hours!=0) {
+  if (hours != 0) {
     if (hours >= 10) {
       hoursStr = hours.toString();
     } else {
@@ -34,7 +34,7 @@ String getPrintableTimer(String secondsStr) {
     }
   }
   String minutesStr = '00:';
-  if (minutes!=0) {
+  if (minutes != 0) {
     if (minutes >= 10) {
       minutesStr = '$minutes:';
     } else {
@@ -42,14 +42,14 @@ String getPrintableTimer(String secondsStr) {
     }
   }
   String secondsSt = '00';
-  if (seconds!=0) {
+  if (seconds != 0) {
     if (seconds >= 10) {
       secondsSt = '$seconds';
     } else {
       secondsSt = '0$seconds';
     }
   }
-  if(hours == 0 && minutes == 0){
+  if (hours == 0 && minutes == 0) {
     minutesStr = '';
   }
   return hoursStr + minutesStr + secondsSt;

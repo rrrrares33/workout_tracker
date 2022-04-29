@@ -28,7 +28,7 @@ String getDateAndTimeForPrinting(String hoursSpaceDate) {
 
 String getWorkoutLengthForPrinting(String duration) {
   late final String result;
-  try{
+  try {
     final List<String> splitInput = duration.split(':');
     final int? hours = int.tryParse(splitInput[0]);
     final int? minutes = int.tryParse(splitInput[1]);

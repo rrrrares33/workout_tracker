@@ -38,10 +38,6 @@ String? validateEmail(String? content) {
   return emailNotValid;
 }
 
-bool testCapital(String? content) {
-  return content.toString().toLowerCase() != content.toString();
-}
-
 Color? pickColorRightWrong(bool aux) {
   if (aux) return Colors.greenAccent[400];
   return Colors.red;
@@ -50,6 +46,10 @@ Color? pickColorRightWrong(bool aux) {
 Widget? pickIconRightWrong(bool aux) {
   if (aux) return Icon(FontAwesomeIcons.circleCheck, size: 14, color: Colors.greenAccent[400]);
   return const Icon(FontAwesomeIcons.solidCircleXmark, size: 14, color: Colors.red);
+}
+
+bool testCapital(String? content) {
+  return content.toString().toLowerCase() != content.toString();
 }
 
 bool testLower(String? content) {

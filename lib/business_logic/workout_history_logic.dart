@@ -9,30 +9,38 @@ import '../utils/models/user_database.dart';
 String getDateAndTimeForPrinting(String hoursSpaceDate) {
   late final String result;
   late final List<String> splitInput;
-  splitInput = hoursSpaceDate.split(' ');
-  splitInput[1] = splitInput[2];
+  try {
+    splitInput = hoursSpaceDate.split(' ');
+    splitInput[1] = splitInput[2];
 
-  final int hours = int.parse(splitInput[0].split(':')[0]);
-  final int minutes = int.parse(splitInput[0].split(':')[1]);
-  final int day = int.parse(splitInput[1].split('.')[0]);
-  final int month = int.parse(splitInput[1].split('.')[1]);
-  final int year = int.parse(splitInput[1].split('.')[2]);
-  final DateTime workoutDateTime = DateTime(year, month, day, hours, minutes);
-  result = '${DateFormat('EEEE').format(workoutDateTime)}   $day ${DateFormat.MMMM().format(workoutDateTime)} $year';
-  return result;
+    final int hours = int.parse(splitInput[0].split(':')[0]);
+    final int minutes = int.parse(splitInput[0].split(':')[1]);
+    final int day = int.parse(splitInput[1].split('.')[0]);
+    final int month = int.parse(splitInput[1].split('.')[1]);
+    final int year = int.parse(splitInput[1].split('.')[2]);
+    final DateTime workoutDateTime = DateTime(year, month, day, hours, minutes);
+    result = '${DateFormat('EEEE').format(workoutDateTime)}   $day ${DateFormat.MMMM().format(workoutDateTime)} $year';
+    return result;
+  } on Exception catch (_) {
+    return '';
+  }
 }
 
 String getWorkoutLengthForPrinting(String duration) {
   late final String result;
-  final List<String> splitInput = duration.split(':');
-  final int? hours = int.tryParse(splitInput[0]);
-  final int? minutes = int.tryParse(splitInput[1]);
-  if (hours! == 0) {
-    result = '${minutes}m';
-  } else {
-    result = '${hours}h ${minutes}m';
+  try{
+    final List<String> splitInput = duration.split(':');
+    final int? hours = int.tryParse(splitInput[0]);
+    final int? minutes = int.tryParse(splitInput[1]);
+    if (hours! == 0) {
+      result = '${minutes}m';
+    } else {
+      result = '${hours}h ${minutes}m';
+    }
+    return result;
+  } on RangeError catch (_) {
+    return '';
   }
-  return result;
 }
 
 String getTotalWeightOfAnWorkout(List<ExerciseSet> exercises, double userWeight, WeightMetric metric) {

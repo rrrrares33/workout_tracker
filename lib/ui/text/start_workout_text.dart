@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../reusable_widgets/text.dart';
+import '../widgets/text.dart';
 
 const String timerName = 'Rest Timer';
 const String increment10Sec = '+ 10 sec.';

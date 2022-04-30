@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utils/routing/current_opened_page.dart';
-import '../../reusable_widgets/bottom_nav.dart';
+import '../../widgets/bottom_nav.dart';
 import 'all_exercises_page.dart';
 import 'my_profile.dart';
 import 'statistics_and_charts_page.dart';

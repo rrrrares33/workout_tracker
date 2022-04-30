@@ -10,7 +10,7 @@ import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
 import '../../../utils/models/workout_template.dart';
 import '../../../utils/routing/current_opened_page.dart';
-import '../../reusable_widgets/loading.dart';
+import '../../widgets/loading.dart';
 import '../navigator/main_screen_page.dart';
 
 class LoadHistoryAndSetupProviders extends StatelessWidget {

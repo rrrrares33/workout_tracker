@@ -5,10 +5,10 @@ import 'package:provider/provider.dart';
 import '../../../business_logic/social_login_logic.dart';
 import '../../../utils/firebase/authentication_service.dart';
 import '../../../utils/routing/routing_constants.dart';
-import '../../reusable_widgets/button.dart';
-import '../../reusable_widgets/padding.dart';
-import '../../reusable_widgets/text.dart';
 import '../../text/login_text.dart';
+import '../../widgets/button.dart';
+import '../../widgets/padding.dart';
+import '../../widgets/text.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({Key? key}) : super(key: key);

@@ -1,17 +1,25 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'button.dart';
 import 'padding.dart';
 import 'text.dart';
 
 class ExerciseFull extends StatelessWidget {
   const ExerciseFull(
-      {Key? key, required this.image, required this.name, required this.bodyPart, this.category, this.description})
+      {Key? key,
+      required this.image,
+      required this.name,
+      required this.bodyPart,
+      this.category,
+      this.description,
+      this.onPressedDeleteExercise})
       : super(key: key);
   final String image;
   final String name;
   final String bodyPart;
   final String? category;
   final String? description;
+  final void Function(String)? onPressedDeleteExercise;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +29,25 @@ class ExerciseFull extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
+      actionsAlignment: MainAxisAlignment.center,
+      actions: <Widget>[
+        if (image == '' || image == 'userCreatedNoIcon')
+          ButtonWidget(
+            onPressed: () {
+              Navigator.pop(context);
+              if (onPressedDeleteExercise != null) {
+                onPressedDeleteExercise!(name);
+              }
+            },
+            text: const TextWidget(text: 'Delete this exercise'),
+            primaryColor: Colors.redAccent,
+          )
+        else
+          const SizedBox(
+            width: 0,
+            height: 0,
+          ),
+      ],
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

@@ -16,11 +16,13 @@ class ExerciseSetShow extends StatefulWidget {
     required this.screenHeight,
     required this.setExercise,
     required this.onPressedAddSet,
+    required this.onPressedRemoveExercise,
   }) : super(key: key);
   final double screenWidth;
   final double screenHeight;
   final ExerciseSet setExercise;
-  final Function() onPressedAddSet;
+  final VoidCallback onPressedRemoveExercise;
+  final VoidCallback onPressedAddSet;
 
   @override
   State<ExerciseSetShow> createState() => _ExerciseSetShowState();
@@ -63,7 +65,35 @@ class _ExerciseSetShowState extends State<ExerciseSetShow> {
                   ),
                 ),
               )),
-              IconButton(onPressed: () {}, icon: const Icon(FontAwesomeIcons.ellipsis))
+              PopupMenuButton<int>(
+                itemBuilder: (BuildContext context) {
+                  return <PopupMenuItem<int>>[
+                    PopupMenuItem<int>(
+                      value: 1,
+                      child: Center(
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            widget.onPressedRemoveExercise();
+                          },
+                          child: TextWidget(
+                            text: 'Remove',
+                            fontSize: widget.screenWidth / 23,
+                            color: Colors.red,
+                            weight: FontWeight.bold,
+                            align: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    )
+                  ];
+                },
+                icon: const Icon(FontAwesomeIcons.ellipsis),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                ),
+                color: Colors.grey,
+              ),
             ],
           ),
           widget.setExercise.getColumnHeaderRow(widget.screenWidth),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../reusable_widgets/text.dart';
+import '../widgets/text.dart';
 
 const String defaultBodyPart = 'Any Body Part';
 const String defaultCategory = 'Any Category';

@@ -32,7 +32,7 @@ class ExerciseSmallShow extends StatelessWidget {
   final String name;
   final String bodyPart;
   final String? category;
-  final void Function()? onTap;
+  final VoidCallback? onTap;
   final double imageWidth;
   final double imageHeight;
 
@@ -55,7 +55,7 @@ class ExerciseSmallShow extends StatelessWidget {
               PaddingWidget(
                   type: 'all',
                   all: 5,
-                  child: image != ''
+                  child: image != '' && image != 'userCreatedNoIcon'
                       ? Image(
                           image: AssetImage(image),
                           width: imageWidth,

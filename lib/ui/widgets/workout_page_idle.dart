@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/models/current_workout.dart';
@@ -21,6 +22,7 @@ class WorkoutPageIdle extends StatefulWidget {
     required this.templates,
     this.onPressedStartEmpty,
     this.onPressedTemplateEditing,
+    this.onPressedDeleteTemplate,
     this.refreshPage,
   }) : super(key: key);
   final ScrollController scrollController;
@@ -30,9 +32,10 @@ class WorkoutPageIdle extends StatefulWidget {
   final double width;
   final double height;
   final List<WorkoutTemplate> templates;
-  final void Function()? refreshPage;
-  final void Function()? onPressedStartEmpty;
-  final void Function()? onPressedTemplateEditing;
+  final void Function(String)? onPressedDeleteTemplate;
+  final VoidCallback? refreshPage;
+  final VoidCallback? onPressedStartEmpty;
+  final VoidCallback? onPressedTemplateEditing;
 
   @override
   State<WorkoutPageIdle> createState() => _WorkoutPageIdleState();
@@ -143,7 +146,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
           SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisExtent: widget.height / 5.7,
+              mainAxisExtent: widget.height / 5,
             ),
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
@@ -157,6 +160,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                               text: personalTemplates[index].name,
                               weight: FontWeight.bold,
                               fontSize: widget.width / 22,
+                              align: TextAlign.left,
                             ),
                             content: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -217,9 +221,48 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            TextWidget(
-                              text: personalTemplates[index].name,
-                              weight: FontWeight.bold,
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: TextWidget(
+                                    text: personalTemplates[index].name,
+                                    weight: FontWeight.bold,
+                                    align: TextAlign.left,
+                                  ),
+                                ),
+                                PopupMenuButton<int>(
+                                  padding: EdgeInsets.zero,
+                                  itemBuilder: (BuildContext context) {
+                                    return <PopupMenuItem<int>>[
+                                      PopupMenuItem<int>(
+                                        padding: EdgeInsets.zero,
+                                        value: 1,
+                                        child: Center(
+                                          child: TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                              widget.onPressedDeleteTemplate!(personalTemplates[index].id);
+                                            },
+                                            child: TextWidget(
+                                              text: 'Remove',
+                                              fontSize: widget.width / 23,
+                                              color: Colors.red,
+                                              weight: FontWeight.bold,
+                                              align: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ];
+                                  },
+                                  icon: const Icon(FontAwesomeIcons.ellipsis),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(27),
+                                  ),
+                                  iconSize: widget.height / 50,
+                                  color: Colors.grey,
+                                ),
+                              ],
                             ),
                             SizedBox(
                               height: widget.height / 10,
@@ -281,7 +324,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
           SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisExtent: widget.height / 5.7,
+              mainAxisExtent: widget.height / 5,
             ),
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
@@ -358,6 +401,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                             PaddingWidget(
                               type: 'only',
                               onlyBottom: widget.height / 65,
+                              onlyTop: widget.height / 50,
                               child: TextWidget(
                                 text: systemTemplates[index].name.replaceAll(' system', ''),
                                 weight: FontWeight.bold,

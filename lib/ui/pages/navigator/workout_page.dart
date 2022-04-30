@@ -16,15 +16,15 @@ import '../../../utils/models/editing_template.dart';
 import '../../../utils/models/exercise_set.dart';
 import '../../../utils/models/user_database.dart';
 import '../../../utils/models/workout_template.dart';
-import '../../reusable_widgets/alert_dialog_sure_to_close.dart';
-import '../../reusable_widgets/alert_finish_workout.dart';
-import '../../reusable_widgets/button.dart';
-import '../../reusable_widgets/exercise_set_show.dart';
-import '../../reusable_widgets/padding.dart';
-import '../../reusable_widgets/text.dart';
-import '../../reusable_widgets/timer_alert.dart';
-import '../../reusable_widgets/workout_page_idle.dart';
 import '../../text/start_workout_text.dart';
+import '../../widgets/alert_dialog_sure_to_close.dart';
+import '../../widgets/alert_finish_workout.dart';
+import '../../widgets/button.dart';
+import '../../widgets/exercise_set_show.dart';
+import '../../widgets/padding.dart';
+import '../../widgets/text.dart';
+import '../../widgets/timer_alert.dart';
+import '../../widgets/workout_page_idle.dart';
 
 const double expandedHeight = 50;
 const double toolbarHeight = 40;
@@ -82,6 +82,13 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
         showBigLeftTitle: _showBigLeftTitle,
         expandedHeight: expandedHeight,
         templates: templates,
+        onPressedDeleteTemplate: (String templateId) {
+          final int indexToDelete = templates.indexWhere((WorkoutTemplate element) => element.id == templateId);
+          databaseService.removeTemplate(templates[indexToDelete].id, FirebaseService());
+          setState(() {
+            templates.removeAt(indexToDelete);
+          });
+        },
         refreshPage: () {
           setState(() {
             widget.callback(3);
@@ -255,6 +262,11 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                   setExercise: currentWorkout.exercises[index],
                   screenHeight: screenSize.height,
                   screenWidth: screenSize.width,
+                  onPressedRemoveExercise: () {
+                    setState(() {
+                      currentWorkout.exercises.removeAt(index);
+                    });
+                  },
                   onPressedAddSet: () {
                     setState(() {
                       currentWorkout.exercises[index].addEmptySet();

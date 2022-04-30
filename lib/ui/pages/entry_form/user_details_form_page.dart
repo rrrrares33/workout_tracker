@@ -7,11 +7,11 @@ import '../../../business_logic/user_details_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/user_database.dart';
-import '../../reusable_widgets/button.dart';
-import '../../reusable_widgets/padding.dart';
-import '../../reusable_widgets/text.dart';
-import '../../reusable_widgets/text_field.dart';
 import '../../text/entry_form_text.dart';
+import '../../widgets/button.dart';
+import '../../widgets/padding.dart';
+import '../../widgets/text.dart';
+import '../../widgets/text_field.dart';
 import 'check_first_time_and_load_db_intermediary.dart';
 
 class UserDetailsForm extends StatefulWidget {

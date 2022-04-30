@@ -4,11 +4,11 @@ import 'package:provider/provider.dart';
 
 import '../../../business_logic/login_and_register_logic.dart';
 import '../../../utils/firebase/authentication_service.dart';
-import '../../reusable_widgets/button.dart';
-import '../../reusable_widgets/padding.dart';
-import '../../reusable_widgets/text.dart';
-import '../../reusable_widgets/text_field.dart';
 import '../../text/login_text.dart';
+import '../../widgets/button.dart';
+import '../../widgets/padding.dart';
+import '../../widgets/text.dart';
+import '../../widgets/text_field.dart';
 import 'authentification_base_mixin_class.dart';
 
 class ForgottenPassword extends StatefulWidget {

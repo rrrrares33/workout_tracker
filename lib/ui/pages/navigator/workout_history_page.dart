@@ -3,13 +3,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../../business_logic/workout_history_logic.dart';
+import '../../../utils/firebase/database_service.dart';
+import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
-import '../../reusable_widgets/alert_history_workout.dart';
-import '../../reusable_widgets/history_calendar.dart';
-import '../../reusable_widgets/padding.dart';
-import '../../reusable_widgets/sliver_top_bar.dart';
-import '../../reusable_widgets/text.dart';
+import '../../widgets/alert_history_workout.dart';
+import '../../widgets/history_calendar.dart';
+import '../../widgets/padding.dart';
+import '../../widgets/sliver_top_bar.dart';
+import '../../widgets/text.dart';
 
 const double expandedHeight = 50;
 const double toolbarHeight = 35;
@@ -38,6 +40,7 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
   @override
   Widget build(BuildContext context) {
     final List<HistoryWorkout> historyWorkouts = Provider.of<List<HistoryWorkout>>(context);
+    final DatabaseService databaseService = Provider.of<DatabaseService>(context);
     final UserDB user = Provider.of<UserDB>(context);
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -89,10 +92,49 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
                               PaddingWidget(
                                 type: 'symmetric',
                                 horizontal: screenSize.width / 55.5,
-                                child: TextWidget(
-                                    text: historyWorkouts[index].workoutName,
-                                    weight: FontWeight.bold,
-                                    fontSize: screenSize.width / 20),
+                                child: Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: TextWidget(
+                                        text: historyWorkouts[index].workoutName,
+                                        weight: FontWeight.bold,
+                                        fontSize: screenSize.width / 20,
+                                        align: TextAlign.left,
+                                      ),
+                                    ),
+                                    PopupMenuButton<int>(
+                                      itemBuilder: (BuildContext context) {
+                                        return <PopupMenuItem<int>>[
+                                          PopupMenuItem<int>(
+                                            value: 1,
+                                            child: Center(
+                                              child: TextButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                  databaseService.removeWorkoutFromHistory(
+                                                      historyWorkouts[index].id, FirebaseService());
+                                                  setState(() {});
+                                                },
+                                                child: TextWidget(
+                                                  text: 'Remove',
+                                                  fontSize: screenSize.width / 23,
+                                                  color: Colors.red,
+                                                  weight: FontWeight.bold,
+                                                  align: TextAlign.center,
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        ];
+                                      },
+                                      icon: const Icon(FontAwesomeIcons.ellipsis),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18.0),
+                                      ),
+                                      color: Colors.grey,
+                                    ),
+                                  ],
+                                ),
                               ),
                               const PaddingWidget(
                                 type: 'symmetric',

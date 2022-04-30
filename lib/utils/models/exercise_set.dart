@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../ui/reusable_widgets/padding.dart';
-import '../../ui/reusable_widgets/text.dart';
 import '../../ui/text/start_workout_text.dart';
+import '../../ui/widgets/padding.dart';
+import '../../ui/widgets/text.dart';
 import 'exercise.dart';
 
 abstract class ExerciseSet {

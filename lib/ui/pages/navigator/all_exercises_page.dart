@@ -6,19 +6,20 @@ import 'package:provider/provider.dart';
 
 import '../../../business_logic/all_exercises_logic.dart';
 import '../../../utils/firebase/database_service.dart';
+import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/current_workout.dart';
 import '../../../utils/models/editing_template.dart';
 import '../../../utils/models/exercise.dart';
 import '../../../utils/models/exercise_set.dart';
 import '../../../utils/models/user_database.dart';
-import '../../reusable_widgets/add_new_exercise_alert.dart';
-import '../../reusable_widgets/dropdown_button.dart';
-import '../../reusable_widgets/exercise_full.dart';
-import '../../reusable_widgets/exercise_small.dart';
-import '../../reusable_widgets/no_exercise_found.dart';
-import '../../reusable_widgets/padding.dart';
-import '../../reusable_widgets/sliver_top_bar.dart';
 import '../../text/all_exercises_text.dart';
+import '../../widgets/add_new_exercise_alert.dart';
+import '../../widgets/dropdown_button.dart';
+import '../../widgets/exercise_full.dart';
+import '../../widgets/exercise_small.dart';
+import '../../widgets/no_exercise_found.dart';
+import '../../widgets/padding.dart';
+import '../../widgets/sliver_top_bar.dart';
 
 const double expandedHeight = 50;
 const double toolbarHeight = 25;
@@ -232,6 +233,16 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                         bodyPart: (exerciseList?[index].bodyPart)!,
                         category: exerciseList?[index].category,
                         description: exerciseList?[index].description,
+                        onPressedDeleteExercise: (String nameOfExercise) {
+                          final int? indexToDelete = exerciseList?.indexWhere((Exercise element) =>
+                              element.name == nameOfExercise && element.whoCreatedThisExercise != 'system');
+                          setState(() {
+                            if (indexToDelete != null) {
+                              databaseService.deleteAnExercise(
+                                  FirebaseService(), exerciseList?[indexToDelete].id ?? '');
+                            }
+                          });
+                        },
                       ),
                     ),
                   ),

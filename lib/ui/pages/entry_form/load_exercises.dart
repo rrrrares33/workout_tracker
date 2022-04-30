@@ -5,7 +5,7 @@ import '../../../utils/firebase/database_service.dart';
 import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/exercise.dart';
 import '../../../utils/models/user_database.dart';
-import '../../reusable_widgets/loading.dart';
+import '../../widgets/loading.dart';
 import 'load_history_and_setup_providers.dart';
 
 class LoadAllExercisesIntermediary extends StatelessWidget {

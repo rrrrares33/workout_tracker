@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../business_logic/login_and_register_logic.dart';
 import '../../../utils/firebase/authentication_service.dart';
 import '../../../utils/models/user_auth.dart';
-import '../../reusable_widgets/loading.dart';
+import '../../widgets/loading.dart';
 
 class CheckAuthenticated extends StatelessWidget {
   const CheckAuthenticated({Key? key}) : super(key: key);

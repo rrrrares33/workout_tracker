@@ -153,6 +153,17 @@ class FirebaseService {
     }
   }
 
+  Future<bool> removeExerciseFromHistory(String historyId, String idOfExercise) async {
+    try {
+      for (int i = 0; i < 15; i++) {
+        await _historyRef.child(historyId).child('exercisesAndSets').child('${i}_$idOfExercise').remove();
+      }
+      return true;
+    } on Exception catch (_) {
+      return false;
+    }
+  }
+
   Future<Map<String, dynamic>> addWorkoutTemplate(
       String templateID, String templateName, String templateNotes, Map<String, dynamic> exercisesAndSets) async {
     await _templateRef.child(templateID).set(<String, dynamic>{

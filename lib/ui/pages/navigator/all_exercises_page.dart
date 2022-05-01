@@ -232,12 +232,13 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                     onTap: () => showDialog<String>(
                       context: context,
                       builder: (BuildContext context) => ExerciseFull(
+                        id: (exerciseList?[index].id)!,
                         image: (exerciseList?[index].biggerImage)!,
                         name: (exerciseList?[index].name)!,
                         bodyPart: (exerciseList?[index].bodyPart)!,
                         category: exerciseList?[index].category,
                         description: exerciseList?[index].description,
-                        onPressedDeleteExercise: (String nameOfExercise) {
+                        onPressedDeleteExercise: (String nameOfExercise, String idOfExercise) {
                           final int? indexToDeleteFromExercises = exerciseList?.indexWhere((Exercise element) =>
                               element.name == nameOfExercise && element.whoCreatedThisExercise != 'system');
                           // Remove from current Workout
@@ -291,13 +292,29 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                             }
                             if (idToDeleteFromTemplates.isNotEmpty) {
                               for (final String element in idToDeleteFromTemplates) {
+                                final int index =
+                                    templates.indexWhere((WorkoutTemplate element2) => element2.id == element);
+                                for (int i = 0; i < templates[index].exercises.length; i++) {
+                                  if (templates[index].exercises[i].assignedExercise.name == nameOfExercise) {
+                                    templates[index].exercises.removeAt(i);
+                                    break;
+                                  }
+                                }
                                 databaseService.removeTemplate(element, FirebaseService());
-                                templates.removeWhere((WorkoutTemplate element2) => element2.id == element);
+                                databaseService.addWorkoutTemplateToDB(templates[index], FirebaseService());
                               }
                             }
                             if (idToDeleteFromHistory.isNotEmpty) {
                               for (final String element in idToDeleteFromHistory) {
-                                databaseService.removeWorkoutFromHistory(element, FirebaseService());
+                                final int index =
+                                    history.indexWhere((HistoryWorkout element2) => element2.id == element);
+                                for (int i = 0; i < history[index].exercises.length; i++) {
+                                  if (history[index].exercises[i].assignedExercise.name == nameOfExercise) {
+                                    history[index].exercises.removeAt(i);
+                                    break;
+                                  }
+                                }
+                                FirebaseService().removeExerciseFromHistory(history[index].id, idOfExercise);
                               }
                             }
                           });

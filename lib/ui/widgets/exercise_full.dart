@@ -12,14 +12,16 @@ class ExerciseFull extends StatelessWidget {
       required this.bodyPart,
       this.category,
       this.description,
-      this.onPressedDeleteExercise})
+      this.onPressedDeleteExercise,
+      required this.id})
       : super(key: key);
   final String image;
   final String name;
   final String bodyPart;
+  final String id;
   final String? category;
   final String? description;
-  final void Function(String)? onPressedDeleteExercise;
+  final void Function(String, String)? onPressedDeleteExercise;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class ExerciseFull extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
               if (onPressedDeleteExercise != null) {
-                onPressedDeleteExercise!(name);
+                onPressedDeleteExercise!(name, id);
               }
             },
             text: const TextWidget(text: 'Delete this exercise'),

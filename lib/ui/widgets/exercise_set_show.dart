@@ -61,6 +61,7 @@ class _ExerciseSetShowState extends State<ExerciseSetShow> {
                       bodyPart: widget.setExercise.assignedExercise.bodyPart,
                       category: widget.setExercise.assignedExercise.category,
                       description: widget.setExercise.assignedExercise.description,
+                      id: '',
                     ),
                   ),
                 ),

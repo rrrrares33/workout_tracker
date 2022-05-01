@@ -9,6 +9,9 @@ class EditingTemplate {
     currentlyEditing = false;
   }
 
+  // Template id - only when editing an already created template
+  String? editingTemplateId;
+
   // Workout name
   TextEditingController templateName = TextEditingController();
 

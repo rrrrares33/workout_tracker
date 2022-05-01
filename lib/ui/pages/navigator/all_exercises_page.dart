@@ -11,7 +11,9 @@ import '../../../utils/models/current_workout.dart';
 import '../../../utils/models/editing_template.dart';
 import '../../../utils/models/exercise.dart';
 import '../../../utils/models/exercise_set.dart';
+import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
+import '../../../utils/models/workout_template.dart';
 import '../../text/all_exercises_text.dart';
 import '../../widgets/add_new_exercise_alert.dart';
 import '../../widgets/dropdown_button.dart';
@@ -57,6 +59,8 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
     final DatabaseService databaseService = Provider.of<DatabaseService>(context);
     final List<Exercise> exercisesProvider = Provider.of<List<Exercise>>(context);
     final EditingTemplate editingTemplate = Provider.of<EditingTemplate>(context);
+    final List<WorkoutTemplate> templates = Provider.of<List<WorkoutTemplate>>(context);
+    final List<HistoryWorkout> history = Provider.of<List<HistoryWorkout>>(context);
     final CurrentWorkout currentWorkout = Provider.of<CurrentWorkout>(context);
     final UserDB user = Provider.of<UserDB>(context);
     final Size screenSize = MediaQuery.of(context).size;
@@ -234,12 +238,67 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                         category: exerciseList?[index].category,
                         description: exerciseList?[index].description,
                         onPressedDeleteExercise: (String nameOfExercise) {
-                          final int? indexToDelete = exerciseList?.indexWhere((Exercise element) =>
+                          final int? indexToDeleteFromExercises = exerciseList?.indexWhere((Exercise element) =>
                               element.name == nameOfExercise && element.whoCreatedThisExercise != 'system');
+                          // Remove from current Workout
+                          final int indexToDeleteFromCurrentWorkout = currentWorkout.exercises.indexWhere(
+                              (ExerciseSet element) =>
+                                  element.assignedExercise.name == nameOfExercise &&
+                                  element.assignedExercise.whoCreatedThisExercise != 'system');
+                          // Remove from current Editing Template
+                          final int indexToDeleteFromCurrentEditingWorkoutTemplate = editingTemplate.exercises
+                              .indexWhere((ExerciseSet element) =>
+                                  element.assignedExercise.name == nameOfExercise &&
+                                  element.assignedExercise.whoCreatedThisExercise != 'system');
+                          // Remove from list of saved templates
+                          final List<String> idToDeleteFromTemplates = <String>[];
+                          templates
+                              .where((WorkoutTemplate element) => !element.id.contains('system'))
+                              .forEach((WorkoutTemplate element) {
+                            bool contains = false;
+                            if (element.exercises.indexWhere(
+                                    (ExerciseSet element2) => element2.assignedExercise.name == nameOfExercise) !=
+                                -1) {
+                              contains = true;
+                            }
+                            if (contains) {
+                              idToDeleteFromTemplates.add(element.id);
+                            }
+                          });
+                          // Remove from history workouts
+                          final List<String> idToDeleteFromHistory = <String>[];
+                          for (final HistoryWorkout element in history) {
+                            bool contains = false;
+                            if (element.exercises.indexWhere(
+                                    (ExerciseSet element2) => element2.assignedExercise.name == nameOfExercise) !=
+                                -1) {
+                              contains = true;
+                            }
+                            if (contains) {
+                              idToDeleteFromHistory.add(element.id);
+                            }
+                          }
                           setState(() {
-                            if (indexToDelete != null) {
+                            if (indexToDeleteFromExercises != null) {
                               databaseService.deleteAnExercise(
-                                  FirebaseService(), exerciseList?[indexToDelete].id ?? '');
+                                  FirebaseService(), exerciseList?[indexToDeleteFromExercises].id ?? '');
+                            }
+                            if (indexToDeleteFromCurrentEditingWorkoutTemplate != -1) {
+                              editingTemplate.exercises.removeAt(indexToDeleteFromCurrentEditingWorkoutTemplate);
+                            }
+                            if (indexToDeleteFromCurrentWorkout != -1) {
+                              currentWorkout.exercises.removeAt(indexToDeleteFromCurrentWorkout);
+                            }
+                            if (idToDeleteFromTemplates.isNotEmpty) {
+                              for (final String element in idToDeleteFromTemplates) {
+                                databaseService.removeTemplate(element, FirebaseService());
+                                templates.removeWhere((WorkoutTemplate element2) => element2.id == element);
+                              }
+                            }
+                            if (idToDeleteFromHistory.isNotEmpty) {
+                              for (final String element in idToDeleteFromHistory) {
+                                databaseService.removeWorkoutFromHistory(element, FirebaseService());
+                              }
                             }
                           });
                         },

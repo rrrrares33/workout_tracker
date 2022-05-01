@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/models/current_workout.dart';
+import '../../utils/models/exercise_set.dart';
 import '../../utils/models/workout_template.dart';
 import '../text/start_workout_text.dart';
 import 'button.dart';
@@ -24,6 +25,7 @@ class WorkoutPageIdle extends StatefulWidget {
     this.onPressedTemplateEditing,
     this.onPressedDeleteTemplate,
     this.refreshPage,
+    this.onPressedEditTemplate,
   }) : super(key: key);
   final ScrollController scrollController;
   final double toolbarHeight;
@@ -33,6 +35,7 @@ class WorkoutPageIdle extends StatefulWidget {
   final double height;
   final List<WorkoutTemplate> templates;
   final void Function(String)? onPressedDeleteTemplate;
+  final void Function(String)? onPressedEditTemplate;
   final VoidCallback? refreshPage;
   final VoidCallback? onPressedStartEmpty;
   final VoidCallback? onPressedTemplateEditing;
@@ -199,9 +202,27 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                   onPressed: () {
                                     setState(() {
                                       currentWorkout.exercises.clear();
-                                      currentWorkout.exercises.addAll(personalTemplates[index].exercises);
+                                      final List<ExerciseSet> deepCopySets = <ExerciseSet>[];
+                                      for (final ExerciseSet element in personalTemplates[index].exercises) {
+                                        late final ExerciseSet deepCopy;
+                                        if (element.type == 'ExerciseSetWeight') {
+                                          deepCopy = ExerciseSetWeight(element.assignedExercise);
+                                          deepCopy.type = 'ExerciseSetWeight';
+                                        } else if (element.type == 'ExerciseSetMinusWeight') {
+                                          deepCopy = ExerciseSetMinusWeight(element.assignedExercise);
+                                          deepCopy.type = 'ExerciseSetMinusWeight';
+                                        } else {
+                                          deepCopy = ExerciseSetDuration(element.assignedExercise);
+                                          deepCopy.type = 'ExerciseSetDuration';
+                                        }
+                                        deepCopy.sets.addAll(element.sets.toList());
+                                        deepCopySets.add(deepCopy);
+                                      }
+                                      currentWorkout.exercises.addAll(deepCopySets);
                                       currentWorkout.workoutName =
                                           TextEditingController(text: personalTemplates[index].name);
+                                      currentWorkout.workoutNotes =
+                                          TextEditingController(text: personalTemplates[index].notes);
                                       currentWorkout.startTime = DateTime.now();
                                     });
                                     widget.refreshPage!();
@@ -236,6 +257,25 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                     return <PopupMenuItem<int>>[
                                       PopupMenuItem<int>(
                                         padding: EdgeInsets.zero,
+                                        value: 2,
+                                        child: Center(
+                                          child: TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                              widget.onPressedEditTemplate!(personalTemplates[index].id);
+                                            },
+                                            child: TextWidget(
+                                              text: 'Edit',
+                                              fontSize: widget.width / 27,
+                                              color: Colors.blueAccent,
+                                              weight: FontWeight.bold,
+                                              align: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      PopupMenuItem<int>(
+                                        padding: EdgeInsets.zero,
                                         value: 1,
                                         child: Center(
                                           child: TextButton(
@@ -244,15 +284,15 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                               widget.onPressedDeleteTemplate!(personalTemplates[index].id);
                                             },
                                             child: TextWidget(
-                                              text: 'Remove',
-                                              fontSize: widget.width / 23,
+                                              text: 'Delete',
+                                              fontSize: widget.width / 27,
                                               color: Colors.red,
                                               weight: FontWeight.bold,
                                               align: TextAlign.center,
                                             ),
                                           ),
                                         ),
-                                      )
+                                      ),
                                     ];
                                   },
                                   icon: const Icon(FontAwesomeIcons.ellipsis),
@@ -260,7 +300,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                     borderRadius: BorderRadius.circular(27),
                                   ),
                                   iconSize: widget.height / 50,
-                                  color: Colors.grey,
+                                  color: Colors.white.withOpacity(0.25),
                                 ),
                               ],
                             ),

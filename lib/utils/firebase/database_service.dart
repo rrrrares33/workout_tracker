@@ -202,7 +202,10 @@ class DatabaseService {
           dynamic exercisesAndSets = value['exercisesAndSets'];
           exercisesAndSets = exercisesAndSets as Map<dynamic, dynamic>;
           final List<ExerciseSet> exercises = <ExerciseSet>[];
+          final List<int?> indexOfEachExercise = <int>[];
           exercisesAndSets.forEach((dynamic key, dynamic value) {
+            final List<String> splintedKey = (key as String).split('_');
+            indexOfEachExercise.add(int.tryParse(splintedKey[0]));
             value = value as Map<dynamic, dynamic>;
             final String exerciseId = value['assignedExercise'].toString();
             final String type = value['type'].toString();
@@ -250,6 +253,16 @@ class DatabaseService {
             });
             exercises.add(aux);
           });
+          final List<ExerciseSet> sortedList = <ExerciseSet>[];
+          for (int i = 0; i <= 100; i++) {
+            final int pos = indexOfEachExercise.indexWhere((int? element) => element == i);
+            if (pos != -1) {
+              sortedList.add(exercises.removeAt(pos));
+              indexOfEachExercise.removeAt(indexOfEachExercise.indexWhere((int? element) => element == i));
+            }
+          }
+          exercises.clear();
+          exercises.addAll(sortedList);
           final HistoryWorkout oneWorkout = HistoryWorkout(key, time, name, notes, exercises, duration);
           workoutHistory.add(oneWorkout);
         }
@@ -370,43 +383,57 @@ class DatabaseService {
     result.forEach((dynamic key, dynamic value) {
       value = value as Map<dynamic, dynamic>;
       key = key as String;
-      if (key.contains(userUid) || key.contains('system')) {
-        final String templateName = value['name'] as String;
-        final String templateNotes = value['notes'] as String;
-        final List<ExerciseSet> templateExercises = <ExerciseSet>[];
-        final Map<dynamic, dynamic> allExercisesOfTemplate = value['exercises'] as Map<dynamic, dynamic>;
-        allExercisesOfTemplate.forEach((dynamic key, dynamic value) {
-          final String exerciseId = '${(key as String).split('_')[1]}_${key.split('_')[2]}';
-          late final ExerciseSet currentSet;
-          exerciseList.forEach((Exercise element) {
-            if (exerciseId == element.id) {
-              if (element.category == 'Assisted Bodyweight') {
-                currentSet = ExerciseSetMinusWeight(element);
-                currentSet.type = 'ExerciseSetMinusWeight';
-              } else if (element.category == 'Time') {
-                currentSet = ExerciseSetDuration(element);
-                currentSet.type = 'ExerciseSetDuration';
-              } else {
-                currentSet = ExerciseSetWeight(element);
-                currentSet.type = 'ExerciseSetWeight';
+      try {
+        if (key.contains(userUid) || key.contains('system')) {
+          final String templateName = value['name'] as String;
+          final String templateNotes = value['notes'] as String;
+          final List<ExerciseSet> templateExercises = <ExerciseSet>[];
+          final Map<dynamic, dynamic> allExercisesOfTemplate = value['exercises'] as Map<dynamic, dynamic>;
+          final List<int?> indexOfEachExercise = <int>[];
+          allExercisesOfTemplate.forEach((dynamic key, dynamic value) {
+            final List<String> keyParsed = (key as String).split('_');
+            indexOfEachExercise.add(int.tryParse(keyParsed[0]));
+            final String exerciseId = '${keyParsed[1]}_${keyParsed[2]}';
+            late final ExerciseSet currentSet;
+            exerciseList.forEach((Exercise element) {
+              if (exerciseId == element.id) {
+                if (element.category == 'Assisted Bodyweight') {
+                  currentSet = ExerciseSetMinusWeight(element);
+                  currentSet.type = 'ExerciseSetMinusWeight';
+                } else if (element.category == 'Time') {
+                  currentSet = ExerciseSetDuration(element);
+                  currentSet.type = 'ExerciseSetDuration';
+                } else {
+                  currentSet = ExerciseSetWeight(element);
+                  currentSet.type = 'ExerciseSetWeight';
+                }
               }
+            });
+            // ignore: avoid_dynamic_calls
+            (value['sets'] as List<dynamic>).forEach((dynamic element) {
+              currentSet.sets.add(<TextEditingController>[
+                TextEditingController(text: '0'),
+                TextEditingController(text: '0'),
+                TextEditingController(text: 'unchecked')
+              ]);
+            });
+            templateExercises.add(currentSet);
+          });
+          final List<ExerciseSet> sortedList = <ExerciseSet>[];
+          for (int i = 0; i <= 100; i++) {
+            final int pos = indexOfEachExercise.indexWhere((int? element) => element == i);
+            if (pos != -1) {
+              sortedList.add(templateExercises.removeAt(pos));
+              indexOfEachExercise.removeAt(indexOfEachExercise.indexWhere((int? element) => element == i));
             }
-          });
-          // ignore: avoid_dynamic_calls
-          (value['sets'] as List<dynamic>).forEach((dynamic element) {
-            currentSet.sets.add(<TextEditingController>[
-              TextEditingController(text: '0'),
-              TextEditingController(text: '0'),
-              TextEditingController(text: 'unchecked')
-            ]);
-          });
-          templateExercises.add(currentSet);
-        });
-
-        final WorkoutTemplate currentWorkoutTemplate =
-            WorkoutTemplate(templateName, templateNotes, templateExercises, key);
-        workoutTemplates.add(currentWorkoutTemplate);
-      }
+          }
+          templateExercises.clear();
+          templateExercises.addAll(sortedList);
+          final WorkoutTemplate currentWorkoutTemplate =
+              WorkoutTemplate(templateName, templateNotes, templateExercises, key);
+          workoutTemplates.add(currentWorkoutTemplate);
+        }
+      } on Exception catch (_) {}
     });
     _workoutTemplates.addAll(workoutTemplates);
     return workoutTemplates;

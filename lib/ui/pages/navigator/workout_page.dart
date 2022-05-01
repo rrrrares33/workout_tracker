@@ -82,6 +82,36 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
         showBigLeftTitle: _showBigLeftTitle,
         expandedHeight: expandedHeight,
         templates: templates,
+        onPressedEditTemplate: (String templateId) {
+          setState(() {
+            editingTemplate.currentlyEditing = true;
+            editingTemplate.editingTemplateId = templateId;
+            final int indexOfTemplateToEdit =
+                templates.indexWhere((WorkoutTemplate element) => element.id == templateId);
+            editingTemplate.templateName = TextEditingController(text: templates[indexOfTemplateToEdit].name);
+            editingTemplate.templateNotes = TextEditingController(text: templates[indexOfTemplateToEdit].notes);
+            for (final ExerciseSet element in templates[indexOfTemplateToEdit].exercises) {
+              late final ExerciseSet newExercise;
+              if (element.type == 'ExerciseSetWeight') {
+                newExercise = ExerciseSetWeight(element.assignedExercise);
+                newExercise.type = 'ExerciseSetWeight';
+              } else if (element.type == 'ExerciseSetMinusWeight') {
+                newExercise = ExerciseSetMinusWeight(element.assignedExercise);
+                newExercise.type = 'ExerciseSetMinusWeight';
+              } else {
+                newExercise = ExerciseSetDuration(element.assignedExercise);
+                newExercise.type = 'ExerciseSetDuration';
+              }
+              editingTemplate.exercises.add(newExercise);
+              final int nrOfSets = element.sets.length;
+              editingTemplate.exercises[editingTemplate.exercises.length - 1].sets.add(<TextEditingController>[
+                TextEditingController(text: nrOfSets.toString()),
+                TextEditingController(text: ''),
+                TextEditingController(text: '')
+              ]);
+            }
+          });
+        },
         onPressedDeleteTemplate: (String templateId) {
           final int indexToDelete = templates.indexWhere((WorkoutTemplate element) => element.id == templateId);
           databaseService.removeTemplate(templates[indexToDelete].id, FirebaseService());
@@ -156,6 +186,8 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                             doesHaveUnCheckedSets: !checkForEmptySetsMultipleExercises(currentWorkout.exercises),
                             onPressedFinished: () async {
                               Navigator.pop(auxContext);
+                              currentWorkout.workoutNotes = TextEditingController(text: defaultWorkoutNote);
+                              currentWorkout.workoutName = TextEditingController(text: defaultWorkoutTile);
                               if (validateWorkoutSets(currentWorkout.exercises)) {
                                 final List<ExerciseSet> aux = removeEmptyExercises(currentWorkout.exercises);
                                 currentWorkout.exercises.clear();
@@ -316,6 +348,8 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                           if (currentWorkout.exercises.isEmpty) {
                             // If there are no exercises added to the workout we can quickly stop it.
                             setState(() {
+                              currentWorkout.workoutNotes = TextEditingController(text: defaultWorkoutNote);
+                              currentWorkout.workoutName = TextEditingController(text: defaultWorkoutTile);
                               currentWorkout.startTime = null;
                               currentWorkout.currentTimeInSeconds = 0;
                               currentWorkout.lastDecrementForTimer = DateTime.now();
@@ -332,6 +366,8 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                                     width: screenSize.width,
                                     onPressedCancel: () {
                                       setState(() {
+                                        currentWorkout.workoutNotes = TextEditingController(text: defaultWorkoutNote);
+                                        currentWorkout.workoutName = TextEditingController(text: defaultWorkoutTile);
                                         currentWorkout.exercises.clear();
                                         currentWorkout.startTime = null;
                                         currentWorkout.currentTimeInSeconds = 0;
@@ -408,12 +444,21 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                         ]);
                       }
                     }
-                    const Uuid UID = Uuid();
-                    final String templateID = '${user.uid}_${UID.v4()}';
-                    final WorkoutTemplate templateToAdd = WorkoutTemplate(editingTemplate.templateName.text,
-                        editingTemplate.templateNotes.text, editingTemplate.exercises, templateID);
-                    templates.add(templateToAdd);
-                    databaseService.addWorkoutTemplateToDB(templateToAdd, FirebaseService());
+                    if (editingTemplate.editingTemplateId == null) {
+                      const Uuid UID = Uuid();
+                      final String templateID = '${user.uid}_${UID.v4()}';
+                      final WorkoutTemplate templateToAdd = WorkoutTemplate(editingTemplate.templateName.text,
+                          editingTemplate.templateNotes.text, editingTemplate.exercises, templateID);
+                      templates.add(templateToAdd);
+                      databaseService.addWorkoutTemplateToDB(templateToAdd, FirebaseService());
+                    } else {
+                      final String? templateID = editingTemplate.editingTemplateId;
+                      final WorkoutTemplate templateToAdd = WorkoutTemplate(editingTemplate.templateName.text,
+                          editingTemplate.templateNotes.text, editingTemplate.exercises, templateID!);
+                      templates.removeWhere((WorkoutTemplate element) => element.id == templateID);
+                      templates.add(templateToAdd);
+                      databaseService.addWorkoutTemplateToDB(templateToAdd, FirebaseService());
+                    }
                   }
                   setState(() {
                     editingTemplate.currentlyEditing = false;

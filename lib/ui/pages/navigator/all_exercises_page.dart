@@ -238,6 +238,159 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                         bodyPart: (exerciseList?[index].bodyPart)!,
                         category: exerciseList?[index].category,
                         description: exerciseList?[index].description,
+                        onPressedSaveEditing: (String idOfExercise, String newTitle, String newDescription) {
+                          final int indexToEditFromExercises =
+                              exercisesProvider.indexWhere((Exercise element) => element.id == idOfExercise);
+                          final int indexToEditFromCurrentWorkout = currentWorkout.exercises
+                              .indexWhere((ExerciseSet element) => element.assignedExercise.id == idOfExercise);
+                          final int indexToEditFromCurrentTemplate = editingTemplate.exercises
+                              .indexWhere((ExerciseSet element) => element.assignedExercise.id == idOfExercise);
+                          final List<String> idToEditFromTemplates = <String>[];
+                          templates
+                              .where((WorkoutTemplate element) => !element.id.contains('system'))
+                              .forEach((WorkoutTemplate element) {
+                            bool contains = false;
+                            if (element.exercises.indexWhere(
+                                    (ExerciseSet element2) => element2.assignedExercise.id == idOfExercise) !=
+                                -1) {
+                              contains = true;
+                            }
+                            if (contains) {
+                              idToEditFromTemplates.add(element.id);
+                            }
+                          });
+                          final List<String> idToEditFromHistory = <String>[];
+                          for (final HistoryWorkout element in history) {
+                            bool contains = false;
+                            if (element.exercises.indexWhere(
+                                    (ExerciseSet element2) => element2.assignedExercise.id == idOfExercise) !=
+                                -1) {
+                              contains = true;
+                            }
+                            if (contains) {
+                              idToEditFromHistory.add(element.id);
+                            }
+                          }
+                          final Exercise newExerciseCreated = Exercise(
+                              newTitle,
+                              newDescription,
+                              (exerciseList?[index].id)!,
+                              (exerciseList?[index].whoCreatedThisExercise)!,
+                              (exerciseList?[index].category)!,
+                              (exerciseList?[index].bodyPart)!,
+                              '',
+                              '');
+                          setState(() {
+                            Navigator.pop(context);
+                            if (indexToEditFromExercises != -1) {
+                              exercisesProvider.removeAt(indexToEditFromExercises);
+                              exercisesProvider.insert(indexToEditFromExercises, newExerciseCreated);
+                              databaseService.deleteAnExercise(FirebaseService(), idOfExercise);
+                              databaseService.createNewExercise(
+                                user.uid,
+                                newTitle,
+                                newDescription,
+                                (exerciseList?[index].category)!,
+                                (exerciseList?[index].bodyPart)!,
+                                FirebaseService(),
+                                fixedId: idOfExercise,
+                              );
+                            }
+                            if (indexToEditFromCurrentWorkout != -1) {
+                              late ExerciseSet newExerciseSet;
+                              if (currentWorkout.exercises[indexToEditFromCurrentWorkout].type == 'ExerciseSetWeight') {
+                                newExerciseSet = ExerciseSetWeight(newExerciseCreated);
+                                newExerciseSet.type = 'ExerciseSetWeight';
+                              } else if (currentWorkout.exercises[indexToEditFromCurrentWorkout].type ==
+                                  'ExerciseSetMinusWeight') {
+                                newExerciseSet = ExerciseSetMinusWeight(newExerciseCreated);
+                                newExerciseSet.type = 'ExerciseSetMinusWeight';
+                              } else {
+                                newExerciseSet = ExerciseSetDuration(newExerciseCreated);
+                                newExerciseSet.type = 'ExerciseSetDuration';
+                              }
+                              newExerciseSet.sets
+                                  .addAll(currentWorkout.exercises[indexToEditFromCurrentWorkout].sets.toList());
+                              currentWorkout.exercises.removeAt(indexToEditFromCurrentWorkout);
+                              currentWorkout.exercises.insert(indexToEditFromCurrentWorkout, newExerciseSet);
+                            }
+                            if (indexToEditFromCurrentTemplate != -1) {
+                              late ExerciseSet newExerciseSet;
+                              if (editingTemplate.exercises[indexToEditFromCurrentTemplate].type ==
+                                  'ExerciseSetWeight') {
+                                newExerciseSet = ExerciseSetWeight(newExerciseCreated);
+                                newExerciseSet.type = 'ExerciseSetWeight';
+                              } else if (editingTemplate.exercises[indexToEditFromCurrentTemplate].type ==
+                                  'ExerciseSetMinusWeight') {
+                                newExerciseSet = ExerciseSetMinusWeight(newExerciseCreated);
+                                newExerciseSet.type = 'ExerciseSetMinusWeight';
+                              } else {
+                                newExerciseSet = ExerciseSetDuration(newExerciseCreated);
+                                newExerciseSet.type = 'ExerciseSetDuration';
+                              }
+                              newExerciseSet.sets
+                                  .addAll(editingTemplate.exercises[indexToEditFromCurrentTemplate].sets.toList());
+                              editingTemplate.exercises.removeAt(indexToEditFromCurrentTemplate);
+                              editingTemplate.exercises.insert(indexToEditFromCurrentTemplate, newExerciseSet);
+                            }
+                            if (idToEditFromTemplates.isNotEmpty) {
+                              for (final String element in idToEditFromTemplates) {
+                                final int index =
+                                    templates.indexWhere((WorkoutTemplate element2) => element2.id == element);
+                                for (int i = 0; i < templates[index].exercises.length; i++) {
+                                  if (templates[index].exercises[i].assignedExercise.id == idOfExercise) {
+                                    late ExerciseSet newExerciseSet;
+                                    if (templates[index].exercises[i].type == 'ExerciseSetWeight') {
+                                      newExerciseSet = ExerciseSetWeight(newExerciseCreated);
+                                      newExerciseSet.type = 'ExerciseSetWeight';
+                                    } else if (templates[index].exercises[i].type == 'ExerciseSetMinusWeight') {
+                                      newExerciseSet = ExerciseSetMinusWeight(newExerciseCreated);
+                                      newExerciseSet.type = 'ExerciseSetMinusWeight';
+                                    } else {
+                                      newExerciseSet = ExerciseSetDuration(newExerciseCreated);
+                                      newExerciseSet.type = 'ExerciseSetDuration';
+                                    }
+                                    newExerciseSet.sets.addAll(templates[index].exercises[i].sets.toList());
+                                    templates[index].exercises.removeAt(i);
+                                    templates[index].exercises.insert(i, newExerciseSet);
+                                    FirebaseService().removeTemplate(templates[index].id);
+                                    databaseService.addWorkoutTemplateToDB(templates[index], FirebaseService());
+                                    break;
+                                  }
+                                }
+                                databaseService.removeTemplate(element, FirebaseService());
+                                databaseService.addWorkoutTemplateToDB(templates[index], FirebaseService());
+                              }
+                            }
+                            if (idToEditFromHistory.isNotEmpty) {
+                              for (final String element in idToEditFromHistory) {
+                                final int index =
+                                    history.indexWhere((HistoryWorkout element2) => element2.id == element);
+                                for (int i = 0; i < history[index].exercises.length; i++) {
+                                  if (history[index].exercises[i].assignedExercise.id == idOfExercise) {
+                                    late ExerciseSet newExerciseSet;
+                                    if (history[index].exercises[i].type == 'ExerciseSetWeight') {
+                                      newExerciseSet = ExerciseSetWeight(newExerciseCreated);
+                                      newExerciseSet.type = 'ExerciseSetWeight';
+                                    } else if (history[index].exercises[i].type == 'ExerciseSetMinusWeight') {
+                                      newExerciseSet = ExerciseSetMinusWeight(newExerciseCreated);
+                                      newExerciseSet.type = 'ExerciseSetMinusWeight';
+                                    } else {
+                                      newExerciseSet = ExerciseSetDuration(newExerciseCreated);
+                                      newExerciseSet.type = 'ExerciseSetDuration';
+                                    }
+                                    newExerciseSet.sets.addAll(history[index].exercises[i].sets.toList());
+                                    history[index].exercises.removeAt(i);
+                                    history[index].exercises.insert(i, newExerciseSet);
+                                    break;
+                                  }
+                                }
+                                databaseService.removeTemplate(element, FirebaseService());
+                                databaseService.addWorkoutTemplateToDB(templates[index], FirebaseService());
+                              }
+                            }
+                          });
+                        },
                         onPressedDeleteExercise: (String nameOfExercise, String idOfExercise) {
                           final int? indexToDeleteFromExercises = exerciseList?.indexWhere((Exercise element) =>
                               element.name == nameOfExercise && element.whoCreatedThisExercise != 'system');

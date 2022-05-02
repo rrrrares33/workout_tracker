@@ -164,8 +164,9 @@ class DatabaseService {
 
   // Creates an user after completing the details form.
   Future<Map<String, dynamic>> createNewExercise(String userUid, String exerciseTitle, String? exerciseDescription,
-      String exerciseCategory, String exerciseBodyType, FirebaseService firebaseService) async {
-    final String idExercise = '${userUid}_$exerciseTitle';
+      String exerciseCategory, String exerciseBodyType, FirebaseService firebaseService,
+      {String? fixedId}) async {
+    final String idExercise = fixedId ?? '${userUid}_$exerciseTitle';
 
     // Then we create the new user.
     final Map<String, dynamic> res = await firebaseService.createNewExercise(

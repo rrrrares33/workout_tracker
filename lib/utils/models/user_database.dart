@@ -30,10 +30,15 @@ class UserDB {
   final String email;
   final String uid;
   final bool? firstEntry;
-  late final String? name;
-  late final String? surname;
-  late final int? age;
+  late String? name;
+  late String? surname;
+  late int? age;
   late double? weight;
-  late final double? height;
+  late double? height;
   late final WeightMetric? weightType;
+
+  void changeName(String newName) => name = newName;
+  void changeHeight(double newHeight) => height = newHeight;
+  void changeSurname(String newSurname) => surname = newSurname;
+  void changeAge(int newAge) => age = newAge;
 }

@@ -24,7 +24,6 @@ class WorkoutHistoryPage extends StatefulWidget {
 }
 
 class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
-  bool logoutPressed = false;
   late ScrollController _scrollController;
 
   bool get _showBigLeftTitle {

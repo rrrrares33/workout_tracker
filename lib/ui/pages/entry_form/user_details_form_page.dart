@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -196,7 +197,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                           if (!mounted) return;
 
                           // We shall wait 2 seconds to give time for data to be written in the database.
-                          Timer(const Duration(seconds: 2), () {});
+                          sleep(const Duration(seconds: 1));
                           ScaffoldMessenger.of(context).showSnackBar(formFilled);
 
                           Navigator.push(

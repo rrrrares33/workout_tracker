@@ -28,6 +28,7 @@ class _StatisticsAndChartsPageState extends State<StatisticsAndChartsPage> {
         Text(user.uid),
         Text(user.age.toString()),
         Text(user.weight.toString()),
+        Text(user.height.toString()),
         Text(user.weightType.toString()),
         Center(
           child: ElevatedButton(

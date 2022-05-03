@@ -11,6 +11,7 @@ import '../models/exercise.dart';
 import '../models/exercise_set.dart';
 import '../models/history_workout.dart';
 import '../models/user_database.dart';
+import '../models/weight_tracker.dart';
 import '../models/workout_template.dart';
 import 'firebase_service.dart';
 
@@ -448,5 +449,74 @@ class DatabaseService {
 
   List<WorkoutTemplate> getWorkoutTemplates() {
     return _workoutTemplates;
+  }
+
+  Future<WeightTracker> getWeightTrackerForUser(UserDB user, FirebaseService firebaseService) async {
+    final Map<dynamic, dynamic>? result = await firebaseService.getData('WeightTracker');
+    if (result == null || result.isEmpty) {
+      firebaseService.addWeightTrackerForUser(user.uid, user.weight, DateTime.now());
+      return WeightTracker(user.uid, <double>[user.weight!], <DateTime>[DateTime.now()]);
+    }
+    late final WeightTracker trackerToReturn;
+    bool found = false;
+    result.forEach((dynamic key, dynamic value) {
+      value = value as Map<dynamic, dynamic>;
+      key = key as String;
+      if (key == user.uid) {
+        found = true;
+        final String weights = value['weights'] as String;
+        final String dates = value['dates'] as String;
+        final List<String> weightsTrackerStrings =
+            weights.replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',');
+        final List<double> weightsTracker = <double>[];
+        weightsTrackerStrings.forEach((String element) {
+          weightsTracker.add(double.tryParse(element) ?? 0);
+        });
+        final List<String> datesTrackerStrings =
+            dates.replaceAll('[', '').replaceAll(']', '').replaceAll(' ', '').split(',');
+        final List<DateTime> datesTracker = <DateTime>[];
+        datesTrackerStrings.forEach((String element) {
+          element = element.replaceAll('-', '/');
+          datesTracker.add(DateFormat('dd/MM/yyyy').parse(element));
+        });
+        trackerToReturn = WeightTracker(user.uid, weightsTracker, datesTracker);
+      }
+    });
+    if (found == false) {
+      firebaseService.addWeightTrackerForUser(user.uid, user.weight, DateTime.now());
+      return WeightTracker(user.uid, <double>[user.weight!], <DateTime>[DateTime.now()]);
+    }
+    return trackerToReturn;
+  }
+
+  Future<bool> updateTracker(WeightTracker tracker, FirebaseService firebaseService) async {
+    final List<String> weights = <String>[];
+    final List<String> dates = <String>[];
+    tracker.weights.forEach((double element) {
+      weights.add(element.toString());
+    });
+    tracker.dates.forEach((DateTime element) {
+      dates.add('${element.day}-${element.month}-${element.year}');
+    });
+    firebaseService.updateTracker(tracker.uidAssigned, weights.toString(), dates.toString());
+    return true;
+  }
+
+  Future<bool> deleteAnUserAndCascade(UserDB user, WeightTracker tracker, List<HistoryWorkout> history,
+      List<WorkoutTemplate> templates, List<Exercise> allExercises, FirebaseService firebaseService) async {
+    history.forEach((HistoryWorkout element) {
+      firebaseService.removeHistory(element.id);
+    });
+    history.clear();
+    templates.forEach((WorkoutTemplate element) {
+      if (element.id.contains(user.uid)) {
+        firebaseService.removeTemplate(element.id);
+      }
+    });
+    templates.clear();
+    firebaseService.removeTracker(tracker.uidAssigned);
+    tracker.weights.clear();
+    tracker.dates.clear();
+    return true;
   }
 }

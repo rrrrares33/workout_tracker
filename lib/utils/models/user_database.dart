@@ -41,4 +41,5 @@ class UserDB {
   void changeHeight(double newHeight) => height = newHeight;
   void changeSurname(String newSurname) => surname = newSurname;
   void changeAge(int newAge) => age = newAge;
+  void changeWeight(double newWeight) => weight = newWeight;
 }

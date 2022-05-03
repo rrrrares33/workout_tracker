@@ -5,6 +5,7 @@ import '../../../business_logic/login_and_register_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/user_database.dart';
+import '../../../utils/models/weight_tracker.dart';
 import '../../widgets/loading.dart';
 import 'load_exercises.dart';
 import 'user_details_form_page.dart';
@@ -29,13 +30,24 @@ class CheckFirstTimeAndLoadDB extends StatelessWidget {
             return UserDetailsForm(loggedUserUid: loggedUserUid, loggedEmail: loggedEmail);
           } else {
             return MultiProvider(
-              providers: <Provider<dynamic>>[
-                Provider<UserDB>(
-                  create: (_) => loggedUser!,
-                ),
-              ],
-              child: const LoadAllExercisesIntermediary(),
-            );
+                providers: <Provider<dynamic>>[
+                  Provider<UserDB>(
+                    create: (_) => loggedUser!,
+                  ),
+                ],
+                child: FutureBuilder<WeightTracker>(
+                    future: databaseService.getWeightTrackerForUser(loggedUser!, FirebaseService()),
+                    builder: (BuildContext context, AsyncSnapshot<WeightTracker> snapshotFuture) {
+                      if (!snapshotFuture.hasData) {
+                        return const LoadingWidget();
+                      } else {
+                        return MultiProvider(providers: <Provider<dynamic>>[
+                          Provider<WeightTracker>(
+                            create: (_) => snapshotFuture.data!,
+                          ),
+                        ], child: const LoadAllExercisesIntermediary());
+                      }
+                    }));
           }
         }
       },

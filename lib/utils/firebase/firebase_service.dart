@@ -16,6 +16,7 @@ class FirebaseService {
   final DatabaseReference _exercisesRef = FirebaseDatabase.instance.ref().child('Exercises');
   final DatabaseReference _historyRef = FirebaseDatabase.instance.ref().child('History');
   final DatabaseReference _templateRef = FirebaseDatabase.instance.ref().child('Templates');
+  final DatabaseReference _weightTracker = FirebaseDatabase.instance.ref().child('WeightTracker');
 
   Future<Map<dynamic, dynamic>?> getData(String dataType) async {
     try {
@@ -32,6 +33,9 @@ class FirebaseService {
           break;
         case 'Templates':
           event = await _templateRef.once();
+          break;
+        case 'WeightTracker':
+          event = await _weightTracker.once();
           break;
       }
       if (event != null) {
@@ -185,5 +189,28 @@ class FirebaseService {
     } on Exception catch (_) {
       return false;
     }
+  }
+
+  Future<bool> addWeightTrackerForUser(String uid, double? weight, DateTime datetime) async {
+    await _weightTracker.child(uid).set(<String, dynamic>{
+      'uid': uid,
+      'weights': <double>[weight!].toString(),
+      'dates': <String>['${datetime.day}-${datetime.month}-${datetime.year}'].toString(),
+    });
+    return true;
+  }
+
+  Future<bool> removeTracker(String uid) async {
+    await _weightTracker.child(uid).remove();
+    return true;
+  }
+
+  Future<bool> updateTracker(String uid, String weights, String dates) async {
+    await _weightTracker.child(uid).set(<String, dynamic>{
+      'uid': uid,
+      'weights': weights,
+      'dates': dates,
+    });
+    return true;
   }
 }

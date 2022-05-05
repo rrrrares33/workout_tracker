@@ -58,7 +58,10 @@ dependencies:
   build_runner: ^2.1.10
   analyzer: ^3.4.1
   syncfusion_flutter_gauges: ^20.1.52
+
   google_maps_flutter: ^2.1.4
+  location: ^4.3.0
+  google_place: ^0.4.7
 
 dev_dependencies:
   flutter_test:

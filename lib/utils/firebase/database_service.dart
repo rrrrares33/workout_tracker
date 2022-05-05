@@ -19,7 +19,6 @@ class DatabaseService {
   DatabaseService();
 
   static List<UserDB> _allUsers = <UserDB>[];
-
   final List<Exercise> _allExercises = <Exercise>[];
   final List<HistoryWorkout> _workoutHistory = <HistoryWorkout>[];
   final List<WorkoutTemplate> _workoutTemplates = <WorkoutTemplate>[];
@@ -37,6 +36,13 @@ class DatabaseService {
     _allUsers = await getAllUsers(firebaseService);
     // print('Data finished');
     return true;
+  }
+
+  void clearClass(){
+    _workoutTemplates.clear();
+    _workoutHistory.clear();
+    _allExercises.clear();
+    _allUsers.clear();
   }
 
   // Gets all current users from database.
@@ -502,7 +508,7 @@ class DatabaseService {
     return true;
   }
 
-  Future<bool> deleteAnUserAndCascade(UserDB user, WeightTracker tracker, List<HistoryWorkout> history,
+  Future<bool> eraseUserData(UserDB user, WeightTracker tracker, List<HistoryWorkout> history,
       List<WorkoutTemplate> templates, List<Exercise> allExercises, FirebaseService firebaseService) async {
     history.forEach((HistoryWorkout element) {
       firebaseService.removeHistory(element.id);
@@ -514,6 +520,12 @@ class DatabaseService {
       }
     });
     templates.clear();
+    allExercises.forEach((Exercise element) {
+      if (element.whoCreatedThisExercise == user.uid){
+        firebaseService.removeExerciseBasedOnId(element.id);
+        allExercises.remove(element);
+      }
+    });
     firebaseService.removeTracker(tracker.uidAssigned);
     tracker.weights.clear();
     tracker.dates.clear();

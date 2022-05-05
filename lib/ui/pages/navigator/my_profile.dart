@@ -1,7 +1,12 @@
+import 'dart:async';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_place/google_place.dart' as place;
+import 'package:location/location.dart';
+import 'package:provider/provider.dart';
 
 import '../../../business_logic/my_profile_logic.dart';
 import '../../../business_logic/user_details_logic.dart';
@@ -21,6 +26,7 @@ import '../../widgets/text.dart';
 
 const double expandedHeight = 50;
 const double toolbarHeight = 35;
+const String apiKey = 'AIzaSyCgK6AISEWpdFNK3kC2Qahu4awDSZM3XWA';
 
 class MyProfilePage extends StatefulWidget {
   const MyProfilePage({Key? key, required this.callback}) : super(key: key);
@@ -37,14 +43,68 @@ class _MyProfilePageState extends State<MyProfilePage> {
   final TextEditingController heightController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
+  final Completer<GoogleMapController> _controllerGoogle = Completer<GoogleMapController>();
+  late final place.GooglePlace googlePlace;
+  final List<Marker> markers = <Marker>[];
+
+  late bool _serviceEnabled;
+  late PermissionStatus _permissionGranted;
+  LocationData? _userLocation;
 
   bool get _showBigLeftTitle {
     return _scrollController.hasClients && _scrollController.offset > expandedHeight - toolbarHeight;
   }
 
+  Future<void> _getUserLocation() async {
+    final Location location = Location();
+
+    // Check if location service is enable
+    _serviceEnabled = await location.serviceEnabled();
+    if (!_serviceEnabled) {
+      _serviceEnabled = await location.requestService();
+      if (!_serviceEnabled) {
+        return;
+      }
+    }
+
+    // Check if permission is granted
+    _permissionGranted = await location.hasPermission();
+    if (_permissionGranted == PermissionStatus.denied) {
+      _permissionGranted = await location.requestPermission();
+      if (_permissionGranted != PermissionStatus.granted) {
+        return;
+      }
+    }
+
+    final LocationData _locationData = await location.getLocation();
+    setState(() {
+      _userLocation = _locationData;
+    });
+  }
+
+  Future<void> _getLocations() async {
+    final place.Location userLocation = place.Location(lat: _userLocation!.latitude, lng: _userLocation!.longitude);
+    String? nextPageToken;
+    do {
+      final place.NearBySearchResponse? result =
+          await googlePlace.search.getNearBySearch(userLocation, 1500, keyword: 'gym', pagetoken: nextPageToken);
+      result!.results?.forEach((place.SearchResult element) {
+        markers.add(Marker(
+          markerId: MarkerId(element.placeId!),
+          position: LatLng(element.geometry!.location!.lat!, element.geometry!.location!.lng!),
+          infoWindow: InfoWindow(title: element.name, snippet: element.vicinity),
+          icon: BitmapDescriptor.defaultMarkerWithHue(160),
+          onTap: () {},
+        ));
+      });
+      nextPageToken = result.nextPageToken;
+    } while (nextPageToken != null);
+  }
+
   @override
   void initState() {
     _scrollController = ScrollController()..addListener(() => setState(() {}));
+    googlePlace = place.GooglePlace(apiKey);
     super.initState();
   }
 
@@ -402,7 +462,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                               Align(
                                 child: TextWidget(
                                   text:
-                                      'Your B.M.I. is ${calculateBMI(user.weight!, user.weightType!, user.height!).truncateToDouble()} which is ${determineBMIRange(calculateBMI(user.weight!, user.weightType!, user.height!).truncateToDouble())}',
+                                      'Your B.M.I. is ${calculateBMI(user.weight!, user.weightType!, user.height!).toStringAsFixed(2)} which is ${determineBMIRange(calculateBMI(user.weight!, user.weightType!, user.height!).truncateToDouble())}',
                                   fontSize: screenSize.height / 50,
                                   fontStyle: FontStyle.italic,
                                   align: TextAlign.center,
@@ -414,14 +474,47 @@ class _MyProfilePageState extends State<MyProfilePage> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ButtonWidget(
-                text: const Text('Find nearest Gym'),
-                onPressed: () => showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        content: Container(),
-                      );
-                    }),
+                text: const Text('Find a Gym'),
+                onPressed: () async {
+                  await _getUserLocation();
+                  if (_userLocation != null) {
+                    await _getLocations();
+                  }
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        if (_userLocation != null) {
+                          return AlertDialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            title: const TextWidget(
+                              text: 'Google Maps View Of Nearest Gyms',
+                              weight: FontWeight.bold,
+                            ),
+                            titlePadding: const EdgeInsets.all(5),
+                            insetPadding: EdgeInsets.symmetric(
+                                vertical: screenSize.height / 5, horizontal: screenSize.width / 10),
+                            contentPadding: EdgeInsets.zero,
+                            content: GoogleMap(
+                              // liteModeEnabled: true,
+                              mapType: MapType.satellite,
+                              buildingsEnabled: false,
+                              markers: markers.toSet(),
+                              myLocationEnabled: true,
+                              initialCameraPosition: CameraPosition(
+                                  target: LatLng(_userLocation!.latitude!, _userLocation!.longitude!), zoom: 14),
+                              onMapCreated: (GoogleMapController controller) {
+                                _controllerGoogle.complete(controller);
+                              },
+                            ),
+                          );
+                        } else {
+                          Navigator.pop(context);
+                          return Container();
+                        }
+                      });
+                },
               ),
             ),
           ),
@@ -429,14 +522,30 @@ class _MyProfilePageState extends State<MyProfilePage> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ButtonWidget(
-                text: const Text('Delete your account'),
+                text: const Text('Log Out'),
                 onPressed: () {
                   setState(() {
-                    databaseService.deleteAnUserAndCascade(
+                    templates.clear();
+                    exercises.clear();
+                    weightTracker.dates.clear();
+                    weightTracker.weights.clear();
+                    databaseService.clearClass();
+                    authenticationService.signOutFromFirebase();
+                  });
+                },
+                primaryColor: Colors.blueAccent,
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ButtonWidget(
+                text: const Text('Erase Data Related to Your Account'),
+                onPressed: () {
+                  setState(() {
+                    databaseService.eraseUserData(
                         user, weightTracker, historyWorkouts, templates, exercises, FirebaseService());
-
-                    /// TO DO - Throws error
-                    databaseService.deleteAnUser(FirebaseService(), user.uid);
                     authenticationService.signOutFromFirebase();
                   });
                 },

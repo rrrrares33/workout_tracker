@@ -44,10 +44,10 @@ class ChartVolumePerWorkout extends StatelessWidget {
           rangePadding: ChartRangePadding.round,
         ),
         primaryXAxis: DateTimeAxis(
-            dateFormat: DateFormat('dd/MM'),
-            minorGridLines: const MinorGridLines(width: 0),
-            majorGridLines: const MajorGridLines(width: 0),
-          rangePadding: ChartRangePadding.additional
+          dateFormat: DateFormat('dd/MM'),
+          minorGridLines: const MinorGridLines(width: 0),
+          majorGridLines: const MajorGridLines(width: 0),
+          rangePadding: ChartRangePadding.auto,
         ),
         legend: Legend(isVisible: true, position: LegendPosition.bottom),
         margin: const EdgeInsets.all(15),

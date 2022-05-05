@@ -35,8 +35,7 @@ class ChartWeightEvolution extends StatelessWidget {
         primaryXAxis: DateTimeAxis(
             dateFormat: DateFormat('dd/MM'),
             minorGridLines: const MinorGridLines(width: 0),
-            majorGridLines: const MajorGridLines(width: 0)
-        ),
+            majorGridLines: const MajorGridLines(width: 0)),
         legend: Legend(isVisible: true, position: LegendPosition.bottom),
         margin: const EdgeInsets.all(15),
         series: <ChartSeries<dynamic, dynamic>>[

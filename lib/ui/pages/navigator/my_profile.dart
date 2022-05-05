@@ -310,7 +310,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                               'total workouts: ${historyWorkouts.length.toString() != '0' ? historyWorkouts.length.toString() : 'no workouts performed'}',
                           fontSize: screenSize.height / 50,
                           weight: FontWeight.w100,
-                          color: Colors.black.withOpacity(0.5),
+                          color: Theme.of(context).secondaryHeaderColor.withOpacity(0.5),
                         ),
                       ],
                     )),
@@ -346,14 +346,14 @@ class _MyProfilePageState extends State<MyProfilePage> {
                               'Last date recorded: ${weightTracker.dates.last.day}.${weightTracker.dates.last.month}.${weightTracker.dates.last.year}',
                           fontSize: screenSize.height / 55,
                           weight: FontWeight.w100,
-                          color: Colors.black.withOpacity(0.5),
+                          color: Theme.of(context).secondaryHeaderColor.withOpacity(0.5),
                         ),
                         TextWidget(
                           text:
                               'Last weight recorded: ${weightTracker.weights.last} ${user.weightType.toString().replaceAll('WeightMetric.', '')}',
                           fontSize: screenSize.height / 55,
                           weight: FontWeight.w100,
-                          color: Colors.black.withOpacity(0.5),
+                          color: Theme.of(context).secondaryHeaderColor.withOpacity(0.5),
                         ),
                         if ((DateTime.now().day == weightTracker.dates.last.day) &&
                             (DateTime.now().month == weightTracker.dates.last.month) &&
@@ -448,7 +448,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                                 text: 'Body Mass Index',
                                 fontSize: screenSize.height / 55,
                                 weight: FontWeight.w100,
-                                color: Colors.black.withOpacity(0.5),
+                                color: Theme.of(context).secondaryHeaderColor.withOpacity(0.5),
                               ),
                               SizedBox(
                                 width: screenSize.width / 1,

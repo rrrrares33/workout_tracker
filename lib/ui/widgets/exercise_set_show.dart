@@ -152,7 +152,7 @@ class _ExerciseSetShowState extends State<ExerciseSetShow> {
           ),
           ButtonWidget(
             onPressed: widget.onPressedAddSet,
-            primaryColor: Colors.black54,
+            primaryColor: Colors.grey,
             minimumSize: Size.fromHeight(widget.screenWidth / 15),
             text: const TextWidget(text: addAnotherSetText),
           )

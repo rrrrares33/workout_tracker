@@ -70,7 +70,6 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
               horizontal: widget.width / 30,
               child: Card(
                 shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
-                color: Colors.black12,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -111,7 +110,6 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
             horizontal: widget.width / 30,
             child: Card(
               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
-              color: Colors.black12,
               child: Column(
                 children: <Widget>[
                   Row(
@@ -163,7 +161,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                               text: personalTemplates[index].name,
                               weight: FontWeight.bold,
                               fontSize: widget.width / 22,
-                              align: TextAlign.left,
+                              align: TextAlign.center,
                             ),
                             content: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,10 +169,12 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                 PaddingWidget(
                                   onlyBottom: widget.height / 30,
                                   type: 'only',
-                                  child: TextWidget(
-                                    text: personalTemplates[index].notes,
-                                    align: TextAlign.start,
-                                    fontStyle: FontStyle.italic,
+                                  child: Align(
+                                    child: TextWidget(
+                                      align: TextAlign.center,
+                                      text: personalTemplates[index].notes,
+                                      fontStyle: FontStyle.italic,
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -234,6 +234,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: widget.width / 33.33),
                     child: Card(
+                      color: Colors.grey[200],
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
                       child: PaddingWidget(
                         type: 'only',
@@ -339,7 +340,6 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
             horizontal: widget.width / 30,
             child: Card(
               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
-              color: Colors.black12,
               child: Column(
                 children: <Widget>[
                   Row(
@@ -350,7 +350,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                         onlyTop: widget.height / 50,
                         onlyBottom: widget.height / 50,
                         child: TextWidget(
-                          text: 'System Templates',
+                          text: 'Basic Templates',
                           weight: FontWeight.bold,
                           fontSize: widget.width / 23,
                         ),
@@ -378,6 +378,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                               text: systemTemplates[index].name.replaceAll(' system', ''),
                               weight: FontWeight.bold,
                               fontSize: widget.width / 22,
+                              align: TextAlign.center,
                             ),
                             content: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -385,10 +386,12 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                 PaddingWidget(
                                   onlyBottom: widget.height / 30,
                                   type: 'only',
-                                  child: TextWidget(
-                                    text: systemTemplates[index].notes,
-                                    align: TextAlign.start,
-                                    fontStyle: FontStyle.italic,
+                                  child: Align(
+                                    child: TextWidget(
+                                      text: systemTemplates[index].notes,
+                                      align: TextAlign.center,
+                                      fontStyle: FontStyle.italic,
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -430,6 +433,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: widget.width / 33.33),
                     child: Card(
+                      color: Colors.grey[200],
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
                       child: PaddingWidget(
                         type: 'only',

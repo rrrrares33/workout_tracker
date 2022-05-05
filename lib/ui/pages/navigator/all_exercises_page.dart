@@ -112,6 +112,9 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                               color: Theme.of(context).primaryColor,
                             ),
                           ),
+                          placeholderStyle: const TextStyle(
+                            color: Colors.black54,
+                          ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8.0),
                             color: const Color(0xffF0F1F5),
@@ -217,6 +220,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                           });
                         },
                         foregroundColor: Colors.greenAccent[400],
+                        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                         icon: FontAwesomeIcons.circlePlus,
                         label: 'Add',
                       ),

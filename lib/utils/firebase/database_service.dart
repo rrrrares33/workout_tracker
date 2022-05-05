@@ -38,7 +38,7 @@ class DatabaseService {
     return true;
   }
 
-  void clearClass(){
+  void clearClass() {
     _workoutTemplates.clear();
     _workoutHistory.clear();
     _allExercises.clear();
@@ -521,7 +521,7 @@ class DatabaseService {
     });
     templates.clear();
     allExercises.forEach((Exercise element) {
-      if (element.whoCreatedThisExercise == user.uid){
+      if (element.whoCreatedThisExercise == user.uid) {
         firebaseService.removeExerciseBasedOnId(element.id);
         allExercises.remove(element);
       }

@@ -280,7 +280,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                         ),
                         style: TextStyle(
                           fontStyle: FontStyle.italic,
-                          color: currentWorkout.workoutNotes.text == defaultWorkoutNote ? Colors.black54 : null,
+                          color: currentWorkout.workoutNotes.text == defaultWorkoutNote ? Colors.grey : null,
                         ),
                       ))
                 ],

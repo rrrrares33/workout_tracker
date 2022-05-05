@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../utils/firebase/authentication_service.dart';
 import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
 import '../../../utils/models/weight_tracker.dart';
@@ -35,11 +34,11 @@ class _StatisticsAndChartsPageState extends State<StatisticsAndChartsPage> {
     return _scrollController.hasClients && _scrollController.offset > expandedHeight - toolbarHeight;
   }
 
-  List<ChartData> convertWeightTrackerToChartData(WeightTracker weightTracker){
+  List<ChartData> convertWeightTrackerToChartData(WeightTracker weightTracker) {
     final List<ChartData> data = <ChartData>[];
     final List<double> weightsFromTracker = weightTracker.weights.toList();
     final List<DateTime> datesFromTracker = weightTracker.dates.toList();
-    for(int i = 0; i < weightsFromTracker.length; i++){
+    for (int i = 0; i < weightsFromTracker.length; i++) {
       data.add(ChartData(datesFromTracker[i], weightsFromTracker[i]));
     }
     return data;
@@ -83,41 +82,40 @@ class _StatisticsAndChartsPageState extends State<StatisticsAndChartsPage> {
       )),
       SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    ChartWorkoutsPerWeek(historyWorkouts : historyWorkouts),
-                  ],
-                ),
-              ),
-            ),
-          )),
-
-      SliverToBoxAdapter(
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    ChartVolumePerWorkout(history : historyWorkouts, user: user),
-                  ],
-                ),
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ChartWorkoutsPerWeek(historyWorkouts: historyWorkouts),
+              ],
             ),
-          ))
+          ),
+        ),
+      )),
+      SliverToBoxAdapter(
+          child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ChartVolumePerWorkout(history: historyWorkouts, user: user),
+              ],
+            ),
+          ),
+        ),
+      ))
     ]);
   }
 }

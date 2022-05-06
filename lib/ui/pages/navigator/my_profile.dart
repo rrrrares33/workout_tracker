@@ -266,6 +266,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                                                         surnameController.text != ''
                                                             ? surnameController.text
                                                             : user.surname,
+                                                        user.sex,
                                                         ageController.text != ''
                                                             ? int.tryParse(ageController.text)
                                                             : user.age,
@@ -285,6 +286,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                                                         newUser.email,
                                                         newUser.name!,
                                                         newUser.surname!,
+                                                        newUser.sex!,
                                                         newUser.age!,
                                                         newUser.weight!,
                                                         newUser.height!,

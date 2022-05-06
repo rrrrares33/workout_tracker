@@ -186,8 +186,6 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                             doesHaveUnCheckedSets: !checkForEmptySetsMultipleExercises(currentWorkout.exercises),
                             onPressedFinished: () async {
                               Navigator.pop(auxContext);
-                              currentWorkout.workoutNotes = TextEditingController(text: defaultWorkoutNote);
-                              currentWorkout.workoutName = TextEditingController(text: defaultWorkoutTile);
                               if (validateWorkoutSets(currentWorkout.exercises)) {
                                 final List<ExerciseSet> aux = removeEmptyExercises(currentWorkout.exercises);
                                 currentWorkout.exercises.clear();

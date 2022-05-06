@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../utils/models/user_database.dart';
 import '../../utils/models/weight_tracker.dart';
 
 class ChartData {
@@ -23,36 +24,48 @@ List<ChartData> convertWeightTrackerToChartData(WeightTracker weightTracker) {
 }
 
 class ChartWeightEvolution extends StatelessWidget {
-  const ChartWeightEvolution({Key? key, required this.weightTracker}) : super(key: key);
+  const ChartWeightEvolution({Key? key, required this.weightTracker, required this.user}) : super(key: key);
   final WeightTracker weightTracker;
+  final UserDB user;
 
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-        title: ChartTitle(
-            text: 'Personal weight evolution', textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
         palette: const <Color>[Colors.green],
         primaryXAxis: DateTimeAxis(
-            dateFormat: DateFormat('dd/MM'),
-            minorGridLines: const MinorGridLines(width: 0),
-            majorGridLines: const MajorGridLines(width: 0)),
+          dateFormat: DateFormat('dd/MM'),
+          minorGridLines: const MinorGridLines(width: 0),
+          majorGridLines: const MajorGridLines(width: 0),
+        ),
+        primaryYAxis: NumericAxis(
+          numberFormat: NumberFormat('### ${user.weightType.toString().replaceAll('WeightMetric.', '')}'),
+        ),
         legend: Legend(isVisible: true, position: LegendPosition.bottom),
         margin: const EdgeInsets.all(15),
         series: <ChartSeries<dynamic, dynamic>>[
-          AreaSeries<ChartData, DateTime>(
+          SplineAreaSeries<ChartData, DateTime>(
               dataSource: convertWeightTrackerToChartData(weightTracker),
               xValueMapper: (ChartData data, _) => data.x,
               yValueMapper: (ChartData data, _) => data.y,
               name: 'weight',
               yAxisName: 'weight',
               xAxisName: 'date',
-              color: Colors.black26,
+              color: Colors.black12,
+              isVisibleInLegend: false),
+          SplineSeries<ChartData, DateTime>(
+              dataSource: convertWeightTrackerToChartData(weightTracker),
+              xValueMapper: (ChartData data, _) => data.x,
+              yValueMapper: (ChartData data, _) => data.y,
+              name: 'Weight',
+              yAxisName: 'weight',
+              xAxisName: 'date',
+              color: Colors.greenAccent[400],
               isVisibleInLegend: true),
           ScatterSeries<ChartData, DateTime>(
             dataSource: convertWeightTrackerToChartData(weightTracker),
             xValueMapper: (ChartData data, _) => data.x,
             yValueMapper: (ChartData data, _) => data.y,
-            name: 'recorded points',
+            name: 'Recorded date',
             color: Colors.green,
             isVisibleInLegend: true,
           ),

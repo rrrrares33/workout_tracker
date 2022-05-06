@@ -57,14 +57,15 @@ class FirebaseService {
     return true;
   }
 
-  Future<Map<String, dynamic>> createUserWithFullDetails(String uid, String email, String name, String surname, int age,
-      double weight, double height, WeightMetric weightType) async {
+  Future<Map<String, dynamic>> createUserWithFullDetails(String uid, String email, String name, String surname,
+      String sex, int age, double weight, double height, WeightMetric weightType) async {
     await _usersRef.child(uid).set(<String, dynamic>{
       'uid': uid,
       'email': email,
       'firstEntry': false.toString(),
       'name': name,
       'surname': surname,
+      'sex': sex,
       'age': age.toString(),
       'weight': weight.toString(),
       'height': height.toString(),
@@ -76,6 +77,7 @@ class FirebaseService {
       'firstEntry': false.toString(),
       'name': name,
       'surname': surname,
+      'sex': sex,
       'age': age.toString(),
       'weight': weight.toString(),
       'height': height.toString(),

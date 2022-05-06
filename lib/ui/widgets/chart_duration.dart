@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../business_logic/workout_history_logic.dart';
 import '../../utils/models/history_workout.dart';
-import '../../utils/models/user_database.dart';
 
 class ChartData {
   // Used to display statistics easily
@@ -14,35 +12,36 @@ class ChartData {
   final DateTime x;
 
   // nr. of workouts in that week
-  double y;
+  int y;
 }
 
-List<ChartData> convertHistoryWorkoutsToChartData(List<HistoryWorkout> historyWorkouts, UserDB user) {
+List<ChartData> convertHistoryWorkoutsToChartData(List<HistoryWorkout> historyWorkouts) {
   final List<ChartData> returnList = <ChartData>[];
   for (final HistoryWorkout element in historyWorkouts) {
     final DateTime localDateTime = DateFormat('h:mm dd.MM.yyyy').parse(
         "${element.startTime?.replaceAll('  ', ' ').split(' ')[0].replaceAll(' ', '')} ${element.startTime?.replaceAll('  ', ' ').split(' ')[1].replaceAll(' ', '')}");
-    final String totalWeightString = getTotalWeightOfAnWorkout(element.exercises, user.weight!, user.weightType!);
-    final double? totalWeight = double.tryParse(totalWeightString.substring(0, totalWeightString.length - 3));
-    returnList.add(ChartData(localDateTime, totalWeight!));
+    final int? hours = int.tryParse(element.duration!.split(':')[0]);
+    final int? minutes = int.tryParse(element.duration!.split(':')[1]);
+    late final int totalTime;
+    if (hours != null && minutes != null) {
+      totalTime = hours * 60 + minutes;
+    }
+    if (totalTime != null) {
+      returnList.add(ChartData(localDateTime, totalTime));
+    }
   }
   return returnList;
 }
 
-class ChartVolumePerWorkout extends StatelessWidget {
-  const ChartVolumePerWorkout({Key? key, required this.history, required this.user}) : super(key: key);
-  final UserDB user;
+class ChartDurationPerWorkout extends StatelessWidget {
+  const ChartDurationPerWorkout({Key? key, required this.history}) : super(key: key);
   final List<HistoryWorkout> history;
 
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
         palette: const <Color>[Colors.green],
-        primaryYAxis: NumericAxis(
-            rangePadding: ChartRangePadding.round,
-            numberFormat: NumberFormat.compactCurrency(
-              symbol: 'kg. ',
-            )),
+        primaryYAxis: NumericAxis(rangePadding: ChartRangePadding.round, numberFormat: NumberFormat('### min')),
         primaryXAxis: DateTimeAxis(
           dateFormat: DateFormat('dd/MM'),
           minorGridLines: const MinorGridLines(width: 0),
@@ -53,7 +52,7 @@ class ChartVolumePerWorkout extends StatelessWidget {
         margin: const EdgeInsets.all(15),
         series: <ChartSeries<dynamic, dynamic>>[
           SplineSeries<ChartData, DateTime>(
-              dataSource: convertHistoryWorkoutsToChartData(history, user),
+              dataSource: convertHistoryWorkoutsToChartData(history),
               xValueMapper: (ChartData data, _) => data.x,
               yValueMapper: (ChartData data, _) => data.y,
               name: 'weight',
@@ -63,25 +62,25 @@ class ChartVolumePerWorkout extends StatelessWidget {
               color: Colors.greenAccent[400],
               isVisibleInLegend: false),
           SplineAreaSeries<ChartData, DateTime>(
-              dataSource: convertHistoryWorkoutsToChartData(history, user),
+              dataSource: convertHistoryWorkoutsToChartData(history),
               xValueMapper: (ChartData data, _) => data.x,
               yValueMapper: (ChartData data, _) => data.y,
-              name: 'weight',
-              yAxisName: 'weight',
+              name: 'time',
+              yAxisName: 'time',
               xAxisName: 'date',
               splineType: SplineType.monotonic,
               color: Colors.black12,
               isVisibleInLegend: false),
           ScatterSeries<ChartData, DateTime>(
-            dataSource: convertHistoryWorkoutsToChartData(history, user),
+            dataSource: convertHistoryWorkoutsToChartData(history),
             xValueMapper: (ChartData data, _) => data.x,
             yValueMapper: (ChartData data, _) => data.y,
-            name: 'Volume per workout(kg)',
+            name: 'Time (in minutes)',
             color: Colors.green,
             isVisibleInLegend: true,
           ),
           ColumnSeries<ChartData, DateTime>(
-            dataSource: convertHistoryWorkoutsToChartData(history, user),
+            dataSource: convertHistoryWorkoutsToChartData(history),
             xValueMapper: (ChartData data, _) => data.x,
             yValueMapper: (ChartData data, _) => data.y,
             name: 'Record Date',

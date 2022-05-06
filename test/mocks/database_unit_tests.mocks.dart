@@ -40,9 +40,10 @@ class MockFirebaseService extends _i1.Mock implements _i2.FirebaseService {
           as _i3.Future<bool>);
   @override
   _i3.Future<Map<String, dynamic>> createUserWithFullDetails(String? uid, String? email, String? name, String? surname,
-          int? age, double? weight, double? height, _i4.WeightMetric? weightType) =>
+          String? sex, int? age, double? weight, double? height, _i4.WeightMetric? weightType) =>
       (super.noSuchMethod(
-          Invocation.method(#createUserWithFullDetails, [uid, email, name, surname, age, weight, height, weightType]),
+          Invocation.method(
+              #createUserWithFullDetails, [uid, email, name, surname, sex, age, weight, height, weightType]),
           returnValue: Future<Map<String, dynamic>>.value(<String, dynamic>{})) as _i3.Future<Map<String, dynamic>>);
   @override
   _i3.Future<bool?> changeUserWeight(String? uid, double? newWeight) =>

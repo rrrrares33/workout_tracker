@@ -196,7 +196,7 @@ void main() {
             uidToTest: <dynamic, dynamic>{'uid': uidToTest, 'email': 'sgds@yahoo.com', 'firstEntry': 'true'}
           });
       when(firebaseServiceInstance.removeUserBasedOnUID(uidToTest)).thenAnswer((_) async => true);
-      when(firebaseServiceInstance.createUserWithFullDetails(any, any, any, any, any, any, any, any))
+      when(firebaseServiceInstance.createUserWithFullDetails(any, any, any, any, any, any, any, any, any))
           .thenAnswer((_) async => <String, dynamic>{});
       final bool loaded = await databaseService.loadUsers(firebaseServiceInstance);
 
@@ -206,8 +206,8 @@ void main() {
       expect(databaseService.getUserBaseOnUid(uidToTest)!.name == null, true);
 
       // ACT - We override the already created user with a full one
-      await databaseService.createUserWithFullDetails(
-          uidToTest, 'sgds@yahoo.com', newName, 'Babara', 33, 65, newHeight, WeightMetric.LBS, firebaseServiceInstance);
+      await databaseService.createUserWithFullDetails(uidToTest, 'sgds@yahoo.com', newName, 'Babara', 'male', 33, 65,
+          newHeight, WeightMetric.LBS, firebaseServiceInstance);
 
       // ASSERT
       expect(databaseService.getUsers().length == 2, true);

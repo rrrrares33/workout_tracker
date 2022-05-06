@@ -81,11 +81,10 @@ class ChartWorkoutsPerWeek extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-        title: ChartTitle(
-            text: 'Workouts per week', textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
         primaryYAxis: NumericAxis(
             rangePadding: ChartRangePadding.round,
-            maximumLabels: getNrOfIntervals(convertHistoryWorkoutsToChartData(historyWorkouts))),
+            maximumLabels: getNrOfIntervals(convertHistoryWorkoutsToChartData(historyWorkouts)),
+            numberFormat: NumberFormat('### times')),
         legend: Legend(isVisible: true, position: LegendPosition.bottom),
         primaryXAxis: DateTimeCategoryAxis(
             dateFormat: DateFormat('dd/MM'),
@@ -99,7 +98,7 @@ class ChartWorkoutsPerWeek extends StatelessWidget {
               width: 0.75,
               color: Colors.greenAccent,
               borderRadius: const BorderRadius.all(Radius.circular(15)),
-              legendItemText: 'workouts per week (X-Axis)')
+              legendItemText: 'Workouts per week (X-Axis)')
         ]);
   }
 }

@@ -73,8 +73,8 @@ class DatabaseService {
           foundUser = UserDB(user.uid, user.email, user.firstEntry);
           found = true;
         } else {
-          foundUser = UserDB(user.uid, user.email, user.firstEntry, user.name, user.surname, user.age, user.weight,
-              user.height, user.weightType);
+          foundUser = UserDB(user.uid, user.email, user.firstEntry, user.name, user.surname, user.sex, user.age,
+              user.weight, user.height, user.weightType);
           found = true;
         }
       }
@@ -91,18 +91,27 @@ class DatabaseService {
   }
 
   // Creates an user after completing the details form.
-  Future<Map<String, dynamic>> createUserWithFullDetails(String uid, String email, String name, String surname, int age,
-      double weight, double height, WeightMetric weightType, FirebaseService firebaseService) async {
+  Future<Map<String, dynamic>> createUserWithFullDetails(
+      String uid,
+      String email,
+      String name,
+      String surname,
+      String sex,
+      int age,
+      double weight,
+      double height,
+      WeightMetric weightType,
+      FirebaseService firebaseService) async {
     // We first delete the already created user (firstEntry == true)
     await firebaseService.removeUserBasedOnUID(uid);
 
     final int posToRemove = _allUsers.lastIndexWhere((UserDB element) => element.uid == uid);
     _allUsers.removeAt(posToRemove);
-    _allUsers.add(UserDB(uid, email, false, name, surname, age, weight, height, weightType));
+    _allUsers.add(UserDB(uid, email, false, name, surname, sex, age, weight, height, weightType));
 
     // Then we create the new user.
-    final Map<String, dynamic> res =
-        await firebaseService.createUserWithFullDetails(uid, email, name, surname, age, weight, height, weightType);
+    final Map<String, dynamic> res = await firebaseService.createUserWithFullDetails(
+        uid, email, name, surname, sex, age, weight, height, weightType);
     return res;
   }
 

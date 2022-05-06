@@ -30,6 +30,8 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
   final TextEditingController ageController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController heightController = TextEditingController();
+  bool isMan = true;
+  bool isWomen = false;
 
   // Controller for weight metric button selection.
   static WeightMetric weightMetric = WeightMetric.KG;
@@ -152,6 +154,41 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                 ),
                 PaddingWidget(
                   type: 'only',
+                  onlyTop: 10,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      PaddingWidget(
+                          type: 'symmetric',
+                          horizontal: 5.0,
+                          child: ButtonWidget(
+                            onPressed: () {
+                              setState(() {
+                                isMan = true;
+                                isWomen = false;
+                              });
+                            },
+                            primaryColor: isMan ? Colors.greenAccent[400] : Colors.grey,
+                            text: const TextWidget(text: 'Man'),
+                          )),
+                      PaddingWidget(
+                          type: 'symmetric',
+                          horizontal: 5.0,
+                          child: ButtonWidget(
+                            onPressed: () {
+                              setState(() {
+                                isMan = false;
+                                isWomen = true;
+                              });
+                            },
+                            primaryColor: isWomen ? Colors.greenAccent[400] : Colors.grey,
+                            text: const TextWidget(text: 'Women'),
+                          )),
+                    ],
+                  ),
+                ),
+                PaddingWidget(
+                  type: 'only',
                   onlyTop: 10.0,
                   child: PaddingWidget(
                       type: 'symmetric',
@@ -187,6 +224,7 @@ class _UserDetailsFormState extends State<UserDetailsForm> {
                             widget.loggedEmail,
                             firstNameController.text,
                             secondNameController.text,
+                            isMan ? 'male' : 'women',
                             int.parse(ageController.text),
                             double.parse(weightController.text),
                             double.parse(heightController.text),

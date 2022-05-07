@@ -5,8 +5,12 @@ import 'package:provider/provider.dart';
 import '../../../business_logic/workout_history_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/firebase/firebase_service.dart';
+import '../../../utils/models/current_workout.dart';
+import '../../../utils/models/editing_template.dart';
+import '../../../utils/models/exercise_set.dart';
 import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
+import '../../text/start_workout_text.dart';
 import '../../widgets/alert_history_workout.dart';
 import '../../widgets/history_calendar.dart';
 import '../../widgets/padding.dart';
@@ -17,7 +21,8 @@ const double expandedHeight = 50;
 const double toolbarHeight = 35;
 
 class WorkoutHistoryPage extends StatefulWidget {
-  const WorkoutHistoryPage({Key? key}) : super(key: key);
+  const WorkoutHistoryPage({Key? key, required this.callback}) : super(key: key);
+  final void Function(int) callback;
 
   @override
   State<WorkoutHistoryPage> createState() => _WorkoutHistoryPageState();
@@ -40,6 +45,8 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
   Widget build(BuildContext context) {
     final List<HistoryWorkout> historyWorkouts = Provider.of<List<HistoryWorkout>>(context);
     final DatabaseService databaseService = Provider.of<DatabaseService>(context);
+    final CurrentWorkout currentWorkout = Provider.of<CurrentWorkout>(context);
+    final EditingTemplate editingTemplate = Provider.of<EditingTemplate>(context);
     final UserDB user = Provider.of<UserDB>(context);
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -118,6 +125,107 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
                                                   text: 'Remove',
                                                   fontSize: screenSize.width / 23,
                                                   color: Colors.red,
+                                                  weight: FontWeight.bold,
+                                                  align: TextAlign.center,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          PopupMenuItem<int>(
+                                            value: 2,
+                                            child: Center(
+                                              child: TextButton(
+                                                onPressed: () {
+                                                  if ((editingTemplate.currentlyEditing == null ||
+                                                          editingTemplate.currentlyEditing == false) &&
+                                                      currentWorkout.startTime == null) {
+                                                    setState(() {
+                                                      currentWorkout.startTime = DateTime.now();
+                                                      currentWorkout.workoutNotes = TextEditingController(
+                                                          text: historyWorkouts[index].workoutNotes);
+                                                      currentWorkout.workoutName = TextEditingController(
+                                                          text: historyWorkouts[index].workoutName);
+                                                      for (final ExerciseSet element
+                                                          in historyWorkouts[index].exercises) {
+                                                        late final ExerciseSet aux;
+                                                        if (element.type == 'ExerciseSetWeight') {
+                                                          aux = ExerciseSetWeight(element.assignedExercise);
+                                                          aux.type = 'ExerciseSetWeight';
+                                                        } else if (element.type == 'ExerciseSetMinusWeight') {
+                                                          aux = ExerciseSetMinusWeight(element.assignedExercise);
+                                                          aux.type = 'ExerciseSetMinusWeight';
+                                                        } else {
+                                                          aux = ExerciseSetDuration(element.assignedExercise);
+                                                          aux.type = 'ExerciseSetDuration';
+                                                        }
+                                                        for (final List<TextEditingController> element2
+                                                            in element.sets) {
+                                                          final List<TextEditingController> damn = element2.toList();
+                                                          damn.add(TextEditingController(text: notCheckedText));
+                                                          aux.sets.add(damn);
+                                                        }
+                                                        currentWorkout.exercises.add(aux);
+                                                      }
+                                                      widget.callback(2);
+                                                    });
+                                                  }
+                                                  Navigator.pop(context);
+                                                },
+                                                child: TextWidget(
+                                                  text: 'Start workout',
+                                                  fontSize: screenSize.width / 23,
+                                                  color: Colors.blue,
+                                                  weight: FontWeight.bold,
+                                                  align: TextAlign.center,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          PopupMenuItem<int>(
+                                            value: 2,
+                                            child: Center(
+                                              child: TextButton(
+                                                onPressed: () {
+                                                  if ((editingTemplate.currentlyEditing == null ||
+                                                          editingTemplate.currentlyEditing == false) &&
+                                                      currentWorkout.startTime == null) {
+                                                    setState(() {
+                                                      editingTemplate.templateNotes = TextEditingController(
+                                                          text: historyWorkouts[index].workoutNotes);
+                                                      editingTemplate.templateName = TextEditingController(
+                                                          text: historyWorkouts[index].workoutName);
+                                                      for (final ExerciseSet element
+                                                          in historyWorkouts[index].exercises) {
+                                                        late final ExerciseSet aux;
+                                                        if (element.type == 'ExerciseSetWeight') {
+                                                          aux = ExerciseSetWeight(element.assignedExercise);
+                                                          aux.type = 'ExerciseSetWeight';
+                                                        } else if (element.type == 'ExerciseSetMinusWeight') {
+                                                          aux = ExerciseSetMinusWeight(element.assignedExercise);
+                                                          aux.type = 'ExerciseSetMinusWeight';
+                                                        } else {
+                                                          aux = ExerciseSetDuration(element.assignedExercise);
+                                                          aux.type = 'ExerciseSetDuration';
+                                                        }
+                                                        final List<TextEditingController> damn =
+                                                            <TextEditingController>[
+                                                          TextEditingController(text: element.sets.length.toString()),
+                                                          TextEditingController(),
+                                                          TextEditingController()
+                                                        ];
+                                                        aux.sets.add(damn);
+                                                        editingTemplate.exercises.add(aux);
+                                                      }
+                                                      editingTemplate.currentlyEditing = true;
+                                                      widget.callback(2);
+                                                    });
+                                                  }
+                                                  Navigator.pop(context);
+                                                },
+                                                child: TextWidget(
+                                                  text: 'Save as template',
+                                                  fontSize: screenSize.width / 23,
+                                                  color: Colors.green,
                                                   weight: FontWeight.bold,
                                                   align: TextAlign.center,
                                                 ),

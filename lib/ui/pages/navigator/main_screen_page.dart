@@ -33,7 +33,7 @@ class _MainScreenPageState extends State<MainScreenPage> {
   void initState() {
     _pageOptions = <Widget>[
       MyProfilePage(callback: callBackToAnotherPage),
-      const WorkoutHistoryPage(),
+      WorkoutHistoryPage(callback: callBackToAnotherPage),
       StartWorkoutPage(callback: callBackToAnotherPage),
       AllExercisesPage(callback: callBackToAnotherPage),
       const StatisticsAndChartsPage()

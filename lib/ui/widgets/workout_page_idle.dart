@@ -234,7 +234,6 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: widget.width / 33.33),
                     child: Card(
-                      color: Colors.grey[200],
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
                       child: PaddingWidget(
                         type: 'only',
@@ -433,7 +432,6 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: widget.width / 33.33),
                     child: Card(
-                      color: Colors.grey[200],
                       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
                       child: PaddingWidget(
                         type: 'only',

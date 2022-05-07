@@ -12,6 +12,7 @@ import '../../widgets/chart_weight_evolution.dart';
 import '../../widgets/chart_workouts_per_week.dart';
 import '../../widgets/padding.dart';
 import '../../widgets/sliver_top_bar.dart';
+import '../../widgets/statistics.dart';
 import '../../widgets/text.dart';
 
 const double expandedHeight = 50;
@@ -298,6 +299,22 @@ class _StatisticsAndChartsPageState extends State<StatisticsAndChartsPage> {
           ),
         ),
       )),
+      SliverToBoxAdapter(
+          child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                        PaddingWidget(
+                          type: 'all',
+                          all: screenSize.height / 100,
+                          child: Statistics(history: historyWorkouts, user: user, screenSize: screenSize),
+                        )
+                      ]))))),
     ]);
   }
 }

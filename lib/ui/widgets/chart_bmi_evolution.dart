@@ -96,7 +96,7 @@ class ChartBMIEvolution extends StatelessWidget {
             dataSource: convertWeightTrackerToChartData(weightTracker, user.height!, user.weightType!),
             xValueMapper: (ChartData data, _) => data.x,
             yValueMapper: (ChartData data, _) => data.y,
-            name: 'Record Date',
+            name: 'Date',
             width: 0.1,
             color: Colors.green.withOpacity(0.3),
             isVisibleInLegend: true,

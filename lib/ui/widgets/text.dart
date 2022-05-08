@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TextWidget extends StatelessWidget {
-  const TextWidget({Key? key, this.color, this.fontSize, this.fontStyle, this.align, this.text, this.weight})
+  const TextWidget(
+      {Key? key, this.color, this.fontSize, this.fontStyle, this.align, this.text, this.weight, this.fontFamily})
       : super(key: key);
   final String? text;
   final Color? color;
   final double? fontSize;
+  final String? fontFamily;
   final FontStyle? fontStyle;
   final TextAlign? align;
   final FontWeight? weight;
@@ -20,6 +22,7 @@ class TextWidget extends StatelessWidget {
         fontSize: fontSize ?? 14.0,
         fontStyle: fontStyle ?? FontStyle.normal,
         fontWeight: weight ?? FontWeight.normal,
+        fontFamily: fontFamily,
       ),
     );
   }

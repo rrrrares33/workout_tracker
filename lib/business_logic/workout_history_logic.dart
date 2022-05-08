@@ -1,7 +1,11 @@
 // ignore_for_file: implementation_imports
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/editable_text.dart';
 import 'package:intl/intl.dart';
 
+import '../ui/text/start_workout_text.dart';
+import '../utils/models/current_workout.dart';
+import '../utils/models/editing_template.dart';
 import '../utils/models/exercise_set.dart';
 import '../utils/models/history_workout.dart';
 import '../utils/models/user_database.dart';
@@ -139,4 +143,62 @@ List<DateTime> getAllDateTimesOfWorkouts(List<HistoryWorkout> workouts) {
     result.add(resultedDate);
   });
   return result;
+}
+
+bool checkIfNothingOpenedInStartWorkoutPage(EditingTemplate currentEditingTemplate, CurrentWorkout currentWorkout) {
+  return (currentEditingTemplate.currentlyEditing == null || currentEditingTemplate.currentlyEditing == false) &&
+      currentWorkout.startTime == null;
+}
+
+void copyHistoryInCurrentWorkout(HistoryWorkout historyWorkout, CurrentWorkout currentWorkout) {
+  currentWorkout.startTime = DateTime.now();
+  currentWorkout.workoutNotes = TextEditingController(text: historyWorkout.workoutNotes);
+  currentWorkout.workoutName = TextEditingController(text: historyWorkout.workoutName);
+  for (final ExerciseSet element in historyWorkout.exercises) {
+    late final ExerciseSet aux;
+    if (element.type == 'ExerciseSetWeight') {
+      aux = ExerciseSetWeight(element.assignedExercise);
+      aux.type = 'ExerciseSetWeight';
+    } else if (element.type == 'ExerciseSetMinusWeight') {
+      aux = ExerciseSetMinusWeight(element.assignedExercise);
+      aux.type = 'ExerciseSetMinusWeight';
+    } else {
+      aux = ExerciseSetDuration(element.assignedExercise);
+      aux.type = 'ExerciseSetDuration';
+    }
+    for (final List<TextEditingController> element2 in element.sets) {
+      final List<TextEditingController> damn = <TextEditingController>[];
+      damn.add(TextEditingController(text: element2[0].text));
+      damn.add(TextEditingController(text: element2[1].text));
+      damn.add(TextEditingController(text: notCheckedText));
+      aux.sets.add(damn);
+    }
+    currentWorkout.exercises.add(aux);
+  }
+}
+
+void copyHistoryWorkoutToEditingTemplate(HistoryWorkout historyWorkout, EditingTemplate editingTemplate) {
+  editingTemplate.templateNotes = TextEditingController(text: historyWorkout.workoutNotes);
+  editingTemplate.templateName = TextEditingController(text: historyWorkout.workoutName);
+  for (final ExerciseSet element in historyWorkout.exercises) {
+    late final ExerciseSet aux;
+    if (element.type == 'ExerciseSetWeight') {
+      aux = ExerciseSetWeight(element.assignedExercise);
+      aux.type = 'ExerciseSetWeight';
+    } else if (element.type == 'ExerciseSetMinusWeight') {
+      aux = ExerciseSetMinusWeight(element.assignedExercise);
+      aux.type = 'ExerciseSetMinusWeight';
+    } else {
+      aux = ExerciseSetDuration(element.assignedExercise);
+      aux.type = 'ExerciseSetDuration';
+    }
+    final List<TextEditingController> damn = <TextEditingController>[
+      TextEditingController(text: element.sets.length.toString()),
+      TextEditingController(),
+      TextEditingController()
+    ];
+    aux.sets.add(damn);
+    editingTemplate.exercises.add(aux);
+  }
+  editingTemplate.currentlyEditing = true;
 }

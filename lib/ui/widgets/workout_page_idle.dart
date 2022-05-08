@@ -45,6 +45,8 @@ class WorkoutPageIdle extends StatefulWidget {
 }
 
 class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
+  bool hideSystemTemplates = false;
+
   @override
   Widget build(BuildContext context) {
     final CurrentWorkout currentWorkout = Provider.of<CurrentWorkout>(context);
@@ -65,9 +67,10 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
               showBigTitle: widget.showBigLeftTitle),
           SliverToBoxAdapter(
             child: PaddingWidget(
-              type: 'symmetric',
-              vertical: widget.height / 50,
-              horizontal: widget.width / 30,
+              type: 'only',
+              onlyRight: widget.width / 30,
+              onlyLeft: widget.width / 30,
+              onlyTop: widget.height / 50,
               child: Card(
                 shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
                 child: Column(
@@ -120,7 +123,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                         onlyTop: widget.height / 50,
                         onlyBottom: widget.height / 50,
                         child: TextWidget(
-                          text: 'My Templates',
+                          text: 'My Templates (${personalTemplates.length})',
                           weight: FontWeight.bold,
                           fontSize: widget.width / 22,
                         ),
@@ -133,7 +136,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                             onPressed: widget.onPressedTemplateEditing,
                             primaryColor: Colors.green,
                             text: TextWidget(
-                              text: 'New Template',
+                              text: 'Add Template',
                               weight: FontWeight.bold,
                               fontSize: widget.width / 25,
                             )),
@@ -228,7 +231,7 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                     widget.refreshPage!();
                                     Navigator.pop(context);
                                   },
-                                  text: const TextWidget(text: 'Start workout with these template')),
+                                  text: const TextWidget(text: 'Start workout with this template')),
                             ],
                           )),
                   child: Padding(
@@ -300,7 +303,6 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                     borderRadius: BorderRadius.circular(27),
                                   ),
                                   iconSize: widget.height / 50,
-                                  color: Colors.white.withOpacity(0.25),
                                 ),
                               ],
                             ),
@@ -349,10 +351,27 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                         onlyTop: widget.height / 50,
                         onlyBottom: widget.height / 50,
                         child: TextWidget(
-                          text: 'Basic Templates',
+                          text: 'Example Templates (${systemTemplates.length})',
                           weight: FontWeight.bold,
                           fontSize: widget.width / 23,
                         ),
+                      ),
+                      const Spacer(),
+                      PaddingWidget(
+                        type: 'only',
+                        onlyRight: widget.width / 50,
+                        child: ButtonWidget(
+                            onPressed: () {
+                              setState(() {
+                                hideSystemTemplates = !hideSystemTemplates;
+                              });
+                            },
+                            primaryColor: Colors.blueGrey,
+                            text: TextWidget(
+                              text: hideSystemTemplates ? 'Show' : 'Hide',
+                              weight: FontWeight.bold,
+                              fontSize: widget.width / 25,
+                            )),
                       )
                     ],
                   ),
@@ -360,139 +379,140 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
               ),
             ),
           )),
-          SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisExtent: widget.height / 5,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () => showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                            scrollable: true,
-                            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
-                            title: TextWidget(
-                              text: systemTemplates[index].name.replaceAll(' system', ''),
-                              weight: FontWeight.bold,
-                              fontSize: widget.width / 22,
-                              align: TextAlign.center,
-                            ),
-                            content: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                PaddingWidget(
-                                  onlyBottom: widget.height / 30,
-                                  type: 'only',
-                                  child: Align(
-                                    child: TextWidget(
-                                      text: systemTemplates[index].notes,
-                                      align: TextAlign.center,
-                                      fontStyle: FontStyle.italic,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: widget.height / 5,
-                                  width: widget.width,
-                                  child: ListView.builder(
-                                    semanticChildCount: systemTemplates[index].exercises.length,
-                                    padding: EdgeInsets.zero,
-                                    itemCount: systemTemplates[index].exercises.length,
-                                    itemBuilder: (BuildContext context, int index2) {
-                                      return TextWidget(
-                                        text:
-                                            '${systemTemplates[index].exercises[index2].sets.length} x ${systemTemplates[index].exercises[index2].assignedExercise.name}',
-                                        fontSize: widget.width / 27.5,
-                                        align: TextAlign.start,
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                            actionsAlignment: MainAxisAlignment.center,
-                            actions: <Widget>[
-                              ButtonWidget(
-                                  onPressed: () {
-                                    setState(() {
-                                      currentWorkout.exercises.clear();
-                                      for (final ExerciseSet element in systemTemplates[index].exercises) {
-                                        late final ExerciseSet aux;
-                                        if (element.type == 'ExerciseSetWeight') {
-                                          aux = ExerciseSetWeight(element.assignedExercise);
-                                          aux.type = element.type.toString();
-                                        } else if (element.type == 'ExerciseSetMinusWeight') {
-                                          aux = ExerciseSetMinusWeight(element.assignedExercise);
-                                          aux.type = element.type.toString();
-                                        } else {
-                                          aux = ExerciseSetDuration(element.assignedExercise);
-                                          aux.type = element.type.toString();
-                                        }
-                                        aux.sets.addAll(element.sets.toList());
-                                        currentWorkout.exercises.add(aux);
-                                      }
-                                      currentWorkout.workoutName = TextEditingController(
-                                          text: systemTemplates[index].name.replaceAll(' system', ''));
-                                      currentWorkout.workoutNotes = TextEditingController(
-                                          text: systemTemplates[index].notes.replaceAll(' system', ''));
-                                      currentWorkout.startTime = DateTime.now();
-                                    });
-                                    widget.refreshPage!();
-                                    Navigator.pop(context);
-                                  },
-                                  text: const TextWidget(text: 'Start workout with this template')),
-                            ],
-                          )),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: widget.width / 33.33),
-                    child: Card(
-                      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
-                      child: PaddingWidget(
-                        type: 'only',
-                        onlyLeft: widget.width / 25,
-                        onlyTop: widget.height / 100,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            PaddingWidget(
-                              type: 'only',
-                              onlyBottom: widget.height / 65,
-                              onlyTop: widget.height / 50,
-                              child: TextWidget(
+          if (!hideSystemTemplates)
+            SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisExtent: widget.height / 5,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return GestureDetector(
+                    onTap: () => showDialog<String>(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                              scrollable: true,
+                              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
+                              title: TextWidget(
                                 text: systemTemplates[index].name.replaceAll(' system', ''),
                                 weight: FontWeight.bold,
+                                fontSize: widget.width / 22,
+                                align: TextAlign.center,
                               ),
-                            ),
-                            SizedBox(
-                              height: widget.height / 10,
-                              width: widget.width / 2.75,
-                              child: ListView.builder(
-                                primary: false,
-                                shrinkWrap: true,
-                                padding: EdgeInsets.zero,
-                                itemCount: systemTemplates[index].exercises.length,
-                                itemBuilder: (BuildContext context, int index2) {
-                                  return TextWidget(
-                                    text:
-                                        '${systemTemplates[index].exercises[index2].sets.length} x ${systemTemplates[index].exercises[index2].assignedExercise.name}',
-                                    fontSize: widget.width / 35,
-                                    align: TextAlign.start,
-                                  );
-                                },
+                              content: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  PaddingWidget(
+                                    onlyBottom: widget.height / 30,
+                                    type: 'only',
+                                    child: Align(
+                                      child: TextWidget(
+                                        text: systemTemplates[index].notes,
+                                        align: TextAlign.center,
+                                        fontStyle: FontStyle.italic,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: widget.height / 5,
+                                    width: widget.width,
+                                    child: ListView.builder(
+                                      semanticChildCount: systemTemplates[index].exercises.length,
+                                      padding: EdgeInsets.zero,
+                                      itemCount: systemTemplates[index].exercises.length,
+                                      itemBuilder: (BuildContext context, int index2) {
+                                        return TextWidget(
+                                          text:
+                                              '${systemTemplates[index].exercises[index2].sets.length} x ${systemTemplates[index].exercises[index2].assignedExercise.name}',
+                                          fontSize: widget.width / 27.5,
+                                          align: TextAlign.start,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
+                              actionsAlignment: MainAxisAlignment.center,
+                              actions: <Widget>[
+                                ButtonWidget(
+                                    onPressed: () {
+                                      setState(() {
+                                        currentWorkout.exercises.clear();
+                                        for (final ExerciseSet element in systemTemplates[index].exercises) {
+                                          late final ExerciseSet aux;
+                                          if (element.type == 'ExerciseSetWeight') {
+                                            aux = ExerciseSetWeight(element.assignedExercise);
+                                            aux.type = element.type.toString();
+                                          } else if (element.type == 'ExerciseSetMinusWeight') {
+                                            aux = ExerciseSetMinusWeight(element.assignedExercise);
+                                            aux.type = element.type.toString();
+                                          } else {
+                                            aux = ExerciseSetDuration(element.assignedExercise);
+                                            aux.type = element.type.toString();
+                                          }
+                                          aux.sets.addAll(element.sets.toList());
+                                          currentWorkout.exercises.add(aux);
+                                        }
+                                        currentWorkout.workoutName = TextEditingController(
+                                            text: systemTemplates[index].name.replaceAll(' system', ''));
+                                        currentWorkout.workoutNotes = TextEditingController(
+                                            text: systemTemplates[index].notes.replaceAll(' system', ''));
+                                        currentWorkout.startTime = DateTime.now();
+                                      });
+                                      widget.refreshPage!();
+                                      Navigator.pop(context);
+                                    },
+                                    text: const TextWidget(text: 'Start workout with this template')),
+                              ],
+                            )),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: widget.width / 33.33),
+                      child: Card(
+                        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27))),
+                        child: PaddingWidget(
+                          type: 'only',
+                          onlyLeft: widget.width / 25,
+                          onlyTop: widget.height / 100,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              PaddingWidget(
+                                type: 'only',
+                                onlyBottom: widget.height / 65,
+                                onlyTop: widget.height / 50,
+                                child: TextWidget(
+                                  text: systemTemplates[index].name.replaceAll(' system', ''),
+                                  weight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                height: widget.height / 10,
+                                width: widget.width / 2.75,
+                                child: ListView.builder(
+                                  primary: false,
+                                  shrinkWrap: true,
+                                  padding: EdgeInsets.zero,
+                                  itemCount: systemTemplates[index].exercises.length,
+                                  itemBuilder: (BuildContext context, int index2) {
+                                    return TextWidget(
+                                      text:
+                                          '${systemTemplates[index].exercises[index2].sets.length} x ${systemTemplates[index].exercises[index2].assignedExercise.name}',
+                                      fontSize: widget.width / 35,
+                                      align: TextAlign.start,
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                );
-              },
-              childCount: systemTemplates.length,
+                  );
+                },
+                childCount: systemTemplates.length,
+              ),
             ),
-          ),
         ],
       ),
     );

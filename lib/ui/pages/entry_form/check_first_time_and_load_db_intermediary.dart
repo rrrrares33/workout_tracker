@@ -22,7 +22,7 @@ class CheckFirstTimeAndLoadDB extends StatelessWidget {
       future: databaseService.loadUsers(FirebaseService()),
       builder: (BuildContext context, AsyncSnapshot<bool> snapshotFuture) {
         if (!snapshotFuture.hasData) {
-          return const LoadingWidget();
+          return const LoadingWidget(text: 'Loading DB Service');
         } else {
           final UserDB? loggedUser =
               getUserOrCreateIfNullUsingUID(FirebaseService(), databaseService, loggedUserUid, loggedEmail);
@@ -39,7 +39,7 @@ class CheckFirstTimeAndLoadDB extends StatelessWidget {
                     future: databaseService.getWeightTrackerForUser(loggedUser!, FirebaseService()),
                     builder: (BuildContext context, AsyncSnapshot<WeightTracker> snapshotFuture) {
                       if (!snapshotFuture.hasData) {
-                        return const LoadingWidget();
+                        return const LoadingWidget(text: 'Loading weight tracker...');
                       } else {
                         return MultiProvider(providers: <Provider<dynamic>>[
                           Provider<WeightTracker>(

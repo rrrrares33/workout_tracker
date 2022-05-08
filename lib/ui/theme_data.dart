@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ThemeClass {
+  ThemeClass();
+
   static ThemeData lightTheme = ThemeData(
-    fontFamily: 'Roboto',
+    fontFamily: 'San Francisco',
     scaffoldBackgroundColor: Colors.grey[250],
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: Colors.greenAccent[400],
@@ -43,7 +45,7 @@ class ThemeClass {
   );
 
   static ThemeData darkTheme = ThemeData(
-    fontFamily: 'Roboto',
+    fontFamily: 'Times New Roman',
     scaffoldBackgroundColor: Colors.black54,
     colorScheme: const ColorScheme.dark(),
     floatingActionButtonTheme: FloatingActionButtonThemeData(

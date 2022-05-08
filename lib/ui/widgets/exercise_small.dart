@@ -65,7 +65,7 @@ class ExerciseSmallShow extends StatelessWidget {
                               return child;
                             }
                             return const Center(
-                              child: LoadingWidget(),
+                              child: LoadingWidget(text: 'Loading Image'),
                             );
                           },
                         )

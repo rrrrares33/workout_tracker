@@ -25,7 +25,7 @@ class LoadHistoryAndSetupProviders extends StatelessWidget {
         future: databaseService.getAllHistoryFromDBForUser(user.uid, exercises, FirebaseService()),
         builder: (BuildContext context, AsyncSnapshot<List<HistoryWorkout>> snapshotFuture) {
           if (!snapshotFuture.hasData) {
-            return const LoadingWidget();
+            return const LoadingWidget(text: 'Loading all history and setup providers...');
           } else {
             return MultiProvider(
                 providers: <Provider<dynamic>>[
@@ -46,7 +46,7 @@ class LoadHistoryAndSetupProviders extends StatelessWidget {
                   future: databaseService.getAllWorkoutTemplatesFromDBForUser(user.uid, exercises, FirebaseService()),
                   builder: (BuildContext contextAux, AsyncSnapshot<List<WorkoutTemplate>> snapshotFutureTemplates) {
                     if (!snapshotFutureTemplates.hasData) {
-                      return const LoadingWidget();
+                      return const LoadingWidget(text: 'Loading all templates...');
                     } else {
                       return MultiProvider(providers: <Provider<dynamic>>[
                         Provider<List<WorkoutTemplate>>(

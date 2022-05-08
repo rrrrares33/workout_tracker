@@ -24,9 +24,11 @@ List<ChartData> convertWeightTrackerToChartData(WeightTracker weightTracker) {
 }
 
 class ChartWeightEvolution extends StatelessWidget {
-  const ChartWeightEvolution({Key? key, required this.weightTracker, required this.user}) : super(key: key);
+  const ChartWeightEvolution({Key? key, required this.weightTracker, required this.user, required this.showLabels})
+      : super(key: key);
   final WeightTracker weightTracker;
   final UserDB user;
+  final bool showLabels;
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +65,10 @@ class ChartWeightEvolution extends StatelessWidget {
               isVisibleInLegend: true),
           ScatterSeries<ChartData, DateTime>(
             dataSource: convertWeightTrackerToChartData(weightTracker),
+            dataLabelSettings: DataLabelSettings(
+              isVisible: showLabels,
+              textStyle: const TextStyle(fontFamily: 'Roboto', fontSize: 9),
+            ),
             xValueMapper: (ChartData data, _) => data.x,
             yValueMapper: (ChartData data, _) => data.y,
             name: 'Recorded date',

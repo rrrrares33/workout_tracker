@@ -1,7 +1,15 @@
 import 'package:flutter/cupertino.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:uuid/uuid.dart';
 
 import '../ui/text/start_workout_text.dart';
+import '../utils/firebase/database_service.dart';
+import '../utils/firebase/firebase_service.dart';
+import '../utils/models/current_workout.dart';
+import '../utils/models/editing_template.dart';
 import '../utils/models/exercise_set.dart';
+import '../utils/models/user_database.dart';
+import '../utils/models/workout_template.dart';
 
 int convertTimeToSeconds(String? time) {
   if (time == null) {
@@ -110,4 +118,94 @@ List<ExerciseSet> removeEmptyExercises(List<ExerciseSet> exerciseSets) {
 
 bool validateWorkoutSets(List<ExerciseSet> exerciseSets) {
   return removeEmptyExercises(exerciseSets).isNotEmpty;
+}
+
+void copyTemplateToEditingTemplate(EditingTemplate editingTemplate, WorkoutTemplate templateToCopy) {
+  editingTemplate.currentlyEditing = true;
+  editingTemplate.editingTemplateId = templateToCopy.id;
+  editingTemplate.templateName = TextEditingController(text: templateToCopy.name);
+  editingTemplate.templateNotes = TextEditingController(text: templateToCopy.notes);
+  for (final ExerciseSet element in templateToCopy.exercises) {
+    late final ExerciseSet newExercise;
+    if (element.type == 'ExerciseSetWeight') {
+      newExercise = ExerciseSetWeight(element.assignedExercise);
+      newExercise.type = 'ExerciseSetWeight';
+    } else if (element.type == 'ExerciseSetMinusWeight') {
+      newExercise = ExerciseSetMinusWeight(element.assignedExercise);
+      newExercise.type = 'ExerciseSetMinusWeight';
+    } else {
+      newExercise = ExerciseSetDuration(element.assignedExercise);
+      newExercise.type = 'ExerciseSetDuration';
+    }
+    editingTemplate.exercises.add(newExercise);
+    final int nrOfSets = element.sets.length;
+    editingTemplate.exercises[editingTemplate.exercises.length - 1].sets.add(<TextEditingController>[
+      TextEditingController(text: nrOfSets.toString()),
+      TextEditingController(text: ''),
+      TextEditingController(text: '')
+    ]);
+  }
+}
+
+void validateAndSaveCurrentWorkout(
+    CurrentWorkout currentWorkout, DatabaseService databaseService, UserDB user, BuildContext context) {
+  if (validateWorkoutSets(currentWorkout.exercises)) {
+    final List<ExerciseSet> aux = removeEmptyExercises(currentWorkout.exercises);
+    currentWorkout.exercises.clear();
+    currentWorkout.exercises.addAll(aux);
+    databaseService.addWorkoutToHistory(currentWorkout, user.uid, context, FirebaseService());
+  }
+}
+
+void clearCurrentWorkout(CurrentWorkout currentWorkout, StopWatchTimer stopWatchTimer) {
+  currentWorkout.exercises.clear();
+  currentWorkout.startTime = null;
+  currentWorkout.workoutName = TextEditingController(text: 'Daily workout');
+  currentWorkout.workoutNotes = TextEditingController(text: 'Enter notes here...');
+  currentWorkout.currentTimeInSeconds = 0;
+  currentWorkout.lastDecrementForTimer = DateTime.now();
+  currentWorkout.timer = null;
+  if (stopWatchTimer.isRunning) {
+    stopWatchTimer.dispose();
+  }
+}
+
+void clearEditingTemplate(EditingTemplate editingTemplate) {
+  editingTemplate.currentlyEditing = false;
+  editingTemplate.editingTemplateId = null;
+  editingTemplate.exercises.clear();
+  editingTemplate.templateNotes = TextEditingController(text: 'Template Notes');
+  editingTemplate.templateName = TextEditingController(text: 'Template Name');
+}
+
+void saveEditedTemplate(
+    EditingTemplate editingTemplate, List<WorkoutTemplate> templates, String userUID, DatabaseService databaseService) {
+  if (editingTemplate.exercises.isNotEmpty) {
+    for (int i = 0; i < editingTemplate.exercises.length; i++) {
+      final int? numberOfSets = int.tryParse(editingTemplate.exercises[i].sets[0][0].text);
+      editingTemplate.exercises[i].sets.clear();
+      for (int j = 0; j < numberOfSets!; j++) {
+        editingTemplate.exercises[i].sets.add(<TextEditingController>[
+          TextEditingController(text: '0'),
+          TextEditingController(text: '0'),
+          TextEditingController(text: '0')
+        ]);
+      }
+    }
+    if (editingTemplate.editingTemplateId == null) {
+      const Uuid UID = Uuid();
+      final String templateID = '${userUID}_${UID.v4()}';
+      final WorkoutTemplate templateToAdd = WorkoutTemplate(
+          editingTemplate.templateName.text, editingTemplate.templateNotes.text, editingTemplate.exercises, templateID);
+      templates.add(templateToAdd);
+      databaseService.addWorkoutTemplateToDB(templateToAdd, FirebaseService());
+    } else {
+      final String? templateID = editingTemplate.editingTemplateId;
+      final WorkoutTemplate templateToAdd = WorkoutTemplate(editingTemplate.templateName.text,
+          editingTemplate.templateNotes.text, editingTemplate.exercises, templateID!);
+      templates.removeWhere((WorkoutTemplate element) => element.id == templateID);
+      templates.add(templateToAdd);
+      databaseService.addWorkoutTemplateToDB(templateToAdd, FirebaseService());
+    }
+  }
 }

@@ -25,6 +25,7 @@ class InfoIcon extends StatelessWidget {
                     child: TextWidget(
                       text: text,
                       align: TextAlign.start,
+                      fontFamily: 'Roboto',
                     )),
               ),
             ),

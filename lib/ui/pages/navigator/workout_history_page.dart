@@ -7,10 +7,8 @@ import '../../../utils/firebase/database_service.dart';
 import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/current_workout.dart';
 import '../../../utils/models/editing_template.dart';
-import '../../../utils/models/exercise_set.dart';
 import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
-import '../../text/start_workout_text.dart';
 import '../../widgets/alert_history_workout.dart';
 import '../../widgets/history_calendar.dart';
 import '../../widgets/padding.dart';
@@ -112,6 +110,51 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
                                       itemBuilder: (BuildContext context) {
                                         return <PopupMenuItem<int>>[
                                           PopupMenuItem<int>(
+                                            value: 2,
+                                            child: Center(
+                                              child: TextButton(
+                                                onPressed: () {
+                                                  if (checkIfNothingOpenedInStartWorkoutPage(
+                                                      editingTemplate, currentWorkout)) {
+                                                    copyHistoryInCurrentWorkout(historyWorkouts[index], currentWorkout);
+                                                    widget.callback(2);
+                                                  }
+                                                  Navigator.pop(context);
+                                                },
+                                                child: TextWidget(
+                                                  text: 'Start workout',
+                                                  fontSize: screenSize.width / 23,
+                                                  color: Colors.blue,
+                                                  weight: FontWeight.bold,
+                                                  align: TextAlign.center,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          PopupMenuItem<int>(
+                                            value: 2,
+                                            child: Center(
+                                              child: TextButton(
+                                                onPressed: () {
+                                                  if (checkIfNothingOpenedInStartWorkoutPage(
+                                                      editingTemplate, currentWorkout)) {
+                                                    copyHistoryWorkoutToEditingTemplate(
+                                                        historyWorkouts[index], editingTemplate);
+                                                    widget.callback(2);
+                                                  }
+                                                  Navigator.pop(context);
+                                                },
+                                                child: TextWidget(
+                                                  text: 'Save as template',
+                                                  fontSize: screenSize.width / 23,
+                                                  color: Colors.green,
+                                                  weight: FontWeight.bold,
+                                                  align: TextAlign.center,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          PopupMenuItem<int>(
                                             value: 1,
                                             child: Center(
                                               child: TextButton(
@@ -131,114 +174,12 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
                                               ),
                                             ),
                                           ),
-                                          PopupMenuItem<int>(
-                                            value: 2,
-                                            child: Center(
-                                              child: TextButton(
-                                                onPressed: () {
-                                                  if ((editingTemplate.currentlyEditing == null ||
-                                                          editingTemplate.currentlyEditing == false) &&
-                                                      currentWorkout.startTime == null) {
-                                                    setState(() {
-                                                      currentWorkout.startTime = DateTime.now();
-                                                      currentWorkout.workoutNotes = TextEditingController(
-                                                          text: historyWorkouts[index].workoutNotes);
-                                                      currentWorkout.workoutName = TextEditingController(
-                                                          text: historyWorkouts[index].workoutName);
-                                                      for (final ExerciseSet element
-                                                          in historyWorkouts[index].exercises) {
-                                                        late final ExerciseSet aux;
-                                                        if (element.type == 'ExerciseSetWeight') {
-                                                          aux = ExerciseSetWeight(element.assignedExercise);
-                                                          aux.type = 'ExerciseSetWeight';
-                                                        } else if (element.type == 'ExerciseSetMinusWeight') {
-                                                          aux = ExerciseSetMinusWeight(element.assignedExercise);
-                                                          aux.type = 'ExerciseSetMinusWeight';
-                                                        } else {
-                                                          aux = ExerciseSetDuration(element.assignedExercise);
-                                                          aux.type = 'ExerciseSetDuration';
-                                                        }
-                                                        for (final List<TextEditingController> element2
-                                                            in element.sets) {
-                                                          final List<TextEditingController> damn = element2.toList();
-                                                          damn.add(TextEditingController(text: notCheckedText));
-                                                          aux.sets.add(damn);
-                                                        }
-                                                        currentWorkout.exercises.add(aux);
-                                                      }
-                                                      widget.callback(2);
-                                                    });
-                                                  }
-                                                  Navigator.pop(context);
-                                                },
-                                                child: TextWidget(
-                                                  text: 'Start workout',
-                                                  fontSize: screenSize.width / 23,
-                                                  color: Colors.blue,
-                                                  weight: FontWeight.bold,
-                                                  align: TextAlign.center,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          PopupMenuItem<int>(
-                                            value: 2,
-                                            child: Center(
-                                              child: TextButton(
-                                                onPressed: () {
-                                                  if ((editingTemplate.currentlyEditing == null ||
-                                                          editingTemplate.currentlyEditing == false) &&
-                                                      currentWorkout.startTime == null) {
-                                                    setState(() {
-                                                      editingTemplate.templateNotes = TextEditingController(
-                                                          text: historyWorkouts[index].workoutNotes);
-                                                      editingTemplate.templateName = TextEditingController(
-                                                          text: historyWorkouts[index].workoutName);
-                                                      for (final ExerciseSet element
-                                                          in historyWorkouts[index].exercises) {
-                                                        late final ExerciseSet aux;
-                                                        if (element.type == 'ExerciseSetWeight') {
-                                                          aux = ExerciseSetWeight(element.assignedExercise);
-                                                          aux.type = 'ExerciseSetWeight';
-                                                        } else if (element.type == 'ExerciseSetMinusWeight') {
-                                                          aux = ExerciseSetMinusWeight(element.assignedExercise);
-                                                          aux.type = 'ExerciseSetMinusWeight';
-                                                        } else {
-                                                          aux = ExerciseSetDuration(element.assignedExercise);
-                                                          aux.type = 'ExerciseSetDuration';
-                                                        }
-                                                        final List<TextEditingController> damn =
-                                                            <TextEditingController>[
-                                                          TextEditingController(text: element.sets.length.toString()),
-                                                          TextEditingController(),
-                                                          TextEditingController()
-                                                        ];
-                                                        aux.sets.add(damn);
-                                                        editingTemplate.exercises.add(aux);
-                                                      }
-                                                      editingTemplate.currentlyEditing = true;
-                                                      widget.callback(2);
-                                                    });
-                                                  }
-                                                  Navigator.pop(context);
-                                                },
-                                                child: TextWidget(
-                                                  text: 'Save as template',
-                                                  fontSize: screenSize.width / 23,
-                                                  color: Colors.green,
-                                                  weight: FontWeight.bold,
-                                                  align: TextAlign.center,
-                                                ),
-                                              ),
-                                            ),
-                                          )
                                         ];
                                       },
                                       icon: const Icon(FontAwesomeIcons.ellipsis),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(18.0),
                                       ),
-                                      color: Colors.grey,
                                     ),
                                   ],
                                 ),

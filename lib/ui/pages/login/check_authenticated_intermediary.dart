@@ -18,7 +18,7 @@ class CheckAuthenticated extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.active) {
             return returnIfUserConnected(snapshot.data);
           } else {
-            return const LoadingWidget();
+            return const LoadingWidget(text: 'Loading authentication service...');
           }
         });
   }

@@ -19,7 +19,7 @@ class LoadAllExercisesIntermediary extends StatelessWidget {
         future: databaseService.getAllExercisesForUser(user.uid, context, FirebaseService()),
         builder: (BuildContext context, AsyncSnapshot<List<Exercise>> snapshotFuture) {
           if (!snapshotFuture.hasData) {
-            return const LoadingWidget();
+            return const LoadingWidget(text: 'Loading all exercises...');
           } else {
             return MultiProvider(
               providers: <Provider<dynamic>>[

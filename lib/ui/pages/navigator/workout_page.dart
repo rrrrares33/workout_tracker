@@ -6,14 +6,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 import 'package:provider/provider.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:uuid/uuid.dart';
 
 import '../../../business_logic/workout_logic.dart';
 import '../../../utils/firebase/database_service.dart';
 import '../../../utils/firebase/firebase_service.dart';
 import '../../../utils/models/current_workout.dart';
 import '../../../utils/models/editing_template.dart';
-import '../../../utils/models/exercise_set.dart';
 import '../../../utils/models/user_database.dart';
 import '../../../utils/models/workout_template.dart';
 import '../../text/start_workout_text.dart';
@@ -84,39 +82,15 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
         templates: templates,
         onPressedEditTemplate: (String templateId) {
           setState(() {
-            editingTemplate.currentlyEditing = true;
-            editingTemplate.editingTemplateId = templateId;
-            final int indexOfTemplateToEdit =
-                templates.indexWhere((WorkoutTemplate element) => element.id == templateId);
-            editingTemplate.templateName = TextEditingController(text: templates[indexOfTemplateToEdit].name);
-            editingTemplate.templateNotes = TextEditingController(text: templates[indexOfTemplateToEdit].notes);
-            for (final ExerciseSet element in templates[indexOfTemplateToEdit].exercises) {
-              late final ExerciseSet newExercise;
-              if (element.type == 'ExerciseSetWeight') {
-                newExercise = ExerciseSetWeight(element.assignedExercise);
-                newExercise.type = 'ExerciseSetWeight';
-              } else if (element.type == 'ExerciseSetMinusWeight') {
-                newExercise = ExerciseSetMinusWeight(element.assignedExercise);
-                newExercise.type = 'ExerciseSetMinusWeight';
-              } else {
-                newExercise = ExerciseSetDuration(element.assignedExercise);
-                newExercise.type = 'ExerciseSetDuration';
-              }
-              editingTemplate.exercises.add(newExercise);
-              final int nrOfSets = element.sets.length;
-              editingTemplate.exercises[editingTemplate.exercises.length - 1].sets.add(<TextEditingController>[
-                TextEditingController(text: nrOfSets.toString()),
-                TextEditingController(text: ''),
-                TextEditingController(text: '')
-              ]);
-            }
+            copyTemplateToEditingTemplate(
+                editingTemplate, templates.firstWhere((WorkoutTemplate element) => element.id == templateId));
           });
         },
         onPressedDeleteTemplate: (String templateId) {
-          final int indexToDelete = templates.indexWhere((WorkoutTemplate element) => element.id == templateId);
-          databaseService.removeTemplate(templates[indexToDelete].id, FirebaseService());
+          databaseService.removeTemplate(
+              templates.firstWhere((WorkoutTemplate element) => element.id == templateId).id, FirebaseService());
           setState(() {
-            templates.removeAt(indexToDelete);
+            templates.removeAt(templates.indexWhere((WorkoutTemplate element) => element.id == templateId));
           });
         },
         refreshPage: () {
@@ -185,25 +159,12 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                             width: screenSize.width,
                             doesHaveUnCheckedSets: !checkForEmptySetsMultipleExercises(currentWorkout.exercises),
                             onPressedFinished: () async {
-                              Navigator.pop(auxContext);
-                              if (validateWorkoutSets(currentWorkout.exercises)) {
-                                final List<ExerciseSet> aux = removeEmptyExercises(currentWorkout.exercises);
-                                currentWorkout.exercises.clear();
-                                currentWorkout.exercises.addAll(aux);
-                                databaseService.addWorkoutToHistory(
-                                    currentWorkout, user.uid, context, FirebaseService());
-                              }
+                              validateAndSaveCurrentWorkout(currentWorkout, databaseService, user, context);
                               setState(() {
-                                currentWorkout.exercises.clear();
-                                currentWorkout.startTime = null;
-                                currentWorkout.currentTimeInSeconds = 0;
-                                currentWorkout.lastDecrementForTimer = DateTime.now();
-                                currentWorkout.timer = null;
-                                if (stopWatchTimer.isRunning) {
-                                  stopWatchTimer.dispose();
-                                }
+                                clearCurrentWorkout(currentWorkout, stopWatchTimer);
                               });
                               ScaffoldMessenger.of(context).showSnackBar(workoutAddedToHistory);
+                              Navigator.pop(auxContext);
                             },
                           )),
                   text: TextWidget(
@@ -230,7 +191,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                     onlyBottom: 5,
                     child: TextField(
                       onEditingComplete: () {
-                        if (currentWorkout.workoutName.text == '') {
+                        if (currentWorkout.workoutName.text.isEmpty) {
                           setState(() {
                             currentWorkout.workoutName.text = defaultWorkoutTile;
                           });
@@ -346,15 +307,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                           if (currentWorkout.exercises.isEmpty) {
                             // If there are no exercises added to the workout we can quickly stop it.
                             setState(() {
-                              currentWorkout.workoutNotes = TextEditingController(text: defaultWorkoutNote);
-                              currentWorkout.workoutName = TextEditingController(text: defaultWorkoutTile);
-                              currentWorkout.startTime = null;
-                              currentWorkout.currentTimeInSeconds = 0;
-                              currentWorkout.lastDecrementForTimer = DateTime.now();
-                              currentWorkout.timer = null;
-                              if (stopWatchTimer.isRunning) {
-                                stopWatchTimer.dispose();
-                              }
+                              clearCurrentWorkout(currentWorkout, stopWatchTimer);
                             });
                           } else {
                             showDialog<Widget>(
@@ -364,16 +317,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                                     width: screenSize.width,
                                     onPressedCancel: () {
                                       setState(() {
-                                        currentWorkout.workoutNotes = TextEditingController(text: defaultWorkoutNote);
-                                        currentWorkout.workoutName = TextEditingController(text: defaultWorkoutTile);
-                                        currentWorkout.exercises.clear();
-                                        currentWorkout.startTime = null;
-                                        currentWorkout.currentTimeInSeconds = 0;
-                                        currentWorkout.lastDecrementForTimer = DateTime.now();
-                                        currentWorkout.timer = null;
-                                        if (stopWatchTimer.isRunning) {
-                                          stopWatchTimer.dispose();
-                                        }
+                                        clearCurrentWorkout(currentWorkout, stopWatchTimer);
                                       });
                                       Navigator.pop(context);
                                     });
@@ -409,11 +353,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
             child: ButtonWidget(
               onPressed: () {
                 setState(() {
-                  editingTemplate.currentlyEditing = false;
-                  editingTemplate.editingTemplateId = null;
-                  editingTemplate.exercises.clear();
-                  editingTemplate.templateNotes = TextEditingController(text: 'Template Notes');
-                  editingTemplate.templateName = TextEditingController(text: 'Template Name');
+                  clearEditingTemplate(editingTemplate);
                 });
               },
               text: TextWidget(
@@ -431,40 +371,9 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
               all: screenSize.width / 50,
               child: ButtonWidget(
                 onPressed: () {
-                  if (editingTemplate.exercises.isNotEmpty) {
-                    for (int i = 0; i < editingTemplate.exercises.length; i++) {
-                      final int? numberOfSets = int.tryParse(editingTemplate.exercises[i].sets[0][0].text);
-                      editingTemplate.exercises[i].sets.clear();
-                      for (int j = 0; j < numberOfSets!; j++) {
-                        editingTemplate.exercises[i].sets.add(<TextEditingController>[
-                          TextEditingController(text: '0'),
-                          TextEditingController(text: '0'),
-                          TextEditingController(text: '0')
-                        ]);
-                      }
-                    }
-                    if (editingTemplate.editingTemplateId == null) {
-                      const Uuid UID = Uuid();
-                      final String templateID = '${user.uid}_${UID.v4()}';
-                      final WorkoutTemplate templateToAdd = WorkoutTemplate(editingTemplate.templateName.text,
-                          editingTemplate.templateNotes.text, editingTemplate.exercises, templateID);
-                      templates.add(templateToAdd);
-                      databaseService.addWorkoutTemplateToDB(templateToAdd, FirebaseService());
-                    } else {
-                      final String? templateID = editingTemplate.editingTemplateId;
-                      final WorkoutTemplate templateToAdd = WorkoutTemplate(editingTemplate.templateName.text,
-                          editingTemplate.templateNotes.text, editingTemplate.exercises, templateID!);
-                      templates.removeWhere((WorkoutTemplate element) => element.id == templateID);
-                      templates.add(templateToAdd);
-                      databaseService.addWorkoutTemplateToDB(templateToAdd, FirebaseService());
-                    }
-                  }
+                  saveEditedTemplate(editingTemplate, templates, user.uid, databaseService);
                   setState(() {
-                    editingTemplate.currentlyEditing = false;
-                    editingTemplate.editingTemplateId = null;
-                    editingTemplate.exercises.clear();
-                    editingTemplate.templateNotes = TextEditingController(text: 'Template Notes');
-                    editingTemplate.templateName = TextEditingController(text: 'Template Name');
+                    clearEditingTemplate(editingTemplate);
                   });
                 },
                 text: TextWidget(

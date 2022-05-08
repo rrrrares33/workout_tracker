@@ -49,58 +49,10 @@ class _MyProfilePageState extends State<MyProfilePage> {
   late final place.GooglePlace googlePlace;
   final List<Marker> markers = <Marker>[];
 
-  late bool _serviceEnabled;
-  late PermissionStatus _permissionGranted;
   LocationData? _userLocation;
 
   bool get _showBigLeftTitle {
     return _scrollController.hasClients && _scrollController.offset > expandedHeight - toolbarHeight;
-  }
-
-  Future<void> _getUserLocation() async {
-    final Location location = Location();
-
-    // Check if location service is enable
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) {
-        return;
-      }
-    }
-
-    // Check if permission is granted
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
-        return;
-      }
-    }
-
-    final LocationData _locationData = await location.getLocation();
-    setState(() {
-      _userLocation = _locationData;
-    });
-  }
-
-  Future<void> _getLocations() async {
-    final place.Location userLocation = place.Location(lat: _userLocation!.latitude, lng: _userLocation!.longitude);
-    String? nextPageToken;
-    do {
-      final place.NearBySearchResponse? result =
-          await googlePlace.search.getNearBySearch(userLocation, 1500, keyword: 'gym', pagetoken: nextPageToken);
-      result!.results?.forEach((place.SearchResult element) {
-        markers.add(Marker(
-          markerId: MarkerId(element.placeId!),
-          position: LatLng(element.geometry!.location!.lat!, element.geometry!.location!.lng!),
-          infoWindow: InfoWindow(title: element.name, snippet: element.vicinity),
-          icon: BitmapDescriptor.defaultMarkerWithHue(160),
-          onTap: () {},
-        ));
-      });
-      nextPageToken = result.nextPageToken;
-    } while (nextPageToken != null);
   }
 
   @override
@@ -412,7 +364,8 @@ class _MyProfilePageState extends State<MyProfilePage> {
                                           databaseService.updateTracker(weightTracker, FirebaseService());
                                           user.changeWeight(weight);
                                         });
-                                      } else if (user.weightType == WeightMetric.LBS && weight <= 500 && weight >= 80) {
+                                      }
+                                      if (user.weightType == WeightMetric.LBS && weight <= 500 && weight >= 80) {
                                         setState(() {
                                           weightTracker.weights.add(weight);
                                           weightTracker.dates.add(DateTime.now());
@@ -486,9 +439,9 @@ class _MyProfilePageState extends State<MyProfilePage> {
               child: ButtonWidget(
                 text: const Text('Find a Gym'),
                 onPressed: () async {
-                  await _getUserLocation();
+                  _userLocation = await getUserLocation();
                   if (_userLocation != null) {
-                    await _getLocations();
+                    markers.addAll(await getLocations(_userLocation!, googlePlace));
                   }
                   showDialog(
                       context: context,
@@ -535,12 +488,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 text: const Text('Log Out'),
                 onPressed: () {
                   setState(() {
-                    templates.clear();
-                    exercises.clear();
-                    weightTracker.dates.clear();
-                    weightTracker.weights.clear();
-                    databaseService.clearClass();
-                    authenticationService.signOutFromFirebase();
+                    logOutAccount(templates, exercises, weightTracker, databaseService, authenticationService);
                   });
                 },
                 primaryColor: Colors.blueAccent,

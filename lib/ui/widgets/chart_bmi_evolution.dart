@@ -19,7 +19,8 @@ List<ChartData> convertWeightTrackerToChartData(WeightTracker weightTracker, dou
   final List<double> weightsFromTracker = weightTracker.weights.toList();
   final List<DateTime> datesFromTracker = weightTracker.dates.toList();
   for (int i = 0; i < weightsFromTracker.length; i++) {
-    data.add(ChartData(datesFromTracker[i], calculateBMI(weightsFromTracker[i], metric, height)));
+    data.add(ChartData(
+        datesFromTracker[i], double.parse(calculateBMI(weightsFromTracker[i], metric, height).toStringAsFixed(2))));
   }
   return data;
 }
@@ -33,15 +34,17 @@ List<ChartData> convertChartDataToBodyFat(List<ChartData> dataReceived, int user
     } else {
       bodyFat = 1.2 * dataReceived[i].y + 0.23 * userAge - 5.4;
     }
-    data.add(ChartData(dataReceived[i].x, bodyFat));
+    data.add(ChartData(dataReceived[i].x, double.parse(bodyFat.toStringAsFixed(2))));
   }
   return data;
 }
 
 class ChartBMIEvolution extends StatelessWidget {
-  const ChartBMIEvolution({Key? key, required this.weightTracker, required this.user}) : super(key: key);
+  const ChartBMIEvolution({Key? key, required this.weightTracker, required this.user, required this.showLabels})
+      : super(key: key);
   final WeightTracker weightTracker;
   final UserDB user;
+  final bool showLabels;
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +70,10 @@ class ChartBMIEvolution extends StatelessWidget {
               dataSource: convertWeightTrackerToChartData(weightTracker, user.height!, user.weightType!),
               xValueMapper: (ChartData data, _) => data.x,
               yValueMapper: (ChartData data, _) => data.y,
+              dataLabelSettings: DataLabelSettings(
+                isVisible: showLabels,
+                textStyle: const TextStyle(fontFamily: 'Roboto', fontSize: 9),
+              ),
               name: 'B.M.I.',
               yAxisName: 'Body Mass Index',
               color: Colors.green,
@@ -87,6 +94,10 @@ class ChartBMIEvolution extends StatelessWidget {
                   convertWeightTrackerToChartData(weightTracker, user.height!, user.weightType!), user.age!, user.sex!),
               xValueMapper: (ChartData data, _) => data.x,
               yValueMapper: (ChartData data, _) => data.y,
+              dataLabelSettings: DataLabelSettings(
+                isVisible: showLabels,
+                textStyle: const TextStyle(fontFamily: 'Roboto', fontSize: 9),
+              ),
               name: '~ Body Fat %',
               yAxisName: 'Body Fat %',
               color: Colors.blue,

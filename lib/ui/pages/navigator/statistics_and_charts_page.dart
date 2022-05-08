@@ -5,6 +5,7 @@ import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
 import '../../../utils/models/weight_tracker.dart';
 import '../../text/info_texts.dart';
+import '../../widgets/button.dart';
 import '../../widgets/chart_bmi_evolution.dart';
 import '../../widgets/chart_duration.dart' as duration;
 import '../../widgets/chart_duration.dart';
@@ -36,19 +37,23 @@ class _StatisticsAndChartsPageState extends State<StatisticsAndChartsPage> {
   final List<bool> volumeChart = <bool>[false];
   final List<bool> durationChart = <bool>[false];
 
-  Widget returnChartForPersonal(WeightTracker tracker, UserDB user) {
+  bool notShowingLabels = true;
+
+  Widget returnChartForPersonal(WeightTracker tracker, UserDB user, bool returnChartForPersonal) {
     if (personalWeightTracker[0] == true) {
       return ChartWeightEvolution(
         weightTracker: tracker,
         user: user,
+        showLabels: !returnChartForPersonal,
       );
     }
     if (personalBMIChart[0] == true) {
-      return ChartBMIEvolution(weightTracker: tracker, user: user);
+      return ChartBMIEvolution(weightTracker: tracker, user: user, showLabels: !returnChartForPersonal);
     }
     return ChartWeightEvolution(
       weightTracker: tracker,
       user: user,
+      showLabels: !returnChartForPersonal,
     );
   }
 
@@ -181,7 +186,24 @@ class _StatisticsAndChartsPageState extends State<StatisticsAndChartsPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: screenSize.height / 3.33, child: returnChartForPersonal(weightTracker, user)),
+                SizedBox(
+                    height: screenSize.height / 3.33,
+                    child: returnChartForPersonal(weightTracker, user, notShowingLabels)),
+                Align(
+                  child: ButtonWidget(
+                    onPressed: () {
+                      setState(() {
+                        notShowingLabels = !notShowingLabels;
+                      });
+                    },
+                    primaryColor: notShowingLabels ? Colors.greenAccent[300] : Colors.blueGrey,
+                    text: TextWidget(
+                      text: notShowingLabels ? 'Show labels' : 'Remove labels',
+                      color: Colors.black,
+                      fontSize: screenSize.width / 35,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

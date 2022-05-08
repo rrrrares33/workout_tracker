@@ -64,6 +64,12 @@ dependencies:
   location: ^4.3.0
   google_place: ^0.4.7
   google_fonts: ^2.3.2
+  flutter_launcher_icons: ^0.9.2
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon.png"
 
 dev_dependencies:
   flutter_test:

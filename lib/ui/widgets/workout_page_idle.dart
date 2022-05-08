@@ -418,9 +418,25 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                   onPressed: () {
                                     setState(() {
                                       currentWorkout.exercises.clear();
-                                      currentWorkout.exercises.addAll(systemTemplates[index].exercises);
+                                      for (final ExerciseSet element in systemTemplates[index].exercises) {
+                                        late final ExerciseSet aux;
+                                        if (element.type == 'ExerciseSetWeight') {
+                                          aux = ExerciseSetWeight(element.assignedExercise);
+                                          aux.type = element.type.toString();
+                                        } else if (element.type == 'ExerciseSetMinusWeight') {
+                                          aux = ExerciseSetMinusWeight(element.assignedExercise);
+                                          aux.type = element.type.toString();
+                                        } else {
+                                          aux = ExerciseSetDuration(element.assignedExercise);
+                                          aux.type = element.type.toString();
+                                        }
+                                        aux.sets.addAll(element.sets.toList());
+                                        currentWorkout.exercises.add(aux);
+                                      }
                                       currentWorkout.workoutName = TextEditingController(
                                           text: systemTemplates[index].name.replaceAll(' system', ''));
+                                      currentWorkout.workoutNotes = TextEditingController(
+                                          text: systemTemplates[index].notes.replaceAll(' system', ''));
                                       currentWorkout.startTime = DateTime.now();
                                     });
                                     widget.refreshPage!();

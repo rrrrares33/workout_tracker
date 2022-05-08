@@ -91,7 +91,7 @@ class ExerciseSmallShow extends StatelessWidget {
                   ),
                   TextWidget(
                     text: category != null ? '$bodyPart    ----    ${category!}' : bodyPart,
-                    weight: FontWeight.w100,
+                    weight: FontWeight.w400,
                     fontStyle: FontStyle.italic,
                     fontSize: 12,
                   )

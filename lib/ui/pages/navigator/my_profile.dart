@@ -18,8 +18,10 @@ import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
 import '../../../utils/models/weight_tracker.dart';
 import '../../../utils/models/workout_template.dart';
+import '../../text/info_texts.dart';
 import '../../widgets/button.dart';
 import '../../widgets/gauge_chart.dart';
+import '../../widgets/info_icon.dart';
 import '../../widgets/padding.dart';
 import '../../widgets/sliver_top_bar.dart';
 import '../../widgets/text.dart';
@@ -125,8 +127,8 @@ class _MyProfilePageState extends State<MyProfilePage> {
           SliverTopBar(
               expandedHeight: expandedHeight,
               toolbarHeight: toolbarHeight,
-              textExpanded: 'Profile',
-              textToolbar: 'Profile',
+              textExpanded: 'My Profile',
+              textToolbar: 'My Profile',
               showBigTitle: _showBigLeftTitle),
           SliverToBoxAdapter(
             child: PaddingWidget(
@@ -311,7 +313,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                           text:
                               'total workouts: ${historyWorkouts.length.toString() != '0' ? historyWorkouts.length.toString() : 'no workouts performed'}',
                           fontSize: screenSize.height / 50,
-                          weight: FontWeight.w100,
+                          weight: FontWeight.w400,
                           color: Theme.of(context).secondaryHeaderColor.withOpacity(0.5),
                         ),
                       ],
@@ -347,14 +349,14 @@ class _MyProfilePageState extends State<MyProfilePage> {
                           text:
                               'Last date recorded: ${weightTracker.dates.last.day}.${weightTracker.dates.last.month}.${weightTracker.dates.last.year}',
                           fontSize: screenSize.height / 55,
-                          weight: FontWeight.w100,
+                          weight: FontWeight.w400,
                           color: Theme.of(context).secondaryHeaderColor.withOpacity(0.5),
                         ),
                         TextWidget(
                           text:
                               'Last weight recorded: ${weightTracker.weights.last} ${user.weightType.toString().replaceAll('WeightMetric.', '')}',
                           fontSize: screenSize.height / 55,
-                          weight: FontWeight.w100,
+                          weight: FontWeight.w400,
                           color: Theme.of(context).secondaryHeaderColor.withOpacity(0.5),
                         ),
                         if ((DateTime.now().day == weightTracker.dates.last.day) &&
@@ -441,15 +443,21 @@ class _MyProfilePageState extends State<MyProfilePage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              TextWidget(
-                                text: 'B.M.I. Index',
-                                fontSize: screenSize.height / 45,
-                                weight: FontWeight.bold,
+                              Row(
+                                children: <Widget>[
+                                  TextWidget(
+                                    text: 'B.M.I. Index',
+                                    fontSize: screenSize.height / 45,
+                                    weight: FontWeight.bold,
+                                  ),
+                                  const Spacer(),
+                                  InfoIcon(text: infoBMI, screenSize: screenSize)
+                                ],
                               ),
                               TextWidget(
                                 text: 'Body Mass Index',
                                 fontSize: screenSize.height / 55,
-                                weight: FontWeight.w100,
+                                weight: FontWeight.w400,
                                 color: Theme.of(context).secondaryHeaderColor.withOpacity(0.5),
                               ),
                               SizedBox(

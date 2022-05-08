@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class ThemeClass {
   static ThemeData lightTheme = ThemeData(
-    fontFamily: 'Times New Roman',
+    fontFamily: 'Roboto',
     scaffoldBackgroundColor: Colors.grey[250],
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: Colors.greenAccent[400],
@@ -43,7 +43,7 @@ class ThemeClass {
   );
 
   static ThemeData darkTheme = ThemeData(
-    fontFamily: 'Times New Roman',
+    fontFamily: 'Roboto',
     scaffoldBackgroundColor: Colors.black54,
     colorScheme: const ColorScheme.dark(),
     floatingActionButtonTheme: FloatingActionButtonThemeData(

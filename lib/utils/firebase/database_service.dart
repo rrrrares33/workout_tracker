@@ -365,7 +365,7 @@ class DatabaseService {
       WorkoutTemplate template, FirebaseService firebaseService) async {
     _workoutTemplates.add(template);
     final String templateNotes = template.notes;
-    final String templateName = template.name;
+    final String templateName = template.name.replaceAll('system', '');
 
     final Map<String, dynamic> exercisesAndSets = <String, dynamic>{};
     int index = 0;

@@ -410,6 +410,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
               onPressed: () {
                 setState(() {
                   editingTemplate.currentlyEditing = false;
+                  editingTemplate.editingTemplateId = null;
                   editingTemplate.exercises.clear();
                   editingTemplate.templateNotes = TextEditingController(text: 'Template Notes');
                   editingTemplate.templateName = TextEditingController(text: 'Template Name');
@@ -460,6 +461,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                   }
                   setState(() {
                     editingTemplate.currentlyEditing = false;
+                    editingTemplate.editingTemplateId = null;
                     editingTemplate.exercises.clear();
                     editingTemplate.templateNotes = TextEditingController(text: 'Template Notes');
                     editingTemplate.templateName = TextEditingController(text: 'Template Name');

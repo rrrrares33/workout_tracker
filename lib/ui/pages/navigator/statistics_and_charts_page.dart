@@ -4,12 +4,14 @@ import 'package:provider/provider.dart';
 import '../../../utils/models/history_workout.dart';
 import '../../../utils/models/user_database.dart';
 import '../../../utils/models/weight_tracker.dart';
+import '../../text/info_texts.dart';
 import '../../widgets/chart_bmi_evolution.dart';
 import '../../widgets/chart_duration.dart' as duration;
 import '../../widgets/chart_duration.dart';
 import '../../widgets/chart_volume_per_workout.dart';
 import '../../widgets/chart_weight_evolution.dart';
 import '../../widgets/chart_workouts_per_week.dart';
+import '../../widgets/info_icon.dart';
 import '../../widgets/padding.dart';
 import '../../widgets/sliver_top_bar.dart';
 import '../../widgets/statistics.dart';
@@ -101,14 +103,20 @@ class _StatisticsAndChartsPageState extends State<StatisticsAndChartsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                PaddingWidget(
-                  type: 'all',
-                  all: screenSize.height / 100,
-                  child: TextWidget(
-                    text: 'Personal Weight Charts',
-                    fontSize: screenSize.height / 40,
-                    weight: FontWeight.bold,
-                  ),
+                Row(
+                  children: <Widget>[
+                    PaddingWidget(
+                      type: 'all',
+                      all: screenSize.height / 100,
+                      child: TextWidget(
+                        text: 'Personal Weight Charts',
+                        fontSize: screenSize.height / 40,
+                        weight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    InfoIcon(text: infoPersonalWeightCharts, screenSize: screenSize),
+                  ],
                 ),
                 PaddingWidget(
                   type: 'only',
@@ -191,14 +199,20 @@ class _StatisticsAndChartsPageState extends State<StatisticsAndChartsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                PaddingWidget(
-                  type: 'all',
-                  all: screenSize.height / 100,
-                  child: TextWidget(
-                    text: 'Workout Charts',
-                    fontSize: screenSize.height / 40,
-                    weight: FontWeight.bold,
-                  ),
+                Row(
+                  children: <Widget>[
+                    PaddingWidget(
+                      type: 'all',
+                      all: screenSize.height / 100,
+                      child: TextWidget(
+                        text: 'Workout Charts',
+                        fontSize: screenSize.height / 40,
+                        weight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    InfoIcon(text: infoWorkoutCharts, screenSize: screenSize),
+                  ],
                 ),
                 PaddingWidget(
                   type: 'only',

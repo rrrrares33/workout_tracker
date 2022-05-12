@@ -14,7 +14,7 @@ import 'text.dart';
 
 class TimerWidget extends StatefulWidget {
   const TimerWidget({
-    Key? key,
+    required Key key,
     required this.screenWidth,
     required this.screenHeight,
     required this.context,
@@ -46,13 +46,15 @@ class _TimerWidgetState extends State<TimerWidget> {
     void runTimer({bool buildCall = false}) {
       const Duration oneSec = Duration(seconds: 1, microseconds: 10);
       // If this is not a build call, we get the remaining time.
+
       if (!buildCall) {
         currentWorkout.currentTimeInSeconds = convertTimeToSeconds(currentWorkout.timerController.getTime());
       } else if (currentWorkout.currentTimeInSeconds != 0) {
         // If it is not a build call (moving between pages for example), we need to rebuild the timer
-        if (DateTime.now().second - currentWorkout.lastDecrementForTimer.second >= 1) {
+        if (DateTime.now().second - currentWorkout.lastDecrementForTimer.second > 3) {
           currentWorkout.currentTimeInSeconds -= DateTime.now().second - currentWorkout.lastDecrementForTimer.second;
           currentWorkout.currentTimeInSeconds = max(0, currentWorkout.currentTimeInSeconds);
+          currentWorkout.lastDecrementForTimer = DateTime.now();
         }
       }
       // If a timer is already running we need to cancel it before starting a new one.

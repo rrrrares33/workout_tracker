@@ -1,4 +1,6 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/firebase/authentication_service.dart';
@@ -21,12 +23,19 @@ class WorkoutTracker extends StatelessWidget {
             create: (_) => DatabaseService(),
           )
         ],
-        child: MaterialApp(
-          title: 'Workout Supervisor',
-          darkTheme: ThemeClass.darkTheme,
-          theme: ThemeClass.lightTheme,
-          onGenerateRoute: RoutersLanding.generateRoute,
-          initialRoute: LandingPageRoute,
+        child: AdaptiveTheme(
+          light: ThemeClass.lightTheme,
+          dark: ThemeClass.darkTheme,
+          initial: SchedulerBinding.instance!.window.platformBrightness == Brightness.dark
+              ? AdaptiveThemeMode.dark
+              : AdaptiveThemeMode.light,
+          builder: (ThemeData theme, ThemeData darkTheme) => MaterialApp(
+            title: 'Workout History',
+            theme: theme,
+            onGenerateRoute: RoutersLanding.generateRoute,
+            debugShowCheckedModeBanner: false,
+            initialRoute: LandingPageRoute,
+          ),
         ));
   }
 }

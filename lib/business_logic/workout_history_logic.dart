@@ -1,5 +1,6 @@
 // ignore_for_file: implementation_imports
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/editable_text.dart';
 import 'package:intl/intl.dart';
 
@@ -201,4 +202,44 @@ void copyHistoryWorkoutToEditingTemplate(HistoryWorkout historyWorkout, EditingT
     editingTemplate.exercises.add(aux);
   }
   editingTemplate.currentlyEditing = true;
+}
+
+String convertHistoryWorkoutToString(HistoryWorkout historyWorkout) {
+  String returnText = '';
+  try {
+    returnText +=
+        '\n${historyWorkout.workoutName}\n${getDateAndTimeForPrinting(historyWorkout.startTime!).replaceAll('  ', ' , ')}';
+    returnText += '\n';
+    returnText += 'Workout length: ${getWorkoutLengthForPrinting(historyWorkout.duration!)}';
+    historyWorkout.exercises.forEach((ExerciseSet exerciseSet) {
+      returnText += '\n\n';
+      returnText += exerciseSet.assignedExercise.name;
+      int index = 0;
+      exerciseSet.sets.forEach((List<TextEditingController> set) {
+        index += 1;
+        returnText += '\n';
+        returnText += 'Set $index: ';
+        if (exerciseSet.type == 'ExerciseSetWeight') {
+          if (set[1].text == '0') {
+            returnText += '${set[0].text} reps';
+          } else {
+            returnText += '${set[1].text} kg x ${set[0].text} reps';
+          }
+        } else if (exerciseSet.type == 'ExerciseSetMinusWeight') {
+          if (set[1].text == '0') {
+            returnText += '${set[0].text} reps';
+          } else {
+            returnText += '-${set[1].text} kg x ${set[0].text} reps';
+          }
+        } else {
+          returnText += set[0].text;
+        }
+      });
+    });
+  } on Exception catch (e) {
+    if (kDebugMode) {
+      print(e.toString());
+    }
+  }
+  return returnText;
 }

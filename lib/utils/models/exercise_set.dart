@@ -152,11 +152,13 @@ class ExerciseSetWeight extends ExerciseSet {
               onPressed: () {
                 if (controllerChecked!.text == checkedText) {
                   controllerChecked.text = notCheckedText;
+                  // ignore: avoid_dynamic_calls
+                  setStateCallBack(false);
                 } else if (controllerReps!.text != defaultRepsOrKg) {
                   controllerChecked.text = checkedText;
+                  // ignore: avoid_dynamic_calls
+                  setStateCallBack(true);
                 }
-                // ignore: avoid_dynamic_calls
-                setStateCallBack();
               },
               splashRadius: 15,
               padding: EdgeInsets.zero,
@@ -297,11 +299,13 @@ class ExerciseSetDuration extends ExerciseSet {
               onPressed: () {
                 if (controllerChecked!.text == checkedText) {
                   controllerChecked.text = notCheckedText;
+                  // ignore: avoid_dynamic_calls
+                  setStateCallBack(false);
                 } else if (controllerReps!.text != defaultDuration) {
                   controllerChecked.text = checkedText;
+                  // ignore: avoid_dynamic_calls
+                  setStateCallBack(true);
                 }
-                // ignore: avoid_dynamic_calls
-                setStateCallBack();
               },
               splashRadius: 15,
               padding: EdgeInsets.zero,
@@ -454,11 +458,13 @@ class ExerciseSetMinusWeight extends ExerciseSet {
               onPressed: () {
                 if (controllerChecked!.text == checkedText) {
                   controllerChecked.text = notCheckedText;
+                  // ignore: avoid_dynamic_calls
+                  setStateCallBack(false);
                 } else if (controllerReps!.text != defaultRepsOrKg) {
                   controllerChecked.text = checkedText;
+                  // ignore: avoid_dynamic_calls
+                  setStateCallBack(true);
                 }
-                // ignore: avoid_dynamic_calls
-                setStateCallBack();
               },
               splashRadius: 15,
               padding: EdgeInsets.zero,

@@ -26,6 +26,7 @@ import '../../widgets/workout_page_idle.dart';
 
 const double expandedHeight = 50;
 const double toolbarHeight = 40;
+const int globalRestTimer = 90; // seconds
 
 class StartWorkoutPage extends StatefulWidget {
   const StartWorkoutPage({Key? key, required this.callback}) : super(key: key);
@@ -70,6 +71,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
     final List<WorkoutTemplate> templates = Provider.of<List<WorkoutTemplate>>(context);
     final UserDB user = Provider.of<UserDB>(context);
     final Size screenSize = MediaQuery.of(context).size;
+    Key whenThisKeyChangesTheTimerRestarts = UniqueKey();
 
     if (currentWorkout.startTime == null && (editingTemplate.currentlyEditing ?? false) == false) {
       return WorkoutPageIdle(
@@ -139,6 +141,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
                     color: Colors.greenAccent[400],
                     child: TimerWidget(
+                      key: whenThisKeyChangesTheTimerRestarts,
                       screenWidth: screenSize.width,
                       screenHeight: screenSize.height,
                       context: context,
@@ -262,6 +265,15 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                     setState(() {
                       currentWorkout.exercises[index].addEmptySet();
                     });
+                  },
+                  startTimer: (bool startTimer) {
+                    if (startTimer) {
+                      setState(() {
+                        currentWorkout.currentTimeInSeconds = globalRestTimer;
+                        whenThisKeyChangesTheTimerRestarts = UniqueKey();
+                        currentWorkout.lastDecrementForTimer = DateTime.now();
+                      });
+                    }
                   },
                 );
               },

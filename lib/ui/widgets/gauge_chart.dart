@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class GaugeChart extends StatelessWidget {
-  const GaugeChart({Key? key, required this.valueToPoint}) : super(key: key);
+  const GaugeChart({required this.key, required this.valueToPoint, required this.lightTheme}) : super(key: key);
   final double valueToPoint;
+  final bool lightTheme;
+  @override
+  // ignore: overridden_fields
+  final Key key;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +19,15 @@ class GaugeChart extends StatelessWidget {
         showTicks: false,
         minimum: 10,
         maximum: 45,
+        axisLabelStyle: GaugeTextStyle(
+            color: lightTheme ? Colors.black : Colors.white, fontWeight: FontWeight.bold, fontSize: 13.5),
         pointers: <GaugePointer>[
           NeedlePointer(
+            needleLength: 0.75,
+            needleColor: Colors.black,
+            knobStyle: const KnobStyle(
+              color: Colors.black,
+            ),
             value: valueToPoint,
           ),
         ],
@@ -26,7 +37,10 @@ class GaugeChart extends StatelessWidget {
               endValue: 18.5,
               color: Colors.red,
               label: 'Underweight',
-              labelStyle: const GaugeTextStyle(fontFamily: 'Times', fontSize: 14),
+              labelStyle: const GaugeTextStyle(
+                fontFamily: 'Times',
+                fontSize: 14,
+              ),
               startWidth: 0.3,
               endWidth: 0.3,
               sizeUnit: GaugeSizeUnit.factor),

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:uuid/uuid.dart';
 
@@ -208,4 +209,21 @@ void saveEditedTemplate(
       databaseService.addWorkoutTemplateToDB(templateToAdd, FirebaseService());
     }
   }
+}
+
+String convertTemplateToString(WorkoutTemplate workoutTemplate) {
+  String returnText = '';
+  try {
+    returnText += '\n${workoutTemplate.name}\n';
+    for (final ExerciseSet exerciseSet in workoutTemplate.exercises) {
+      returnText += '\n\n';
+      returnText += exerciseSet.assignedExercise.name;
+      returnText += '\n  Sets: ${exerciseSet.sets.length} sets';
+    }
+  } on Exception catch (e) {
+    if (kDebugMode) {
+      print(e.toString());
+    }
+  }
+  return returnText;
 }

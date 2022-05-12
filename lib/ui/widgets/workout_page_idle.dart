@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:social_share/social_share.dart';
 
+import '../../business_logic/workout_logic.dart';
 import '../../utils/models/current_workout.dart';
 import '../../utils/models/exercise_set.dart';
 import '../../utils/models/workout_template.dart';
@@ -271,6 +273,26 @@ class _WorkoutPageIdleState extends State<WorkoutPageIdle> {
                                               text: 'Edit',
                                               fontSize: widget.width / 27,
                                               color: Colors.blueAccent,
+                                              weight: FontWeight.bold,
+                                              align: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      PopupMenuItem<int>(
+                                        padding: EdgeInsets.zero,
+                                        value: 1,
+                                        child: Center(
+                                          child: TextButton(
+                                            onPressed: () {
+                                              SocialShare.shareOptions(
+                                                  convertTemplateToString(personalTemplates[index]));
+                                              Navigator.pop(context);
+                                            },
+                                            child: TextWidget(
+                                              text: 'Share',
+                                              fontSize: widget.width / 27,
+                                              color: Colors.orangeAccent,
                                               weight: FontWeight.bold,
                                               align: TextAlign.center,
                                             ),

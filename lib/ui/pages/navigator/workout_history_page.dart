@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:social_share/social_share.dart';
 
 import '../../../business_logic/workout_history_logic.dart';
 import '../../../utils/firebase/database_service.dart';
@@ -106,6 +107,13 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
                                         align: TextAlign.left,
                                       ),
                                     ),
+                                    IconButton(
+                                      onPressed: () {
+                                        SocialShare.shareOptions(convertHistoryWorkoutToString(historyWorkouts[index]));
+                                      },
+                                      icon: Icon(FontAwesomeIcons.arrowUpFromBracket, size: screenSize.width / 20),
+                                      tooltip: 'Share workout',
+                                    ),
                                     PopupMenuButton<int>(
                                       itemBuilder: (BuildContext context) {
                                         return <PopupMenuItem<int>>[
@@ -165,7 +173,7 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
                                                   setState(() {});
                                                 },
                                                 child: TextWidget(
-                                                  text: 'Remove',
+                                                  text: 'Delete',
                                                   fontSize: screenSize.width / 23,
                                                   color: Colors.red,
                                                   weight: FontWeight.bold,
@@ -173,7 +181,7 @@ class _WorkoutHistoryPageState extends State<WorkoutHistoryPage> {
                                                 ),
                                               ),
                                             ),
-                                          ),
+                                          )
                                         ];
                                       },
                                       icon: const Icon(FontAwesomeIcons.ellipsis),

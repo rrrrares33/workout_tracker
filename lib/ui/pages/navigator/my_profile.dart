@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -27,7 +28,7 @@ import '../../widgets/sliver_top_bar.dart';
 import '../../widgets/text.dart';
 
 const double expandedHeight = 50;
-const double toolbarHeight = 35;
+const double toolbarHeight = 40;
 const String apiKey = 'AIzaSyCgK6AISEWpdFNK3kC2Qahu4awDSZM3XWA';
 
 class MyProfilePage extends StatefulWidget {
@@ -48,11 +49,23 @@ class _MyProfilePageState extends State<MyProfilePage> {
   final Completer<GoogleMapController> _controllerGoogle = Completer<GoogleMapController>();
   late final place.GooglePlace googlePlace;
   final List<Marker> markers = <Marker>[];
+  Key whenThisChangesGaugeWillRefresh = UniqueKey();
 
   LocationData? _userLocation;
 
   bool get _showBigLeftTitle {
     return _scrollController.hasClients && _scrollController.offset > expandedHeight - toolbarHeight;
+  }
+
+  bool isLightThemeOn(BuildContext context) {
+    if (AdaptiveTheme.of(context).mode == AdaptiveThemeMode.light) {
+      return true;
+    }
+    if (AdaptiveTheme.of(context).mode == AdaptiveThemeMode.system &&
+        MediaQuery.of(context).platformBrightness == Brightness.light) {
+      return true;
+    }
+    return false;
   }
 
   @override
@@ -72,16 +85,40 @@ class _MyProfilePageState extends State<MyProfilePage> {
     final List<Exercise> exercises = Provider.of<List<Exercise>>(context);
     final UserDB user = Provider.of<UserDB>(context);
     final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       body: CustomScrollView(
         controller: _scrollController,
         slivers: <Widget>[
           SliverTopBar(
-              expandedHeight: expandedHeight,
-              toolbarHeight: toolbarHeight,
-              textExpanded: 'My Profile',
-              textToolbar: 'My Profile',
-              showBigTitle: _showBigLeftTitle),
+            expandedHeight: expandedHeight,
+            toolbarHeight: toolbarHeight,
+            textExpanded: 'My Profile',
+            textToolbar: 'My Profile',
+            showBigTitle: _showBigLeftTitle,
+            actions: <Widget>[
+              Center(
+                child: AnimatedSwitcher(
+                    duration: const Duration(seconds: 3),
+                    child: IconButton(
+                      icon: isLightThemeOn(context)
+                          ? const Icon(FontAwesomeIcons.solidSun, color: Colors.yellowAccent)
+                          : Icon(FontAwesomeIcons.solidMoon, color: Colors.grey[200]),
+                      onPressed: () {
+                        if (isLightThemeOn(context)) {
+                          AdaptiveTheme.of(context).setDark();
+                        } else {
+                          AdaptiveTheme.of(context).setLight();
+                        }
+                        setState(() {
+                          whenThisChangesGaugeWillRefresh = UniqueKey();
+                        });
+                      },
+                      splashRadius: screenSize.width / 200,
+                    )),
+              ),
+            ],
+          ),
           SliverToBoxAdapter(
             child: PaddingWidget(
               type: 'all',
@@ -418,6 +455,8 @@ class _MyProfilePageState extends State<MyProfilePage> {
                                 height: screenSize.height / 3,
                                 child: Align(
                                   child: GaugeChart(
+                                    key: whenThisChangesGaugeWillRefresh,
+                                    lightTheme: isLightThemeOn(context),
                                     valueToPoint: calculateBMI(user.weight!, user.weightType!, user.height!),
                                   ),
                                 ),

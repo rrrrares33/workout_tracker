@@ -45,7 +45,7 @@ class ThemeClass {
   );
 
   static ThemeData darkTheme = ThemeData(
-    fontFamily: 'Times New Roman',
+    fontFamily: 'San Francisco',
     scaffoldBackgroundColor: Colors.black54,
     colorScheme: const ColorScheme.dark(),
     floatingActionButtonTheme: FloatingActionButtonThemeData(

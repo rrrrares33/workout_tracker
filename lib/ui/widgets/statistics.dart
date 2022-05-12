@@ -76,34 +76,76 @@ class Statistics extends StatelessWidget {
           weight: FontWeight.bold,
         ),
         PaddingWidget(type: 'symmetric', vertical: screenSize.height / 300),
-        TextWidget(
-          text: '  Average time per workout: ${getAverageTimePerWorkout(history)} minutes',
-          fontSize: screenSize.height / 60,
+        Card(
+          color: Colors.grey.withOpacity(0.01),
+          child: PaddingWidget(
+            type: 'all',
+            all: screenSize.width / 100,
+            child: TextWidget(
+              text: '  Average time per workout: ${getAverageTimePerWorkout(history)} minutes',
+              fontSize: screenSize.height / 60,
+            ),
+          ),
         ),
         PaddingWidget(type: 'symmetric', vertical: screenSize.height / 300),
-        TextWidget(
-          text: '  Average workouts per week:  ${getAverageWorkoutsPerWeek(history)} workouts',
-          fontSize: screenSize.height / 60,
+        Card(
+          color: Colors.grey.withOpacity(0.01),
+          child: PaddingWidget(
+            type: 'all',
+            all: screenSize.width / 100,
+            child: TextWidget(
+              text: '  Average workouts per week:  ${getAverageWorkoutsPerWeek(history)} workouts',
+              fontSize: screenSize.height / 60,
+            ),
+          ),
         ),
         PaddingWidget(type: 'symmetric', vertical: screenSize.height / 300),
-        TextWidget(
-          text: '  Average volume per workout: ${getAverageWorkoutVolume(history, user)} kg.',
-          fontSize: screenSize.height / 60,
+        Card(
+          color: Colors.grey.withOpacity(0.01),
+          child: PaddingWidget(
+            type: 'all',
+            all: screenSize.width / 100,
+            child: TextWidget(
+              text: '  Average volume per workout: ${getAverageWorkoutVolume(history, user)} kg.',
+              fontSize: screenSize.height / 60,
+            ),
+          ),
         ),
         PaddingWidget(type: 'symmetric', vertical: screenSize.height / 300),
-        TextWidget(
-          text: '  Most workout volume: ${getBiggestWorkoutVolume(history, user)} kg.',
-          fontSize: screenSize.height / 60,
+        Card(
+          color: Colors.grey.withOpacity(0.01),
+          child: PaddingWidget(
+            type: 'all',
+            all: screenSize.width / 100,
+            child: TextWidget(
+              text: '  Most workout volume: ${getBiggestWorkoutVolume(history, user)} kg.',
+              fontSize: screenSize.height / 60,
+            ),
+          ),
         ),
         PaddingWidget(type: 'symmetric', vertical: screenSize.height / 300),
-        TextWidget(
-          text: '  Total workouts performed: ${history.length} workouts',
-          fontSize: screenSize.height / 60,
+        Card(
+          color: Colors.grey.withOpacity(0.01),
+          child: PaddingWidget(
+            type: 'all',
+            all: screenSize.width / 100,
+            child: TextWidget(
+              text: '  Total workouts performed: ${history.length} workouts',
+              fontSize: screenSize.height / 60,
+            ),
+          ),
         ),
         PaddingWidget(type: 'symmetric', vertical: screenSize.height / 300),
-        TextWidget(
-          text: '  Total workout volume: ${getTotalWorkoutVolume(history, user)} kg.',
-          fontSize: screenSize.height / 60,
+        Card(
+          color: Colors.grey.withOpacity(0.01),
+          child: PaddingWidget(
+            type: 'all',
+            all: screenSize.width / 100,
+            child: TextWidget(
+              text: '  Total workout volume: ${getTotalWorkoutVolume(history, user)} kg.',
+              fontSize: screenSize.height / 60,
+            ),
+          ),
         ),
       ],
     );

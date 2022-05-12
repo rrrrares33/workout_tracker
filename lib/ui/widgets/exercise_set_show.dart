@@ -17,19 +17,22 @@ class ExerciseSetShow extends StatefulWidget {
     required this.setExercise,
     required this.onPressedAddSet,
     required this.onPressedRemoveExercise,
+    required this.startTimer,
   }) : super(key: key);
   final double screenWidth;
   final double screenHeight;
   final ExerciseSet setExercise;
   final VoidCallback onPressedRemoveExercise;
   final VoidCallback onPressedAddSet;
+  final Function(bool) startTimer;
 
   @override
   State<ExerciseSetShow> createState() => _ExerciseSetShowState();
 }
 
 class _ExerciseSetShowState extends State<ExerciseSetShow> {
-  void setStateCallBack() {
+  void setStateCallBack(bool startTimer) {
+    widget.startTimer(startTimer);
     setState(() {});
   }
 

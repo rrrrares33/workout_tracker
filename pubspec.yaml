@@ -65,6 +65,8 @@ dependencies:
   google_place: ^0.4.7
   google_fonts: ^2.3.2
   flutter_launcher_icons: ^0.9.2
+  adaptive_theme: ^2.3.1
+  social_share: ^2.2.1
 
 flutter_icons:
   android: true

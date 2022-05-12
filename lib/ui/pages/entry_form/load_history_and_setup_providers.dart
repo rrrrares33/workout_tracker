@@ -48,11 +48,14 @@ class LoadHistoryAndSetupProviders extends StatelessWidget {
                     if (!snapshotFutureTemplates.hasData) {
                       return const LoadingWidget(text: 'Loading all templates...');
                     } else {
-                      return MultiProvider(providers: <Provider<dynamic>>[
-                        Provider<List<WorkoutTemplate>>(
-                          create: (_) => snapshotFutureTemplates.data!,
-                        )
-                      ], child: const MainScreenPage());
+                      return MultiProvider(
+                        providers: <Provider<dynamic>>[
+                          Provider<List<WorkoutTemplate>>(
+                            create: (_) => snapshotFutureTemplates.data!,
+                          )
+                        ],
+                        child: const MainScreenPage(),
+                      );
                     }
                   },
                 )

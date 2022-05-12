@@ -227,3 +227,13 @@ String convertTemplateToString(WorkoutTemplate workoutTemplate) {
   }
   return returnText;
 }
+
+double differenceInSecondsAndMillisecondsBetweenTwoDateTimes(DateTime dateTime1, DateTime dateTime2) {
+  final int seconds1 = dateTime1.second;
+  final int milliseconds1 = dateTime1.millisecond;
+  final int seconds2 = dateTime2.second;
+  final int milliseconds2 = dateTime2.millisecond;
+  final int total1 = seconds1 * 1000 + milliseconds1;
+  final int total2 = seconds2 * 1000 + milliseconds2;
+  return (total1 - total2) / 1000;
+}

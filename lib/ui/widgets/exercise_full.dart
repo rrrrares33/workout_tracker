@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import '../../business_logic/all_exercises_logic.dart';
+import '../../utils/models/history_workout.dart';
 import 'button.dart';
 import 'padding.dart';
 import 'text.dart';
@@ -15,7 +17,8 @@ class ExerciseFull extends StatelessWidget {
       this.description,
       this.onPressedDeleteExercise,
       required this.id,
-      this.onPressedSaveEditing})
+      this.onPressedSaveEditing,
+      required this.history})
       : super(key: key);
   final String image;
   final String name;
@@ -23,6 +26,7 @@ class ExerciseFull extends StatelessWidget {
   final String id;
   final String? category;
   final String? description;
+  final List<HistoryWorkout> history;
   final void Function(String, String)? onPressedDeleteExercise;
   final void Function(String, String, String)? onPressedSaveEditing;
 
@@ -135,25 +139,100 @@ class ExerciseFull extends StatelessWidget {
           if (image == '' || image == 'userCreatedNoIcon')
             Container()
           else
-            Center(
-              child: CachedNetworkImage(
-                imageUrl: image,
-                progressIndicatorBuilder: (BuildContext context, String image, DownloadProgress downloadProgress) =>
-                    CircularProgressIndicator(value: downloadProgress.progress),
-                errorWidget: (BuildContext context, String image, dynamic error) => const Icon(Icons.error),
+            Card(
+              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: <Widget>[
+                    const TextWidget(text: '----How to do----', weight: FontWeight.bold),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Center(
+                        child: CachedNetworkImage(
+                          imageUrl: image,
+                          progressIndicatorBuilder:
+                              (BuildContext context, String image, DownloadProgress downloadProgress) =>
+                                  CircularProgressIndicator(value: downloadProgress.progress),
+                          errorWidget: (BuildContext context, String image, dynamic error) => const Icon(Icons.error),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           const PaddingWidget(type: 'symmetric', vertical: 10),
-          const TextWidget(text: 'Description', weight: FontWeight.bold),
-          PaddingWidget(
-            type: 'only',
-            onlyLeft: 10,
-            child: TextWidget(text: description, fontStyle: FontStyle.italic),
+          Center(
+            child: Card(
+                shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: <Widget>[
+                      const TextWidget(
+                        text: '----Description---',
+                        weight: FontWeight.bold,
+                      ),
+                      TextWidget(text: '$description'),
+                    ],
+                  ),
+                )),
           ),
-          const PaddingWidget(type: 'symmetric', vertical: 10),
-          TextWidget(text: 'Category --  $category', weight: FontWeight.w600),
-          const PaddingWidget(type: 'symmetric', vertical: 10),
-          TextWidget(text: 'Main Body Part Worked -- $bodyPart', weight: FontWeight.w600),
+          const PaddingWidget(type: 'symmetric', vertical: 5),
+          Center(
+            child: Card(
+                shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: <Widget>[
+                      const TextWidget(
+                        text: '----Category---',
+                        weight: FontWeight.bold,
+                      ),
+                      TextWidget(text: '$category'),
+                    ],
+                  ),
+                )),
+          ),
+          const PaddingWidget(type: 'symmetric', vertical: 5),
+          Center(
+            child: Card(
+                shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: <Widget>[
+                      const TextWidget(
+                        text: '----Worked Body Part---',
+                        weight: FontWeight.bold,
+                      ),
+                      TextWidget(text: bodyPart),
+                    ],
+                  ),
+                )),
+          ),
+          const PaddingWidget(type: 'symmetric', vertical: 5),
+          if (getRPMForExercise(history, id, category!) != '')
+            Center(
+              child: Card(
+                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: <Widget>[
+                        const TextWidget(
+                          text: '----Personal One Rep Record---',
+                          weight: FontWeight.bold,
+                        ),
+                        TextWidget(text: getRPMForExercise(history, id, category!)),
+                      ],
+                    ),
+                  )),
+            )
+          else
+            Container(),
         ],
       ),
     );

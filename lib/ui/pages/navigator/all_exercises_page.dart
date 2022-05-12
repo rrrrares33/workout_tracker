@@ -242,6 +242,7 @@ class _AllExercisesPageState extends State<AllExercisesPage> {
                         bodyPart: (exerciseList?[index].bodyPart)!,
                         category: exerciseList?[index].category,
                         description: exerciseList?[index].description,
+                        history: history,
                         onPressedSaveEditing: (String idOfExercise, String newTitle, String newDescription) {
                           final int indexToEditFromExercises =
                               exercisesProvider.indexWhere((Exercise element) => element.id == idOfExercise);

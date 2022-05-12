@@ -59,8 +59,8 @@ String getTotalWeightOfAnWorkout(List<ExerciseSet> exercises, double userWeight,
       element.sets.forEach((List<TextEditingController> currentSet) {
         late final double reps;
         late final double kgs;
-        reps = double.tryParse(currentSet[0].text)!;
-        kgs = double.tryParse(currentSet[1].text)!;
+        reps = double.tryParse(currentSet[0].text) ?? 0;
+        kgs = double.tryParse(currentSet[1].text) ?? 0;
         if (element.type == 'ExerciseSetWeight') {
           if (element.assignedExercise.category == 'Bodyweight') {
             totalSum += reps * (kgs + userWeight);

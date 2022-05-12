@@ -44,15 +44,20 @@ class _TimerWidgetState extends State<TimerWidget> {
     final CurrentWorkout currentWorkout = Provider.of<CurrentWorkout>(widget.context);
 
     void runTimer({bool buildCall = false}) {
-      const Duration oneSec = Duration(seconds: 1, microseconds: 10);
+      const Duration oneSec = Duration(seconds: 1);
       // If this is not a build call, we get the remaining time.
 
       if (!buildCall) {
         currentWorkout.currentTimeInSeconds = convertTimeToSeconds(currentWorkout.timerController.getTime());
       } else if (currentWorkout.currentTimeInSeconds != 0) {
         // If it is not a build call (moving between pages for example), we need to rebuild the timer
-        if (DateTime.now().second - currentWorkout.lastDecrementForTimer.second > 3) {
-          currentWorkout.currentTimeInSeconds -= DateTime.now().second - currentWorkout.lastDecrementForTimer.second;
+        if (differenceInSecondsAndMillisecondsBetweenTwoDateTimes(
+                DateTime.now(), currentWorkout.lastDecrementForTimer) >=
+            1.0) {
+          final int aux = differenceInSecondsAndMillisecondsBetweenTwoDateTimes(
+                  DateTime.now(), currentWorkout.lastDecrementForTimer)
+              .toInt();
+          currentWorkout.currentTimeInSeconds -= aux;
           currentWorkout.currentTimeInSeconds = max(0, currentWorkout.currentTimeInSeconds);
           currentWorkout.lastDecrementForTimer = DateTime.now();
         }

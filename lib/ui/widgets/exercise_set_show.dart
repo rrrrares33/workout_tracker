@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 import '../../utils/models/exercise_set.dart';
+import '../../utils/models/history_workout.dart';
 import '../text/start_workout_text.dart';
 import 'button.dart';
 import 'exercise_full.dart';
@@ -38,6 +40,7 @@ class _ExerciseSetShowState extends State<ExerciseSetShow> {
 
   @override
   Widget build(BuildContext context) {
+    final List<HistoryWorkout> history = Provider.of<List<HistoryWorkout>>(context);
     return PaddingWidget(
       type: 'symmetric',
       horizontal: widget.screenWidth / 35,
@@ -64,6 +67,7 @@ class _ExerciseSetShowState extends State<ExerciseSetShow> {
                       bodyPart: widget.setExercise.assignedExercise.bodyPart,
                       category: widget.setExercise.assignedExercise.category,
                       description: widget.setExercise.assignedExercise.description,
+                      history: history,
                       id: '',
                     ),
                   ),

@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -26,7 +27,6 @@ import '../../widgets/workout_page_idle.dart';
 
 const double expandedHeight = 50;
 const double toolbarHeight = 40;
-const int globalRestTimer = 90; // seconds
 
 class StartWorkoutPage extends StatefulWidget {
   const StartWorkoutPage({Key? key, required this.callback}) : super(key: key);
@@ -41,6 +41,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
   String? timerCurrentTime;
   String timeSinceStart = '';
   late StopWatchTimer stopWatchTimer;
+  final List<int> timerOptions = <int>[30, 60, 90, 120, 150, 180, 240, 300];
 
   bool get _showBigLeftTitle {
     return _scrollController.hasClients && _scrollController.offset > expandedHeight - toolbarHeight;
@@ -191,25 +192,73 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                   PaddingWidget(
                     type: 'only',
                     onlyTop: screenSize.height / 25,
-                    onlyBottom: 5,
-                    child: TextField(
-                      onEditingComplete: () {
-                        if (currentWorkout.workoutName.text.isEmpty) {
-                          setState(() {
-                            currentWorkout.workoutName.text = defaultWorkoutTile;
-                          });
-                        }
-                      },
-                      keyboardType: TextInputType.text,
-                      controller: currentWorkout.workoutName,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                      ),
-                      style: TextStyle(
-                        fontSize: screenSize.width / 15,
-                        fontWeight: FontWeight.bold,
+                    onlyRight: screenSize.width / 25,
+                    child: SizedBox(
+                      width: screenSize.width / 1.5,
+                      child: TextField(
+                        onEditingComplete: () {
+                          if (currentWorkout.workoutName.text.isEmpty) {
+                            setState(() {
+                              currentWorkout.workoutName.text = defaultWorkoutTile;
+                            });
+                          }
+                        },
+                        keyboardType: TextInputType.text,
+                        controller: currentWorkout.workoutName,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                        ),
+                        style: TextStyle(
+                          fontSize: screenSize.width / 15,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      PaddingWidget(
+                        type: 'only',
+                        onlyRight: screenSize.width / 20,
+                        child: TextWidget(
+                          text: 'Rest: ',
+                          fontSize: screenSize.width / 20,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                      DropdownButtonHideUnderline(
+                        child: DropdownButton2<int>(
+                          items: timerOptions.map((int items) {
+                            return DropdownMenuItem<int>(
+                              value: items,
+                              child: Center(
+                                  child: TextWidget(
+                                text: convertSecondsToTime(items),
+                                align: TextAlign.center,
+                                fontSize: screenSize.width / 23,
+                              )),
+                            );
+                          }).toList(),
+                          value: currentWorkout.restTimerTime,
+                          onChanged: (int? newTimer) {
+                            setState(() {
+                              currentWorkout.restTimerTime = newTimer!;
+                            });
+                          },
+                          dropdownDecoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(15))),
+                          icon: PaddingWidget(
+                            type: 'only',
+                            onlyLeft: screenSize.width / 30,
+                            child: const Icon(FontAwesomeIcons.solidClock),
+                          ),
+                          iconSize: screenSize.width / 20,
+                          dropdownWidth: screenSize.width / 4,
+                          alignment: AlignmentDirectional.center,
+                          selectedItemHighlightColor: Colors.greenAccent,
+                          dropdownOverButton: true,
+                        ),
+                      ),
+                    ],
                   ),
                   StreamBuilder<int>(
                       stream: stopWatchTimer.secondTime,
@@ -269,7 +318,7 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                   startTimer: (bool startTimer) {
                     if (startTimer) {
                       setState(() {
-                        currentWorkout.currentTimeInSeconds = globalRestTimer;
+                        currentWorkout.currentTimeInSeconds = currentWorkout.restTimerTime;
                         whenThisKeyChangesTheTimerRestarts = UniqueKey();
                         currentWorkout.lastDecrementForTimer = DateTime.now();
                       });

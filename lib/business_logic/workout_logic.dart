@@ -161,6 +161,7 @@ void validateAndSaveCurrentWorkout(
 void clearCurrentWorkout(CurrentWorkout currentWorkout, StopWatchTimer stopWatchTimer) {
   currentWorkout.exercises.clear();
   currentWorkout.startTime = null;
+  currentWorkout.restTimerTime = 90;
   currentWorkout.workoutName = TextEditingController(text: 'Daily workout');
   currentWorkout.workoutNotes = TextEditingController(text: 'Enter notes here...');
   currentWorkout.currentTimeInSeconds = 0;
@@ -236,4 +237,16 @@ double differenceInSecondsAndMillisecondsBetweenTwoDateTimes(DateTime dateTime1,
   final int total1 = seconds1 * 1000 + milliseconds1;
   final int total2 = seconds2 * 1000 + milliseconds2;
   return (total1 - total2) / 1000;
+}
+
+String convertSecondsToTime(int seconds) {
+  if (seconds < 60) {
+    return '00:$seconds';
+  }
+  final int minutes = seconds ~/ 60;
+  final int sec = seconds - minutes * 60;
+  if (sec == 0) {
+    return '0$minutes:00';
+  }
+  return '0$minutes:$sec';
 }

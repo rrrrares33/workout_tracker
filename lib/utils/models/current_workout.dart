@@ -28,4 +28,7 @@ class CurrentWorkout {
   Timer? timer;
   DateTime lastDecrementForTimer = DateTime.now();
   int currentTimeInSeconds = 0;
+
+  // Default Timer time in seconds
+  int restTimerTime = 90;
 }
